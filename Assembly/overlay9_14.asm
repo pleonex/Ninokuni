@@ -23,6 +23,7 @@
 .include textbox\script_top.asm
 .include keyboard\keys.asm
 .include keyboard\keyboard.asm
+.include keyboard\keyboard_shift.asm
 .include pointers\overlay9_14.asm
 .include textbox\menu_request.asm
 ;.include password\alphabet.asm
