@@ -15,11 +15,11 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
-SPLITTER equ #0x03
+@SPLITTER equ #0x03
 
 .thumb
 .org 02137F04h
-    CMP     R3, SPLITTER
+    CMP     R3, @SPLITTER
 
 .org 02137F24h
-    CMP     R0, SPLITTER
+    CMP     R0, @SPLITTER

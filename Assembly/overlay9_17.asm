@@ -20,7 +20,7 @@
 .relativeinclude on
 .erroronwarning on
 
-.include textbox\subtitles.asm
+.include fileformats\subtitles.asm
 .include textbox\cutscenes.asm
 .include textbox\script_dialog.asm
 .include textbox\script_dialog_button.asm
