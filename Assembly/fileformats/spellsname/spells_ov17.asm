@@ -53,13 +53,15 @@
 
 ; Learning a new spell
 .thumb
-.org 0x0211BFA8
-;    .halfword 0x4EB7    ; MOV R6, #0x434
+.org 0x0211C082
+.halfword 0x4E81        ; MOV R6, 0x434
+TST     R4, R7           ; To save memory
 
 .org 0x0211C0A8
-;  MOV r2, r0
-;  .hardword 0x4976      ; MOV R1, #0x2141660
-;  SUB r2, #0x8
+  MOV r2, r0            ; Replaced 'MOV R6, 0x434'
+  .halfword 0x4976      ; MOV R1, #0x2141660
+  ADD R6, SP
+  SUB r2, #0x8          ; New, decrease pointer to spell name
 
 
 .arm
