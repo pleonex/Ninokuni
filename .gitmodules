@@ -1,0 +1,3 @@
+[submodule "Programs/modime"]
+	path = Programs/modime
+	url = https://github.com/pleonex/modime
