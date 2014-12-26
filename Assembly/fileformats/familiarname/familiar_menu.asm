@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 7 for arm9
+;;  Use the new "long name" field.
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,18 +14,8 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_7.bin, 0x02079F80
 
-.relativeinclude on
-.erroronwarning on
+@LongNameOffset equ 0xB4 ; At the end of the old entry
 
-.include fileformats\spellsname\spells_ov7.asm
-.include fileformats\familiarname\familiar_menu.asm
-.include textbox\menu_familiars.asm
-.include textbox\menu_spells.asm
-.include textbox\menu_pot.asm
-.include keyboard\fix_familiar_length.asm
-
-.close
-; EOF ;
+.org 0x020B63D8
+  ADD     R1, R6, @LongNameOffset

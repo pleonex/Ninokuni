@@ -21,6 +21,8 @@
 .erroronwarning on
 
 .include fileformats\subtitles.asm
+.include fileformats\spellsname\spells_ov17.asm
+.include fileformats\familiarname\familiar_main.asm
 .include textbox\cutscenes.asm
 .include textbox\script_dialog.asm
 .include textbox\script_dialog_button.asm
@@ -30,8 +32,6 @@
 .include pointers\overlay9_17.asm
 .include font\space_objects_title.asm
 ;.include font\int2str_ov17.asm
-.include fileformats\spellsname\spells_ov17.asm
-.include fileformats\subtitles.asm
 
 .close
 ; EOF ;
