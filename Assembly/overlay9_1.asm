@@ -22,6 +22,7 @@
 
 .include textbox\battle.asm
 .include fileformats\spellsname\spells_ov1.asm
+.include fileformats\familiarname\familiar_battle.asm
 
 .close
 ; EOF ;
