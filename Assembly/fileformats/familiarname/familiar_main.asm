@@ -19,6 +19,32 @@
 @LongNameSize      equ 0x20
 @NewFieldSize      equ @OriginalFieldSize + @LongNameSize
 
-.arm
+
+;; ImagenParam get familiar pointer
+.thumb
 .org 0x021028E8
   MOV    R0, @NewFieldSize
+
+
+;; ImagenParam decode
+.thumb
+.org 0x0210461A
+  CMP     R2, @NewFieldSize
+
+
+;; ImagenParam load file
+.thumb
+.org 0x021022D6
+  MOV    R4, @NewFieldSize
+
+.org 0x021022F4
+  MOV    R6, @NewFieldSize
+
+.org 0x0210231A
+  MOV    R1, @NewFieldSize
+
+.org 0x02102332
+  MOV    R0, @NewFieldSize
+
+.org 0x0210233E
+  MOV    R2, @NewFieldSize
