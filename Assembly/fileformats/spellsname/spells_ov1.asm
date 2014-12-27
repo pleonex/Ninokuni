@@ -25,14 +25,4 @@
   DCB 0xE0  ; spell_getBlockPtr
   DCB 0xEB  ; routine
   SUB     r0, #0x08         ; Fix to get the right pointer to name
-  STR     R0, [SP,#0x18]  
-
-; In battles, when you attack
-.thumb
-.org 0x02086358
-DCB 0x7F
-DCB 0xF0
-DCB 0xBA
-DCB 0xEF
-SUB       r0, #0x08
-NOP
+  STR     R0, [SP,#0x18]

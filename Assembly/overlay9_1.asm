@@ -23,6 +23,8 @@
 .include textbox\battle.asm
 .include fileformats\spellsname\spells_ov1.asm
 .include fileformats\familiarname\familiar_battle.asm
+.include fileformats\skillsname\skills_battle.asm
+.include fileformats\battle_skills_spells_getName.asm
 
 .close
 ; EOF ;
