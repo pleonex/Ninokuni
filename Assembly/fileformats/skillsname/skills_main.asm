@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Temp
+;;  Create a new "long name" field.
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,18 +15,26 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
-A4 22 9A E5 05 90 A0 01  08 10 A0 E1 32 FF 2F E1
-00 90 8D E5 24 21 9A E5  00 30 A0 E1 97 02 02 E0
-AC 02 9A E5 0B 10 A0 E1  08 20 82 E2 76 B2 FE FA
-A0 02 9A E5 A8 22 9A E5  08 10 A0 E1 32 FF 2F E1
-
-RAM:021318E4 MOV     R3, R0
+@OriginalFieldSize equ 0x3C
+@LongNameOffset    equ 0x3C
+@LongNameSize      equ 0x20
+@NewFieldSize      equ @OriginalFieldSize + @LongNameSize
 
 
-06 00 A0 E1 29 49 FF FA  01 00 88 E2 08 11 84 E0
-00 08 A0 E1 54 65 81 E5  20 08 59 E1 20 88 A0 E1
-EF FF FF CA 00 00 8D E2  64 06 00 EB 48 D0 8D E2
+;; Load "SkillParams" file
+.arm
+.org 0x0210C9A0
+  MOV r0, @NewFieldSize
 
-RAM:0210C9A0 MOV     R0, #0x3C ; '<'
+.org 0x0210C9C4
+  MOV r7, @NewFieldSize
 
-RAM:0210C9C4 MOV     R7, #0x3C ; '<'
+
+;; We don't have to edit the "skills_getPtr" function since, when a new skill
+;; is load, its pointers is stored in a table.
+
+
+;; Prints skill name in the top screen after select it
+.arm
+.org 0x0213108C
+  ADD r11, r0, @LongNameOffset

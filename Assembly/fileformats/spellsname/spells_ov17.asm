@@ -35,17 +35,6 @@
 .org 0x02105E0C
   MOV     r7, #0x48  ; Tamaño del bloque
 
-; In 'zoom' menu
-.thumb
-.org 0x0212103C
-  DCB 0xE5 ; Õ
-  DCB 0xF7 ; ¸
-  DCB 0x48 ; F
-  DCB 0xE9 ; Ú
-  SUB     r0, #0x08
-  NOP
-  POP     {R4-R6,PC}
-
 ; In Team->Techniques menu
 .arm
 .org 0x02131124
