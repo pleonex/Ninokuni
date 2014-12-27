@@ -21,6 +21,7 @@
 .erroronwarning on
 
 .include fileformats\spellsname\spells_ov20.asm
+.include fileformats\skillsname\skills_zoom.asm
 
 .close
 ; EOF ;
