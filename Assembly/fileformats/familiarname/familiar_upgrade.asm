@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 7 for arm9
+;;  Use "long name" field when upgrading a familiar
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,20 +14,33 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_7.bin, 0x02079F80
 
-.relativeinclude on
-.erroronwarning on
+@LongNameOffset equ 0xB4 ; At the end of the old entry
 
-.include fileformats\spellsname\spells_ov7.asm
-.include fileformats\familiarname\familiar_menu.asm
-.include fileformats\familiarname\familiar_upgrade.asm
-.include fileformats\skillsname\skill_upgrade.asm
-.include textbox\menu_familiars.asm
-.include textbox\menu_spells.asm
-.include textbox\menu_pot.asm
-.include keyboard\fix_familiar_length.asm
 
-.close
-; EOF ;
+;; Upgrading a familiar
+.arm
+.org 0x020ADCDC
+  ADD r3, r5, @LongNameOffset
+
+.org 0x020ADCBC
+  ADD r2, r5, @LongNameOffset
+
+.arm
+.org 0x020AD3FC
+  ADD r6, r0, @LongNameOffset
+
+
+;; Ask dialog
+.arm
+.org 0x020AE37C
+  ADD r2, r0, @LongNameOffset
+
+.org 0x020AE3A4
+  ADD r2, r0, @LongNameOffset
+
+
+;; After upgrading, confirm dialog
+.arm
+.org 0x020ACEB8
+  ADD r3, r0, @LongNameOffset
