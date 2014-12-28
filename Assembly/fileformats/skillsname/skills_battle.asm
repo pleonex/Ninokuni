@@ -33,27 +33,29 @@
 .arm
 .org 0x020A075C
 .area 0x020A0794-.
-  SUBEQ   r2, r0, @LongNameOffset
-  MOVNE   r2, r0
+  SUBEQ   r2, r0, @LongNameOffset   ; If it's a skill name, use short field
+  MOVNE   r2, r0                    ; If it's a spell name, just use it
+
+  ; Code below: Just to get some space
   LDR     R1, =0x20C03E8
   ADD     R0, SP, 0
-  BL      0x0202159C    ; string copy
+  BL      0x0202159C ; string copy
   MOV     R0, R6
   BLX     0x209047C
-  ANDS    r1, R0, #1
+  AND     r1, r0, #1
   MOV     R0, R5
-  BNE     @loc_20A078C
 
-@loc_20A0784:
+@jump1:
   BL      0x209FA1C
   B       0x20A0818
 
-@loc_20A078C:
-  B       @loc_20A0784
+  NOP
+  NOP
+  NOP
 .endarea
 
 .org 0x020A07FC
-  B       @loc_20A0784
+  B       @jump1
 
 .org 0x020A0838
 .area 4
