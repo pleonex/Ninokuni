@@ -38,3 +38,9 @@
 .arm
 .org 0x0213108C
   ADD r11, r0, @LongNameOffset
+
+
+;; Familiar skill name in the top screen list in "member" menu
+.arm
+.org 0x02130DD8
+  ADD r3, r0, @LongNameOffset
