@@ -24,6 +24,7 @@
 .include fileformats\familiarname\familiar_menu.asm
 .include fileformats\familiarname\familiar_upgrade.asm
 .include fileformats\skillsname\skill_upgrade.asm
+.include fileformats\skillsname\skills_book.asm
 .include textbox\menu_familiars.asm
 .include textbox\menu_spells.asm
 .include textbox\menu_pot.asm
