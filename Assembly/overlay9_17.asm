@@ -24,6 +24,7 @@
 .include fileformats\spellsname\spells_ov17.asm
 .include fileformats\familiarname\familiar_main.asm
 .include fileformats\skillsname\skills_main.asm
+.include fileformats\skillsname\skills_train.asm
 .include fileformats\skills_spells_getName.asm
 .include textbox\cutscenes.asm
 .include textbox\script_dialog.asm
