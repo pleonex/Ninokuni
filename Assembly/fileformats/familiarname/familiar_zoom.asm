@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Use the skill long name in Zoom menu
+;;  Use the familiar long name in Zoom menu
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,40 +15,18 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
-@LongNameOffset    equ 0x3C
+@LongNameOffset equ 0xB4
 
-
-;; Prints skill name in "zoom" menu in the top screen after selecting it
 .thumb
-.org 0x0215BAA6
-  ADD    r0, @LongNameOffset
-  STR    R0, [SP,#0x18]
-  LDRSH  r1, [r5,r4]
-
-.org 0x0215BA9A
-  ; Just to get some space for above code
-  ADD    r4, r4, #4
-  MOV    R6, R0
-  LDRSH  r1, [r5,r4]
-
-.org 0x0215BAB4
-  ; Just to get some space for above code
-  MOV    r1, R4
-
-.org 0x0215BAC2
-  ; Just to get some space for above code
-  SUB    r4, #0xC
-
-
-;; Familiar skill name in the stop screen list
-.thumb
-.org 0x0215B974
-  MOV r2, r4
-
-.org 0x0215B97A
-  LSL r7, r4, 4
-
-.org 0x0215B992
-  BLX 0x0210CBD4 ; skills_getPtr_wr
-  MOV r3, r0
-  ADD r3, @LongNameOffset
+.org 0x0215B628
+  ADD r5, 0x68
+  ADD r0, r5, 0x4
+  LDR r1, [r5,#0]
+  BL  0x020DE2A8
+  ADD r0, r5, 0x4
+  ADD r4, @LongNameOffset ; All that code just to get a space for this line...
+  MOV R1, #1
+  BL  0x020DE2AC
+  ADD r0, r5, 0x4
+  MOV R6, #5
+  SUB r5, 0x68
