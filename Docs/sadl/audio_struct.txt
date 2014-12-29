@@ -4,7 +4,7 @@ Offset  Size   File   Description
 0x004 - 0x01 - XXXX - File loaded?
 0x005 - 0x01 - XXXX - Close request?
 0x007 - 0x01 - XXXX - Reset struct? Set to 1 after close
-
+0x008 - 0x01 - XXXX - Set to 1 after read channel info
 0x009 - 0x01 - XXXX -
 0x00A - 0x01 - XXXX -
 
@@ -70,5 +70,24 @@ Offset  Size   File   Description
 0x20C - 0x04 - XXXX - Load file subroutine
 
 0x214 - 0x04 - XXXX - Get file data routine
+
+0x220 - 0x02 - 0x80 - Channel 0 value 1 for IMA ADPCM
+0x222 - 0x02 - 0x82 - Channel 0 value 2 for IMA ADPCM
+
+0x24C - 0x02 - 0x84 - Channel 1 value 1 for IMA ADPCM
+0x24E - 0x02 - 0x86 - Channel 1 value 2 for IMA ADPCM
+
+0x278 - 0x02 - 0x80 - Channel 0 value 1 for IMA ADPCM
+0x27A - 0x02 - 0x82 - Channel 0 value 2 for IMA ADPCM
+
+0x288 - 0x02 - 0x84 - Channel 1 value 1 for IMA ADPCM
+0x28A - 0x02 - 0x86 - Channel 1 value 2 for IMA ADPCM
+
+0x298 - 0x10 - 0x80 - Channel 0 data info for Procyon
+        0x02 - 0x.. - For IMA ADPCM, halfword from file after other info, ch 0
+        0x02 - 0x.. - For IMA ADPCM, halfword from file after other info, ch 0
+0x2A8 - 0x10 - 0x90 - Channel 1 data info for Procyon
+        0x02 - 0x.. - For IMA ADPCM, halfword from file after other info, ch 1
+        0x02 - 0x.. - For IMA ADPCM, halfword from file after other info, ch 1
 
 0x33C - 0x04 - XXXX - Something that iterate until is 0, over and over in main
