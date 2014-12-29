@@ -2,9 +2,9 @@
 ;; Copyright (C) Nintendo and others
 ;; Use only for learning purpouse
 ;;
-;; Function: sadl_process
+;; Function: sadl_readHeader
 ;; Arguments:
-;;  + R0: sadl_struct
+;;  + R0: audio_struct
 ;;  + R1: file pointer
 ;; Returns:
 ;;  + R0: 0 -> good | -1 -> error
@@ -228,43 +228,20 @@ error:
   LDMFD   SP!, {R3-R7,PC}   ;
 
 
-; sadl_struct:
-;
-; 0x00C - 0x01 - XXXX - Is looped?
-;
-; 0x01E - 0x01 - YYYY - Manual loop flag: 0->no, 1->yes, 2->file knows at 0x31
-; 0x020 - 0x01 - XXXX - Constant 0x1
-; 0x021 - 0x01 - 0x35 -
-; 0x022 - 0x01 - 0x33 - Flags: (0xB2 | 0xB4 | 0x72 | 0x74)
-;                       8-15: encoding (0xB=Procyon, 0x7=IMA ADPCM)
-;                       0-7 : sample rate (2=16 KHz, 4=32 KHz)
-; 0x023 - 0x01 - 0x32 - ** Number of channels **
-;
-; 0x025 - 0x01 - 0x62 - table index
-; 0x026 - 0x01 - XXXX - Table value (0x7F)
-; 0x027 - 0x01 - 0x65 -
-;
-; 0x040 - 0x04 - XXXX - Constant 0x00007FD8
-;
-; 0x04C - 0x04 - 0x48 -
-; 0x050 - 0x04 - 0x48 -
-; 0x054 - 0x04 - 0x48 -
-; 0x058 - 0x04 - XXXX - Audio offset: Loop? -> 0x54, else -> 0x48
-; 0x05C - 0x04 - XXXX - Audio size    Loop? -> 0x58, else -> 0x40
-;
-; 0x064 - 0x80 - First 0x80 bytes from file
-;  0xC4 - 0x01 - Updated to 0x7F if it's 0
-;  0xC5 - 0x01 - Updated to 0x40 if it's 0
-;
-; 0x1C4 - 0x01 - XXXX - Channel table index
-;
-; 0x1DC - 0x04 - XXXX - Constant
-;                       Procyon 32KHz: 0x1E
-; 0x1E0 - 0x04 - XXXX - Constant
-;                       Procyon 32KHz: 0x3C
-;
-; 0x1FC - 0x04 - XXXX - Constant: isLooped->0x02055140, else->0x02055308
-;
-; 0x204 - 0x04 - XXXX - Subroutine
-;                       Procyon 32KHz: 0x020526FC
-;
+;; Function: sub_2054E8C
+;; Arguments:
+;;  + R0: audio_struct
+;;  + R1: Table = 0x021AF3A0
+;; Returns:
+;;  + R0: 0 -> good
+
+  LDR     R3, [R1,#0xC]     ; Read word 0x0780 from table
+  STR     R3, [R0,#0x1EC]   ; ... and write at 0x1EC
+  LDR     R1, [R1,#0xC]     ; Read word 0x0780 again -.-'
+  ADD     R1, R1, R1,LSR#31 ; ... and add sign bit
+  MOV     R1, R1,ASR#1      ; ... and divide by 2
+  STR     R1, [R0,#0x1F0]   ; ... and write at 0x1F0
+  MOV     R2, #1            ; Set byte 0x01
+  STRB    R2, [R0,#0x14]    ; ... at 0x14
+  MOV     R0, #0            ; Returns goooood
+  BX      LR                ; ...
