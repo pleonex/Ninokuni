@@ -44,3 +44,8 @@
   MOV  r0, #0xB              ; Original code: written because I have sorted them
   STR  r0, [sp,#0x0]         ; ""
 .endarea
+
+
+;; FUTURE: Put the above code in a function, to be able to use
+;; long familiar names in the temp bottom screen msg like when trying to catch a
+;; familiar with songs: 0x02081CD4
