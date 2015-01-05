@@ -1,3 +1,6 @@
 [submodule "Programs/modime"]
 	path = Programs/modime
 	url = https://github.com/pleonex/modime
+[submodule "Programs/sadl"]
+	path = Programs/sadl
+	url = https://github.com/pleonex/sadl-audio-format
