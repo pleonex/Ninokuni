@@ -28,6 +28,11 @@
   MOV r2, #0x4B     ; Y pos, originally 0x4B
 
 
+; Familiar name
+.thumb
+.org 0x0215B608
+  MOV r2, #0x1B     ; Y pos, originally 0x1A
+
 ; Original familiar name
 @NameDiffX equ -6
 
