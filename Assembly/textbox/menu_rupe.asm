@@ -19,17 +19,17 @@
 ; Familiar brand image
 .thumb
 .org 0x0215A810
-  MOV r1, #0x40     ; X pos, originally 0x52
+  MOV r1, #0x42     ; X pos, originally 0x52
   MOV r2, #0x4C     ; Y pos, originally 0x4C
 
 ; Familiar type image
 .org 0x0215A87C
-  MOV r1, #0x5C     ; X pos, originally 0x70
+  MOV r1, #0x5E     ; X pos, originally 0x70
   MOV r2, #0x4B     ; Y pos, originally 0x4B
 
 
 ; Original familiar name
-@NameDiffX equ -2
+@NameDiffX equ -6
 
 .thumb
 .org 0x0215B666
