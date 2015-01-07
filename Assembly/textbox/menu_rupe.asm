@@ -72,3 +72,12 @@
 .org 0x0215B6EA
   MOV r1, #0xC + @NameDiffX
   MOV R2, #0x4A
+
+
+;; Increase size for "No equip" string, hardcode the size
+; Originally 0xB but reserved 0xC bytes
+.org 0x0215B93C
+  MOV r1, #0xC
+
+.org 0x0215BA38
+  MOV r1, #0xC
