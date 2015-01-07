@@ -75,9 +75,17 @@
 
 
 ;; Increase size for "No equip" string, hardcode the size
-; Originally 0xB but reserved 0xC bytes
+;; Originally 0xB but reserved 0xC bytes
+.thumb
 .org 0x0215B93C
   MOV r1, #0xC
 
 .org 0x0215BA38
   MOV r1, #0xC
+
+
+;; Move "Enemies targets" in the skill / magic description
+.thumb
+.org 0x0215BC58
+  MOV r1, #0x8F     ; X pos, originally 0x9E
+  ADD r2, #0x6C     ; Y string sep, originally 0x6A
