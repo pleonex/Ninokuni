@@ -26,3 +26,44 @@
 .org 0x0215A87C
   MOV r1, #0x5C     ; X pos, originally 0x70
   MOV r2, #0x4B     ; Y pos, originally 0x4B
+
+
+; Original familiar name
+@NameDiffX equ -2
+
+.thumb
+.org 0x0215B666
+  MOV r1, #0xB + @NameDiffX
+  MOV R2, #0x49
+
+.org 0x0215B676
+  MOV r1, #0xC + @NameDiffX
+  MOV R2, #0x49
+
+.org 0x0215B686
+  MOV r1, #0xD + @NameDiffX
+  MOV R2, #0x49
+
+.org 0x0215B696
+  MOV r1, #0xB + @NameDiffX
+  MOV R2, #0x4A
+
+.org 0x0215B6A6
+  MOV r1, #0xD + @NameDiffX
+  MOV R2, #0x4A
+
+.org 0x0215B6B6
+  MOV r1, #0xB + @NameDiffX
+  MOV R2, #0x4B
+
+.org 0x0215B6C6
+  MOV r1, #0xC + @NameDiffX
+  MOV R2, #0x4B
+
+.org 0x0215B6D6
+  MOV r1, #0xD + @NameDiffX
+  MOV R2, #0x4B
+
+.org 0x0215B6EA
+  MOV r1, #0xC + @NameDiffX
+  MOV R2, #0x4A
