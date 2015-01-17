@@ -15,6 +15,7 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
+.definelabel NO_PADDING,1
 
 ;; Recipe summary
 .arm
@@ -25,3 +26,30 @@
 
 .org 0x0207C08C
   MOV r2, #2            ; Digits of first number in floor, original R7 (3)
+
+
+.if NO_PADDING
+;; Without number padding
+.org 0x207C070 ; 18 instr to override
+.area 0x48
+  ADD R0, R10, #0x3E000
+  LDR R0, [R0,#0x214]
+  ADD r4, r0, #1
+  ADD r6, r0, #5
+
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+.endarea
+.endif
