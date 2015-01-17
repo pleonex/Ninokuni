@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 7 for arm9
+;;  Align the position of the textbox in the recipe menu
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,23 +14,25 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_7.bin, 0x02079F80
 
-.relativeinclude on
-.erroronwarning on
 
-.include fileformats\spellsname\spells_ov7.asm
-.include fileformats\familiarname\familiar_menu.asm
-.include fileformats\familiarname\familiar_upgrade.asm
-.include fileformats\skillsname\skill_upgrade.asm
-.include fileformats\skillsname\skills_book.asm
-.include textbox\menu_familiars.asm
-.include textbox\menu_spells.asm
-.include textbox\menu_pot.asm
-.include textbox\menu_tutorials.asm
-.include textbox\menu_recipe.asm
-.include keyboard\fix_familiar_length.asm
+;; Item name to craft
+.arm
+.org 0x020A2470
+  MOV r6, #0x45     ; X pos, originally text is center in the screen
 
-.close
-; EOF ;
+.org 0x020A2484
+  MOV r2, #7        ; Y pos, original 0x05
+
+
+;; Item name number to craft
+.arm
+.org 0x020A24F4
+  MOV r2, 0x9       ; Y pos, original R9 (0xA)
+
+;; Item description to craft
+;; DISABLED: Too many space left and description must be 3 lines because they
+;; are the same text as the items menu.
+;.arm
+;.org 0x020A26E4
+;  MOV r1, #0x61     ; X pos, original 0x6D
