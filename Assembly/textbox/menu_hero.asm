@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 17 for arm9
+;;  Align the position of the textbox hero menu
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,28 +14,7 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_17.bin, 020D0A00h
 
-.relativeinclude on
-.erroronwarning on
-
-.include fileformats\subtitles.asm
-.include fileformats\spellsname\spells_ov17.asm
-.include fileformats\familiarname\familiar_main.asm
-.include fileformats\skillsname\skills_main.asm
-.include fileformats\skillsname\skills_train.asm
-.include fileformats\skills_spells_getName.asm
-.include textbox\cutscenes.asm
-.include textbox\script_dialog.asm
-.include textbox\script_dialog_button.asm
-.include textbox\lilli_motel.asm
-.include textbox\menu_items_effect.asm
-.include textbox\menu_hero.asm
-.include keyboard\name_encoding.asm
-.include pointers\overlay9_17.asm
-.include font\space_objects_title.asm
-;.include font\int2str_ov17.asm
-
-.close
-; EOF ;
+.arm
+.org 0x02134274
+  MOV r2, #0x43     ; Y pos, original 0x3F
