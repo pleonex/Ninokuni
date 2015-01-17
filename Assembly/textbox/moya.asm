@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 12 for arm9
+;;  Align the position of the textbox in moya menu
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,14 +14,14 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_12.bin, 0x02079F80
 
-.relativeinclude on
-.erroronwarning on
 
-.include font\fillnumber_ov12.asm
-.include textbox\moya.asm
+;; Recipe summary
+.arm
+.org 0x0207C0E4
+  MOV r2, #0x4          ; Y pos, original R5 (2)
+  ADD R0, R10, #0xA4
+  MOV r1, #0x98         ; X pos, original 0x8F
 
-.close
-; EOF ;
+.org 0x0207C08C
+  MOV r2, #2            ; Digits of first number in floor, original R7 (3)
