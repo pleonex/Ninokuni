@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 7 for arm9
+;;  Align the position of the textbox in tutorials menu
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,22 +14,9 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_7.bin, 0x02079F80
 
-.relativeinclude on
-.erroronwarning on
 
-.include fileformats\spellsname\spells_ov7.asm
-.include fileformats\familiarname\familiar_menu.asm
-.include fileformats\familiarname\familiar_upgrade.asm
-.include fileformats\skillsname\skill_upgrade.asm
-.include fileformats\skillsname\skills_book.asm
-.include textbox\menu_familiars.asm
-.include textbox\menu_spells.asm
-.include textbox\menu_pot.asm
-.include textbox\menu_tutorials.asm
-.include keyboard\fix_familiar_length.asm
-
-.close
-; EOF ;
+;; Tutorial title in top screen
+.arm
+.org 0x020A0540
+  MOV r2, #0xA7         ; Y pos, original 0xA6
