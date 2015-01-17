@@ -22,7 +22,7 @@
 .org 0x0207C0E4
   MOV r2, #0x4          ; Y pos, original R5 (2)
   ADD R0, R10, #0xA4
-  MOV r1, #0x98         ; X pos, original 0x8F
+  MOV r1, #0x9C         ; X pos, original 0x8F
 
 .org 0x0207C08C
   MOV r2, #2            ; Digits of first number in floor, original R7 (3)
