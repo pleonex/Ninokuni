@@ -30,6 +30,13 @@
 .org 0x020A24F4
   MOV r2, 0x9       ; Y pos, original R9 (0xA)
 
+
+;; slot_color image
+.arm
+.org 0x020A1868
+  MOV r1, #0x42     ; X pos, original 0x55
+
+
 ;; Item description to craft
 ;; DISABLED: Too many space left and description must be 3 lines because they
 ;; are the same text as the items menu.
