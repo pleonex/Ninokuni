@@ -4,3 +4,6 @@
 [submodule "Programs/sadl"]
 	path = Programs/sadl
 	url = https://github.com/pleonex/sadl-audio-format
+[submodule "Programs/NerdFontTerminatoR"]
+	path = Programs/NerdFontTerminatoR
+	url = git@github.com:pleonex/NerdFontTerminatoR.git
