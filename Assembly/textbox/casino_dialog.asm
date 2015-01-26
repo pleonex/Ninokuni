@@ -20,6 +20,12 @@
 .org 0x02134F78
   MOV     R1, #0x16     ; X pos, original 0x8
 
-; Number of coins
+; Number of casino coins
 .org 0x02134FB0
   MOV     R1, #0x6E     ; X pos, original 0x60
+
+
+; Number of casino coins in exchange menu
+.arm
+.org 0x020D6C6C
+  MOV     R1, #0x11        ; X pos, original 0x7
