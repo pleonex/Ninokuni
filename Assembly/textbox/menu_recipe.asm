@@ -34,7 +34,7 @@
 ;; slot_color image
 .arm
 .org 0x020A1868
-  MOV r1, #0x42     ; X pos, original 0x55
+  MOV r1, #0x43     ; X pos, original 0x55
 
 
 ;; Item description to craft
