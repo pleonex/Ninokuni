@@ -15,6 +15,7 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
+; Money number
 .arm
 .org 0x02134F78
   MOV     R1, #0x16     ; X pos, original 0x8
