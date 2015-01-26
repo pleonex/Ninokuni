@@ -22,7 +22,7 @@
 
 ; Number of casino coins
 .org 0x02134FB0
-  MOV     R1, #0x6E     ; X pos, original 0x60
+  MOV     R1, #0x73     ; X pos, original 0x60
 
 
 ; Number of casino coins in exchange menu
