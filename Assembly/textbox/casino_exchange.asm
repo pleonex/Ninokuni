@@ -21,13 +21,17 @@
 .org 0x0207BCF0
   MOV     R1, #0x8D     ; X pos, original 0xA2
 
-
 ; Object name
-.org 0x0207C610
+.org 0x0207C608
+  RSB     R1, R0, #0x88 ; Text is centered, original 0x80
+  ADD     R0, R4, #0x44
   MOV     R2, #0x2D     ; Y pos, original 0x2C
 
-; Needed casino coins
-.arm
+; Needed casino coins top screen
+.org 0x0207C700
+  RSB     R1, R0, #0x54 ; Aligned to the right, orignial 0x4C
+
+; Needed casino coins bottom screen
 .org 0x0207C72C
   RSB     R1, R0, #0x5B ; Align to the right, original 0x4D
   MOV     R2, #5        ; Y pos, original 0x06
