@@ -20,6 +20,7 @@
 .relativeinclude on
 .erroronwarning on
 
+.include bugs\downloading_news.asm
 .include Wi-Fi\dwc.asm
 ;; .include Wi-Fi\nossl.asm
 
