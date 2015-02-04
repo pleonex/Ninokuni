@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 8 for arm9
+;;  Align the position of the numbers in the info menu of multi battles.
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,15 +14,30 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_8.bin, 0x02079F80
 
-.relativeinclude on
-.erroronwarning on
+.arm
+;; YOU
+;; ... Number of battles
+.org 0x02084AE8
+  RSB r1, r0, #0xEC         ; Right aligned, originally 0xE2
 
-.include pointers\overlay9_8.asm
-.include textbox\menu_checksheet.asm
-.include textbox\menu_adhoc_battles.asm
+;; ... Battles won
+.org 0x02084B28
+  RSB r1, r0, #0xB6         ; Right aligned, originally 0xAE
 
-.close
-; EOF ;
+;; ... Battles lose
+.org 0x02084B64
+  RSB r1, r0, #0xEC         ; Right aligned, originally 0xE4
+
+;; ENEMY
+;; ... Number of battles
+.org 0x02084CF8
+  RSB     R1, R0, #0xEC     ; Right aligned, originally 0xE2
+
+;; ... Battles won
+.org 0x02084D38
+  RSB r1, r0, #0xB6         ; Right aligned, originally 0xAE
+
+;; ... Battles lose
+.org 0x02084D74
+  RSB r1, r0, #0xEC         ; Right aligned, originally 0xE4
