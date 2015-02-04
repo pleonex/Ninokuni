@@ -67,3 +67,18 @@
 ;; Number of familiar classes
 .org 0x02095F1C
   ADD r1, r1, #0x46 ; X Table offset, original 0x3D
+
+
+;; In "register" menu
+;; Number of battles
+.arm
+.org 0x0208E8DC
+  MOV r1, #0x71     ; X pos, original 0x57
+
+;; Battles won
+.org 0x0208E8F0
+  MOV r1, #0xAA     ; X pos, original 0x90
+
+;; Battles lose
+.org 0x0208E904
+  MOV r1, #0xD9     ; X pos, original 0xBF
