@@ -63,3 +63,7 @@
 .org 0x02095ED0
   MOV R1, R8        ; X pos, original 0xC1 (r8)
   MOV R2, R6        ; Y pos, original 0x3F (r6)
+
+;; Number of familiar classes
+.org 0x02095F1C
+  ADD r1, r1, #0x46 ; X Table offset, original 0x3D
