@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 8 for arm9
+;;  Align the position of the numbers in the check sheet menu.
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,14 +14,8 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_8.bin, 0x02079F80
 
-.relativeinclude on
-.erroronwarning on
-
-.include pointers\overlay9_8.asm
-.include textbox\menu_checksheet.asm
-
-.close
-; EOF ;
+;; Remove the extra space between chars
+.arm
+.org 0x02095DFC
+  MOV r1, #0        ; Originally 0x3
