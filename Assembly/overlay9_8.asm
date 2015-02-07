@@ -23,6 +23,7 @@
 .include pointers\overlay9_8.asm
 .include textbox\menu_checksheet.asm
 .include textbox\menu_adhoc_battles.asm
+.include textbox\menu_adhoc_exchange.asm
 
 .close
 ; EOF ;
