@@ -15,7 +15,7 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 .nds
-.open overlay9_4.bin, 0x02
+.open overlay9_4.bin, 0x02079F80
 
 .relativeinclude on
 .erroronwarning on
