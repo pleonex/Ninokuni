@@ -1,2 +1,5 @@
 # Ignore armips executable for tests
 Assembly/armips.exe
+
+# Ignore python compiled files
+*.pyc
