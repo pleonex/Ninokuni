@@ -23,3 +23,6 @@ class MagicnewsItem(scrapy.Item):
     title = scrapy.Field()
     date = scrapy.Field()
     body = scrapy.Field()
+
+    def keys(self):
+        return ['date', 'title', 'body']
