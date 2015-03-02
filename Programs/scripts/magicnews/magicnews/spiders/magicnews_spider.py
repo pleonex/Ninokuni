@@ -22,6 +22,7 @@ from magicnews.items import MagicnewsItem
 URL = "http://game-kouryaku.info/ninokuni/tuusin"
 EXT = ".html"
 DATES = ["1012"]
+DATE_REGEX = "([^" + u'\uff08' + u'\uff09' + u'\u6708' + u'\u65e5' + "]+)"
 
 
 class MagicnewsSpider(scrapy.Spider):
@@ -30,8 +31,10 @@ class MagicnewsSpider(scrapy.Spider):
     start_urls = [URL + month + EXT for month in DATES]
 
     def parse(self, response):
-        for entry in response.xpath('//p[@class="madou"]'):
+        for entry in reversed(response.xpath('//p[@class="madou"]')):
             news = MagicnewsItem()
-            news['title'] = entry.xpath('span/text()')[0].extract()
+            header = entry.xpath('span/text()').re(DATE_REGEX)
+            news['title'] = header[0]
+            news['date'] = header[2] + "/" + header[1]
             news['body'] = entry.xpath('text()')[0].extract()
             yield news
