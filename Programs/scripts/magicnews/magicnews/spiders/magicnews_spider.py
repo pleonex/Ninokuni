@@ -21,7 +21,8 @@ from magicnews.items import MagicnewsItem
 
 URL = "http://game-kouryaku.info/ninokuni/tuusin"
 EXT = ".html"
-DATES = ["1012"]
+DATES = ["1012", "1101", "1102", "1103", "1104", "1105", "1106", "1107",
+         "1108", "1109", "1110", "1111", ""]
 DATE_REGEX = "([^" + u'\uff08' + u'\uff09' + u'\u6708' + u'\u65e5' + "]+)"
 
 
