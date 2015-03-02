@@ -1,4 +1,3 @@
-#!/bin/python
 # -*- coding: utf-8 -*-
 ###############################################################################
 #  Connect to game-kouryaku.info to download all the magic news - V1.0        #
@@ -18,6 +17,7 @@
 ###############################################################################
 
 import scrapy
+from magicnews.items import MagicnewsItem
 
 URL = "http://game-kouryaku.info/ninokuni/tuusin"
 EXT = ".html"
@@ -31,5 +31,7 @@ class MagicnewsSpider(scrapy.Spider):
 
     def parse(self, response):
         for entry in response.xpath('//p[@class="madou"]'):
-            print entry.xpath('span/text()')[0].extract()
-            print entry.xpath('text()')[0].extract()
+            news = MagicnewsItem()
+            news['title'] = entry.xpath('span/text()')[0].extract()
+            news['body'] = entry.xpath('text()')[0].extract()
+            yield news
