@@ -15,6 +15,8 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
+.arm
+
 ;; # FAMILIAR DESCRIPTION #
 .org 020B6770h
 MOV     r4, #0x9A       ; Y Position: original 0x97
@@ -25,3 +27,7 @@ MOV     r1, #8          ; X Position: original 0x08
 .org 020B6604h
 MOV     r1, #0x73       ; X Position: Original 0x74
 ADD     r2, r2, #0x6B   ; Y Position: Original 0x6B
+
+;; # MONEY GIVEN #
+.org 020B671Ch
+MOV R1, #0xCD + 9       ; X Position
