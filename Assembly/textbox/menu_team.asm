@@ -25,3 +25,12 @@
 ;; Health state
 .org 0x02130A08
   MOV     R2, #0x2A + 1         ; Y position
+
+
+;; Technique name
+.org 0x021311AC
+  MOV     R2, #7 - 3            ; Y position
+
+;; Technique magic
+.org 0x021311EC
+  MOV     R2, #8 - 2            ; Y position
