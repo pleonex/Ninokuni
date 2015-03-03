@@ -1,6 +1,6 @@
 ;;----------------------------------------------------------------------------;;
 ;;  Table to encode names
-;;  Copyright 2014 Benito Palacios (aka pleonex)
+;;  Copyright 2014 Francesco Bozzo (aka Superfranci99)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
 ;;  you may not use this file except in compliance with the License.
@@ -19,22 +19,26 @@
 ; R0 -> current decoded char
 ; R6 -> Output buffer ptr
 ; R5 -> Max size
-.org 020F7EBCh
+
 .arm
+.org 020F7EBCh
 .area 14h
-    STRB    R0, [R6],#1
-    TST     r3, #0x80
-    MOVNE   r0, r0,ASR#8
-    STRNEB  r0, [R6],#1
-    ;ADD    R6, R6, #2
+    STRB    R0, [R6], #1
     SUB     R5, R5, #2
+	NOP
+	NOP
+	NOP
 .endarea
 
-;RAM:020F7E60 LDRH    R1, [R3]
-;RAM:020F7E64 SUB     R0, R0, R2                      ; Get relative index
-;RAM:020F7E68 ADD     R0, R1, R0,LSL#8
-;RAM:020F7E6C MOV     R0, R0,LSL#16
-;RAM:020F7E70 MOV     R0, R0,LSR#16
+.arm
+.org 020F7E60h
+.area 14h
+	LDRB    R1, [R3]
+	SUB     R0, R0, R2
+	ADD     R0, R1, R0
+	MOV     R0, R0,LSL #24
+	MOV     R0, R0,LSR #24
+.endarea
 
 .org 02138F68h
 .area 6Ch       ; 9 entries
@@ -49,3 +53,5 @@
     dcd  0000DD81h,   00000062h,   00000002h        ; From 'ü' to 'Ü'  / Spanish char
     dcd  00006082h,   00000064h,   00000036h        ; From 'Á' to 'ú'  / Spanish char
 .endarea
+
+; EOF
