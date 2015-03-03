@@ -20,3 +20,8 @@
 ;; Character face icon
 .org 0x02130478
   ADD     R2, R2, #0x19 - 1     ; Y position
+
+
+;; Health state
+.org 0x02130A08
+  MOV     R2, #0x2A + 1         ; Y position
