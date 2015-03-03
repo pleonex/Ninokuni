@@ -16,5 +16,10 @@
 ;;----------------------------------------------------------------------------;;
 
 .thumb
+;; Item effect
 .org 0x02117D4E
   MOV    R1, #0x60 ; X POS -> Original 0x62
+
+;; Slot color
+.org 0x021170DE
+  MOV    R1, #0x9E - 4 ; X POS
