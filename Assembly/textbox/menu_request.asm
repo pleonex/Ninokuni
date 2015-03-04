@@ -20,3 +20,8 @@
 .org 020C5804h
 MOV     r1, #0x49   ; X Position: original 0x50
 MOV     r2, #4      ; Y Position: original 0x03
+
+
+;; # STAMP GIVEN #
+.org 020C5950h
+MOV     r1, #0xCD + 10  ; X position
