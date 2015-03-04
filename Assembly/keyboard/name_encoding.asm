@@ -43,15 +43,15 @@
 .org 02138F68h
 .area 6Ch       ; 9 entries
 ;        1º dec char  1º enc char  Num chars
-    dcd  00000020h,   00000001h,   00000001h        ; From ' ' to ' '  / Space
-    dcd  00000030h,   00000002h,   0000000Ah        ; From '0' to '9'  / Numbers
-    dcd  00000041h,   0000000Ch,   0000003Ah        ; From 'A' to 'z'  / Chars and Punctuation
-    dcd  00000021h,   00000046h,   0000000Fh        ; From '!' to '/'  / Punctuation
-    dcd  0000003Ah,   00000055h,   00000007h        ; From ':' to '@'  / Punctuation
-    dcd  0000007Bh,   0000005Ch,   00000004h        ; From '{' to '~'  / Punctuation
-    dcd  00004881h,   00000060h,   00000002h        ; From '¿' to '¡'  / Spanish char
-    dcd  0000DD81h,   00000062h,   00000002h        ; From 'ü' to 'Ü'  / Spanish char
-    dcd  00006082h,   00000064h,   00000036h        ; From 'Á' to 'ú'  / Spanish char
+	dcd  00000001h,   00000001h,   0000007Fh     ; range: 0x00-0x80
+	dcd  000000A1h,   00000080h,   0000003Eh     ; range: 0xA1-0xDF
+	dcd  00000000h,   00000000h,   00000000h
+	dcd  00000000h,   00000000h,   00000000h
+	dcd  00000000h,   00000000h,   00000000h
+	dcd  00000000h,   00000000h,   00000000h
+	dcd  00000000h,   00000000h,   00000000h
+	dcd  00000000h,   00000000h,   00000000h
+	dcd  00000000h,   00000000h,   00000000h
 .endarea
 
 ; EOF
