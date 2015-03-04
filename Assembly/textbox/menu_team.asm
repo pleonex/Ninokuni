@@ -34,3 +34,20 @@
 ;; Technique magic
 .org 0x021311EC
   MOV     R2, #8 - 2            ; Y position
+
+
+;; Move "Enemies targets" in the skill / magic description
+.org 0x021312D0
+  MOV     R1, #0x20 - 15        ; X position
+  ADD     R2, R2, #0x54 + 4     ; Y position
+
+.org 0x021312B4
+  MOV     R2, #0x12 - 4         ; Separation between lines
+
+
+;; Move "Enemies targets" square 'eria' image
+.org 0x021305CC
+  ADD     R0, R0, #0x5E + 2     ; Base Y position
+
+.org 0x021305C0
+  MOV     R7, #0x12 - 4         ; Separation between lines
