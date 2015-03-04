@@ -34,6 +34,7 @@
 .include textbox\menu_hero.asm
 .include textbox\menu_team.asm
 .include textbox\casino_dialog.asm
+.include textbox\menu_main.asm
 .include keyboard\name_encoding.asm
 .include pointers\overlay9_17.asm
 .include font\space_objects_title.asm
