@@ -25,3 +25,9 @@
 .arm
 .org 0x02082228
   MOV r1, #0xDB     ; X pos, originally 0xDD
+
+
+;; Level
+.arm
+.org 0x2080544
+  MOV r1, #0x79 + 2 ; X poss
