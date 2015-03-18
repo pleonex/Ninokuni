@@ -16,10 +16,19 @@
 ;;----------------------------------------------------------------------------;;
 
 .thumb
-; Selected characters name
+;; Main team characters name
 .org 0x020D9384
-  ADD r2, #0x16 - 6     ; X position, centered
+  ADD r2, #0x16 - 3     ; X position, centered
 
-; Characters name in the team
-.org 0x020D96E0
-  ADD r1, #0x14        ; X position, centered
+;; Main team character level
+.org 0x020D9440
+  ADD r4, #0x38 + 3     ; X position
+
+;; Main team character level image
+.org 0x020D93CC
+  ADD r1, #0x2C + 3     ; X position
+  MOV R2, #0x29         ; Y position
+
+;; Characters name in the team
+;.org 0x020D96E0
+;  ADD r1, #0x14        ; X position, centered
