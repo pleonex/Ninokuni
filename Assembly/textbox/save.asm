@@ -20,3 +20,8 @@
 ;; Progress star
 .org 0x02063096
   MOV r1, #0x48 + 4     ; X position
+
+
+;; Time display (make hours 3 digits)
+.org 0x020632B8
+  MOV r2, #3            ; Number to pad (3 digits)
