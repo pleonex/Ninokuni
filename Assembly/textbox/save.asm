@@ -1,6 +1,6 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for arm9
-;;  Copyright 2014 Benito Palacios (aka pleonex)
+;;  Align the position of the textbox in save menus
+;;  Copyright 2015 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
 ;;  you may not use this file except in compliance with the License.
@@ -14,15 +14,9 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open arm9.bin, 02000000h
 
-.relativeinclude on
-.erroronwarning on
+.thumb
 
-.include pointers\arm9.asm
-.include textbox\save.asm
-;.include font\int2str_arm9.asm
-
-.close
-; EOF ;
+;; Progress star
+.org 0x02063096
+  MOV r1, #0x48 + 4     ; X position
