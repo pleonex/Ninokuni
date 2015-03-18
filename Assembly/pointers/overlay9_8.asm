@@ -24,3 +24,13 @@ Kagoshima_ptr  	equ 0x02079F80 + 0x01F284
 
 .org 0x02079F80 + 0x020070
 .word Kagoshima_ptr
+
+;; Frigoria
+Frigoria_ptr equ 0x02079F80 + 0x1F110
+Mie_ptr      equ 0x02079F80 + 0x1F0EC
+
+.org 0x02079F80 + 0x020098
+  .word Frigoria_ptr
+
+.org 0x02079F80 + 0x020018
+  .word Mie_ptr
