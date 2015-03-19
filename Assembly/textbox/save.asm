@@ -25,3 +25,9 @@
 ;; Time display (make hours 3 digits)
 .org 0x020632B8
   MOV r2, #3            ; Number to pad (3 digits)
+
+
+;; Max number of hours in seconds
+.org 0x02063290
+  .word 0x36EE80
+  .word 0x36EE7F
