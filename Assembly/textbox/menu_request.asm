@@ -25,3 +25,6 @@ MOV     r2, #4      ; Y Position: original 0x03
 ;; # STAMP GIVEN #
 .org 020C5950h
 MOV     r1, #0xCD + 10  ; X position
+
+.org 020C5968h
+MOV     r1, #0xCE + 10  ; X position (to paint twice - bold effect)
