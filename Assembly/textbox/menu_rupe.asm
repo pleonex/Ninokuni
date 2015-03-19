@@ -93,19 +93,27 @@
 ;; Move "Enemies targets" in the skill / magic description
 .thumb
 .org 0x0215BC50
-  MOV r2, #0x12     ; Y base pos, originally 0x12
+  MOV r2, #0xF      ; Y sep (for second line), originally 0x12
 
 .org 0x0215BC58
-  MOV r1, #0x8F     ; X pos, originally 0x9E
-  ADD r2, #0x6C     ; Y sep (for second line), originally 0x6A
+  MOV r1, #0x91     ; X pos, originally 0x9E
+  ADD r2, #0x6F     ; Y base pos, originally 0x6A
 
 
 ;; Move "Enemies targets" square 'eria' image
-.org 0x0215AB78
-  MOV r2, #0x69     ; Y pos, originally 0x69
+.org 0x0215ABF2
+  MOV r2, #0x10     ; Y sep (for second line)
+
+.org 0x0215ABF8
+  MOV r1, #0xEC     ; X pos
+  ADD r2, #0x78     ; Y base pos
 
 
 ;; Skill name in top screen
 .thumb
 .org 0x0215BB2E
   MOV r2, #0x1D     ; Y pos, originally 0x1E
+
+;; Skill description in top screen
+.org 0x0215BBB4
+  MOV r1, #0x90 + 1 ; X pos
