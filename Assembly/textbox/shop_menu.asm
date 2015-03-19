@@ -17,8 +17,10 @@
 
 ;; Object name in top screen
 .arm
+.org 0x0207F240
+  RSB     R1, R0, #0x80 + 2 ; X pos, centered
 .org 0x0207F24C
-  MOV     R2, #0x2D     ; Y pos, original 0x02C
+  MOV     R2, #0x2D         ; Y pos, original 0x02C
 
 
 ;; Slot color in top screen
