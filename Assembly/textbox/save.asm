@@ -21,6 +21,10 @@
 .org 0x02063096
   MOV r1, #0x48 + 4     ; X position
 
+;; Progress star in the "current save state" tab of the "save" screen
+.org 0x020631B0
+  MOV r1, #0x48 + 4     ; X position
+  MOV R2, #0x4C         ; Y position
 
 ;; Time display (make hours 3 digits)
 .org 0x020632B8
