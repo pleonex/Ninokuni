@@ -16,5 +16,11 @@
 ;;----------------------------------------------------------------------------;;
 
 .arm
+;; Item name in top screen
 .org 0x02134274
   MOV r2, #0x43     ; Y pos, original 0x3F
+
+
+;; Number of cards
+.org 0x021339C8
+  MOV r1, #0xF0 + 6 ; X pos
