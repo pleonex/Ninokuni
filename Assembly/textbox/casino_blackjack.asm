@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 4 for arm9
+;;  Align the position of the numbers in blackjack minigame of casino.
 ;;  Copyright 2015 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,14 +14,8 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_4.bin, 0x02079F80
+.arm
 
-.relativeinclude on
-.erroronwarning on
-
-.include textbox\casino_military.asm
-.include textbox\casino_blackjack.asm
-
-.close
-; EOF ;
+;; Number of rounds played
+.org 0x02095FC0
+    ADD r1, r6, #0x00 + 0x1C      ; X position
