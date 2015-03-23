@@ -17,12 +17,41 @@
 .arm
 
 ;; Enemies strings
-.org 0x020B03D4
-  MOV r1, #0xBB + 3     ; X position
-  ADD r2, r2, #0x66 + 7 ; Y position
+.org 0x020B0148
+  STMFD   SP!, {R4-r12,LR}
 
-.org 0x020B03C8
-  ADD r2, r11, r9,LSL#2 ; Y separation (R9 is the index) (ori: r9+r9<<4)
+.org 0x020B0394
+  MOVS    r12, r9
+  MOVNE   r12, #0x0C             ; Y separation
+  BNE     loc_20B03A8
+
+  LDRB    R0, [R8,#2]
+  BLX     0x020D6408
+  B       loc_20B03B0
+
+loc_20B03A8:
+  LDRB    R0, [R8,#6]
+  BLX     0x020D6414
+
+loc_20B03B0:
+  MOV     R4, R0
+  LDR     R0, =0x02141660
+  ADD     R0, R0, R4,LSL#2
+  LDR     R1, [R0,#0xFC]
+  MOV     R0, R6
+  BLX     0x020DEF40
+
+  STR     R11, [SP]
+  ADD     R0, R10, #0x44
+  MOV     r1, #0xBB + 3         ; X position
+  ADD     r2, r12, #0x66 + 6    ; Y position
+  MOV     R3, R6
+
+.org 0x020B063C
+  LDMFD   SP!, {R4-r12,PC}
+
+.org 0x020B0650
+  .pool
 
 
 ;; Eria images
