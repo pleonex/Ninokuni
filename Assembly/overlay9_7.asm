@@ -33,6 +33,7 @@
 .include textbox\menu_equip.asm
 .include textbox\menu_trainSelect.asm
 .include textbox\menu_learn_skill.asm
+.include textbox\express_missions.asm
 .include keyboard\fix_familiar_length.asm
 
 .close
