@@ -38,8 +38,14 @@
 
 
 ;; Item description to craft
-;; DISABLED: Too many space left and description must be 3 lines because they
-;; are the same text as the items menu.
-;.arm
-;.org 0x020A26E4
-;  MOV r1, #0x61     ; X pos, original 0x6D
+.arm
+.org 0x020A26E4
+  MOV r1, #0x6D - 12    ; X pos
+  MOV R2, #0x1B         ; Y pos
+
+
+;; Item effect
+.arm
+.org 0x020A28D4
+  MOV r1, #0x68 - 7     ; X pos
+  MOV R2, #0x5E         ; Y pos
