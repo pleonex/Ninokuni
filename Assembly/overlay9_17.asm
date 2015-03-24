@@ -28,7 +28,6 @@
 .include fileformats\skills_spells_getName.asm
 .include textbox\cutscenes.asm
 .include textbox\script_dialog.asm
-.include textbox\script_dialog_button.asm
 .include textbox\lilli_motel.asm
 .include textbox\menu_items_effect.asm
 .include textbox\menu_hero.asm

@@ -20,10 +20,20 @@
   MOV r1, #0x03
   NEG r1, r1
 
-;; Dialog questions answers ;;
+;; Dialog questions answers
+;; Relative positions to OAM position, don't change
 .thumb
-.org 0x020E0788
-  MOV    r2, #3  ; Original #0
+.org 0x020E0788  ; No-selected text
+  MOV    r2, #0  ; Original #0
 
-.org 0x020E07B8
-  MOV    r2, #3  ; Original #0
+.org 0x020E07B8  ; Selected text
+  MOV    r2, #0  ; Original #0
+
+
+;; Absolute Dialog Question Answers OAM position
+.thumb
+.org 0x020E08F8
+  ADD    R2, #0x7 + 3       ; With furigana
+
+.org 0x020E0886
+  ADD    R2, #0x14 + 3      ; Without furigana
