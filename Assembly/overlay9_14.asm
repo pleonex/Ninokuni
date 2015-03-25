@@ -26,7 +26,7 @@
 .include keyboard\keyboard_shift.asm
 .include pointers\overlay9_14.asm
 .include textbox\menu_request.asm
-;.include password\alphabet.asm
+.include password\alphabet.asm
 
 .close
 ; EOF ;
