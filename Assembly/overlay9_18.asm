@@ -1,6 +1,6 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 2 for arm9
-;;  Copyright 2014 Benito Palacios (aka pleonex)
+;;  Hacks for overlay 18 for arm9
+;;  Copyright 2015 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
 ;;  you may not use this file except in compliance with the License.
@@ -15,14 +15,12 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 .nds
-.open overlay9_2.bin, 02079F80h
+.open overlay9_18.bin, 020D0A00h
 
 .relativeinclude on
 .erroronwarning on
 
-.include bugs\downloading_news.asm
-.include Wi-Fi\dwc.asm
-.include Wi-Fi\nossl.asm
+.include Wi-Fi\nossl_18.asm
 
 .close
 ; EOF ;

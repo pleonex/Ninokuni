@@ -1,6 +1,6 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 2 for arm9
-;;  Copyright 2014 Benito Palacios (aka pleonex)
+;;  Force to use HTTP (without SSL encryption layer) easier to capture packets
+;;  Copyright 2015 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
 ;;  you may not use this file except in compliance with the License.
@@ -14,15 +14,9 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_2.bin, 02079F80h
 
-.relativeinclude on
-.erroronwarning on
+; WARNING: THIS DISABLE THE SECURE MECHANISM. EVERYONE WILL BE ABLE
+; TO VIEW THE COMMUNICATION LIKE USERNAME, BIRTHDAY AND ROUTER IP.
 
-.include bugs\downloading_news.asm
-.include Wi-Fi\dwc.asm
-.include Wi-Fi\nossl.asm
-
-.close
-; EOF ;
+.org 0x020D0A00 + 0x00024E5C
+  .db "http://nas.nintendowifi.net/a", 0x00

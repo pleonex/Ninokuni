@@ -15,7 +15,8 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
-; WARNING: THIS IS A TEMP PATCH AND MUST NOT BE INCLUDED IN FINALLY RELEASE
+; WARNING: THIS DISABLE THE SECURE MECHANISM. EVERYONE WILL BE ABLE
+; TO VIEW THE COMMUNICATION LIKE USERNAME, BIRTHDAY AND ROUTER IP.
 
 .org 02079F80h + 0002CB78h
   .db "http://nas.nintendowifi.net/ac", 0x00
@@ -25,7 +26,7 @@
 
 .org 02079F80h + 0002CC50h
   .db "http://nas.dev.nintendowifi.net/ac", 0x00
-  
+
 .org 02079F80h + 0002CC74h
   .db "http://nas.nintendowifi.net/ac", 0x00
 
@@ -34,15 +35,15 @@
 
 .org 02079F80h + 0002CF80h
   .db "http://nas.nintendowifi.net/ac", 0x00
- 
+
 .org 02079F80h + 0002DE0Ch
   .db "http:///download", 0x00
-  
+
 .org 02079F80h + 0002DE20h
   .db "http://%s/download", 0x00
-  
+
 .org 02079F80h + 0002CEA4h
-  .db "https://", 0x00
-  
+  .db "http://", 0x00
+
 .org 02079F80h + 0002E004h
-  .db "https://", 0x00
+  .db "http://", 0x00
