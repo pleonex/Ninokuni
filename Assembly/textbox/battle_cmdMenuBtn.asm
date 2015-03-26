@@ -1,6 +1,6 @@
 ;;  Modify the subimages position of the texture battles images.
 ;
-; Arguments of @v3d_setSubImage function:
+; Arguments of v3d_setSubImage function:
 ;   + R0: Sprite struct
 ;   + R1: Frame index
 ;   + R2: Layer index
@@ -10,9 +10,9 @@
 ;   + SP+08: Y End
 ;   + SP+0C: X Output
 ;   + SP+10: Y Output
-;   + SP+14: @Width
-;   + SP+18: @Height
-;   + SP+1C: @Palette index
+;   + SP+14: Width
+;   + SP+18: Height
+;   + SP+1C: Palette index
 
 @Ystart  equ -0x60
 @Xend    equ -0x5C

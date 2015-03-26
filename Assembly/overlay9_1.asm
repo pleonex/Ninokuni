@@ -22,6 +22,7 @@
 
 .include textbox\battle.asm
 .include textbox\battle_cmdMenuBtn.asm
+.include textbox\battle_cmdMenuBtn_panels.asm
 .include fileformats\spellsname\spells_ov1.asm
 .include fileformats\familiarname\familiar_battle.asm
 .include fileformats\skillsname\skills_battle.asm
