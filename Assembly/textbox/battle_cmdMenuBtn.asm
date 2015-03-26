@@ -26,6 +26,18 @@ v3d_setSubImage equ 0x020FCD7C
 
 .arm
 
+; # Hack to get some space later
+.org 0x020A1650
+  ADD     R7, R5, R4,LSL#2
+  LDR     R11, [R7,#8]
+  LDR     R1, [SP,#0x58]
+  LDR     R2, [SP,#0x5C]
+  STR     R1, [R11,#0x14]
+  LDR     R1, [SP,#0x60]
+  STR     R2, [R11,#0x18]
+  ADD     R0, SP, #0x58
+  STR     R1, [R11,#0x1C]
+
 ; # Constants
 .org 0x20A16B4
   MOV     R8, #36
@@ -166,117 +178,118 @@ ThirdFrameSetPaletteAndQuit:
 ; ------------------------------------------------- ;
 
 ;; Removed a call to some function
+@AutoW equ 0x04
 
-; # First Button (0/0): [0, 0] -> [54, 24]
+; # First Button (0/0): [0, 0] -> [54, 24], W=54+5
 .org 0x020A1910
   MOV     R10, #0
   STR     R10, [SP,#0x60+Ystart]
-  MOV     R11, #54
-  STR     R11, [SP,#0x60+Xend]
+  MOV     r1, #54
+  STR     r1, [SP,#0x60+Xend]
   STR     R6, [SP,#0x60+Yend]
-  SUB     R9, R6, #51
+  SUB     R9, R6, #51 + @AutoW
   STR     R9, [SP,#0x60+Xout]
   SUB     R8, R6, #36
   STR     R8, [SP,#0x60+Yout]
-  STR     R11, [SP,#0x60+Width]
+  MOV     r1, #54 + @AutoW
+  STR     r1, [SP,#0x60+Width]
   STR     R6, [SP,#0x60+Height]
   STR     R7, [SP,#0x60+Palette]
-  ADD     R0, R5, R4,LSL#2
-  LDR     R0, [R0,#8]
   MOV     R1, R10
-  ADD     R0, R0, #0x1A8
+  NOP
+  ADD     R0, r11, #0x1A8
   MOV     R2, R10
   MOV     R3, R10
   BL      v3d_setSubImage
 
-; # Second Button (1/0): [54, 0] -> [108, 24]
+; # Second Button (1/0): [54, 0] -> [108, 24], W=54+5
   STR     R10, [SP,#0x60+Ystart]
   MOV     R0, #108
   STMFA   SP, {R0,R6}
   STR     R9, [SP,#0x60+Xout]
   STR     R8, [SP,#0x60+Yout]
-  STR     R11, [SP,#0x60+Width]
+  MOV     r1, #54 + @AutoW
+  STR     r1, [SP,#0x60+Width]
   STR     R6, [SP,#0x60+Height]
   STR     R7, [SP,#0x60+Palette]
-  ADD     R0, R5, R4,LSL#2
-  LDR     R0, [R0,#8]
+  NOP
   MOV     R1, #1
-  ADD     R0, R0, #0x1A8
+  ADD     R0, r11, #0x1A8
   MOV     R2, R10
-  MOV     R3, R11
+  MOV     r3, #54
   BL      v3d_setSubImage
 
-; # First button (2/0): [0, 0] -> [54, 24]
-  STMEA   SP, {R10,R11}         ; Y start and X end
+; # First button (2/0): [0, 0] -> [54, 24], W=54+5
+  MOV     r1, #54
+  STMEA   SP, {R10,r1}         ; Y start and X end
   STR     R6, [SP,#0x60+Yend]
   STR     R9, [SP,#0x60+Xout]
   STR     R8, [SP,#0x60+Yout]
-  STR     R11, [SP,#0x60+Width]
+  MOV     r1, #54 + @AutoW
+  STR     r1, [SP,#0x60+Width]
   STR     R6, [SP,#0x60+Height]
   MOV     R7, #9
   STR     R7, [SP,#0x60+Palette]
-  ADD     R0, R5, R4,LSL#2
-  LDR     R0, [R0,#8]
   MOV     R1, #2
-  ADD     R0, R0, #0x1A8
+  ADD     r0, r11, #0x1A8
   MOV     R2, R10
   MOV     R3, R10
   BL      v3d_setSubImage
 
-; # First button (3/0): [0, 0] -> [54, 24]
-  STMEA   SP, {R10,R11}
+; # First button (3/0): [0, 0] -> [54, 24], W=54+5
+  MOV     r1, #54
+  STMEA   SP, {R10,r1}
   STR     R6, [SP,#0x60+Yend]
   STR     R9, [SP,#0x60+Xout]
   STR     R8, [SP,#0x60+Yout]
-  STR     R11, [SP,#0x60+Width]
+  MOV     r1, #54 + @AutoW
+  STR     r1, [SP,#0x60+Width]
   STR     R6, [SP,#0x60+Height]
   MOV     R0, #21
   STR     R0, [SP,#0x60+Palette]
-  ADD     R0, R5, R4,LSL#2
-  LDR     R0, [R0,#8]
   MOV     R1, #3
   MOV     R2, R10
   MOV     R3, R10
-  ADD     R0, R0, #0x1A8
+  ADD     R0, r11, #0x1A8
   BL      v3d_setSubImage
 
-; # Second button (4/0): [54, 0] -> [108, 24]
+; # Second button (4/0): [54, 0] -> [108, 24], W=54+5
   STR     R10, [SP,#0x60+Ystart]
   MOV     R0, #108
   STMFA   SP, {R0,R6}
   STR     R9, [SP,#0x60+Xout]
   STR     R8, [SP,#0x60+Yout]
-  STR     R11, [SP,#0x60+Width]
+  MOV     r1, #54 + @AutoW
+  STR     r1, [SP,#0x60+Width]
   STR     R6, [SP,#0x60+Height]
   MOV     R0, #21
   STR     R0, [SP,#0x60+Palette]
-  ADD     R0, R5, R4,LSL#2
-  LDR     R0, [R0,#8]
+  NOP
   MOV     R2, R10
-  ADD     R0, R0, #0x1A8
+  ADD     R0, r11, #0x1A8
   MOV     R1, #4
-  MOV     R3, R11
+  MOV     R3, #54
   BL      v3d_setSubImage
 
-; # First button (5/0): [0, 0] -> [54, 24]
-  STMEA   SP, {R10,R11}
+; # First button (5/0): [0, 0] -> [54, 24], W=54+5
+  MOV     r1, #54
+  STMEA   SP, {R10,r1}
   STR     R6, [SP,#0x60+Yend]
   STR     R9, [SP,#0x60+Xout]
   STR     R8, [SP,#0x60+Yout]
-  STR     R11, [SP,#0x60+Width]
+  MOV     r1, #54 + @AutoW
+  STR     r1, [SP,#0x60+Width]
   STR     R6, [SP,#0x60+Height]
   STR     R7, [SP,#0x60+Palette]
-  ADD     R0, R5, R4,LSL#2
-  LDR     R0, [R0,#8]
   MOV     R2, R10
   MOV     R3, R10
-  ADD     R0, R0, #0x1A8
+  ADD     R0, r11, #0x1A8
   MOV     R1, #5
   BL      v3d_setSubImage
 
 ; # Common constants for "Automatic" word and "x" button
-  MOV     R9, -21
-  ADD     R8, R9, #15
+  MOV     R9, -21 - @AutoW - 1      ; Move to the left
+  ADD     R8, R9, #15 + @AutoW +1   ; Keep Y position
   ADD     R6, R5, R4,LSL#2
   MOV     R11, #13
   MOV     R7, #12
@@ -417,20 +430,20 @@ setButtonX:
 .org 0x020A1C64
   MOV     R10, #0
   STR     R10, [SP,#0x60+Ystart]
-  MOV     R11, #54
-  STR     R11, [SP,#0x60+Xend]
+  MOV     r1, #54
+  STR     r1, [SP,#0x60+Xend]
   STR     R6, [SP,#0x60+Yend]
   SUB     R9, R6, #51
   STR     R9, [SP,#0x60+Xout]
   SUB     R8, R6, #36
   STR     R8, [SP,#0x60+Yout]
-  STR     R11, [SP,#0x60+Width]
+  MOV     r1, #54 + @AutoW
+  STR     r1, [SP,#0x60+Width]
   STR     R6, [SP,#0x60+Height]
   STR     R7, [SP,#0x60+Palette]
-  ADD     R0, R5, R4,LSL#2
-  LDR     R0, [R0,#8]
+  NOP
   MOV     R1, R10
-  ADD     R0, R0, #0x1A8
+  ADD     R0, r11, #0x1A8
   MOV     R2, R10
   MOV     R3, R10
   BL      v3d_setSubImage
@@ -441,37 +454,37 @@ setButtonX:
   STMFA   SP, {R0,R6}
   STR     R9, [SP,#0x60+Xout]
   STR     R8, [SP,#0x60+Yout]
-  STR     R11, [SP,#0x60+Width]
+  MOV     r1, #54 + @AutoW
+  STR     r1, [SP,#0x60+Width]
   STR     R6, [SP,#0x60+Height]
   STR     R7, [SP,#0x60+Palette]
-  ADD     R0, R5, R4,LSL#2
-  LDR     R0, [R0,#8]
+  NOP
   MOV     R1, #1
-  ADD     R0, R0, #0x1A8
+  ADD     R0, r11, #0x1A8
   MOV     R2, R10
-  MOV     R3, R11
+  MOV     R3, #54
   BL      v3d_setSubImage
 
 ; # First button (2/0): [0, 0] -> [54, 24]
-  STMEA   SP, {R10,R11}
+  MOV     r1, #54
+  STMEA   SP, {R10,r1}
   STR     R6, [SP,#0x60+Yend]
   STR     R9, [SP,#0x60+Xout]
   STR     R8, [SP,#0x60+Yout]
-  STR     R11, [SP,#0x60+Width]
+  MOV     r1, #54 + @AutoW
+  STR     r1, [SP,#0x60+Width]
   STR     R6, [SP,#0x60+Height]
   MOV     R0, #9
   STR     R0, [SP,#0x60+Palette]
-  ADD     R0, R5, R4,LSL#2
-  LDR     R0, [R0,#8]
   MOV     R1, #2
-  ADD     R0, R0, #0x1A8
+  ADD     R0, r11, #0x1A8
   MOV     R2, R10
   MOV     R3, R10
   BL      v3d_setSubImage
 
 ; # Common constants for "Formation" word and "y" button
-  MOV     R9, -18
-  ADD     R8, R9, #12
+  MOV     R9, -18 + 4          ; Move to the left
+  ADD     R8, R9, #12 - 4      ; Keep Y pos
   ADD     R6, R5, R4,LSL#2
   MOV     R11, #13
   MOV     R7, #12
@@ -507,7 +520,7 @@ setFormation:
   STR     R0, [SP,#0x60+Xend]
   MOV     R0, #35
   STR     R0, [SP,#0x60+Yend]
-  MOV     R0, #14
+  MOV     R0, #14 + @AutoW
   STR     R0, [SP,#0x60+Xout]
   MOV     R0, #4
   STR     R0, [SP,#0x60+Yout]
@@ -538,7 +551,7 @@ setFormationPalette13:
   STR     R0, [SP,#0x60+Xend]
   MOV     R0, #35
   STR     R0, [SP,#0x60+Yend]
-  MOV     R0, #14
+  MOV     R0, #14 + @AutoW
   STR     R0, [SP,#0x60+Xout]
   MOV     R0, #4
   STR     R0, [SP,#0x60+Yout]
