@@ -28,6 +28,7 @@
 .include textures\battleIcon_status.asm
 .include textures\battleBrand.asm
 .include textures\paramWindow_tabs.asm
+.include textures\systemImage_smallArrows.asm
 .include fileformats\spellsname\spells_ov1.asm
 .include fileformats\familiarname\familiar_battle.asm
 .include fileformats\skillsname\skills_battle.asm
