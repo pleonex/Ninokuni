@@ -23,6 +23,17 @@
   MOV     R2, #0x2D         ; Y pos, original 0x02C
 
 
+;; Object description in top screen
+.org 0x0207F32C
+  MOV     R1, #0x66 - 6     ; X pos
+  MOV     R2, #0x42         ; Y pos
+
+
+;; Object effect in top screen
+.org 0x0207F548
+  MOV     R1, #0x68 - 8     ; X pos
+  MOV     R2, #0x9C         ; Y pos
+
 ;; Slot color in top screen
 .arm
 .org 0x0207BD08
