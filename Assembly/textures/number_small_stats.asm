@@ -99,9 +99,9 @@
   STR     R0, [SP,@Xend]
   MOV     R1, #80
   STR     R1, [SP,@Yend]
-  SUB     R0, R1, #84
+  SUB     R0, R1, #84 + 1
   STR     R0, [SP,@Xout]
-  SUB     R0, R1, #86
+  SUB     R0, R1, #86 + 1
   STR     R0, [SP,@Yout]
   MOV     R0, #9
   STR     R0, [SP,@Width]
