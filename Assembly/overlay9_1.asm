@@ -29,9 +29,11 @@
 .include textures\battleBrand.asm
 .include textures\paramWindow_tabs.asm
 .include textures\systemImage_smallArrows.asm
-.include textures\number_small.asm
+.include textures\number_small_stats.asm
 .include textures\paramWindow_box.asm
 .include textures\actInfo.asm
+.include textures\paramWindow_changedTime.asm
+.include textures\number_small_changedTime.asm
 .include fileformats\spellsname\spells_ov1.asm
 .include fileformats\familiarname\familiar_battle.asm
 .include fileformats\skillsname\skills_battle.asm
