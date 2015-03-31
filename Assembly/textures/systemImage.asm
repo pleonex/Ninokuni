@@ -39,7 +39,7 @@
   MOV     R0, #13 + 2
   MOV     R7, #13
   STR     R0, [SP,@Yend]
-  SUB     R7, #34
+  SUB     R7, #34 + 14
   MOV     R4, #13
   STR     R7, [SP,@Xout]
   SUB     R4, #19
@@ -67,8 +67,7 @@
   MOV     R0, #26 + 2
   STR     R0, [SP,@Yend]
   MOV     R0, #26
-  STR     R0, [SP,0x20]
-  SUB     R0, #46
+  SUB     R0, #46 + 21
   STR     R0, [SP,@Xout]
   STR     R0, [SP,0x20]
   STR     R4, [SP,@Yout]
@@ -119,6 +118,7 @@
   STR     R0, [SP,@Xend]
   MOV     R0, #52 + 20 + 3
   STR     R0, [SP,@Yend]
+  SUB     R7, #11
   STR     R7, [SP,@Xout]
   STR     R4, [SP,@Yout]
   MOV     R0, #31 + 25
@@ -141,22 +141,22 @@
   STR     R0, [SP,@Ystart]
   MOV     R0, #60 - 11
   STR     R0, [SP,@Xend]
+  STR     R0, [SP,@Width]
   MOV     R1, #28 + 17
   STR     R1, [SP,@Yend]
+  ADD     r7, 7
   STR     R7, [SP,@Xout]
   STR     R4, [SP,@Yout]
-  MOV     R1, #31 + 18
-  STR     R1, [SP,@Width]
   MOV     R1, #13 + 3
   STR     R1, [SP,@Height]
   MOV     R1, #5
   STR     R1, [SP,@Palette]
   LDR     R1, [R5,R6]
-  ADD     R0, #0xEC
+  ADD     R0, #0xEC + 11
   ADD     R0, R1, R0
   MOV     R1, #4
   MOV     R2, #0
-  MOV     R3, #29
+  MOV     R3, #29 - 29
   BLX     @v3d_setSubImage
 
 ; # Without Changes string (5/0): [0, 52 + 28] -> [46 + 13, 64 + 30]
@@ -167,7 +167,7 @@
   STR     R1, [SP,@Xend]
   MOV     R7, #64 + 28 + 2
   STR     R7, [SP,@Yend]
-  SUB     R0, #93
+  SUB     R0, #93 + 13
   STR     R0, [SP,@Xout]
   STR     R4, [SP,@Yout]
   STR     R1, [SP,@Width]
@@ -183,6 +183,9 @@
   MOV     R2, #0
   MOV     R3, #0
   BLX     @v3d_setSubImage
+
+.org 0x02084340
+  ADD    R7, #0xE8 - 30
 
 .org 0x0208434E
 ; # Big Up Arrow Palette 1 (0/0): [31 - 7, 0 + 99] -> [43 - 7, 15 + 99]
