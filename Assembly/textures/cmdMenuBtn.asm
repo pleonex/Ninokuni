@@ -220,8 +220,9 @@ ThirdFrameSetPaletteAndQuit:
   BL      @v3d_setSubImage
 
 ; # First button (2/0): [0, 0] -> [54, 24], W=54+5
-  MOV     r1, #54
-  STMEA   SP, {R10,r1}         ; Y start and X end
+  MOV     R2, R10
+  MOV     r3, #54
+  STMEA   SP, {r2,r3}         ; Y start and X end
   STR     R6, [SP,#0x60+@Yend]
   STR     R9, [SP,#0x60+@Xout]
   STR     R8, [SP,#0x60+@Yout]
@@ -232,13 +233,13 @@ ThirdFrameSetPaletteAndQuit:
   STR     R7, [SP,#0x60+@Palette]
   MOV     R1, #2
   ADD     r0, r11, #0x1A8
-  MOV     R2, R10
   MOV     R3, R10
   BL      @v3d_setSubImage
 
 ; # First button (3/0): [0, 0] -> [54, 24], W=54+5
-  MOV     r1, #54
-  STMEA   SP, {R10,r1}
+  MOV     R2, R10
+  MOV     r3, #54
+  STMEA   SP, {r2,r3}
   STR     R6, [SP,#0x60+@Yend]
   STR     R9, [SP,#0x60+@Xout]
   STR     R8, [SP,#0x60+@Yout]
@@ -248,7 +249,6 @@ ThirdFrameSetPaletteAndQuit:
   MOV     R0, #21
   STR     R0, [SP,#0x60+@Palette]
   MOV     R1, #3
-  MOV     R2, R10
   MOV     R3, R10
   ADD     R0, r11, #0x1A8
   BL      @v3d_setSubImage
@@ -272,8 +272,9 @@ ThirdFrameSetPaletteAndQuit:
   BL      @v3d_setSubImage
 
 ; # First button (5/0): [0, 0] -> [54, 24], W=54+5
-  MOV     r1, #54
-  STMEA   SP, {R10,r1}
+  MOV     R2, R10
+  MOV     r3, #54
+  STMEA   SP, {r2,r3}
   STR     R6, [SP,#0x60+@Yend]
   STR     R9, [SP,#0x60+@Xout]
   STR     R8, [SP,#0x60+@Yout]
@@ -281,7 +282,6 @@ ThirdFrameSetPaletteAndQuit:
   STR     r1, [SP,#0x60+@Width]
   STR     R6, [SP,#0x60+@Height]
   STR     R7, [SP,#0x60+@Palette]
-  MOV     R2, R10
   MOV     R3, R10
   ADD     R0, r11, #0x1A8
   MOV     R1, #5
@@ -466,8 +466,9 @@ setButtonX:
   BL      @v3d_setSubImage
 
 ; # First button (2/0): [0, 0] -> [54, 24]
-  MOV     r1, #54
-  STMEA   SP, {R10,r1}
+  MOV     R2, R10
+  MOV     r3, #54
+  STMEA   SP, {r2,r3}
   STR     R6, [SP,#0x60+@Yend]
   STR     R9, [SP,#0x60+@Xout]
   STR     R8, [SP,#0x60+@Yout]
@@ -478,7 +479,6 @@ setButtonX:
   STR     R0, [SP,#0x60+@Palette]
   MOV     R1, #2
   ADD     R0, r11, #0x1A8
-  MOV     R2, R10
   MOV     R3, R10
   BL      @v3d_setSubImage
 
