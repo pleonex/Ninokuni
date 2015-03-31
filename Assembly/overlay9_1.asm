@@ -37,6 +37,7 @@
 .include textures\paramWindow_arrowDown.asm
 .include textures\selectWindow_return.asm
 .include textures\number_state.asm
+.include textures\systemImage.asm
 .include fileformats\spellsname\spells_ov1.asm
 .include fileformats\familiarname\familiar_battle.asm
 .include fileformats\skillsname\skills_battle.asm
