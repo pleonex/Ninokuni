@@ -120,7 +120,9 @@
 
 ; # Small Down Arrow (5/0): [39 - 29, 28 + 74] -> [49 - 29, 40 + 74]
   STR     R9, [SP,@Ystart]
-  STMFA   SP, {R11,R6}
+  MOV     r11, r6
+  MOV     r6, #20
+  STMFA   SP, {r6,r11}
   STR     R5, [SP,@Xout]
   STR     R8, [SP,@Yout]
   STR     R7, [SP,@Width]
@@ -131,13 +133,12 @@
   MOV     R1, #5
   ADD     R0, R0, #0x128
   MOV     R2, #0
-  MOV     R3, R11
+  MOV     R3, #10
   BL      @v3d_setSubImage
 
 ; # Small Down Arrow Other Palette (6/0): [39 - 29, 28 + 74] -> [49 - 29, 40 + 74]
   STR     R9, [SP,@Ystart]
-  MOV     R0, #10
-  STMFA   SP, {R0,R6}
+  STMFA   SP, {r6,r11}
   STR     R5, [SP,@Xout]
   STR     R8, [SP,@Yout]
   STR     R7, [SP,@Width]
@@ -148,13 +149,12 @@
   MOV     R1, #6
   MOV     R2, #0
   ADD     R0, R0, #0x128
-  MOV     R3, R11
+  MOV     R3, #10
   BL      @v3d_setSubImage
 
 ; # Small Down Arrow Other Palette (7/0): [39 - 29, 28 + 74] -> [49 - 29, 40 + 74]
   STR     R9, [SP,@Ystart]
-  MOV     R0, #10
-  STMFA   SP, {R0,R6}
+  STMFA   SP, {r6,r11}
   STR     R5, [SP,@Xout]
   STR     R8, [SP,@Yout]
   STR     R7, [SP,@Width]
@@ -165,13 +165,13 @@
   MOV     R1, #7
   MOV     R2, #0
   ADD     R0, R0, #0x128
-  MOV     R3, R11
+  MOV     R3, #10
   BL      @v3d_setSubImage
 
 ; # Small Down Arrow Other Palette (8/0): [39 - 29, 28 + 74] -> [49 - 29, 40 + 74]
   STR     R9, [SP,@Ystart]
-  MOV     R0, #10
-  STMFA   SP, {R0,R6}
+  MOV     R0, #20
+  STMFA   SP, {R0,r11}
   STR     R5, [SP,@Xout]
   STR     R8, [SP,@Yout]
   STR     R7, [SP,@Width]
@@ -182,13 +182,13 @@
   MOV     R2, #0
   ADD     R0, R0, #0x128
   MOV     R1, #8
-  MOV     R3, R11
+  MOV     R3, #10
   BL      @v3d_setSubImage
 
 ; # Small Down Arrow Other Palette (9/0): [39 - 29, 28 + 74] -> [49 - 29, 40 + 74]
   STR     R9, [SP,@Ystart]
-  MOV     R0, #10
-  STMFA   SP, {R0,R6}
+  MOV     R0, #20
+  STMFA   SP, {R0,r11}
   STR     R5, [SP,@Xout]
   STR     R8, [SP,@Yout]
   STR     R7, [SP,@Width]
@@ -198,6 +198,6 @@
   LDR     R0, [R10,#0x6C]
   MOV     R1, #9
   MOV     R2, #0
-  MOV     R3, R11
+  MOV     R3, #10
   ADD     R0, R0, #0x128
   BL      @v3d_setSubImage
