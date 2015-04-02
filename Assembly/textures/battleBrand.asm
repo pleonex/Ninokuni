@@ -181,3 +181,12 @@
   ADD     R0, R0, #0x128
   MOV     R1, #8
   BL      @v3d_setSubImage
+
+
+;; Relative position for state screen
+.thumb
+.org 0x02086B5E
+  MOV     R0, #29 + 16  ; X Shift to the left edge
+
+.org 0x02086B68
+  MOV     R0, #2        ; Y Shift to the top edge

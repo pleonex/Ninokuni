@@ -39,7 +39,7 @@
   MOV     R0, #13 + 2
   MOV     R7, #13
   STR     R0, [SP,@Yend]
-  SUB     R7, #34 + 14
+  SUB     R7, #34 + 17
   MOV     R4, #13
   STR     R7, [SP,@Xout]
   SUB     R4, #19
@@ -67,7 +67,7 @@
   MOV     R0, #26 + 2
   STR     R0, [SP,@Yend]
   MOV     R0, #26
-  SUB     R0, #46 + 21
+  SUB     R0, #46 + 18
   STR     R0, [SP,@Xout]
   STR     R0, [SP,0x20]
   STR     R4, [SP,@Yout]
@@ -95,6 +95,7 @@
   STR     R0, [SP,@Yend]
   LDR     R0, [SP,0x20]
   MOV     R2, #0
+  ADD     R0, #0
   STR     R0, [SP,@Xout]
   STR     R4, [SP,@Yout]
   MOV     R0, #29 + 21
@@ -118,7 +119,6 @@
   STR     R0, [SP,@Xend]
   MOV     R0, #52 + 20 + 3
   STR     R0, [SP,@Yend]
-  SUB     R7, #11
   STR     R7, [SP,@Xout]
   STR     R4, [SP,@Yout]
   MOV     R0, #31 + 25
@@ -144,7 +144,7 @@
   STR     R0, [SP,@Width]
   MOV     R1, #28 + 17
   STR     R1, [SP,@Yend]
-  ADD     r7, 7
+  ADD     r7, 0
   STR     R7, [SP,@Xout]
   STR     R4, [SP,@Yout]
   MOV     R1, #13 + 3
