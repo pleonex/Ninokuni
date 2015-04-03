@@ -201,3 +201,12 @@
   MOV     R3, #10
   ADD     R0, R0, #0x128
   BL      @v3d_setSubImage
+
+
+; # Small arrow position: X_arrow = X_name + Len_in_char_name * 10 + 5
+.arm
+.org 0x020A800C
+  MOV     R6, #4        ; Originally R0 with the number of chars.
+
+.org 0x020A8044
+  ADD     R0, R2, #0x7000   ; Shift to the position, originally 0x5000 (5)
