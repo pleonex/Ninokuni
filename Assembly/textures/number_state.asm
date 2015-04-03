@@ -145,13 +145,13 @@
   MOV     R3, #0
   BLX     @v3d_setSubImage
 
-; # Slash -> [48 + 5, 67] -> [57 + 5, 80]
+; # Slash -> [48 + 5, 67 + 25] -> [57 + 5, 80 + 25]
 .org 0x02084A36
-  MOV     R0, #67
+  MOV     R0, #67 + 25
   STR     R0, [SP,@Ystart]
   MOV     R0, #57 + 5
   STR     R0, [SP,@Xend]
-  MOV     R0, #80
+  MOV     R0, #80 + 25
   MOV     R1, #80
   STR     R0, [SP,@Yend]
   SUB     R1, #84 + 1
@@ -165,7 +165,7 @@
   STR     R1, [SP,@Height]
   STR     R7, [SP,@Palette]
   LDR     R1, [R5,R4]
-  ADD     R0, #0xD8
+  ADD     R0, #0xD8 - 25
   ADD     R0, R1, R0
   MOV     R1, #0
   MOV     R2, #0

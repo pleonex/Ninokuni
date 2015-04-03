@@ -91,17 +91,17 @@
   CMP     R9, #10
   BCC     @smallDigits
 
-; # Slash -> [48 + 5, 67] -> [57 + 5, 80]
+; # Slash -> [48 + 5, 67 + 25] -> [57 + 5, 80 + 25]
 .org 0x020A7A80
-  MOV     R0, #67
+  MOV     R0, #67 + 25
   STR     R0, [SP,@Ystart]
   MOV     R0, #57 + 5
   STR     R0, [SP,@Xend]
-  MOV     R1, #80
+  MOV     R1, #80 + 25
   STR     R1, [SP,@Yend]
-  SUB     R0, R1, #84 + 1
+  SUB     R0, R1, #84 + 1 + 25
   STR     R0, [SP,@Xout]
-  SUB     R0, R1, #86 + 1
+  SUB     R0, R1, #86 + 1 + 25
   STR     R0, [SP,@Yout]
   MOV     R0, #9
   STR     R0, [SP,@Width]
