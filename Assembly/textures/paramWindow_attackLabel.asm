@@ -35,10 +35,9 @@
 .org 0x020A0E64
   MOV     R0, #56
   MOV     R9, #68
-  STR     R0, [SP,#0x58+@Ystart]
-  MOV     R0, #108 + 11
-  STMFA   SP, {R0,R9}
-  SUB     R7, R9, #83
+  MOV     R1, #108 + 11
+  STMEA   SP, {r0,r1,R9}
+  SUB     R7, R9, #83 + 4
   STR     R7, [SP,#0x58+@Xout]
   SUB     R6, R9, #74
   STR     R6, [SP,#0x58+@Yout]
@@ -61,9 +60,10 @@
   STR     R0, [SP,#0x58+@Xend]
   MOV     R0, #80
   STR     R0, [SP,#0x58+@Yend]
-  SUB     R5, R0, #97
+  SUB     R5, R0, #97 + 3
   STR     R5, [SP,#0x58+@Xout]
-  STR     R6, [SP,#0x58+@Yout]
+  SUB     r0, r6, #1
+  STR     r0, [SP,#0x58+@Yout]
   MOV     R0, #37 + 6
   STR     R0, [SP,#0x58+@Width]
   STR     R11, [SP,#0x58+@Height]
@@ -78,9 +78,8 @@
 
 ; Spells blink 2 (0/0): [78, 56] -> [108 + 11, 68]
   MOV     R0, #56
-  STR     R0, [SP,#0x58+@Ystart]
-  MOV     R0, #108 + 11
-  STMFA   SP, {R0,R9}
+  MOV     r1, #108 + 11
+  STMEA   SP, {r0,r1,R9}
   STR     R7, [SP,#0x58+@Xout]
   STR     R6, [SP,#0x58+@Yout]
   MOV     R0, #30 + 11
@@ -102,7 +101,8 @@
   MOV     R0, #80
   STR     R0, [SP,#0x58+@Yend]
   STR     R5, [SP,#0x58+@Xout]
-  STR     R6, [SP,#0x58+@Yout]
+  SUB     r0, r6, #1
+  STR     r0, [SP,#0x58+@Yout]
   MOV     R0, #37 + 6
   STR     R0, [SP,#0x58+@Width]
   STR     R11, [SP,#0x58+@Height]
