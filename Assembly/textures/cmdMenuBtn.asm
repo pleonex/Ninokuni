@@ -433,7 +433,7 @@ setButtonX:
   MOV     r1, #54
   STR     r1, [SP,#0x60+@Xend]
   STR     R6, [SP,#0x60+@Yend]
-  SUB     R9, R6, #51
+  SUB     R9, R6, #51 + 2
   STR     R9, [SP,#0x60+@Xout]
   SUB     R8, R6, #36
   STR     R8, [SP,#0x60+@Yout]
@@ -483,8 +483,8 @@ setButtonX:
   BL      @v3d_setSubImage
 
 ; # Common constants for "Formation" word and "y" button
-  MOV     R9, -18 + 4          ; Move to the left
-  ADD     R8, R9, #12 - 4      ; Keep Y pos
+  MOV     R9, -18 + 4 - 2      ; Move to the left
+  ADD     R8, R9, #12 - 4 + 2  ; Keep Y pos
   ADD     R6, R5, R4,LSL#2
   MOV     R11, #13
   MOV     R7, #12
@@ -520,7 +520,7 @@ setFormation:
   STR     R0, [SP,#0x60+@Xend]
   MOV     R0, #35
   STR     R0, [SP,#0x60+@Yend]
-  MOV     R0, #14 + @AutoW
+  MOV     R0, #14 + @AutoW - 2
   STR     R0, [SP,#0x60+@Xout]
   MOV     R0, #4
   STR     R0, [SP,#0x60+@Yout]
@@ -551,7 +551,7 @@ setFormationPalette13:
   STR     R0, [SP,#0x60+@Xend]
   MOV     R0, #35
   STR     R0, [SP,#0x60+@Yend]
-  MOV     R0, #14 + @AutoW
+  MOV     R0, #14 + @AutoW - 2
   STR     R0, [SP,#0x60+@Xout]
   MOV     R0, #4
   STR     R0, [SP,#0x60+@Yout]
@@ -811,3 +811,15 @@ setButtonY:
   MOV     R2, R11
   MOV     R3, R11
   BL      @v3d_setSubImage
+
+
+; Formation cursor for the second tutorial battle
+.arm
+.org 0x020A9EDC
+  MOV     R2, #0x36000 + 0x4000     ; Width << 12
+  MOV     R3, #0x1C000              ; Height << 12
+
+; Formation button global position
+.arm
+.org 0x020A10A4
+  MOV     R0, #0x1F000 + 0x2000       ; X position
