@@ -45,6 +45,7 @@
 .include textures\selectWindow_lr.asm
 .include textures\number_small_skills.asm
 .include textures\selectWindowButton.asm
+.include textures\number_combat.asm
 .include fileformats\spellsname\spells_ov1.asm
 .include fileformats\familiarname\familiar_battle.asm
 .include fileformats\skillsname\skills_battle.asm
