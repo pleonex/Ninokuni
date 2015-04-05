@@ -1,6 +1,7 @@
 ;;----------------------------------------------------------------------------;;
-;;  Table to encode names
-;;  Copyright 2014 Francesco Bozzo (aka Superfranci99)
+;;  Table and code to encode names
+;;  Copyright 2015 Francesco Bozzo (aka Superfranci99)
+;;                 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
 ;;  you may not use this file except in compliance with the License.
@@ -15,24 +16,75 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
-;; Save name string decoding
-; R0 -> Current decoded char
-; R6 -> Output buffer ptr
-; R5 -> Max size
 .arm
+
+; ------------------------------------------------- ;
+; Encoding functions
+; ------------------------------------------------- ;
+; # String Encoding
+; # Arguments:
+;   + R6 -> Input pointer (decoded string)
+.org 0x020F7F80
+  ; It was checking the char and in the case to be a 1-byte char it returned.
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+  NOP
+
+  ; It was reading two-bytes char (now it reads one :D)
+  LDRB    R0, [R6],#1
+
+
+; # Char Encoding
+; # Arguments:
+;   + R0 -> Decoded char to encode
+;   + R3 -> Encoding table pointer
+.org 0x020F7EF4
+  ; It was swaping the two bytes of the char
+  NOP
+  NOP
+  NOP
+
+.org 0x020F7F0C
+  ; It was reading two bytes for the first decoded char of the table
+  LDRB    R1, [R3]
+
+  ; It was swaping the two bytes of the first decoded char
+  NOP
+  NOP
+  NOP
+
+
+; ------------------------------------------------- ;
+; Decoding functions
+; ------------------------------------------------- ;
+; # String Decoding
+; # Arguments:
+;   + R0 -> Current decoded char
+;   + R6 -> Output buffer ptr
+;   + R5 -> Max size
 .org 020F7EBCh
 .area 14h
     STRB    R0, [R6], #1        ; Write decoded char
-    SUB     R5, R5, #2          ; Decrease the max size
+    SUB     R5, R5, #1          ; Decrease the max size
 	NOP
 	NOP
 	NOP
 .endarea
 
-;; Save name char decoding
-; R0 -> Current encoded char
-; R2 -> First encoded char
-; R3 -> Input buffer ptr
+.org 020F7EDCh
+    CMP     R5, #1              ; Compare if we have read the max size
+
+
+; # Char Decoding
+; # Arguments:
+;   + R0 -> Current encoded char
+;   + R2 -> First encoded char
+;   + R3 -> Input buffer ptr
 .arm
 .org 020F7E60h
 .area 14h
@@ -43,6 +95,10 @@
 	MOV     R0, R0,LSR #24     ; ...
 .endarea
 
+
+; ------------------------------------------------- ;
+; Table
+; ------------------------------------------------- ;
 .org 02138F68h
 .area 6Ch       ; 9 entries
 ;        1º dec char  1º enc char  Num chars
@@ -57,7 +113,7 @@
 	dcd  00000000h,   00000000h,   00000000h
 .endarea
 
-;; Original table
+; # Original Table
 ;        1º dec char  1º enc char  Num chars
     ;dcd  00004081h,   00000001h,   00000001h        ; From ' ' to ' '   / Space
     ;dcd  00004F82h,   00000002h,   0000000Ah        ; From '０' to '９'  / Numbers
