@@ -1,6 +1,6 @@
 ;;----------------------------------------------------------------------------;;
-;;  Keyboard shift align in print
-;;  Copyright 2014 Benito Palacios (aka pleonex)
+;;  Align the char keys
+;;  Copyright 2015 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
 ;;  you may not use this file except in compliance with the License.
@@ -15,10 +15,16 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
-KEY_SHIFT		equ #0x19		
-
 .arm
-.org 020C656Ch				; Alphabet keys
-	ADD		R1, R1, KEY_SHIFT
-.org 020C6644h				; Number keys
-	ADD		R0, R0, KEY_SHIFT
+
+; Alphabet keys
+.org 0x020C656C
+  ADD     R1, R1, #0x16 + 3
+
+; Interrogation and exclamations keys
+.org 0x020C65E4
+  ADD     R0, R0, #0x04 + 3
+
+; Number keys
+.org 0x020C6644
+  ADD     R0, R0, #0x16 + 3
