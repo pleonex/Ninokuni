@@ -23,6 +23,7 @@
 .include textbox\script_top.asm
 .include keyboard\keys.asm          ; MUST be first since it's overwritten later
 .include keyboard\keyboard.asm
+.include keyboard\delete.asm
 .include keyboard\cursor.asm
 .include keyboard\font_space.asm
 .include keyboard\print_keys.asm
