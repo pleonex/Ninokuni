@@ -18,6 +18,7 @@
 ;;----------------------------------------------------------------------------;;
 ;; New code located at unused keyboard keys
 ;;----------------------------------------------------------------------------;;
+.org 0x020CBE14
 .area 3Ch
 @getStringWidthCursor:
 ; Update the cursor OAM coordinates
