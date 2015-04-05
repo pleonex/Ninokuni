@@ -1,6 +1,6 @@
 ;;----------------------------------------------------------------------------;;
-;;  Keyboard hack to support one and two byte chars
-;;  Copyright 2014 Benito Palacios (aka pleonex)
+;;  Keyboard hack to support 1-byte chars
+;;  Copyright 2015 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
 ;;  you may not use this file except in compliance with the License.
@@ -217,38 +217,11 @@ update_util:
   BX      LR
 .endarea
 
-.area 3Ch
-getStringWidthCursor:
-; Update the cursor position
-;
-; ARGUMENTS:
-;   R0: Nothing
-;   R1: Written chars
-;   R3: Base X Position
-; RETURNS:
 
-  font_getStringWidth equ 020DF610h
 
-  STMFD   SP!, {R2,R5,LR}
-
-  ; Add 0 pixels for char-separation
-  MOV     R0, #0x00
-  MLA     R5, R1, R0, R3
-
-  ; Call to font_getStringWidth to get the pixel width
-  LDR     R1, [R4, 0x3D0]       ; Name pointer
-  ADD     R0, R4, #0xC          ; Font object
-  BLX     font_getStringWidth
-
-  ; Add it
-  ADD     R1, R0, R5
-
-  LDMFD   SP!, {R2,R5,PC}
-.endarea
-
-;;-----------------------------------------------------------------------------------------------;;
+;;----------------------------------------------------------------------------;;
 ;; ## KEYBOARD DELETE BUTTON ##
-;;-----------------------------------------------------------------------------------------------;;
+;;----------------------------------------------------------------------------;;
 UpdateCursor   equ  020C66B0h
 
 .org 020C6400h
@@ -292,131 +265,49 @@ UpdateCursor   equ  020C66B0h
   LDMFD   SP!, {R3,R5,PC}
 .endarea
 
-;;-----------------------------------------------------------------------------------------------;;
-;; ## SUPPORT 1-BYTE & 2-BYTE CHARS ##
-;;-----------------------------------------------------------------------------------------------;;
+;;----------------------------------------------------------------------------;;
+;; ## SUPPORT 1-BYTE ##
+;;----------------------------------------------------------------------------;;
 
-;;-----------------------------------------------------------------------------------------------;;
+;;----------------------------------------------------------------------------;;
 ;;      Disable left buttons (nigori/accent)
-;;-----------------------------------------------------------------------------------------------;;
+;;----------------------------------------------------------------------------;;
 
 .org 020C6810h
 .area 4h
   BEQ     020C69F4h                       ; Jump to the end
 .endarea
 
-;;-----------------------------------------------------------------------------------------------;;
+;;----------------------------------------------------------------------------;;
 ;;      Fix add new char.
-;;-----------------------------------------------------------------------------------------------;;
+;;----------------------------------------------------------------------------;;
 .org 020C68ACh
-.area 38h
-  LDR     R0, [R11,#0x3D0]				; Name pointer
-	LDR     R1, [R11,#0x3D8]				; Number of characters before write the new
-  BL		  get_postIndex
-  MOV     R1, R2
-  MOV     R3, R7
+.area 44h
+  ; Write char at the end of the buffer
+  LDR     R0, [R11,#0x3D8]				; Cursor position
+  LDR     R1, [R11,#0x3D0]				; Name pointer
+  NOP     ;MOV     R0, R0,LSL#1			; No need to *2 to get index
+  STRH    R7, [R1,R0]					; Write char
 
-	BL		write_char
+  ; Check if the cursor is at the end of the buffer to increment it
+  LDR     R1, [R11,#0x3D8]				; Cursor position
+  LDR     R0, [R11,#0x3D4]				; Current size
+  CMP     R1, R0						; If pos >= size ...
+  BLT     @@update_cursor    			; ... skip, else if pos <= size
 
-	LDR     R3, [R11,#0x3D4]				; Get the util (1)
-	CMP     R1, R3							; (1) Check if it must be incremented
-	STRGE   R1, [R11,#0x3D4]				; (1) Write it
+  ; Update current size
+  ADD     R0, R0, 1						; Increment szie by 1
+  STR     R0, [R11,#0x3D4]				; Write new size
 
-  NOP
-  NOP
-  NOP
-  NOP
-  NOP
-.endarea
+  ; Write null char at the end
+  LDR     R2, [R11,#0x3D0]				; Name pointer
+  NOP     ;MOV     R1, R0,LSL#1	        ; No need to *2 to get index
+  MOV     R0, #0						; Write a null char at the end
+  STRH    R0, [R2,R1]                   ; ...
 
-;;-----------------------------------------------------------------------------------------------;;
-;;      Fix nigori (accent) button click (change char)
-;;-----------------------------------------------------------------------------------------------;;
-.org 020C691Ch      ; Fix reading char
-.area 2Ch
-  BL      get_preIndex       ; Fix the char index too
-  STR     R1, [SP,#0x0]      ; ||
-	BL 		  read_charSP
-  MOV     R2, R0
-  MOVEQ   R2, R2,LSL#0x8  ; To be able to compare with alphabet
+@@update_cursor:
+  LDR     R1, [R11,#0x3D8]				; Cursor position
+  MOV     R0, R11						; Struct
+  ADD     R1, R1, #1					; Increment it and call update_Cursor
 
-  ; Changes to get free space
-  CMP     R2, R9
-  BEQ     020C69F4h
-  MOV     R8, #0x64 ; 'd' ; Changed
-  MUL     R4, R7, R8      ; Changed
-  MOV     R3, #0
-  MOV     R0, R3
-.endarea
-
-.org 020C6998h      ; Write new char
-.area 0Ch
-  LDR     R0, [SP,#0x4]
-  LDR     R1, [SP,#0x0]
-  BL      write_char
-  ; Jump to next code
-.endarea
-
-.org 020C69CCh      ; Fix reading char
-.area 10h
-  BL      read_charSP
-  MOV     R1, R2
-  BL      update_util
-  CMP     R0, R1
-.endarea
-
-;;-----------------------------------------------------------------------------------------------;;
-;;      Fix nigori (accent) button activation
-;;-----------------------------------------------------------------------------------------------;;
-.org 020C6A60h
-.area 18h
-  LDR     R1, [R10,#0x3D8]    ; Char index
-  CMP     R1, R0
-  SUBGE   R1, R0, #1
-  LDR     R0, [R10,#0x3D0]    ; Name offset
-  BL      read_charIndex
-  MOV     R5, R0
-.endarea
-
-;;-----------------------------------------------------------------------------------------------;;
-;;      Disable L & R buttons
-;;-----------------------------------------------------------------------------------------------;;
-.org 0207A800h
-.area 4h
-  NOP
-.endarea
-
-;;-----------------------------------------------------------------------------------------------;;
-;;      Extra font space
-;;-----------------------------------------------------------------------------------------------;;
-.org 020C64E0h
-.area 4h
-  MOV     R1, #4 ; Original: 8
-.endarea
-
-;;-----------------------------------------------------------------------------------------------;;
-;;      Cursor X separation - MODE 1
-;;-----------------------------------------------------------------------------------------------;;
-;.org 020C66E0h
-;.area 4h
-;  MOV     R0, #0xE
-;.endarea
-
-;;-----------------------------------------------------------------------------------------------;;
-;;      Cursor X separation - MODE 2
-;;-----------------------------------------------------------------------------------------------;;
-.org 020C66D4h
-.area 0x24
-STR     R1, [R4,#0x3D8] ; Set written chars
-
-LDR     R2, [R4,#0x3EC] ; Load Box Y Position
-ADD     R2, R2, #0x11
-
-LDR     R3, [R4,#0x3E8] ; Load Box X Position
-ADD     R3, R3, #0x4
-
-BL      getStringWidthCursor
-
-NOP
-LDR     R0, [R4,#0x180] ; Load Pointer OAM Cursor
 .endarea
