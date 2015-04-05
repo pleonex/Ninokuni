@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Keyboard hack to support 1-byte chars
+;;  Fix the write char code.
 ;;  Copyright 2015 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -15,17 +15,8 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
-;;----------------------------------------------------------------------------;;
-;;      Disable left buttons (nigori/accent)
-;;----------------------------------------------------------------------------;;
-.org 020C6810h
-.area 4h
-  BEQ     020C69F4h                       ; Jump to the end
-.endarea
+.arm
 
-;;----------------------------------------------------------------------------;;
-;;      Fix add new char.
-;;----------------------------------------------------------------------------;;
 .org 020C68ACh
 .area 44h
   ; Write char at the end of the buffer
