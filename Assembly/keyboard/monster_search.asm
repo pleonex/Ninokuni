@@ -1,6 +1,6 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 14 for arm9
-;;  Copyright 2014 Benito Palacios (aka pleonex)
+;;  Familiar wiki search.
+;;  Copyright 2015 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
 ;;  you may not use this file except in compliance with the License.
@@ -14,25 +14,21 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_14.bin, 020C18E0h
 
-.relativeinclude on
-.erroronwarning on
+.arm
 
-.include textbox\script_top.asm
-.include keyboard\keys.asm          ; MUST be first since it's overwritten later
-.include keyboard\write_char.asm
-.include keyboard\nigori.asm
-.include keyboard\delete.asm
-.include keyboard\cursor.asm
-.include keyboard\font_space.asm
-.include keyboard\print_keys.asm
-.include keyboard\set_string.asm
-.include keyboard\monster_search_toUpper.asm
-.include pointers\overlay9_14.asm
-.include textbox\menu_request.asm
-.include password\alphabet.asm
+@toUpper equ 0x020CBE78
 
-.close
-; EOF ;
+; # Copy user input
+; First char must be upper case
+.org 0x020911D8
+  MOV     R2, #9
+
+  @copyLoop:
+  LDRB    R1, [R3],#1
+  CMP     R2, #9
+  BLEQ    @toUpper
+  SUBS    R2, R2, #1
+  STRB    R1, [R7], #1
+  NOP
+  BNE     @copyLoop

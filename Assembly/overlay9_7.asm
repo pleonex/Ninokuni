@@ -35,6 +35,7 @@
 .include textbox\menu_learn_skill.asm
 .include textbox\express_missions.asm
 .include keyboard\fix_familiar_length.asm
+.include keyboard\monster_search.asm
 
 .close
 ; EOF ;
