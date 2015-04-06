@@ -23,20 +23,21 @@
 @getStringWidth:
 ; Get the width in pixel of a string.
 ; ARGUMENTS:
-;   R0: Keyboard struct
+;   R0: Skipped chars
 ;   R1: String length
 ;   R2: Width to add
+;   R4: Keyboard struct
 ; RETURNS:
 
   @font_getGlyphIdx  equ 0x0202FE00
   @font_getGlyphSize equ 0x0202FE48
 
-  STMFD   SP!, {R4,R5,R6,R7,LR}
+  STMFD   SP!, {R5,R6,R7,LR}
 
-  MOV     R4, R0                ; Keyboard struct
   MOV     R7, R1                ; String length
   MOV     R5, R2                ; Length
   LDR     R6, [R4, 0x3D0]       ; Name pointer
+  ADD     R6, R0                ; Skip some chars
   B       @checkIfNextIsNull
 
   @addWidthChar:
@@ -64,7 +65,7 @@
 
   MOV     R1, R5
 
-  LDMFD   SP!, {R4,R5,R6,R7,PC}
+  LDMFD   SP!, {R5,R6,R7,PC}
 .endarea
 
 
@@ -79,7 +80,7 @@ STR     R1, [R4,#0x3D8] ; Set cursor position
 LDR     R2, [R4,#0x3E8] ; Load Box X Position
 ADD     R2, R2, #0x4
 
-MOV     R0, R4
+MOV     R0, #0
 BL      @getStringWidth
 
 LDR     R2, [R4,#0x3EC] ; Load Box Y Position
