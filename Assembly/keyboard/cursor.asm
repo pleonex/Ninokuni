@@ -19,33 +19,52 @@
 ;; New code located at unused keyboard keys
 ;;----------------------------------------------------------------------------;;
 .org 0x020CBE14
-.area 3Ch
-@getStringWidthCursor:
-; Update the cursor OAM coordinates
-;
+.area 0x64
+@getStringWidth:
+; Get the width in pixel of a string.
 ; ARGUMENTS:
-;   R0: Nothing
-;   R1: Cursor position
-;   R3: Base X coordinate
+;   R0: Keyboard struct
+;   R1: String length
+;   R2: Width to add
 ; RETURNS:
 
-  @font_getStringWidth equ 020DF610h
+  @font_getGlyphIdx  equ 0x0202FE00
+  @font_getGlyphSize equ 0x0202FE48
 
-  STMFD   SP!, {R0,R2,R5,LR}
+  STMFD   SP!, {R4,R5,R6,R7,LR}
 
-  ; Add 0 pixels for char-separation
-  MOV     R0, #0x00
-  MLA     R5, R1, R0, R3
+  MOV     R4, R0                ; Keyboard struct
+  MOV     R7, R1                ; String length
+  MOV     R5, R2                ; Length
+  LDR     R6, [R4, 0x3D0]       ; Name pointer
+  B       @checkIfNextIsNull
 
-  ; Call to font_getStringWidth to get the pixel width
-  LDR     R1, [R4, 0x3D0]       ; Name pointer
-  ADD     R0, R4, #0xC          ; Font object
-  BLX     @font_getStringWidth
+  @addWidthChar:
+  ; Substract size
+  SUB     R7, R7, #1
 
-  ; Add it
-  ADD     R1, R0, R5
+  ; Get the index of the char
+  LDR     R0, [R4,#0xC+0x20]    ; Font object
+  BL      @font_getGlyphIdx
 
-  LDMFD   SP!, {R0,R2,R5,PC}
+  ; Get the CWDH section for the char
+  MOV     R1, R0                ; Char index
+  LDR     R0, [R4,#0xC+0x20]    ; Font object
+  BL      @font_getGlyphSize
+
+  ; Read the "Advance" field and add it
+  LDRB    R0, [R0,#2]           ; Advance
+  ADD     R5, R0                ; Add to current length
+
+  @checkIfNextIsNull:
+  LDRB    R1, [R6], #1          ; Read next char
+  CMP     R1, #0                ; Check if it's not null
+  CMPNE   R7, #0                ; Check there are chars to read
+  BNE     @addWidthChar
+
+  MOV     R1, R5
+
+  LDMFD   SP!, {R4,R5,R6,R7,PC}
 .endarea
 
 
@@ -57,15 +76,15 @@
 .area 0x24
 STR     R1, [R4,#0x3D8] ; Set cursor position
 
+LDR     R2, [R4,#0x3E8] ; Load Box X Position
+ADD     R2, R2, #0x4
+
+MOV     R0, R4
+BL      @getStringWidth
+
 LDR     R2, [R4,#0x3EC] ; Load Box Y Position
 ADD     R2, R2, #0x11
 
-LDR     R3, [R4,#0x3E8] ; Load Box X Position
-ADD     R3, R3, #0x4
-
-BL      @getStringWidthCursor
-
-NOP
 LDR     R0, [R4,#0x180] ; Load Pointer OAM Cursor
 .endarea
 

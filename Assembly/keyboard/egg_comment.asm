@@ -15,16 +15,20 @@
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
 
-@getStringWidthCursor equ 0x020CBE14
+@getStringWidth equ 0x020CBE14
 
 .arm
 
 ;; Calculate the X position of the cursor in this case
-.org 0x0208C5F0
-  ; It was multiplying the current size by 0x0C
-  ADD     R2, R3, R2,LSR#28
-  ADD     R0, R4, #0x3B000
-  MOV     r4, r7
-  MOV     r3, #0
-  BL      @getStringWidthCursor
+;; It was multiplying the current size by 0x0C
+.org 0x0208C5E8
+  MOV     R2, R3,ASR#3
+  MOV     r0, r7
+  LDR     r1, [r7,#0x3D8]
+  ADD     r7, R3, R2,LSR#28
+  MOV     r2, #0
+  BL      @getStringWidth
   MOV     r12, r1
+
+  ADD     R0, R4, #0x3B000
+  MOV     R2, R7,ASR#4
