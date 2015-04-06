@@ -19,5 +19,5 @@
 
 .org 020C64E0h
 .area 4h
-  MOV     R1, #8 - 4
+  MOV     R1, #8 - 8
 .endarea
