@@ -26,8 +26,8 @@
   NOP  ;ORR     R0, R2, R0,ASR#8    ; More swaping
 
 ; Interrogation and exclamations keys
-.org 0x020C65E4
-  ADD     R0, R0, #0x04 + 3         ; X offset
+.org 0x020C6604
+  ADD     R1, R1, #0xD4 + 3         ; X offset
 
 .org 0x020C65F0
   MOV     R0, R1  ;,LSL#8           ; No need to swap bytes for the char
