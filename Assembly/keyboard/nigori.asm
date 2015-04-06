@@ -17,7 +17,14 @@
 
 .arm
 
+; If somehow a nigori key is pressed, do nothing
 .org 020C6810h
 .area 4h
   BEQ     020C69F4h                       ; Jump to the end
 .endarea
+
+
+; Make impossible select the nigori keys
+.org 0x020C6778
+  MOVNE   R3, #0        ; Max number of rows in keyboard 1 (originally 6)
+  MOVEQ   R3, #0        ; Max number of rows in keyboard 2 (originally 3)
