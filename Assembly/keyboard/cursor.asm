@@ -31,7 +31,7 @@
 
   @font_getStringWidth equ 020DF610h
 
-  STMFD   SP!, {R2,R5,LR}
+  STMFD   SP!, {R0,R2,R5,LR}
 
   ; Add 0 pixels for char-separation
   MOV     R0, #0x00
@@ -45,7 +45,7 @@
   ; Add it
   ADD     R1, R0, R5
 
-  LDMFD   SP!, {R2,R5,PC}
+  LDMFD   SP!, {R0,R2,R5,PC}
 .endarea
 
 
