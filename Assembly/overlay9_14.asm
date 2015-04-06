@@ -28,6 +28,7 @@
 .include keyboard\cursor.asm
 .include keyboard\font_space.asm
 .include keyboard\print_keys.asm
+.include keyboard\set_string.asm
 .include pointers\overlay9_14.asm
 .include textbox\menu_request.asm
 .include password\alphabet.asm
