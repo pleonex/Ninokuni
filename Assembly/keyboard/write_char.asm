@@ -17,13 +17,19 @@
 
 .arm
 
-.org 020C68ACh
+.org 0x020C688C
+  ; It was comparing it the pressed char is < 0x100 and in that case,
+  ; it though it was a nigori char (replace current char with other keyboard).
+  NOP
+  NOP
+
+.org 0x020C68AC
 .area 44h
   ; Write char at the end of the buffer
   LDR     R0, [R11,#0x3D8]				; Cursor position
   LDR     R1, [R11,#0x3D0]				; Name pointer
   NOP     ;MOV     R0, R0,LSL#1			; No need to *2 to get index
-  STRH    R7, [R1,R0]					; Write char
+  STRB    R7, [R1,R0]					; Write char
 
   ; Check if the cursor is at the end of the buffer to increment it
   LDR     R1, [R11,#0x3D8]				; Cursor position
@@ -37,9 +43,9 @@
 
   ; Write null char at the end
   LDR     R2, [R11,#0x3D0]				; Name pointer
-  NOP     ;MOV     R1, R0,LSL#1	        ; No need to *2 to get index
+  MOV     R1, R0  ;,LSL#1	            ; No need to *2 to get index
   MOV     R0, #0						; Write a null char at the end
-  STRH    R0, [R2,R1]                   ; ...
+  STRB    R0, [R2,R1]                   ; ...
 
 @@update_cursor:
   LDR     R1, [R11,#0x3D8]				; Cursor position
