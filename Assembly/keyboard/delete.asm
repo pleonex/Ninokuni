@@ -52,9 +52,9 @@
   @setNullChar:
   ; Write a null char at the end
   LDR     R2, [R0,#0x3D0]                   ; Get name pointer
-  MOV     R1, R1 ;,LSL#1                    ; No need to *2 to get index
+  NOP  ;MOV     R1, R1,LSL#1                    ; No need to *2 to get index
   MOV     R3, #0                            ; Write null char
-  STRH    R3, [R2,R1]                       ; ...
+  STRB    R3, [R2,R1]                       ; ...
 
   ; Update the cursor
   LDR     R1, [R0,#0x3D8]
