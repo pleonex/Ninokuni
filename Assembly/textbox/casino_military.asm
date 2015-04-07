@@ -18,4 +18,4 @@
 .arm
 .org 0x0207E900
   MOV r1, #0xB+19       ; X pos
-  MOV R2, #3            ; Y pos
+  MOV R2, #2            ; Y pos
