@@ -23,6 +23,7 @@
 .include bugs\downloading_news.asm
 .include Wi-Fi\dwc.asm
 .include Wi-Fi\nossl.asm
+.include textbox\wifi_news.asm
 
 .close
 ; EOF ;
