@@ -36,15 +36,15 @@
 
 ; Year
 .org 0x0209F604
-  MOV     R1, #0xCD         ; X pos
+  MOV     R1, #0xCD + 5      ; X pos
 
 ; Month
 .org 0x0209F62C
-  MOV     R1, #0xE1         ; X pos
+  MOV     R1, #0xE1 + 5     ; X pos
 
 ; Day
 .org 0x0209F658
-  MOV     R1, #0xED         ; X pos
+  MOV     R1, #0xED + 5     ; X pos
 
 
 ; # Title news (bottom screen)
