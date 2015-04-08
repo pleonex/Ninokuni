@@ -37,6 +37,7 @@
 .include keyboard\fix_familiar_length.asm
 .include keyboard\monster_search.asm
 .include keyboard\textbox_familiar.asm
+.include keyboard\textbox_monster_search.asm
 
 .close
 ; EOF ;
