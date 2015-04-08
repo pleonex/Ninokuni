@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Increase the time limit to 995:26:35
+;;  Increase the time limit to 995:59:59
 ;;  Copyright 2015 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -19,19 +19,19 @@
 .org 0x0210A530
 .area 40
   LDR     R3, [R0]
-  LDMIA   R3, {R2,R1}       ; Loads current ticks time
-
-  ; Check the lower part
-  LDR     R0, =0xEC6CEFA0
-  CMP     R1, R0
+  LDMIA   R3, {R0,R1}       ; Loads current ticks time
 
   ; Check the higher part
   MOV     R2, #0x1B4
   ADD     R2, #0x2
-  CMPEQ   R1, R2
+  CMP     R1, R2
+
+  ; Check the lower part
+  LDR     R1, =0xEC6CEFA0
+  CMPEQ   R0, R1
 
   ; Set limit values if either of the comparaison is greater
-  STMHIIA R3, {R0,R2}
+  STMHIIA R3, {R1,R2}
 
   BX      LR
 .pool
