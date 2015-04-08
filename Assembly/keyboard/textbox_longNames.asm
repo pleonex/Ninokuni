@@ -23,9 +23,11 @@
 ; R to the left.
 .org 0x02139E32
   .dcb 0x44 + 66        ; Questions
+  .dcb 0x6D + 34        ; Player name
 
 
 ; # Textboxes X Position
 ; Position of the text inside the textbox and the char cursor
 .org 0x02139E36
   .dcb 0x1D + 66        ; Questions
+  .dcb 0x45 + 35        ; Player name
