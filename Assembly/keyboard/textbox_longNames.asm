@@ -16,6 +16,14 @@
 ;;----------------------------------------------------------------------------;;
 
 
+; # Input length
+; The number of characters the user can write
+.org 0x02139E30
+  .dcb 0x0A             ; Questions
+  .dcb 0x06 + 1         ; Player name (warning: in the save only fits 8 bytes,
+                        ; that is the player name + \0)
+
+
 ; # L / R X Position
 ; The following values are the relative position as the screen width would be
 ; 258. Exactly, X_L = Z and X_R = 258 - Z, where Z are the next numbers.
@@ -25,6 +33,14 @@
   .dcb 0x44 + 66        ; Questions
   .dcb 0x6D + 34        ; Player name
 
+
+; # Number of buttons in the bottom
+; Number of buttons below. Valid values are 3 and 4. The difference is if the
+; button to change between upper and lower case chars is present. Other values
+; make the game crash.
+.org 0x02139E34
+  .dcb 0x03             ; Questions
+  .dcb 0x04             ; Player name
 
 ; # Textboxes X Position
 ; Position of the text inside the textbox and the char cursor
