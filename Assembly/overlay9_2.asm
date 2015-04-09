@@ -23,6 +23,7 @@
 .include bugs\downloading_news.asm
 .include Wi-Fi\dwc.asm
 .include Wi-Fi\nossl.asm
+.include Wi-Fi\filter.asm
 .include textbox\wifi_news.asm
 .include textbox\wifi_objects.asm
 
