@@ -3,3 +3,8 @@ Assembly/armips.exe
 
 # Ignore python compiled files
 *.pyc
+
+# Ignore C# executable en preference files
+bin/
+obj/
+*.userprefs
