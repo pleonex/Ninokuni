@@ -7,3 +7,6 @@
 [submodule "Programs/NerdFontTerminatoR"]
 	path = Programs/NerdFontTerminatoR
 	url = git@github.com:pleonex/NerdFontTerminatoR.git
+[submodule "Programs/Downlitor/libgame"]
+	path = Programs/Downlitor/libgame
+	url = git@github.com:pleonex/libgame.git

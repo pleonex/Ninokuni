@@ -35,6 +35,12 @@
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Forms" />
+    <Reference Include="libgame">
+      <HintPath>..\libgame\bin\Release\libgame.dll</HintPath>
+    </Reference>
+    <Reference Include="Mono.Addins">
+      <HintPath>..\libgame\bin\Release\Mono.Addins.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Program.cs" />
