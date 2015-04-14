@@ -20,6 +20,7 @@
 .relativeinclude on
 .erroronwarning on
 
+.include bugs\antipiracy.asm
 .include pointers\arm9.asm
 .include textbox\save.asm
 ;.include font\int2str_arm9.asm
