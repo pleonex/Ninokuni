@@ -18,3 +18,9 @@
 ; In spell list
 .org 0x020B4188
   SUB     r7, r0, #0x08 ; Fix to get the right pointer to name
+
+
+; Applying "poison cure"
+.arm
+.org 0x020A4778
+  SUB     R11, R0, #0x08
