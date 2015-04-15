@@ -47,10 +47,10 @@
 @@table:
   .halfword @@error -   @@table - 2  ; case0 / default: error
   .halfword @@case1 -   @@table - 2  ; case1: attack button
-  .halfword @@case2 -   @@table - 2  ; case2
+  .halfword @@case2 -   @@table - 2  ; case2: defense button
   .halfword @@isSkill - @@table - 2  ; case3: isSkill
   .halfword @@isMagic - @@table - 2  ; case4: isMagic
-  .halfword @@case5 -   @@table - 2  ; case5
+  .halfword @@case5 -   @@table - 2  ; case5: items
 
 @@case1:
   LDR     R0, =0x206BF44
@@ -96,3 +96,13 @@
 
 .pool
 .endarea
+
+
+; # Same function as above but for the little box
+; In this case we only fix the spells since some skills needs the short name.
+.thumb
+.org 0x020863C6
+  NOP
+  BLX     @magic_getPtr_wr
+  SUB     r0, @SpellExtraNameSize
+  POP     {R4,PC}
