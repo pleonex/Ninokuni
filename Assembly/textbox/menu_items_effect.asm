@@ -23,3 +23,9 @@
 ;; Slot color
 .org 0x021170DE
   MOV    R1, #0x9E - 4 ; X POS
+
+
+.thumb
+;; Increase the size of the item name textbox
+.org 0x02116E90
+  MOV     R0, #0x14 + 1     ; Width / 8
