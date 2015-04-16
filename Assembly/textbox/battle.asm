@@ -24,11 +24,11 @@ LSL     r1, r1, #0xC
 ;; # SPELL | SP ATTACKS STRING #
 .thumb
 .org 020809C4h
-MOV     r0, #3  ; Original 5
+MOV     r0, #4  ; Original 5
 LSL     r0, r0, #0xF
 
 ;; # CHAR NAME AT TOP SCREEN #
 .thumb
 .org 020809D4h
-MOV     r0, #3  ; Original 5
+MOV     r0, #4  ; Original 5
 LSL     r0, r0, #0xF
