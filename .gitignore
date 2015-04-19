@@ -8,3 +8,11 @@ Assembly/armips.exe
 bin/
 obj/
 *.userprefs
+*.suo
+*.csproj.user
+
+# NuGet packages
+packages/
+
+# StyleCop
+StyleCop.Cache
