@@ -28,4 +28,4 @@
 .thumb
 ;; Increase the size of the item name textbox
 .org 0x02116E90
-  MOV     R0, #0x14 + 1     ; Width / 8
+  MOV     R0, #0x14 + 2     ; Width / 8
