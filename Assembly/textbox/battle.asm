@@ -32,3 +32,9 @@ LSL     r0, r0, #0xF
 .org 020809D4h
 MOV     r0, #4  ; Original 5
 LSL     r0, r0, #0xF
+
+
+;; # ENEMY TEXTBOX SIZE #
+.thumb
+.org 0207CC10h
+MOV     R0, #0x9 + 1    ; Width * 8
