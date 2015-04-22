@@ -19,13 +19,14 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Text;
 
 namespace Downlitor
 {
 	public struct AlchemyRecipe
 	{
 		public AlchemyRecipe(string name, Ingredient ingredient1, Ingredient ingredient2,
-			Ingredient ingredient3)
+			Ingredient ingredient3) : this()
 		{
 			Name = name;
 			Ingredient1 = ingredient1;
@@ -52,6 +53,21 @@ namespace Downlitor
 			get;
 			private set;
 		}
+
+		public override string ToString()
+		{
+			var output = new StringBuilder();
+			output.AppendFormat("Recipe {0} = {1}", Name, Ingredient1);
+
+			if (Ingredient2.Quantity > 0)
+				output.AppendFormat(" + {0}", Ingredient2);
+
+			if (Ingredient3.Quantity > 0)
+				output.AppendFormat(" + {0}", Ingredient3);
+
+			return output.ToString();
+		}
+		
 	}
 }
 

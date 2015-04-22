@@ -25,12 +25,14 @@ namespace Downlitor
 	public struct Ingredient
 	{
 		public Ingredient(string name, int quantity)
+			: this()
 		{
 			Name = name;
 			Quantity = quantity;
 		}
 
 		public Ingredient(int itemId, int quantity)
+			: this()
 		{
 			Name = ItemManager.Instance.GetItem(itemId);
 			Quantity = quantity;
@@ -44,6 +46,11 @@ namespace Downlitor
 		public int Quantity {
 			get;
 			private set;
+		}
+
+		public override string ToString()
+		{
+			return string.Format("{0} (x{1})", Name, Quantity);
 		}
 	}
 }
