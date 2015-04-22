@@ -45,5 +45,8 @@
   <ItemGroup>
     <Compile Include="Program.cs" />
     <Compile Include="ItemManager.cs" />
+    <Compile Include="AlchemyManager.cs" />
+    <Compile Include="AlchemyRecipe.cs" />
+    <Compile Include="Ingredient.cs" />
   </ItemGroup>
 </Project>
