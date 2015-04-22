@@ -19,19 +19,20 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.IO;
+using Libgame.IO;
 
 namespace Downlitor
 {
-	public static class AlchemyManager
+	public class AlchemyManager
 	{
 		private static AlchemyManager instance;
-		private const string ItemName = "AlchemyRecipeData.dat";
+		private const string Filename = "AlchemyRecipeData.dat";
 
 		private AlchemyRecipe[] recipes;
 
 		private AlchemyManager()
 		{
-			recipes = new AlchemyRecipe[NumEntries];
 			Read();
 		}
 
@@ -57,9 +58,33 @@ namespace Downlitor
 			return recipes[index];
 		}
 
+		public AlchemyRecipe this[int index] {
+			get { return GetRecipe(index); }
+		}
+
 		private void Read()
 		{
+			var stream = new DataStream(Filename, FileMode.Open, FileAccess.Read);
+			var reader = new DataReader(stream, EndiannessMode.LittleEndian,
+				             System.Text.Encoding.GetEncoding("shift_jis"));
 
+			NumEntries = reader.ReadUInt16();
+			recipes = new AlchemyRecipe[NumEntries];
+
+			var items = ItemManager.Instance;
+			for (int i = 0; i < NumEntries; i++) {
+				var name = items[reader.ReadInt32()];
+
+				var item1 = reader.ReadUInt16();
+				var item2 = reader.ReadUInt16();
+				var item3 = reader.ReadUInt16();
+
+				var recipe1 = new Ingredient(item1, reader.ReadUInt16());
+				var recipe2 = new Ingredient(item2, reader.ReadUInt16());
+				var recipe3 = new Ingredient(item3, reader.ReadUInt16());
+
+				recipes[i] = new AlchemyRecipe(name, recipe1, recipe2, recipe3);
+			}
 		}
 	}
 }

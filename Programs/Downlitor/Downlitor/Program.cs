@@ -38,6 +38,11 @@ namespace Downlitor
 				if (items[i] != null)
 					Console.WriteLine(items[i]);
 
+			var recipes = AlchemyManager.Instance;
+			for (int i = 0; i < recipes.NumEntries; i++)
+				if (recipes[i].Name != null)
+					Console.WriteLine(recipes[i]);
+
 			Console.ReadKey(true);
 		}
 	}
