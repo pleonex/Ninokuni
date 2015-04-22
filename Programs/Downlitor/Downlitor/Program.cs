@@ -19,6 +19,8 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Xml.Linq;
+using Libgame;
 
 namespace Downlitor
 {
@@ -27,7 +29,16 @@ namespace Downlitor
 		[STAThread]
 		public static void Main(string[] args)
 		{
+			string xmlEdit = "Ninokuni español.xml";
+			var document = XDocument.Load(xmlEdit);
+			Configuration.Initialize(document);
 
+			var items = ItemManager.Instance;
+			for (int i = 0; i < ItemManager.NumEntries; i++)
+				if (items[i] != null)
+					Console.WriteLine(items[i]);
+
+			Console.ReadKey(true);
 		}
 	}
 }
