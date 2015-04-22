@@ -7,7 +7,6 @@
     <OutputType>Exe</OutputType>
     <RootNamespace>Downlitor</RootNamespace>
     <AssemblyName>Downlitor</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -48,5 +47,6 @@
     <Compile Include="AlchemyManager.cs" />
     <Compile Include="AlchemyRecipe.cs" />
     <Compile Include="Ingredient.cs" />
+    <Compile Include="SubquestManager.cs" />
   </ItemGroup>
 </Project>
