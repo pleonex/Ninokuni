@@ -24,6 +24,8 @@
 @Palette equ -0x3C
 @v3d_setSubImage equ 0x020FCD7C
 
+@AutoW equ 0x04 ; Width of the automatic button
+
 .arm
 
 ; # Common constant
@@ -157,14 +159,17 @@
 
 ; # First button (2/0): [0, 0] -> [54, 24]
   MOV     R4, #24
-  STR     R9, [SP,#0x58+@Ystart]
+  MOV     r0, r9                        ; Added
+  ;STR     R9, [SP,#0x58+@Ystart]       ; Deleted
   MOV     R1, #54
-  STR     R1, [SP,#0x58+@Xend]
-  STR     R4, [SP,#0x58+@Yend]
-  SUB     R0, R4, #51
+  ;STR     R1, [SP,#0x58+@Xend]         ; Deleted
+  STMIA   sp, {r0,r1,r4}                ; Added
+  ;STR     R4, [SP,#0x58+@Yend]         ; Deleted
+  SUB     R0, R4, #51 + @AutoW
   STR     R0, [SP,#0x58+@Xout]
   SUB     R0, R4, #36
   STR     R0, [SP,#0x58+@Yout]
+  ADD     r1, @AutoW                    ; Added
   STR     R1, [SP,#0x58+@Width]
   STR     R4, [SP,#0x58+@Height]
   MOV     R0, #20
@@ -177,15 +182,18 @@
   BL      @v3d_setSubImage
 
 ; "Automatic" word (2/1): [41, 24] -> [86 + 5, 36]
-  STR     R4, [SP,#0x58+@Ystart]
-  MOV     R4, #86 + 5
-  MOV     R0, #36
-  STR     R4, [SP,#0x58+@Xend]
-  STR     R0, [SP,#0x58+@Yend]
-  STR     R11, [SP,#0x58+@Xout]
-  SUB     R0, R0, #42
+  MOV     r0, r4                        ; + Added
+  ;STR     R4, [SP,#0x58+@Ystart]       ; - Deleted
+  MOV     r1, #86 + 5                   ; Edited
+  MOV     r2, #36                       ; Edited
+  ;STR     R4, [SP,#0x58+@Xend]         ; - Deleted
+  ;STR     R0, [SP,#0x58+@Yend]         ; - Deleted
+  STMIA   sp, {r0,r1,r2}                ; + Added
+  SUB     r0, r11, @AutoW + 1           ; + Added
+  STR     r0, [SP,#0x58+@Xout]          ; Edited
+  SUB     R0, r2, #42                   ; Edited
   STR     R0, [SP,#0x58+@Yout]
-  MOV     R0, #45
+  MOV     R0, #45 + 5
   STR     R0, [SP,#0x58+@Width]
   MOV     R0, #12
   STR     R0, [SP,#0x58+@Height]
