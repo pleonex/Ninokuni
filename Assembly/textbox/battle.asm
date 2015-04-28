@@ -37,4 +37,10 @@ LSL     r0, r0, #0xF
 ;; # ENEMY TEXTBOX SIZE #
 .thumb
 .org 0207CC10h
-MOV     R0, #0x9 + 1    ; Width * 8
+MOV     R0, #0x9 + 4    ; Width * 8
+
+
+;; # ENEMY TEXTBOX SIZE WHEN SELECTING TARGET #
+.thumb
+.org 0207CD6Ah
+MOV     R0, #0x9 + 4    ; Width * 8
