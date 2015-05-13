@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -31,6 +31,8 @@
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Windows.Forms" />
@@ -42,11 +44,49 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AlchemyInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="AlchemyInfoControl.Designer.cs">
+      <DependentUpon>AlchemyInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ItemInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="ItemInfoControl.Designer.cs">
+      <DependentUpon>ItemInfoControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="ItemManager.cs" />
     <Compile Include="AlchemyManager.cs" />
     <Compile Include="AlchemyRecipe.cs" />
     <Compile Include="Ingredient.cs" />
+    <Compile Include="SubquestInfoControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SubquestInfoControl.Designer.cs">
+      <DependentUpon>SubquestInfoControl.cs</DependentUpon>
+    </Compile>
     <Compile Include="SubquestManager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="AlchemyInfoControl.resx">
+      <DependentUpon>AlchemyInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ItemInfoControl.resx">
+      <DependentUpon>ItemInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubquestInfoControl.resx">
+      <DependentUpon>SubquestInfoControl.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>
