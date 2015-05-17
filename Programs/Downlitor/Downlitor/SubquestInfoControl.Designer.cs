@@ -28,70 +28,55 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.groupBox1.SuspendLayout();
+            this.mainBox = new System.Windows.Forms.GroupBox();
+            this.lblSubquest = new System.Windows.Forms.Label();
+            this.comboSubquest = new System.Windows.Forms.ComboBox();
+            this.mainBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.textBox1);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(256, 110);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Subquest Info";
+            this.mainBox.Controls.Add(this.comboSubquest);
+            this.mainBox.Controls.Add(this.lblSubquest);
+            this.mainBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainBox.Location = new System.Drawing.Point(0, 0);
+            this.mainBox.Size = new System.Drawing.Size(256, 110);
+            this.mainBox.TabIndex = 0;
+            this.mainBox.TabStop = false;
+            this.mainBox.Text = "Subquest Info";
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(7, 20);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Subquest:";
+            this.lblSubquest.AutoSize = true;
+            this.lblSubquest.Location = new System.Drawing.Point(7, 20);
+            this.lblSubquest.Size = new System.Drawing.Size(55, 13);
+            this.lblSubquest.TabIndex = 0;
+            this.lblSubquest.Text = "Subquest:";
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(68, 17);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(182, 21);
-            this.comboBox1.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(10, 45);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(240, 59);
-            this.textBox1.TabIndex = 2;
+            this.comboSubquest.FormattingEnabled = true;
+            this.comboSubquest.Location = new System.Drawing.Point(68, 17);
+            this.comboSubquest.Size = new System.Drawing.Size(182, 21);
+            this.comboSubquest.TabIndex = 1;
             // 
             // SubquestInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.mainBox);
             this.Name = "SubquestInfoControl";
             this.Size = new System.Drawing.Size(256, 110);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.mainBox.ResumeLayout(false);
+            this.mainBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.GroupBox mainBox;
+        private System.Windows.Forms.ComboBox comboSubquest;
+        private System.Windows.Forms.Label lblSubquest;
     }
 }

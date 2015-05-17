@@ -21,17 +21,31 @@
 using System;
 using Libgame;
 using Libgame.IO;
+using System.IO;
+using System.Collections.Generic;
 
 namespace Downlitor
 {
 	public class SubquestManager
 	{
-		const string FormatName = "Subquest{0:D4}";
+		const string FormatName = "SubQuest{0:D4}.sq";
+        const string Folder = "subquests";
 		static SubquestManager instance;
+
+        private string[] entries;
 
 		private SubquestManager()
 		{
+            Read();
 		}
+
+        public int NumEntries {
+            get { return entries.Length; }
+        }
+
+        public int LastSubQuest {
+            get { return 2030; }
+        }
 
 		public static SubquestManager Instance {
 			get {
@@ -42,20 +56,61 @@ namespace Downlitor
 			}
 		}
 
-		public string GetTitle(int index)
+        public string GetEntry(int index) {
+            if (index < 0 || index >= NumEntries)
+                return null;
+
+            return this.entries[index];
+        }
+
+        public int GetNumber(int index)
+        {
+            if (index < 0 || index >= NumEntries)
+                return -1;
+
+            string num = this.entries[index];
+            return Convert.ToUInt16(num.Substring(0, 4));
+        }
+
+        public int GetIndex(int number)
+        {
+            for (int i = 0; i < NumEntries; i++)
+                if (GetNumber(i) == number)
+                    return i;
+
+            return -1;
+        }
+
+        private void Read()
+        {
+            List<string> entries = new List<string>();
+            for (int i = 0; i < LastSubQuest; i++) {
+                string title = GetTitle(i);
+                if (!string.IsNullOrEmpty(title))
+                    entries.Add(i.ToString("D4") + " - " + title);
+            }
+
+            this.entries = entries.ToArray();
+        }
+
+        public string GetTitle(int index)
 		{
 			if (index < 0)
 				return null;
 
-			// TODO: Get file
+            var filename = Path.Combine(Folder, string.Format(FormatName, index));
+            if (!File.Exists(filename))
+                return null;
 
-			var reader = new DataReader(null);
-			reader.Stream.Seek(4, SeekMode.Origin);
+            var stream = new DataStream(filename, FileMode.Open, FileAccess.Read);
+            var reader = new DataReader(stream, 
+                EndiannessMode.LittleEndian, System.Text.Encoding.GetEncoding("shift_jis"));
+			stream.Seek(4, SeekMode.Origin);
 
 			ushort nameLen = reader.ReadUInt16();
 			string name = reader.ReadString(nameLen, "replace", false);
 
-			reader.Stream.Dispose();
+			stream.Dispose();
 			return name;
 		}
 	}

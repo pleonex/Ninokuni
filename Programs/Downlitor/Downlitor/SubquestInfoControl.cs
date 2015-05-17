@@ -11,12 +11,18 @@ namespace Downlitor
 {
     public partial class SubquestInfoControl : UserControl
     {
-        private DlcItem dlc;
-
         public SubquestInfoControl(DlcItem dlc)
         {
             InitializeComponent();
-            this.dlc = dlc;
+
+            var manager = SubquestManager.Instance;
+            for (int i = 0; i < manager.NumEntries; i++)
+                comboSubquest.Items.Add(manager.GetEntry(i));
+            comboSubquest.SelectedIndex = manager.GetIndex(dlc.Index);
+
+            comboSubquest.SelectedIndexChanged += delegate {
+                dlc.Index = (ushort)manager.GetNumber(comboSubquest.SelectedIndex);
+            };
         }
     }
 }
