@@ -4,9 +4,10 @@
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
     <ProjectGuid>{6D7A0B08-6214-4197-AA7B-EA14F80C3709}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <OutputType>WinExe</OutputType>
     <RootNamespace>Downlitor</RootNamespace>
     <AssemblyName>Downlitor</AssemblyName>
+    <StartupObject>Downlitor.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -74,6 +75,9 @@
       <DependentUpon>SubquestInfoControl.cs</DependentUpon>
     </Compile>
     <Compile Include="SubquestManager.cs" />
+    <Compile Include="DlcManager.cs" />
+    <Compile Include="DlcItem.cs" />
+    <Compile Include="DlcType.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AlchemyInfoControl.resx">
