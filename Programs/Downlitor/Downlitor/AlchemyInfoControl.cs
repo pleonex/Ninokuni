@@ -11,9 +11,12 @@ namespace Downlitor
 {
     public partial class AlchemyInfoControl : UserControl
     {
-        public AlchemyInfoControl()
+        private DlcItem dlc;
+
+        public AlchemyInfoControl(DlcItem dlc)
         {
             InitializeComponent();
+            this.dlc = dlc;
         }
     }
 }

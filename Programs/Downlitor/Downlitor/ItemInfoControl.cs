@@ -11,9 +11,12 @@ namespace Downlitor
 {
     public partial class ItemInfoControl : UserControl
     {
-        public ItemInfoControl()
+        private DlcItem dlc;
+
+        public ItemInfoControl(DlcItem dlc)
         {
             InitializeComponent();
+            this.dlc = dlc;
         }
     }
 }
