@@ -28,82 +28,77 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.listBox2 = new System.Windows.Forms.ListBox();
+            this.mainBox = new System.Windows.Forms.GroupBox();
+            this.listIngredient = new System.Windows.Forms.ListBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.groupBox1.SuspendLayout();
+            this.comboRecipe = new System.Windows.Forms.ComboBox();
+            this.lblRecipe = new System.Windows.Forms.Label();
+            this.mainBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.listBox2);
-            this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Controls.Add(this.comboBox1);
-            this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.groupBox1.Location = new System.Drawing.Point(0, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(256, 110);
-            this.groupBox1.TabIndex = 0;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Alchemy Info";
+            this.mainBox.Controls.Add(this.listIngredient);
+            this.mainBox.Controls.Add(this.label2);
+            this.mainBox.Controls.Add(this.comboRecipe);
+            this.mainBox.Controls.Add(this.lblRecipe);
+            this.mainBox.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mainBox.Location = new System.Drawing.Point(0, 0);
+            this.mainBox.Size = new System.Drawing.Size(256, 110);
+            this.mainBox.TabIndex = 0;
+            this.mainBox.TabStop = false;
+            this.mainBox.Text = "Alchemy Info";
             // 
             // listBox2
             // 
-            this.listBox2.FormattingEnabled = true;
-            this.listBox2.Location = new System.Drawing.Point(9, 57);
-            this.listBox2.Name = "listBox2";
-            this.listBox2.SelectionMode = System.Windows.Forms.SelectionMode.None;
-            this.listBox2.Size = new System.Drawing.Size(240, 43);
-            this.listBox2.TabIndex = 7;
+            this.listIngredient.FormattingEnabled = true;
+            this.listIngredient.Location = new System.Drawing.Point(9, 57);
+            this.listIngredient.SelectionMode = System.Windows.Forms.SelectionMode.None;
+            this.listIngredient.Size = new System.Drawing.Size(240, 43);
+            this.listIngredient.TabIndex = 7;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(6, 40);
-            this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(62, 13);
             this.label2.TabIndex = 6;
             this.label2.Text = "Ingredients:";
             // 
             // comboBox1
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(56, 16);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(194, 21);
-            this.comboBox1.TabIndex = 5;
+            this.comboRecipe.FormattingEnabled = true;
+            this.comboRecipe.Location = new System.Drawing.Point(56, 16);
+            this.comboRecipe.Size = new System.Drawing.Size(194, 21);
+            this.comboRecipe.TabIndex = 5;
             // 
             // label1
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 19);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(44, 13);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Recipe:";
+            this.lblRecipe.AutoSize = true;
+            this.lblRecipe.Location = new System.Drawing.Point(6, 19);
+            this.lblRecipe.Size = new System.Drawing.Size(44, 13);
+            this.lblRecipe.TabIndex = 4;
+            this.lblRecipe.Text = "Recipe:";
             // 
             // AlchemyInfoControl
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.mainBox);
             this.Name = "AlchemyInfoControl";
             this.Size = new System.Drawing.Size(256, 110);
-            this.groupBox1.ResumeLayout(false);
-            this.groupBox1.PerformLayout();
+            this.mainBox.ResumeLayout(false);
+            this.mainBox.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
 
-        private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.ListBox listBox2;
+        private System.Windows.Forms.GroupBox mainBox;
+        private System.Windows.Forms.ListBox listIngredient;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ComboBox comboRecipe;
+        private System.Windows.Forms.Label lblRecipe;
     }
 }

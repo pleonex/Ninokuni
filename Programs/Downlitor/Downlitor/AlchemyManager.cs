@@ -73,7 +73,7 @@ namespace Downlitor
 
 			var items = ItemManager.Instance;
 			for (int i = 0; i < NumEntries; i++) {
-				var name = items[reader.ReadInt32()];
+                var name = items[reader.ReadInt32()];
 
 				var item1 = reader.ReadUInt16();
 				var item2 = reader.ReadUInt16();
