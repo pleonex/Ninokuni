@@ -23,6 +23,13 @@ namespace Downlitor
             LoadDlcs();
 
             dlcsListBox.SelectedIndexChanged += HandleSelectedIndexChanged;
+            this.FormClosing += HandleFormClosing;
+        }
+
+        private void HandleFormClosing (object sender, FormClosingEventArgs e)
+        {
+            // Update on closing
+            manager.Write();
         }
 
         private void LoadDlcs()
