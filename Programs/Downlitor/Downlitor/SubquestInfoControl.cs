@@ -19,6 +19,8 @@ namespace Downlitor
             for (int i = 0; i < manager.NumEntries; i++)
                 comboSubquest.Items.Add(manager.GetEntry(i));
             comboSubquest.SelectedIndex = manager.GetIndex(dlc.Index);
+            comboSubquest.AutoCompleteMode = AutoCompleteMode.Suggest;
+            comboSubquest.AutoCompleteSource = AutoCompleteSource.ListItems;
 
             comboSubquest.SelectedIndexChanged += delegate {
                 dlc.Index = (ushort)manager.GetNumber(comboSubquest.SelectedIndex);
