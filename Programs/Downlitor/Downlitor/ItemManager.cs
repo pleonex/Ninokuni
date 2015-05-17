@@ -28,9 +28,12 @@ namespace Downlitor
 	{
 		const string ItemName = "ItemParam.dat";
 		const string SpItemName = "SpItemParam.dat";
-		const int NumActualItems = 0x1E8;
-		const int NumItems   = 0x260;
-		const int NumSpItems = 0x90;
+        const string EquipItemName = "EquipItemParam.dat";
+		const int NumItems = 0x1E8;
+        const int NumEquipItems = 0x55;
+        const int NumSpItems = 0x86;
+        const int StartEquip = 0x200;
+		const int StartSp    = 0x260;
 
 		private static ItemManager instance;
 		private string[] items;
@@ -39,6 +42,7 @@ namespace Downlitor
 		{
 			items = new string[NumEntries];
 			ReadItems();
+            ReadEquipItems();
 			ReadSpecialItems();
 		}
 
@@ -52,7 +56,7 @@ namespace Downlitor
 		}
 
 		public static int NumEntries {
-			get { return NumItems + NumSpItems; }
+			get { return 0x2F0; }
 		}
 
 		public string GetItem(int index)
@@ -60,8 +64,11 @@ namespace Downlitor
 			if (index < 0 || index >= NumEntries)
 				return null;
 
-			if (index >= NumActualItems && index < NumItems)
-				return null;
+            if (index >= NumItems && index < StartEquip)
+                return null;
+
+            if (index >= StartEquip + NumEquipItems && index < StartSp)
+                return null;
 
 			return items[index];
 		}
@@ -84,33 +91,33 @@ namespace Downlitor
 
 		private void ReadItems()
 		{
-			var stream = new DataStream(Decode(ItemName), 0, -1);
-			var reader = new DataReader(stream, EndiannessMode.LittleEndian,
-				System.Text.Encoding.GetEncoding("shift_jis"));
-
-			int numEntries = reader.ReadUInt16();
-			for (int i = 0; i < numEntries; i++) {
-				items[i] = reader.ReadString(0x20, "replace", false);
-				stream.Seek(0x4C, SeekMode.Current);
-			}
-
-			stream.Dispose();
+            ReadFile(ItemName, 0, 0x4C);
 		}
+
+        private void ReadEquipItems()
+        {
+            ReadFile(EquipItemName, StartEquip, 0x30);
+        }
 
 		private void ReadSpecialItems()
 		{
-			var stream = new DataStream(Decode(SpItemName), 0, -1);
-			var reader = new DataReader(stream, EndiannessMode.LittleEndian,
-				System.Text.Encoding.GetEncoding("shift_jis"));
-
-			int numEntries = reader.ReadUInt16();
-			for (int i = 0; i < numEntries; i++) {
-				items[NumItems + i] = reader.ReadString(0x20, "replace", false);
-				stream.Seek(0x10, SeekMode.Current);
-			}
-
-			stream.Dispose();
+            ReadFile(SpItemName, StartSp, 0x10);
 		}
+
+        private void ReadFile(string filename, int start, int dataSize)
+        {
+            var stream = new DataStream(Decode(filename), 0, -1);
+            var reader = new DataReader(stream, EndiannessMode.LittleEndian,
+                System.Text.Encoding.GetEncoding("shift_jis"));
+
+            int numEntries = reader.ReadUInt16();
+            for (int i = 0; i < numEntries; i++) {
+                items[start + i] = reader.ReadString(0x20, "replace", false);
+                stream.Seek(dataSize, SeekMode.Current);
+            }
+
+            stream.Dispose();
+        }
 	}
 }
 

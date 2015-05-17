@@ -47,10 +47,10 @@ namespace Downlitor
             var recipe = (AlchemyRecipe)comboRecipe.SelectedItem;
             listIngredient.Items.Add(recipe.Ingredient1);
 
-            if (recipe.Ingredient2.Quantity > 0)
+            if (recipe.Ingredient2.Quantity > 0 && recipe.Ingredient2.Quantity != 0xFFFF)
                 listIngredient.Items.Add(recipe.Ingredient2);
 
-            if (recipe.Ingredient3.Quantity > 0)
+            if (recipe.Ingredient3.Quantity > 0 && recipe.Ingredient3.Quantity != 0xFFFF)
                 listIngredient.Items.Add(recipe.Ingredient3);
         }
     }

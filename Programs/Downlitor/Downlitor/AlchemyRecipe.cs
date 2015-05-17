@@ -59,10 +59,10 @@ namespace Downlitor
 			var output = new StringBuilder();
 			output.AppendFormat("Recipe {0} = {1}", Name, Ingredient1);
 
-			if (Ingredient2.Quantity > 0)
+            if (Ingredient2.Quantity > 0 && Ingredient2.Quantity != 0xFFFF)
 				output.AppendFormat(" + {0}", Ingredient2);
 
-			if (Ingredient3.Quantity > 0)
+            if (Ingredient3.Quantity > 0 && Ingredient3.Quantity != 0xFFFF)
 				output.AppendFormat(" + {0}", Ingredient3);
 
 			return output.ToString();
