@@ -18,4 +18,4 @@
 
 ;; Number of rounds played
 .org 0x02095FC0
-    ADD r1, r6, #0x00 + 0x1C      ; X position
+    ADD r1, r6, #0x00 + 0x12      ; X position
