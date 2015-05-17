@@ -84,7 +84,7 @@ namespace Downlitor
         private void Read()
         {
             List<string> entries = new List<string>();
-            for (int i = 0; i < LastSubQuest; i++) {
+            for (int i = 0; i <= LastSubQuest; i++) {
                 string title = GetTitle(i);
                 if (!string.IsNullOrEmpty(title))
                     entries.Add(i.ToString("D4") + " - " + title);
