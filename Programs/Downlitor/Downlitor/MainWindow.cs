@@ -21,9 +21,40 @@ namespace Downlitor
 
             manager = DlcManager.Instance;
             LoadDlcs();
+            dlcsListBox.SelectedIndex = 1;
 
+            radioObject.CheckedChanged += HandleCheckedChanged;
+            radioSubquest.CheckedChanged += HandleCheckedChanged;
+            radioAlchemy.CheckedChanged += HandleCheckedChanged;
+            radioEmpty.CheckedChanged += HandleCheckedChanged;
             dlcsListBox.SelectedIndexChanged += HandleSelectedIndexChanged;
+            txtDlcName.TextChanged += HandleTextChanged;
             this.FormClosing += HandleFormClosing;
+        }
+
+        private void HandleTextChanged (object sender, EventArgs e)
+        {
+            var dlc = (DlcItem)dlcsListBox.SelectedItem;
+            dlc.Name = txtDlcName.Text;
+        }
+
+        private void HandleCheckedChanged (object sender, EventArgs e)
+        {
+            var dlc = (DlcItem)dlcsListBox.SelectedItem;
+
+            if (radioObject.Checked)
+                dlc.Tab = DlcType.Item;
+            if (radioSubquest.Checked)
+                dlc.Tab = DlcType.Subquest;
+            if (radioAlchemy.Checked)
+                dlc.Tab = DlcType.Alchemy;
+            if (radioEmpty.Checked) {
+                dlc.Tab   = DlcType.Empty;
+                dlc.Index = 0x00;
+                dlc.Name  = string.Empty;
+            }
+
+            UpdateSpecificInfo(dlc);
         }
 
         private void HandleFormClosing (object sender, FormClosingEventArgs e)
@@ -34,11 +65,10 @@ namespace Downlitor
 
         private void LoadDlcs()
         {
-            for (int i = 0; i < manager.NumEntries; i++)
-                if (manager[i] != null)
-                    dlcsListBox.Items.Add(manager[i]);
+            var dlcList = new BindingList<DlcItem>(manager.GetItems());
+            dlcsListBox.DataSource = dlcList;
         }
-            
+
         private void HandleSelectedIndexChanged (object sender, EventArgs e)
         {
             var dlc = (DlcItem)dlcsListBox.SelectedItem;
@@ -52,6 +82,7 @@ namespace Downlitor
             radioAlchemy.Checked  = (dlc.Tab == DlcType.Alchemy);
             radioObject.Checked   = (dlc.Tab == DlcType.Item);
             radioSubquest.Checked = (dlc.Tab == DlcType.Subquest);
+            radioEmpty.Checked    = (dlc.Tab == DlcType.Empty);
             txtDlcName.Text = dlc.Name;
         }
 

@@ -28,11 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.dlcsListBox = new System.Windows.Forms.ListBox();
+            this.dlcsListBox   = new System.Windows.Forms.ListBox();
             this.radioSubquest = new System.Windows.Forms.RadioButton();
-            this.generalBox = new System.Windows.Forms.GroupBox();
-            this.radioObject = new System.Windows.Forms.RadioButton();
+            this.generalBox   = new System.Windows.Forms.GroupBox();
+            this.radioObject  = new System.Windows.Forms.RadioButton();
             this.radioAlchemy = new System.Windows.Forms.RadioButton();
+            this.radioEmpty = new System.Windows.Forms.RadioButton();
             this.lblDlcName = new System.Windows.Forms.Label();
             this.txtDlcName = new System.Windows.Forms.TextBox();
             this.generalBox.SuspendLayout();
@@ -49,12 +50,13 @@
             // 
             this.generalBox.Controls.Add(this.txtDlcName);
             this.generalBox.Controls.Add(this.lblDlcName);
+            this.generalBox.Controls.Add(this.radioEmpty);
             this.generalBox.Controls.Add(this.radioAlchemy);
             this.generalBox.Controls.Add(this.radioObject);
             this.generalBox.Controls.Add(this.radioSubquest);
             this.generalBox.Location = new System.Drawing.Point(192, 12);
             this.generalBox.Size = new System.Drawing.Size(256, 86);
-            this.generalBox.TabIndex = 3;
+            this.generalBox.TabIndex = 7;
             this.generalBox.TabStop = false;
             this.generalBox.Text = "General info";
             // 
@@ -62,8 +64,7 @@
             // 
             this.radioSubquest.AutoSize = true;
             this.radioSubquest.Location = new System.Drawing.Point(6, 19);
-            this.radioSubquest.Size = new System.Drawing.Size(70, 17);
-            this.radioSubquest.TabIndex = 2;
+            this.radioSubquest.TabIndex = 1;
             this.radioSubquest.TabStop = true;
             this.radioSubquest.Text = "Subquest";
             this.radioSubquest.UseVisualStyleBackColor = true;
@@ -71,9 +72,8 @@
             // radioButton2
             // 
             this.radioObject.AutoSize = true;
-            this.radioObject.Location = new System.Drawing.Point(101, 19);
-            this.radioObject.Size = new System.Drawing.Size(56, 17);
-            this.radioObject.TabIndex = 3;
+            this.radioObject.Location = new System.Drawing.Point(75, 19);
+            this.radioObject.TabIndex = 2;
             this.radioObject.TabStop = true;
             this.radioObject.Text = "Object";
             this.radioObject.UseVisualStyleBackColor = true;
@@ -81,12 +81,20 @@
             // radioButton3
             // 
             this.radioAlchemy.AutoSize = true;
-            this.radioAlchemy.Location = new System.Drawing.Point(185, 19);
-            this.radioAlchemy.Size = new System.Drawing.Size(65, 17);
-            this.radioAlchemy.TabIndex = 4;
+            this.radioAlchemy.Location = new System.Drawing.Point(130, 19);
+            this.radioAlchemy.TabIndex = 3;
             this.radioAlchemy.TabStop = true;
             this.radioAlchemy.Text = "Alchemy";
             this.radioAlchemy.UseVisualStyleBackColor = true;
+            // 
+            // radioButton4
+            // 
+            this.radioEmpty.AutoSize = true;
+            this.radioEmpty.Location = new System.Drawing.Point(195, 19);
+            this.radioEmpty.TabIndex = 4;
+            this.radioEmpty.TabStop = true;
+            this.radioEmpty.Text = "Empty";
+            this.radioEmpty.UseVisualStyleBackColor = true;
             // 
             // label3
             // 
@@ -128,6 +136,7 @@
         private System.Windows.Forms.GroupBox generalBox;
         private System.Windows.Forms.RadioButton radioAlchemy;
         private System.Windows.Forms.RadioButton radioObject;
+        private System.Windows.Forms.RadioButton radioEmpty;
         private System.Windows.Forms.TextBox txtDlcName;
         private System.Windows.Forms.Label lblDlcName;
     }

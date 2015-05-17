@@ -57,6 +57,11 @@ namespace Downlitor
             return items[index];
         }
 
+        public DlcItem[] GetItems()
+        {
+            return items;
+        }
+
         public void SetItem(int index, DlcItem dlc)
         {
             if (index < 0 || index >= NumEntries)
