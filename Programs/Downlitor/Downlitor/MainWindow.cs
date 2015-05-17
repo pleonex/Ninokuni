@@ -11,9 +11,22 @@ namespace Downlitor
 {
     public partial class MainWindow : Form
     {
+        DlcManager manager;
+
         public MainWindow()
         {
             InitializeComponent();
+            generalBox.Enabled = false;
+
+            manager = DlcManager.Instance;
+            LoadDlcs();
+        }
+
+        private void LoadDlcs()
+        {
+            for (int i = 0; i < manager.NumEntries; i++)
+                if (manager[i] != null)
+                    dlcsListBox.Items.Add(manager[i]);
         }
     }
 }
