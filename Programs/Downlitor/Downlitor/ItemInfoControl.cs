@@ -11,12 +11,25 @@ namespace Downlitor
 {
     public partial class ItemInfoControl : UserControl
     {
-        private DlcItem dlc;
-
         public ItemInfoControl(DlcItem dlc)
         {
             InitializeComponent();
-            this.dlc = dlc;
+
+            var manager = ItemManager.Instance;
+            for (int i = 0; i < ItemManager.NumEntries; i++) {
+                var item = manager.GetItem(i);
+                comboItems.Items.Add((item == null) ? "Invalid" : item);
+            }
+            comboItems.SelectedIndex = dlc.Index;
+            comboItems.AutoCompleteMode = AutoCompleteMode.Suggest;
+            comboItems.AutoCompleteSource = AutoCompleteSource.ListItems;
+
+            comboItems.SelectedIndexChanged += delegate {
+                if ((string)comboItems.SelectedItem == "Invalid")
+                    return;
+
+                dlc.Index = (ushort)comboItems.SelectedIndex;
+            };
         }
     }
 }
