@@ -36,8 +36,7 @@ namespace NinoPatcher
         private Button btnPatch;
         private Button btnDownloadBook;
         private Button btnShowCredits;
-        private CheckBox checkAntiPiracy;
-        private CheckBox checkBanner;
+        private Button btnShowExtras;
 
         public MainWindow()
         {
@@ -60,56 +59,40 @@ namespace NinoPatcher
             progressBar = new ProgressBar();
             progressBar.Value = 50;
             progressBar.Location = new Point(0, 400);
-            progressBar.Size = new Size(500, 20);
+            progressBar.Size = new Size(500, 15);
             progressBar.Style = ProgressBarStyle.Continuous;
+            progressBar.ForeColor = Color.Blue;
             Controls.Add(progressBar);
 
             btnPatch = new Button();
-            btnPatch.AutoSize = true;
             btnPatch.Text = "¡Parchear!";
             btnPatch.Location = new Point(500, 400);
+            btnPatch.Size = new Size(120, 40);
             Controls.Add(btnPatch);
 
             btnDownloadBook = new Button();
-            btnDownloadBook.AutoSize = true;
             btnDownloadBook.Text = "Vademécum";
             btnDownloadBook.Image =
                 Image.FromStream(assembly.GetManifestResourceStream(VademecumResource));
             btnDownloadBook.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnDownloadBook.Location = new Point(500, 440);
+            btnDownloadBook.Location = new Point(500, 460);
+            btnDownloadBook.Size = new Size(120, 40);
             Controls.Add(btnDownloadBook);
 
             btnShowCredits = new Button();
-            btnShowCredits.AutoSize = true;
             btnShowCredits.Text = "Créditos";
-            btnShowCredits.Location = new Point(600, 400);
+            btnShowCredits.Location = new Point(630, 400);
+            btnShowCredits.Size = new Size(120, 40);
             Controls.Add(btnShowCredits);
 
-            GroupBox extraBox = new GroupBox();
-            extraBox.AutoSize = true;
-            extraBox.Text = "Extras para el parche";
-            extraBox.Location = new Point(200, 450);
-            //extraBox.Size = new Size(150, 300);
-            Controls.Add(extraBox);
-
-            Label extraLabel = new Label();
-            extraLabel.AutoSize = true;
-            extraLabel.Text = "Opciones necesarias para determinadas flashcards.\n";
-            extraLabel.Text += "Actívala solo si has probado sin ellas y no funciona.";
-            extraLabel.Location = new Point(0, 20);
-            extraBox.Controls.Add(extraLabel);
-
-            checkAntiPiracy = new CheckBox();
-            checkAntiPiracy.AutoSize = true;
-            checkAntiPiracy.Text = "Añadir parche antipiratería";
-            checkAntiPiracy.Location = new Point(0, 50);
-            extraBox.Controls.Add(checkAntiPiracy);
-
-            checkBanner = new CheckBox();
-            checkBanner.AutoSize = true;
-            checkBanner.Text = "Añadir título de juego traducido";
-            checkBanner.Location = new Point(0, 80);
-            extraBox.Controls.Add(checkBanner);
+            btnShowExtras = new Button();
+            btnShowExtras.Text = "Opciones";
+            btnShowExtras.Location = new Point(630, 460);
+            btnShowExtras.Size = new Size(120, 40);
+            Controls.Add(btnShowExtras);
+            btnShowExtras.Click += delegate {
+                new ExtrasWindow().ShowDialog(this);
+            };
         }
     }
 }
