@@ -8,6 +8,8 @@
     <RootNamespace>NinoPatcher</RootNamespace>
     <AssemblyName>NinoPatcher</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <StartupObject>NinoPatcher.Program</StartupObject>
+    <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -34,6 +36,7 @@
     <Folder Include="xdelta\" />
     <Folder Include="xdelta\Decoder\" />
     <Folder Include="xdelta\Vcdiff\" />
+    <Folder Include="Resources\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\xdelta-sharp\xdelta\Decoder\Decoder.cs">
@@ -103,5 +106,14 @@
       <Link>xdelta\VcdReader.cs</Link>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="MainWindow.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System" />
+    <Reference Include="System.Drawing" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\icon.ico" />
   </ItemGroup>
 </Project>

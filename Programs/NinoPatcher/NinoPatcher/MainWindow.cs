@@ -1,10 +1,10 @@
 ﻿//
-//  Program.cs
+//  MainWindow.cs
 //
 //  Author:
-//       Benito Palacios <benito356@gmail.com>
+//       Benito Palacios Sánchez <benito356@gmail.com>
 //
-//  Copyright (c) 2015 Benito Palacios
+//  Copyright (c) 2015 Benito Palacios Sánchez
 //
 //  This program is free software: you can redistribute it and/or modify
 //  it under the terms of the GNU General Public License as published by
@@ -19,19 +19,28 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Drawing;
+using System.Reflection;
 using System.Windows.Forms;
 
 namespace NinoPatcher
 {
-	public static class Program
-	{
-        [STAThread]
-		public static void Main(string[] args)
-		{
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MainWindow());
-		}
-	}
+    public class MainWindow : Form
+    {
+        Assembly assembly = Assembly.GetExecutingAssembly();
+
+        public MainWindow()
+        {
+            InitializeComponents();
+        }
+
+        private void InitializeComponents()
+        {
+            Text = "Ninokuni - El Mago de las Tinieblas v1.0 ~~ GradienWords";
+            Icon = new Icon(assembly.GetManifestResourceStream("NinoPatcher.Resources.icon.ico"));
+            Width  = 800;
+            Height = 600;
+        }
+    }
 }
 
