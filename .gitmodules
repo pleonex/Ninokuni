@@ -10,3 +10,6 @@
 [submodule "Programs/Downlitor/libgame"]
 	path = Programs/Downlitor/libgame
 	url = git@github.com:pleonex/libgame.git
+[submodule "Programs/xdelta-sharp"]
+	path = Programs/xdelta-sharp
+	url = git@github.com:pleonex/xdelta-sharp
