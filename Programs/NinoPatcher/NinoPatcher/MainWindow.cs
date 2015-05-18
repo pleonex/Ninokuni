@@ -27,7 +27,17 @@ namespace NinoPatcher
 {
     public class MainWindow : Form
     {
-        Assembly assembly = Assembly.GetExecutingAssembly();
+        private const string IconResource = "NinoPatcher.Resources.icon.ico";
+        private const string VademecumResource = "NinoPatcher.Resources.vademecum.png";
+
+        private Assembly assembly = Assembly.GetExecutingAssembly();
+        private Panel bgPanel;
+        private ProgressBar progressBar;
+        private Button btnPatch;
+        private Button btnDownloadBook;
+        private Button btnShowCredits;
+        private CheckBox checkAntiPiracy;
+        private CheckBox checkBanner;
 
         public MainWindow()
         {
@@ -37,9 +47,69 @@ namespace NinoPatcher
         private void InitializeComponents()
         {
             Text = "Ninokuni - El Mago de las Tinieblas v1.0 ~~ GradienWords";
-            Icon = new Icon(assembly.GetManifestResourceStream("NinoPatcher.Resources.icon.ico"));
+            Icon = new Icon(assembly.GetManifestResourceStream(IconResource));
             Width  = 800;
             Height = 600;
+
+            bgPanel = new Panel();
+            bgPanel.BackColor = Color.Black;
+            bgPanel.Location  = new Point(0, 0);
+            bgPanel.Size = new Size(800, 400);
+            Controls.Add(bgPanel);
+
+            progressBar = new ProgressBar();
+            progressBar.Value = 50;
+            progressBar.Location = new Point(0, 400);
+            progressBar.Size = new Size(500, 20);
+            progressBar.Style = ProgressBarStyle.Continuous;
+            Controls.Add(progressBar);
+
+            btnPatch = new Button();
+            btnPatch.AutoSize = true;
+            btnPatch.Text = "¡Parchear!";
+            btnPatch.Location = new Point(500, 400);
+            Controls.Add(btnPatch);
+
+            btnDownloadBook = new Button();
+            btnDownloadBook.AutoSize = true;
+            btnDownloadBook.Text = "Vademécum";
+            btnDownloadBook.Image =
+                Image.FromStream(assembly.GetManifestResourceStream(VademecumResource));
+            btnDownloadBook.TextImageRelation = TextImageRelation.ImageBeforeText;
+            btnDownloadBook.Location = new Point(500, 440);
+            Controls.Add(btnDownloadBook);
+
+            btnShowCredits = new Button();
+            btnShowCredits.AutoSize = true;
+            btnShowCredits.Text = "Créditos";
+            btnShowCredits.Location = new Point(600, 400);
+            Controls.Add(btnShowCredits);
+
+            GroupBox extraBox = new GroupBox();
+            extraBox.AutoSize = true;
+            extraBox.Text = "Extras para el parche";
+            extraBox.Location = new Point(200, 450);
+            //extraBox.Size = new Size(150, 300);
+            Controls.Add(extraBox);
+
+            Label extraLabel = new Label();
+            extraLabel.AutoSize = true;
+            extraLabel.Text = "Opciones necesarias para determinadas flashcards.\n";
+            extraLabel.Text += "Actívala solo si has probado sin ellas y no funciona.";
+            extraLabel.Location = new Point(0, 20);
+            extraBox.Controls.Add(extraLabel);
+
+            checkAntiPiracy = new CheckBox();
+            checkAntiPiracy.AutoSize = true;
+            checkAntiPiracy.Text = "Añadir parche antipiratería";
+            checkAntiPiracy.Location = new Point(0, 50);
+            extraBox.Controls.Add(checkAntiPiracy);
+
+            checkBanner = new CheckBox();
+            checkBanner.AutoSize = true;
+            checkBanner.Text = "Añadir título de juego traducido";
+            checkBanner.Location = new Point(0, 80);
+            extraBox.Controls.Add(checkBanner);
         }
     }
 }

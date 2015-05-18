@@ -115,5 +115,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\icon.ico" />
+    <EmbeddedResource Include="Resources\vademecum.png" />
   </ItemGroup>
 </Project>
