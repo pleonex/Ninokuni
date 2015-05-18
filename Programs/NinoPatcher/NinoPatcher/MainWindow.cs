@@ -45,28 +45,39 @@ namespace NinoPatcher
 
         private void InitializeComponents()
         {
-            Text = "Ninokuni - El Mago de las Tinieblas v1.0 ~~ GradienWords";
-            Icon = new Icon(assembly.GetManifestResourceStream(IconResource));
+            SuspendLayout();
+
+            FormBorderStyle = FormBorderStyle.FixedSingle;
+            MaximizeBox = false;
             Width  = 800;
             Height = 600;
+            MinimumSize = new Size(800, 600);
+            MaximumSize = new Size(800, 600);
+            Text = "Ninokuni - El Mago de las Tinieblas v1.0 ~~ GradienWords";
+            Icon = new Icon(assembly.GetManifestResourceStream(IconResource));
+
+            // For smooth animations
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
 
             bgPanel = new Panel();
             bgPanel.BackColor = Color.Black;
             bgPanel.Location  = new Point(0, 0);
-            bgPanel.Size = new Size(800, 400);
+            bgPanel.Size = new Size(800, 480);
             Controls.Add(bgPanel);
 
             progressBar = new ProgressBar();
             progressBar.Value = 50;
-            progressBar.Location = new Point(0, 400);
-            progressBar.Size = new Size(500, 15);
+            progressBar.Location = new Point(10, 553);
+            progressBar.Size = new Size(523, 15);
             progressBar.Style = ProgressBarStyle.Continuous;
-            progressBar.ForeColor = Color.Blue;
+            progressBar.ForeColor = Color.SkyBlue;
             Controls.Add(progressBar);
 
             btnPatch = new Button();
             btnPatch.Text = "¡Parchear!";
-            btnPatch.Location = new Point(500, 400);
+            btnPatch.Location = new Point(543, 484);
             btnPatch.Size = new Size(120, 40);
             Controls.Add(btnPatch);
 
@@ -75,24 +86,26 @@ namespace NinoPatcher
             btnDownloadBook.Image =
                 Image.FromStream(assembly.GetManifestResourceStream(VademecumResource));
             btnDownloadBook.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnDownloadBook.Location = new Point(500, 460);
+            btnDownloadBook.Location = new Point(543, 529);
             btnDownloadBook.Size = new Size(120, 40);
             Controls.Add(btnDownloadBook);
 
             btnShowCredits = new Button();
             btnShowCredits.Text = "Créditos";
-            btnShowCredits.Location = new Point(630, 400);
+            btnShowCredits.Location = new Point(668, 484);
             btnShowCredits.Size = new Size(120, 40);
             Controls.Add(btnShowCredits);
 
             btnShowExtras = new Button();
             btnShowExtras.Text = "Opciones";
-            btnShowExtras.Location = new Point(630, 460);
+            btnShowExtras.Location = new Point(668, 529);
             btnShowExtras.Size = new Size(120, 40);
             Controls.Add(btnShowExtras);
             btnShowExtras.Click += delegate {
                 new ExtrasWindow().ShowDialog(this);
             };
+
+            ResumeLayout(false);
         }
     }
 }
