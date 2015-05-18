@@ -30,4 +30,78 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="xdelta\" />
+    <Folder Include="xdelta\Decoder\" />
+    <Folder Include="xdelta\Vcdiff\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Decoder\Decoder.cs">
+      <Link>xdelta\Decoder\Decoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Decoder\HeaderReader.cs">
+      <Link>xdelta\Decoder\HeaderReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Decoder\WindowDecoder.cs">
+      <Link>xdelta\Decoder\WindowDecoder.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Decoder\WindowReader.cs">
+      <Link>xdelta\Decoder\WindowReader.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\Header.cs">
+      <Link>xdelta\Vcdiff\Header.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\HeaderFields.cs">
+      <Link>xdelta\Vcdiff\HeaderFields.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\SecondaryCompressor.cs">
+      <Link>xdelta\Vcdiff\SecondaryCompressor.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\Window.cs">
+      <Link>xdelta\Vcdiff\Window.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\WindowCompressedFields.cs">
+      <Link>xdelta\Vcdiff\WindowCompressedFields.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\WindowFields.cs">
+      <Link>xdelta\Vcdiff\WindowFields.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\Instructions\Add.cs">
+      <Link>xdelta\Vcdiff\Instructions\Add.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\Instructions\Copy.cs">
+      <Link>xdelta\Vcdiff\Instructions\Copy.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\Instructions\Instruction.cs">
+      <Link>xdelta\Vcdiff\Instructions\Instruction.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\Instructions\InstructionType.cs">
+      <Link>xdelta\Vcdiff\Instructions\InstructionType.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\Instructions\Noop.cs">
+      <Link>xdelta\Vcdiff\Instructions\Noop.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Vcdiff\Instructions\Run.cs">
+      <Link>xdelta\Vcdiff\Instructions\Run.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\AddressMode.cs">
+      <Link>xdelta\AddressMode.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Adler32.cs">
+      <Link>xdelta\Adler32.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Cache.cs">
+      <Link>xdelta\Cache.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\CodeTable.cs">
+      <Link>xdelta\CodeTable.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\Extensions.cs">
+      <Link>xdelta\Extensions.cs</Link>
+    </Compile>
+    <Compile Include="..\..\xdelta-sharp\xdelta\VcdReader.cs">
+      <Link>xdelta\VcdReader.cs</Link>
+    </Compile>
+    <Compile Include="Program.cs" />
+  </ItemGroup>
 </Project>
