@@ -37,6 +37,7 @@
     <Folder Include="xdelta\Decoder\" />
     <Folder Include="xdelta\Vcdiff\" />
     <Folder Include="Resources\" />
+    <Folder Include="Resources\Buttons\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\xdelta-sharp\xdelta\Decoder\Decoder.cs">
@@ -130,5 +131,13 @@
     <EmbeddedResource Include="Resources\anime_1.png" />
     <EmbeddedResource Include="Resources\anime_2.png" />
     <EmbeddedResource Include="Resources\anime_3.png" />
+    <EmbeddedResource Include="Resources\Buttons\book_0.png" />
+    <EmbeddedResource Include="Resources\Buttons\book_1.png" />
+    <EmbeddedResource Include="Resources\Buttons\credits_0.png" />
+    <EmbeddedResource Include="Resources\Buttons\credits_1.png" />
+    <EmbeddedResource Include="Resources\Buttons\options_0.png" />
+    <EmbeddedResource Include="Resources\Buttons\options_1.png" />
+    <EmbeddedResource Include="Resources\Buttons\patch_0.png" />
+    <EmbeddedResource Include="Resources\Buttons\patch_1.png" />
   </ItemGroup>
 </Project>
