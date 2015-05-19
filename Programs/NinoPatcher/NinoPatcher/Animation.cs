@@ -71,6 +71,7 @@ namespace NinoPatcher
 
                 // Draw image
                 parent.CreateGraphics().DrawImageUnscaled(bufl, Point.Empty);
+                bufl.Dispose();
             }
 
             tick++;
