@@ -111,6 +111,7 @@
     <Compile Include="Animation.cs" />
     <Compile Include="AnimationElement.cs" />
     <Compile Include="Fade.cs" />
+    <Compile Include="ImageButton.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
