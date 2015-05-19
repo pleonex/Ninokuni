@@ -30,16 +30,11 @@ namespace NinoPatcher
     {
         private const string IconResource = "NinoPatcher.Resources.icon.ico";
         private const string VademecumResource = "NinoPatcher.Resources.vademecum.png";
+        private const string ButtonResourcePath = "NinoPatcher.Resources.Buttons.";
 
         private Assembly assembly = Assembly.GetExecutingAssembly();
         private SoundPlayer player;
-
-        private Panel bgPanel;
         private ProgressBar progressBar;
-        private Button btnPatch;
-        private Button btnDownloadBook;
-        private Button btnShowCredits;
-        private Button btnShowExtras;
 
         public MainWindow()
         {
@@ -85,31 +80,36 @@ namespace NinoPatcher
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_0.png"));
             bgBottom.Controls.Add(termito);
 
-            btnPatch = new Button();
-            btnPatch.Text = "¡Parchear!";
-            btnPatch.Location = new Point(543, 4);
-            btnPatch.Size = new Size(120, 40);
+            ImageButton btnPatch = new ImageButton();
+            btnPatch.Location = new Point(543, 10);
+            btnPatch.DefaultImage = Image.FromStream(
+                assembly.GetManifestResourceStream(ButtonResourcePath + "patch_0.png"));
+            btnPatch.PressedImage = Image.FromStream(
+                assembly.GetManifestResourceStream(ButtonResourcePath + "patch_1.png"));
             bgBottom.Controls.Add(btnPatch);
 
-            btnDownloadBook = new Button();
-            btnDownloadBook.Text = "Vademécum";
-            btnDownloadBook.Image =
-                Image.FromStream(assembly.GetManifestResourceStream(VademecumResource));
-            btnDownloadBook.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnDownloadBook.Location = new Point(543, 49);
-            btnDownloadBook.Size = new Size(120, 40);
+            ImageButton btnDownloadBook = new ImageButton();
+            btnDownloadBook.DefaultImage = Image.FromStream(
+                assembly.GetManifestResourceStream(ButtonResourcePath + "book_0.png"));
+            btnDownloadBook.PressedImage = Image.FromStream(
+                assembly.GetManifestResourceStream(ButtonResourcePath + "book_1.png"));
+            btnDownloadBook.Location = new Point(543, 55);
             bgBottom.Controls.Add(btnDownloadBook);
 
-            btnShowCredits = new Button();
-            btnShowCredits.Text = "Créditos";
-            btnShowCredits.Location = new Point(668, 4);
-            btnShowCredits.Size = new Size(120, 40);
+            ImageButton btnShowCredits = new ImageButton();
+            btnShowCredits.DefaultImage = Image.FromStream(
+                assembly.GetManifestResourceStream(ButtonResourcePath + "credits_0.png"));
+            btnShowCredits.PressedImage = Image.FromStream(
+                assembly.GetManifestResourceStream(ButtonResourcePath + "credits_1.png"));
+            btnShowCredits.Location = new Point(668, 10);
             bgBottom.Controls.Add(btnShowCredits);
 
-            btnShowExtras = new Button();
-            btnShowExtras.Text = "Opciones";
-            btnShowExtras.Location = new Point(668, 49);
-            btnShowExtras.Size = new Size(120, 40);
+            ImageButton btnShowExtras = new ImageButton();
+            btnShowExtras.DefaultImage = Image.FromStream(
+                assembly.GetManifestResourceStream(ButtonResourcePath + "options_0.png"));
+            btnShowExtras.PressedImage = Image.FromStream(
+                assembly.GetManifestResourceStream(ButtonResourcePath + "options_1.png"));
+            btnShowExtras.Location = new Point(668, 55);
             bgBottom.Controls.Add(btnShowExtras);
             btnShowExtras.Click += delegate {
                 new ExtrasWindow().ShowDialog(this);
@@ -125,7 +125,7 @@ namespace NinoPatcher
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
 
-            bgPanel = new Panel();
+            Panel bgPanel = new Panel();
             bgPanel.BackColor = Color.Black;
             bgPanel.Location  = new Point(0, 0);
             bgPanel.Size = new Size(800, 480);
