@@ -62,40 +62,47 @@ namespace NinoPatcher
 
             CreateAnimation();
 
+            Panel bgBottom = new Panel();
+            bgBottom.Location = new Point(0, 480);
+            bgBottom.Size = new Size(800, 120);
+            bgBottom.BackgroundImage = Image.FromStream(
+                assembly.GetManifestResourceStream("NinoPatcher.Resources.skingold.png"));
+            Controls.Add(bgBottom);
+
             progressBar = new ProgressBar();
             progressBar.Value = 50;
-            progressBar.Location = new Point(10, 553);
+            progressBar.Location = new Point(10, 73);
             progressBar.Size = new Size(523, 15);
             progressBar.Style = ProgressBarStyle.Continuous;
             progressBar.ForeColor = Color.SkyBlue;
-            Controls.Add(progressBar);
+            bgBottom.Controls.Add(progressBar);
 
             btnPatch = new Button();
             btnPatch.Text = "¡Parchear!";
-            btnPatch.Location = new Point(543, 484);
+            btnPatch.Location = new Point(543, 4);
             btnPatch.Size = new Size(120, 40);
-            Controls.Add(btnPatch);
+            bgBottom.Controls.Add(btnPatch);
 
             btnDownloadBook = new Button();
             btnDownloadBook.Text = "Vademécum";
             btnDownloadBook.Image =
                 Image.FromStream(assembly.GetManifestResourceStream(VademecumResource));
             btnDownloadBook.TextImageRelation = TextImageRelation.ImageBeforeText;
-            btnDownloadBook.Location = new Point(543, 529);
+            btnDownloadBook.Location = new Point(543, 49);
             btnDownloadBook.Size = new Size(120, 40);
-            Controls.Add(btnDownloadBook);
+            bgBottom.Controls.Add(btnDownloadBook);
 
             btnShowCredits = new Button();
             btnShowCredits.Text = "Créditos";
-            btnShowCredits.Location = new Point(668, 484);
+            btnShowCredits.Location = new Point(668, 4);
             btnShowCredits.Size = new Size(120, 40);
-            Controls.Add(btnShowCredits);
+            bgBottom.Controls.Add(btnShowCredits);
 
             btnShowExtras = new Button();
             btnShowExtras.Text = "Opciones";
-            btnShowExtras.Location = new Point(668, 529);
+            btnShowExtras.Location = new Point(668, 49);
             btnShowExtras.Size = new Size(120, 40);
-            Controls.Add(btnShowExtras);
+            bgBottom.Controls.Add(btnShowExtras);
             btnShowExtras.Click += delegate {
                 new ExtrasWindow().ShowDialog(this);
             };

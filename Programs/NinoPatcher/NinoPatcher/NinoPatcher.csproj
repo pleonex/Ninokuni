@@ -122,5 +122,7 @@
     <EmbeddedResource Include="Resources\vademecum.png" />
     <EmbeddedResource Include="Resources\Jabologo.png" />
     <EmbeddedResource Include="Resources\logonombre.png" />
+    <EmbeddedResource Include="Resources\sound.wav" />
+    <EmbeddedResource Include="Resources\skingold.png" />
   </ItemGroup>
 </Project>
