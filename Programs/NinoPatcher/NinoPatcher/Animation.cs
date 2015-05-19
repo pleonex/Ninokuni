@@ -37,6 +37,7 @@ namespace NinoPatcher
         public Animation(int period, Control parent, params AnimationElement[] elements)
         {
             this.parent = parent;
+            this.parent.Paint += delegate { PaintFrame(null, null); };
             this.elements = elements;
 
             timer = new Timer();
