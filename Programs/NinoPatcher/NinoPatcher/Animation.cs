@@ -40,7 +40,7 @@ namespace NinoPatcher
         {
             this.elements = elements;
             this.parent = parent;
-            this.parent.Paint += delegate { PaintFrame(null, null); };
+            this.parent.Paint += HandleControlPaint;
             
             timer = new Timer();
             timer.Tick += PaintFrame;
@@ -94,9 +94,15 @@ namespace NinoPatcher
         {
             timer.Stop();
             timer.Dispose();
+            parent.Paint -= HandleControlPaint;
 
             if (Finished != null)
                 Finished();
+        }
+            
+        private void HandleControlPaint(object sender, PaintEventArgs e)
+        {
+            PaintFrame(null, null);
         }
     }
 }
