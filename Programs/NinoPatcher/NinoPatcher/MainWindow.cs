@@ -140,11 +140,18 @@ namespace NinoPatcher
             Point textOffset = new Point(84, 0);
 
             Fade jaboFade  = new Fade(05, 90, jaboOffset, 1, -1,  0.020f, jaboImage);
-            Fade textFade  = new Fade(55, -1, textOffset, 1, -1,  0.025f, textImage);
-            Fade jaboBlink = new Fade(90, -1, jaboOffset, 2, 25, -0.020f, jaboImage, 1.0f);
+            Fade textFade  = new Fade(55, 90, textOffset, 1, -1,  0.025f, textImage);
 
-            Animation animation = new Animation(100, bgPanel, jaboBlink, jaboFade, textFade);
+            Animation animation = new Animation(100, bgPanel, jaboFade, textFade);
             animation.Start();
+
+            animation.Finished += delegate {
+                Fade textFixed = new Fade(0, -1, textOffset, 1, -1, 0, textImage, 1.0f);
+                Fade jaboBlink = new Fade(0, -1, jaboOffset, 1, 12, -0.020f, jaboImage, 1.0f);
+
+                animation = new Animation(200, bgPanel, jaboBlink, textFixed);
+                animation.Start();
+            };
         }
 
         private void PlaySound()

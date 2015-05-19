@@ -26,6 +26,8 @@ using System.Drawing.Imaging;
 
 namespace NinoPatcher
 {
+    public delegate void AnimationFinishedHandler();
+
     public class Animation
     {
         private Control parent;
@@ -36,17 +38,20 @@ namespace NinoPatcher
 
         public Animation(int period, Control parent, params AnimationElement[] elements)
         {
+            this.elements = elements;
             this.parent = parent;
             this.parent.Paint += delegate { PaintFrame(null, null); };
-            this.elements = elements;
-
+            
             timer = new Timer();
             timer.Tick += PaintFrame;
             timer.Interval = period;
         }
 
+        public event AnimationFinishedHandler Finished;
+
         public void Start()
         {
+            PaintFrame(null, null);
             timer.Start();
             tick = 0;
         }
@@ -58,6 +63,7 @@ namespace NinoPatcher
 
         private void PaintFrame(object sender, EventArgs e)
         {
+            bool isFinished = true;
             Bitmap bufl = new Bitmap(parent.Width, parent.Height);
             using (Graphics g = Graphics.FromImage(bufl))
             {
@@ -67,8 +73,12 @@ namespace NinoPatcher
                     new Rectangle(Point.Empty, parent.Size));
 
                 // Draw animations
-                foreach (AnimationElement el in elements)
+                foreach (AnimationElement el in elements) {
                     el.Draw(g, tick);
+
+                    if (el.TickEnd == -1 || tick < el.TickEnd)
+                        isFinished = false;
+                }
 
                 // Draw image
                 parent.CreateGraphics().DrawImageUnscaled(bufl, Point.Empty);
@@ -76,6 +86,17 @@ namespace NinoPatcher
             }
 
             tick++;
+            if (isFinished)
+                OnFinished();
+        }
+
+        private void OnFinished()
+        {
+            timer.Stop();
+            timer.Dispose();
+
+            if (Finished != null)
+                Finished();
         }
     }
 }
