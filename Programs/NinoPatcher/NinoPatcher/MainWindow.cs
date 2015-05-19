@@ -22,6 +22,7 @@ using System;
 using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
+using System.Media;
 
 namespace NinoPatcher
 {
@@ -31,6 +32,8 @@ namespace NinoPatcher
         private const string VademecumResource = "NinoPatcher.Resources.vademecum.png";
 
         private Assembly assembly = Assembly.GetExecutingAssembly();
+        private SoundPlayer player;
+
         private Panel bgPanel;
         private ProgressBar progressBar;
         private Button btnPatch;
@@ -41,6 +44,7 @@ namespace NinoPatcher
         public MainWindow()
         {
             InitializeComponents();
+            PlaySound();
         }
 
         private void InitializeComponents()
@@ -57,7 +61,7 @@ namespace NinoPatcher
             Icon = new Icon(assembly.GetManifestResourceStream(IconResource));
 
             CreateAnimation();
-            /*
+
             progressBar = new ProgressBar();
             progressBar.Value = 50;
             progressBar.Location = new Point(10, 553);
@@ -94,7 +98,7 @@ namespace NinoPatcher
             Controls.Add(btnShowExtras);
             btnShowExtras.Click += delegate {
                 new ExtrasWindow().ShowDialog(this);
-            };*/
+            };
 
             ResumeLayout(false);
         }
@@ -109,7 +113,7 @@ namespace NinoPatcher
             bgPanel = new Panel();
             bgPanel.BackColor = Color.Black;
             bgPanel.Location  = new Point(0, 0);
-            bgPanel.Size = new Size(800, 600);
+            bgPanel.Size = new Size(800, 480);
             Controls.Add(bgPanel);
 
             Image jaboImage = Image.FromStream(
@@ -123,6 +127,14 @@ namespace NinoPatcher
 
             Animation animation = new Animation(100, bgPanel, jaboFade, jaboBlink, textFade);
             animation.Start();
+        }
+
+        private void PlaySound()
+        {
+            player = new SoundPlayer(
+                assembly.GetManifestResourceStream("NinoPatcher.Resources.sound.wav"));
+            player.PlayLooping();
+            FormClosing += delegate { player.Stop(); };
         }
     }
 }
