@@ -64,6 +64,12 @@ namespace NinoPatcher
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.skingold.png"));
             Controls.Add(bgBottom);
 
+            Panel separationLine = new Panel();
+            separationLine.BackColor = Color.White;
+            separationLine.Size = new Size(800, 3);
+            separationLine.Location = new Point(0, 0);
+            bgBottom.Controls.Add(separationLine);
+
             progressBar = new ProgressBar();
             progressBar.Value = 0;
             progressBar.Location = new Point(10, 73);
