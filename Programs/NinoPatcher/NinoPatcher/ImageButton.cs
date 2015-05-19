@@ -26,15 +26,24 @@ namespace NinoPatcher
 {
     public class ImageButton : PictureBox
     {
+        private Image defaultImage;
+
         public ImageButton()
         {
-            MouseDown += HandleMouseDown;
-            MouseUp   += HandleMouseUp;
+            BackColor = Color.Transparent;
+            SizeMode  = PictureBoxSizeMode.AutoSize;
+            MouseDown  += HandleMouseDown;
+            MouseUp    += HandleMouseUp;
+            MouseLeave += HandleMouseLeave;;
         }
 
         public Image DefaultImage {
-            get;
-            set;
+            get { return defaultImage; }
+            set {
+                defaultImage = value;
+                if (Image == null)
+                    Image = DefaultImage;
+            }
         }
 
         public Image PressedImage {
@@ -50,6 +59,11 @@ namespace NinoPatcher
         void HandleMouseDown(object sender, MouseEventArgs e)
         {
             Image = PressedImage;
+        }
+
+        void HandleMouseLeave(object sender, EventArgs e)
+        {
+            Image = DefaultImage;
         }
     }
 }
