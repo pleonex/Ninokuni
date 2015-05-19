@@ -41,26 +41,7 @@ namespace NinoPatcher
             this.alpha = startAlpha;
         }
 
-        protected override void DrawElement(Graphics g, int tick)
-        {
-            UpdateAlpha(tick);
-            DrawImage(g);
-        }
-
-        private void UpdateAlpha(int tick)
-        {
-            if (fadeChangeTick != -1 && ((tick - TickStart) % fadeChangeTick) == 0)
-                fadeIncrement *= -1;
-
-            alpha += fadeIncrement;
-
-            if (alpha > 1)
-                alpha = 1;
-            if (alpha < 0)
-                alpha = 0;
-        }
-
-        private void DrawImage(Graphics g)
+        protected override void DrawElement(Graphics g)
         {
             ColorMatrix cm = new ColorMatrix();
             cm.Matrix33 = alpha;
@@ -74,6 +55,20 @@ namespace NinoPatcher
                 0, 0, image.Width, image.Height,
                 GraphicsUnit.Pixel,
                 ia);
+        }
+
+        protected override void Update(int tick)
+        {
+            if (fadeChangeTick != -1 &&
+                tick != TickStart && ((tick - TickStart) % fadeChangeTick) == 0)
+                fadeIncrement *= -1;
+
+            alpha += fadeIncrement;
+
+            if (alpha > 1)
+                alpha = 1;
+            if (alpha < 0)
+                alpha = 0;
         }
     }
 }

@@ -68,13 +68,17 @@ namespace NinoPatcher
             if (lastTick == -1)
                 lastTick = tick;
 
-            if ((tick - lastTick) < TickSteps)
-                return;
+            if ((tick - lastTick) >= TickSteps) {
+                Update(tick);
+                lastTick = tick;
+            }
 
-            DrawElement(g, tick);
+            DrawElement(g);
         }
 
-        protected abstract void DrawElement(Graphics g, int tick);
+        protected abstract void Update(int tick);
+
+        protected abstract void DrawElement(Graphics g);
     }
 }
 

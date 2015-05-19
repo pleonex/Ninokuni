@@ -70,7 +70,7 @@ namespace NinoPatcher
             Controls.Add(bgBottom);
 
             progressBar = new ProgressBar();
-            progressBar.Value = 50;
+            progressBar.Value = 0;
             progressBar.Location = new Point(10, 73);
             progressBar.Size = new Size(523, 15);
             progressBar.Style = ProgressBarStyle.Continuous;
@@ -128,11 +128,14 @@ namespace NinoPatcher
             Image textImage = Image.FromStream(
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.logonombre.png"));
 
-            Fade jaboFade = new Fade(20, 180, Point.Empty, 1, -1, 0.0125f, jaboImage);
-            Fade textFade = new Fade(100, -1, Point.Empty, 1, -1, 0.0125f, textImage);
-            Fade jaboBlink = new Fade(179, -1, Point.Empty, 1, 10, -0.06f, jaboImage, 1.0f);
+            Point jaboOffset = new Point(93, 0);
+            Point textOffset = new Point(84, 0);
 
-            Animation animation = new Animation(100, bgPanel, jaboFade, jaboBlink, textFade);
+            Fade jaboFade  = new Fade(20, 70, jaboOffset, 1, -1,  0.020f, jaboImage, 0.05f);
+            Fade textFade  = new Fade(40, -1, textOffset, 1, -1,  0.025f, textImage);
+            Fade jaboBlink = new Fade(70, -1, jaboOffset, 3,  8, -0.025f, jaboImage, 1.0f);
+
+            Animation animation = new Animation(100, bgPanel, jaboBlink, jaboFade, textFade);
             animation.Start();
         }
 
