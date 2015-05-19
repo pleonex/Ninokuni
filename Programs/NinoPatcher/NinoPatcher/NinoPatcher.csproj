@@ -109,6 +109,7 @@
     <Compile Include="MainWindow.cs" />
     <Compile Include="ExtrasWindow.cs" />
     <Compile Include="Animation.cs" />
+    <Compile Include="AnimationElement.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />

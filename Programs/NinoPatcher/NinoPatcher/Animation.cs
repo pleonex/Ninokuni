@@ -28,14 +28,30 @@ namespace NinoPatcher
 {
     public class Animation
     {
-        private Timer timer;
         private Control parent;
+        private AnimationElement[] elements;
 
-        public Animation(int period, Control parent, params Stream[] images)
+        private Timer timer;
+        private int tick;
+
+        public Animation(int period, Control parent, params AnimationElement[] elements)
         {
+            this.elements = elements;
+
             timer = new Timer();
             timer.Tick += PaintFrame;
             timer.Interval = period;
+        }
+
+        public void Start()
+        {
+            timer.Start();
+            tick = 0;
+        }
+
+        public void Stop()
+        {
+            timer.Stop();
         }
 
         private void PaintFrame(object sender, EventArgs e)
@@ -43,24 +59,20 @@ namespace NinoPatcher
             Bitmap bufl = new Bitmap(parent.Width, parent.Height);
             using (Graphics g = Graphics.FromImage(bufl))
             {
-                g.FillRectangle(Brushes.Black, new Rectangle(0, 0, parent.Width, parent.Height));
-                //DrawItems(g);
-                parent.CreateGraphics().DrawImageUnscaled(bufl, 0, 0);
+                // Draw background color
+                g.FillRectangle(
+                    new SolidBrush(parent.BackColor),
+                    new Rectangle(Point.Empty, parent.Size));
+
+                // Draw animations
+                foreach (AnimationElement el in elements)
+                    el.Draw(g, tick);
+
+                // Draw image
+                parent.CreateGraphics().DrawImageUnscaled(bufl, Point.Empty);
             }
-        }
 
-        private void FadeImage(Graphics g, Image image, int x, int y, float alpha) {
-            ColorMatrix cm = new ColorMatrix();
-            cm.Matrix33 = alpha;
-
-            ImageAttributes ia = new ImageAttributes();
-            ia.SetColorMatrix(cm);
-
-            Rectangle outputRectangle = new Rectangle(x, y, image.Width, image.Height);
-            g.DrawImage(image,
-                outputRectangle,
-                0, 0, image.Width, image.Height,
-                GraphicsUnit.Pixel, ia);
+            tick++;
         }
     }
 }
