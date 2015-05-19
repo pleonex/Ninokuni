@@ -58,6 +58,7 @@ namespace NinoPatcher
             CreateAnimation();
 
             Panel bgBottom = new Panel();
+            bgBottom.BackColor = Color.Transparent;
             bgBottom.Location = new Point(0, 480);
             bgBottom.Size = new Size(800, 120);
             bgBottom.BackgroundImage = Image.FromStream(
@@ -78,13 +79,23 @@ namespace NinoPatcher
             progressBar.ForeColor = Color.SkyBlue;
             bgBottom.Controls.Add(progressBar);
 
-            PictureBox termito = new PictureBox();
-            termito.BackColor = Color.Transparent;
-            termito.Location = new Point(50, 30);
-            termito.SizeMode = PictureBoxSizeMode.AutoSize;
-            termito.Image = Image.FromStream(
+            Image termitoImg0 = Image.FromStream(
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_0.png"));
-            bgBottom.Controls.Add(termito);
+            Image termitoImg1 = Image.FromStream(
+                assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_1.png"));
+            Image termitoImg2 = Image.FromStream(
+                assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_2.png"));
+            Image termitoImg3 = Image.FromStream(
+                assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_3.png"));
+            Sprite termitoSprite = new Sprite(0, -1, 1, new Point(500, 30), 
+                                       new Point(10, 30), new Size(-1, 0), 1,
+                                       termitoImg0, termitoImg1, termitoImg2, termitoImg3);
+            Fade termitoBg = new Fade(0, -1, 1, Point.Empty, -1, 0f,
+                Image.FromStream(
+                    assembly.GetManifestResourceStream("NinoPatcher.Resources.skingold.png"))
+                , 1.0f);
+            Animation animation = new Animation(150, bgBottom, termitoBg, termitoSprite);
+            animation.Start();
 
             ImageButton btnPatch = new ImageButton();
             btnPatch.Location = new Point(543, 10);
@@ -145,15 +156,15 @@ namespace NinoPatcher
             Point jaboOffset = new Point(93, 0);
             Point textOffset = new Point(84, 0);
 
-            Fade jaboFade  = new Fade(05, 90, jaboOffset, 1, -1,  0.020f, jaboImage);
-            Fade textFade  = new Fade(55, 90, textOffset, 1, -1,  0.025f, textImage);
+            Fade jaboFade  = new Fade(05, 90, 1, jaboOffset, -1,  0.020f, jaboImage);
+            Fade textFade  = new Fade(55, 90, 1, textOffset, -1,  0.025f, textImage);
 
             Animation animation = new Animation(100, bgPanel, jaboFade, textFade);
             animation.Start();
 
             animation.Finished += delegate {
-                Fade textFixed = new Fade(0, -1, textOffset, 1, -1, 0, textImage, 1.0f);
-                Fade jaboBlink = new Fade(0, -1, jaboOffset, 1, 12, -0.020f, jaboImage, 1.0f);
+                Fade textFixed = new Fade(0, -1, 1, textOffset, -1, 0, textImage, 1.0f);
+                Fade jaboBlink = new Fade(0, -1, 1, jaboOffset, 12, -0.020f, jaboImage, 1.0f);
 
                 animation = new Animation(200, bgPanel, jaboBlink, textFixed);
                 animation.Start();

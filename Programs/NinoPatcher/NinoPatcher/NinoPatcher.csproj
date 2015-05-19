@@ -114,6 +114,7 @@
     <Compile Include="Fade.cs" />
     <Compile Include="ImageButton.cs" />
     <Compile Include="Patcher.cs" />
+    <Compile Include="Sprite.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />

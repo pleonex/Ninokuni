@@ -31,7 +31,7 @@ namespace NinoPatcher
         private float fadeIncrement;
         private int fadeChangeTick;
 
-        public Fade(int startTick, int endTick, Point position, int steps,
+        public Fade(int startTick, int endTick, int steps, Point position,
             int fadeChangeTick, float fadeIncrement, Image image, float startAlpha = 0.0f)
             : base(startTick, endTick, steps, position)
         {
