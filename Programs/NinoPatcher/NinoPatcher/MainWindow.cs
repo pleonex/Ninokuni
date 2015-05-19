@@ -77,6 +77,14 @@ namespace NinoPatcher
             progressBar.ForeColor = Color.SkyBlue;
             bgBottom.Controls.Add(progressBar);
 
+            PictureBox termito = new PictureBox();
+            termito.BackColor = Color.Transparent;
+            termito.Location = new Point(50, 30);
+            termito.SizeMode = PictureBoxSizeMode.AutoSize;
+            termito.Image = Image.FromStream(
+                assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_0.png"));
+            bgBottom.Controls.Add(termito);
+
             btnPatch = new Button();
             btnPatch.Text = "¡Parchear!";
             btnPatch.Location = new Point(543, 4);
@@ -131,9 +139,9 @@ namespace NinoPatcher
             Point jaboOffset = new Point(93, 0);
             Point textOffset = new Point(84, 0);
 
-            Fade jaboFade  = new Fade(20, 70, jaboOffset, 1, -1,  0.020f, jaboImage, 0.05f);
-            Fade textFade  = new Fade(40, -1, textOffset, 1, -1,  0.025f, textImage);
-            Fade jaboBlink = new Fade(70, -1, jaboOffset, 3,  8, -0.025f, jaboImage, 1.0f);
+            Fade jaboFade  = new Fade(05, 90, jaboOffset, 1, -1,  0.020f, jaboImage);
+            Fade textFade  = new Fade(55, -1, textOffset, 1, -1,  0.025f, textImage);
+            Fade jaboBlink = new Fade(90, -1, jaboOffset, 2, 25, -0.020f, jaboImage, 1.0f);
 
             Animation animation = new Animation(100, bgPanel, jaboBlink, jaboFade, textFade);
             animation.Start();

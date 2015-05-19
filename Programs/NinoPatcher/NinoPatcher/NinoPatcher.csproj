@@ -126,5 +126,9 @@
     <EmbeddedResource Include="Resources\logonombre.png" />
     <EmbeddedResource Include="Resources\sound.wav" />
     <EmbeddedResource Include="Resources\skingold.png" />
+    <EmbeddedResource Include="Resources\anime_0.png" />
+    <EmbeddedResource Include="Resources\anime_1.png" />
+    <EmbeddedResource Include="Resources\anime_2.png" />
+    <EmbeddedResource Include="Resources\anime_3.png" />
   </ItemGroup>
 </Project>
