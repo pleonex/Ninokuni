@@ -74,7 +74,10 @@ namespace NinoPatcher
 
                 // Draw animations
                 foreach (AnimationElement el in elements) {
-                    el.Draw(g, tick);
+                    if (e == null)
+                        el.Draw(g, -1);
+                    else
+                        el.Draw(g, tick);
 
                     if (el.TickEnd == -1 || tick < el.TickEnd)
                         isFinished = false;

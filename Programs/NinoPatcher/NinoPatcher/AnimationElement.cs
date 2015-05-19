@@ -59,18 +59,20 @@ namespace NinoPatcher
 
         public void Draw(Graphics g, int tick)
         {
-            if (tick < TickStart)
-                return;
+            if (tick != -1) {
+                if (tick < TickStart)
+                    return;
 
-            if (TickEnd != -1 && tick >= TickEnd)
-                return;
+                if (TickEnd != -1 && tick >= TickEnd)
+                    return;
 
-            if (lastTick == -1)
-                lastTick = tick;
+                if (lastTick == -1)
+                    lastTick = tick;
 
-            if ((tick - lastTick) >= TickSteps) {
-                Update(tick);
-                lastTick = tick;
+                if ((tick - lastTick) >= TickSteps) {
+                    Update(tick);
+                    lastTick = tick;
+                }
             }
 
             DrawElement(g);
