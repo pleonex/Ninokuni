@@ -110,6 +110,7 @@
     <Compile Include="ExtrasWindow.cs" />
     <Compile Include="Animation.cs" />
     <Compile Include="AnimationElement.cs" />
+    <Compile Include="Fade.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
@@ -119,5 +120,7 @@
   <ItemGroup>
     <EmbeddedResource Include="Resources\icon.ico" />
     <EmbeddedResource Include="Resources\vademecum.png" />
+    <EmbeddedResource Include="Resources\Jabologo.png" />
+    <EmbeddedResource Include="Resources\logonombre.png" />
   </ItemGroup>
 </Project>

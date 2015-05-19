@@ -56,17 +56,8 @@ namespace NinoPatcher
             Text = "Ninokuni - El Mago de las Tinieblas v1.0 ~~ GradienWords";
             Icon = new Icon(assembly.GetManifestResourceStream(IconResource));
 
-            // For smooth animations
-            SetStyle(ControlStyles.UserPaint, true);
-            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
-
-            bgPanel = new Panel();
-            bgPanel.BackColor = Color.Black;
-            bgPanel.Location  = new Point(0, 0);
-            bgPanel.Size = new Size(800, 480);
-            Controls.Add(bgPanel);
-
+            CreateAnimation();
+            /*
             progressBar = new ProgressBar();
             progressBar.Value = 50;
             progressBar.Location = new Point(10, 553);
@@ -103,9 +94,35 @@ namespace NinoPatcher
             Controls.Add(btnShowExtras);
             btnShowExtras.Click += delegate {
                 new ExtrasWindow().ShowDialog(this);
-            };
+            };*/
 
             ResumeLayout(false);
+        }
+
+        private void CreateAnimation()
+        {
+            // For smooth animations
+            SetStyle(ControlStyles.UserPaint, true);
+            SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
+            SetStyle(ControlStyles.AllPaintingInWmPaint, true);
+
+            bgPanel = new Panel();
+            bgPanel.BackColor = Color.Black;
+            bgPanel.Location  = new Point(0, 0);
+            bgPanel.Size = new Size(800, 600);
+            Controls.Add(bgPanel);
+
+            Image jaboImage = Image.FromStream(
+                assembly.GetManifestResourceStream("NinoPatcher.Resources.Jabologo.png"));
+            Image textImage = Image.FromStream(
+                assembly.GetManifestResourceStream("NinoPatcher.Resources.logonombre.png"));
+
+            Fade jaboFade = new Fade(20, 180, Point.Empty, 1, -1, 0.0125f, jaboImage);
+            Fade textFade = new Fade(100, -1, Point.Empty, 1, -1, 0.0125f, textImage);
+            Fade jaboBlink = new Fade(179, -1, Point.Empty, 1, 10, -0.06f, jaboImage, 1.0f);
+
+            Animation animation = new Animation(100, bgPanel, jaboFade, jaboBlink, textFade);
+            animation.Start();
         }
     }
 }

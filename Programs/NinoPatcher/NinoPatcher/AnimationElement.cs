@@ -25,12 +25,16 @@ namespace NinoPatcher
 {
     public abstract class AnimationElement
     {
-        protected AnimationElement(int startTick, int endTick, bool loop, Point position)
+        private int lastTick;
+
+        protected AnimationElement(int startTick, int endTick, int steps, Point position)
         {
             Position  = position;
             TickStart = startTick;
             TickEnd   = endTick;
-            Loop = loop;
+            TickSteps = steps;
+
+            lastTick = -1;
         }
 
         public int TickStart {
@@ -43,14 +47,14 @@ namespace NinoPatcher
             private set;
         }
 
-        public bool Loop {
-            get;
-            private set;
-        }
-
         public Point Position {
             get;
             protected set;
+        }
+
+        public int TickSteps {
+            get;
+            private set;
         }
 
         public void Draw(Graphics g, int tick)
@@ -58,7 +62,13 @@ namespace NinoPatcher
             if (tick < TickStart)
                 return;
 
-            if (tick >= TickEnd && !Loop)
+            if (TickEnd != -1 && tick >= TickEnd)
+                return;
+
+            if (lastTick == -1)
+                lastTick = tick;
+
+            if ((tick - lastTick) < TickSteps)
                 return;
 
             DrawElement(g, tick);
