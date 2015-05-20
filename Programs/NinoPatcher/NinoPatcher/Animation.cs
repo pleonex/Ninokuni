@@ -94,10 +94,7 @@ namespace NinoPatcher
 		{
             using (Bitmap bufImg = new Bitmap(control.Width, control.Height)) {
 				using (Graphics g = Graphics.FromImage(bufImg)) {
-					// Draw background color
-					g.FillRectangle(
-						new SolidBrush(control.BackColor),
-						new Rectangle(Point.Empty, control.Size));
+                    ClearControl(control, g);
 
 					// Draw animations
 					foreach (AnimationElement el in elements[control]) {
@@ -113,6 +110,18 @@ namespace NinoPatcher
 				}
 			}
 		}
+
+        private void ClearControl(Control control, Graphics g)
+        {
+            // If it has set a background image draw only it
+            if (control.BackgroundImage != null)
+                g.DrawImage(control.BackgroundImage, Point.Empty);
+            else
+                // Otherwise, draw background color
+                g.FillRectangle(
+                    new SolidBrush(control.BackColor),
+                    new Rectangle(Point.Empty, control.Size));
+        }
 
 		private bool IsEnabled(AnimationElement element)
 		{

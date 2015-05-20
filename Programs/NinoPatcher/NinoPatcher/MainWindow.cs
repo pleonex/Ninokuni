@@ -80,7 +80,7 @@ namespace NinoPatcher
             progressBar.Style = ProgressBarStyle.Continuous;
             progressBar.ForeColor = Color.SkyBlue;
             bgBottom.Controls.Add(progressBar);
-			/*
+
             Image termitoImg0 = Image.FromStream(
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_0.png"));
             Image termitoImg1 = Image.FromStream(
@@ -89,16 +89,11 @@ namespace NinoPatcher
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_2.png"));
             Image termitoImg3 = Image.FromStream(
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_3.png"));
-            Sprite termitoSprite = new Sprite(0, -1, 1, new Point(490, 30), 
+            Sprite termitoSprite = new Sprite(0, -1, 3, new Point(470, 30), 
                                        new Point(10, 30), new Size(-1, 0), 1,
                                        termitoImg0, termitoImg1, termitoImg2, termitoImg3);
-            Fade termitoBg = new Fade(0, -1, 1, Point.Empty, -1, 0f,
-                Image.FromStream(
-                    assembly.GetManifestResourceStream("NinoPatcher.Resources.skingold.png"))
-                , 1.0f);
-            Animation animation = new Animation(150, bgBottom, termitoBg, termitoSprite);
-            animation.Start();
-			*/
+            Animation.Instance.Add(bgBottom, termitoSprite);
+
             ImageButton btnPatch = new ImageButton();
             btnPatch.Location = new Point(543, 10);
             btnPatch.DefaultImage = Image.FromStream(
