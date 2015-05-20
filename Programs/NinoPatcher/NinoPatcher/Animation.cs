@@ -19,94 +19,128 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.Collections.Generic;
 using System.Drawing;
+using System.Drawing.Imaging;
 using System.IO;
 using System.Windows.Forms;
-using System.Drawing.Imaging;
 
 namespace NinoPatcher
 {
-    public delegate void AnimationFinishedHandler();
-
-    public class Animation
+    public sealed class Animation
     {
-        private Control parent;
-        private AnimationElement[] elements;
+		private static volatile Animation instance;
+		private static object syncRoot = new Object();
 
+		private readonly Dictionary<Control, List<AnimationElement>> elements;
         private Timer timer;
-        private int tick;
 
-        public Animation(int period, Control parent, params AnimationElement[] elements)
+        private Animation()
         {
-            this.elements = elements;
-            this.parent = parent;
-            this.parent.Paint += HandleControlPaint;
-            
+			elements = new Dictionary<Control, List<AnimationElement>>();
             timer = new Timer();
             timer.Tick += PaintFrame;
-            timer.Interval = period;
+			timer.Enabled = false;
         }
 
-        public event AnimationFinishedHandler Finished;
+		public static Animation Instance {
+			get {
+				if (instance == null) {
+					lock (syncRoot) {
+						if (instance == null)
+							instance = new Animation();
+					}
+				}
 
-        public void Start()
-        {
-            PaintFrame(null, null);
-            timer.Start();
-            tick = 0;
-        }
+				return instance;
+			}
+		}
 
-        public void Stop()
-        {
-            timer.Stop();
-        }
+		public int Interval {
+			get { return timer.Interval; }
+			set { timer.Interval = value; timer.Enabled = true; }
+		}
+
+		public void Add(Control parent, AnimationElement element)
+		{
+			if (!elements.ContainsKey(parent)) {
+				elements.Add(parent, new List<AnimationElement>());
+				parent.Paint += HandleControlPaint;
+			}
+
+			elements[parent].Add(element);
+		}
+
+		public void Remove(Control parent, AnimationElement element)
+		{
+			if (!elements.ContainsKey(parent))
+				throw new ArgumentException();
+
+			elements[parent].Remove(element);
+		}
+
+		private void HandleControlPaint(object sender, PaintEventArgs e)
+		{
+			PaintControl((Control)sender, false);
+		}
 
         private void PaintFrame(object sender, EventArgs e)
         {
-            bool isFinished = true;
-            Bitmap bufl = new Bitmap(parent.Width, parent.Height);
-            using (Graphics g = Graphics.FromImage(bufl))
-            {
-                // Draw background color
-                g.FillRectangle(
-                    new SolidBrush(parent.BackColor),
-                    new Rectangle(Point.Empty, parent.Size));
-
-                // Draw animations
-                foreach (AnimationElement el in elements) {
-                    if (e == null)
-                        el.Draw(g, -1);
-                    else
-                        el.Draw(g, tick);
-
-                    if (el.TickEnd == -1 || tick < el.TickEnd)
-                        isFinished = false;
-                }
-
-                // Draw image
-                parent.CreateGraphics().DrawImageUnscaled(bufl, Point.Empty);
-                bufl.Dispose();
-            }
-
-            tick++;
-            if (isFinished)
-                OnFinished();
+			foreach (Control key in elements.Keys)
+				PaintControl(key, true);
         }
 
-        private void OnFinished()
-        {
-            timer.Stop();
-            timer.Dispose();
-            parent.Paint -= HandleControlPaint;
+		private void PaintControl(Control control, bool mustUpdate)
+		{
+            using (Bitmap bufImg = new Bitmap(control.Width, control.Height)) {
+				using (Graphics g = Graphics.FromImage(bufImg)) {
+					// Draw background color
+					g.FillRectangle(
+						new SolidBrush(control.BackColor),
+						new Rectangle(Point.Empty, control.Size));
 
-            if (Finished != null)
-                Finished();
-        }
-            
-        private void HandleControlPaint(object sender, PaintEventArgs e)
-        {
-            PaintFrame(null, null);
-        }
+					// Draw animations
+					foreach (AnimationElement el in elements[control]) {
+						if (mustUpdate)
+							UpdateElement(el);
+
+                        if (IsEnabled(el))
+                            el.Draw(g);
+					}
+
+					// Draw image
+					control.CreateGraphics().DrawImageUnscaled(bufImg, Point.Empty);
+				}
+			}
+		}
+
+		private bool IsEnabled(AnimationElement element)
+		{
+			return (element.Delay == 0) && (element.Duration == -1 || element.Duration > 0);
+		}
+
+		private void UpdateElement(AnimationElement element)
+		{
+			// First check if in this tick we can update counters
+			element.CurrentStep--;
+			if (element.CurrentStep > 0)
+				return;
+
+			// And fill again step count
+			element.CurrentStep = element.Steps;
+
+			// Then waits for delay time
+			if (element.Delay > 0) {
+				element.Delay--;
+				return;
+			}
+
+			// Checks for duration animation
+			if (element.Duration == -1 || element.Duration > 0) {
+				element.Duration = (element.Duration != -1) ? element.Duration - 1 : -1;
+				element.Update();
+			}
+		}
     }
 }
 

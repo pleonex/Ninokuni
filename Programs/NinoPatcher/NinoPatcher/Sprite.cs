@@ -27,15 +27,15 @@ namespace NinoPatcher
     {
         private Point endPosition;
         private Size movement;
-        private float changeFrequency;
+        private int changeFrequency;
         private Image[] images;
 
         private int currentIndex;
-        private int lastChangeTick;
+        private int count;
 
-        public Sprite(int startTick, int endTick, int steps, Point position,
-            Point endPosition, Size movement, float changeFrequency, params Image[] images)
-            : base(startTick, endTick, steps, position)
+        public Sprite(int delay, int duration, int steps, Point position,
+            Point endPosition, Size movement, int changeFrequency, params Image[] images)
+			: base(delay, duration, steps, position)
         {
             this.endPosition = endPosition;
             this.movement = movement;
@@ -43,25 +43,25 @@ namespace NinoPatcher
             this.changeFrequency = changeFrequency;
 
             currentIndex = 0;
+			count = 0;
         }
 
-        protected override void Update(int tick)
+        public override void Update()
         {
             // Update frame
-            if ((tick - lastChangeTick) >= changeFrequency) {
+			if (count != 0 && (count % changeFrequency) == 0)
                 currentIndex = (currentIndex + 1) % images.Length;
-                lastChangeTick = tick;
-            }
+			count++;
 
             // Update position
             if (!Position.Equals(endPosition))
                 Position = Point.Add(Position, movement);
         }
 
-        protected override void DrawElement(Graphics g)
+        public override void Draw(Graphics g)
         {
             Rectangle outputRectangle = new Rectangle(Position, images[currentIndex].Size);
-            g.DrawImage(images[currentIndex], outputRectangle);
+            g.DrawImageUnscaled(images[currentIndex], outputRectangle);
         }
     }
 }

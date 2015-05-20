@@ -25,62 +25,42 @@ namespace NinoPatcher
 {
     public abstract class AnimationElement
     {
-        private int lastTick;
-
-        protected AnimationElement(int startTick, int endTick, int steps, Point position)
+        protected AnimationElement(int delay, int duration, int steps, Point position)
         {
-            Position  = position;
-            TickStart = startTick;
-            TickEnd   = endTick;
-            TickSteps = steps;
-
-            lastTick = -1;
+            Position = position;
+            Delay    = delay;
+			Duration = duration;
+			Steps    = steps;
+			CurrentStep = steps;
         }
 
-        public int TickStart {
+        public int Delay {
             get;
-            private set;
+            set;
         }
 
-        public int TickEnd {
+        public int Duration {
             get;
-            private set;
+            set;
         }
 
         public Point Position {
             get;
-            protected set;
+            set;
         }
 
-        public int TickSteps {
+		public int CurrentStep {
+			get;
+			set;
+		}
+
+        public int Steps {
             get;
             private set;
         }
 
-        public void Draw(Graphics g, int tick)
-        {
-            if (tick != -1) {
-                if (tick < TickStart)
-                    return;
-
-                if (TickEnd != -1 && tick >= TickEnd)
-                    return;
-
-                if (lastTick == -1)
-                    lastTick = tick;
-
-                if ((tick - lastTick) >= TickSteps) {
-                    Update(tick);
-                    lastTick = tick;
-                }
-            }
-
-            DrawElement(g);
-        }
-
-        protected abstract void Update(int tick);
-
-        protected abstract void DrawElement(Graphics g);
+        public abstract void Update();
+        public abstract void Draw(Graphics g);
     }
 }
 

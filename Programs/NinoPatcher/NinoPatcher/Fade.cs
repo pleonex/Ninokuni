@@ -28,20 +28,23 @@ namespace NinoPatcher
     {
         private Image image;
         private float alpha;
+
+		private int count;
         private float fadeIncrement;
         private int fadeChangeTick;
 
-        public Fade(int startTick, int endTick, int steps, Point position,
+        public Fade(int delay, int duration, int steps, Point position,
             int fadeChangeTick, float fadeIncrement, Image image, float startAlpha = 0.0f)
-            : base(startTick, endTick, steps, position)
+            : base(delay, duration, steps, position)
         {
             this.image = image;
             this.fadeIncrement  = fadeIncrement;
             this.fadeChangeTick = fadeChangeTick;
             this.alpha = startAlpha;
+			count = 0;
         }
 
-        protected override void DrawElement(Graphics g)
+        public override void Draw(Graphics g)
         {
             ColorMatrix cm = new ColorMatrix();
             cm.Matrix33 = alpha;
@@ -53,22 +56,19 @@ namespace NinoPatcher
             g.DrawImage(image,
                 outputRectangle,
                 0, 0, image.Width, image.Height,
-                GraphicsUnit.Pixel,
-                ia);
+                GraphicsUnit.Pixel, ia);
         }
 
-        protected override void Update(int tick)
+        public override void Update()
         {
-            if (fadeChangeTick != -1 &&
-                tick != TickStart && ((tick - TickStart) % fadeChangeTick) == 0)
-                fadeIncrement *= -1;
-
+            if (fadeChangeTick != -1 && (count != 0 && (count % fadeChangeTick) == 0))
+				fadeIncrement *= -1;
+			
+			count++;
             alpha += fadeIncrement;
 
-            if (alpha > 1)
-                alpha = 1;
-            if (alpha < 0)
-                alpha = 0;
+            if (alpha > 1) alpha = 1;
+            if (alpha < 0) alpha = 0;
         }
     }
 }

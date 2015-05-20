@@ -115,6 +115,7 @@
     <Compile Include="ImageButton.cs" />
     <Compile Include="Patcher.cs" />
     <Compile Include="Sprite.cs" />
+    <Compile Include="BackgroundImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
@@ -123,7 +124,6 @@
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="Resources\icon.ico" />
-    <EmbeddedResource Include="Resources\vademecum.png" />
     <EmbeddedResource Include="Resources\Jabologo.png" />
     <EmbeddedResource Include="Resources\logonombre.png" />
     <EmbeddedResource Include="Resources\sound.wav" />

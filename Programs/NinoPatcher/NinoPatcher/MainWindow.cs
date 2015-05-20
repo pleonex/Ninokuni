@@ -28,8 +28,9 @@ namespace NinoPatcher
 {
     public class MainWindow : Form
     {
-        private const string IconResource = "NinoPatcher.Resources.icon.ico";
-        private const string VademecumResource = "NinoPatcher.Resources.vademecum.png";
+        private const string IconResource       = "NinoPatcher.Resources.icon.ico";
+		private const string AniResourceJabo    = "NinoPatcher.Resources.Jabologo.png";
+		private const string AniResourceLogo    = "NinoPatcher.Resources.logonombre.png";
         private const string ButtonResourcePath = "NinoPatcher.Resources.Buttons.";
 
         private Assembly assembly = Assembly.GetExecutingAssembly();
@@ -37,9 +38,10 @@ namespace NinoPatcher
         private ProgressBar progressBar;
 
         public MainWindow()
-        {
+		{
             InitializeComponents();
             PlaySound();
+			Animation.Instance.Interval = 50;
         }
 
         private void InitializeComponents()
@@ -78,7 +80,7 @@ namespace NinoPatcher
             progressBar.Style = ProgressBarStyle.Continuous;
             progressBar.ForeColor = Color.SkyBlue;
             bgBottom.Controls.Add(progressBar);
-
+			/*
             Image termitoImg0 = Image.FromStream(
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_0.png"));
             Image termitoImg1 = Image.FromStream(
@@ -87,7 +89,7 @@ namespace NinoPatcher
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_2.png"));
             Image termitoImg3 = Image.FromStream(
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_3.png"));
-            Sprite termitoSprite = new Sprite(0, -1, 1, new Point(500, 30), 
+            Sprite termitoSprite = new Sprite(0, -1, 1, new Point(490, 30), 
                                        new Point(10, 30), new Size(-1, 0), 1,
                                        termitoImg0, termitoImg1, termitoImg2, termitoImg3);
             Fade termitoBg = new Fade(0, -1, 1, Point.Empty, -1, 0f,
@@ -96,7 +98,7 @@ namespace NinoPatcher
                 , 1.0f);
             Animation animation = new Animation(150, bgBottom, termitoBg, termitoSprite);
             animation.Start();
-
+			*/
             ImageButton btnPatch = new ImageButton();
             btnPatch.Location = new Point(543, 10);
             btnPatch.DefaultImage = Image.FromStream(
@@ -148,27 +150,22 @@ namespace NinoPatcher
             bgPanel.Size = new Size(800, 480);
             Controls.Add(bgPanel);
 
-            Image jaboImage = Image.FromStream(
-                assembly.GetManifestResourceStream("NinoPatcher.Resources.Jabologo.png"));
-            Image textImage = Image.FromStream(
-                assembly.GetManifestResourceStream("NinoPatcher.Resources.logonombre.png"));
+            Image jaboImage = Image.FromStream(assembly.GetManifestResourceStream(AniResourceJabo));
+			Point jaboOffset = new Point(93, 0);
+			Fade jaboFade  = new Fade(5,  85, 2, jaboOffset, -1,  0.020f, jaboImage);
+			Fade jaboBlink = new Fade(90, -1, 2, jaboOffset, 12, -0.020f, jaboImage, 1.0f);
 
-            Point jaboOffset = new Point(93, 0);
+            Image textImage = Image.FromStream(assembly.GetManifestResourceStream(AniResourceLogo));
             Point textOffset = new Point(84, 0);
+            Fade textFade  = new Fade(50, 40, 2, textOffset, -1,  0.025f, textImage);
+			BackgroundImage textFixed = new BackgroundImage(90, -1, 2, textOffset, textImage);
 
-            Fade jaboFade  = new Fade(05, 90, 1, jaboOffset, -1,  0.020f, jaboImage);
-            Fade textFade  = new Fade(55, 90, 1, textOffset, -1,  0.025f, textImage);
-
-            Animation animation = new Animation(100, bgPanel, jaboFade, textFade);
-            animation.Start();
-
-            animation.Finished += delegate {
-                Fade textFixed = new Fade(0, -1, 1, textOffset, -1, 0, textImage, 1.0f);
-                Fade jaboBlink = new Fade(0, -1, 1, jaboOffset, 12, -0.020f, jaboImage, 1.0f);
-
-                animation = new Animation(200, bgPanel, jaboBlink, textFixed);
-                animation.Start();
-            };
+			Animation animation = Animation.Instance;
+			animation.Add(bgPanel, jaboFade);
+			animation.Add(bgPanel, textFade);
+			animation.Add(bgPanel, jaboBlink);
+			animation.Add(bgPanel, textFixed);
+			animation.Interval = 50;	// Setting that, it starts
         }
 
         private void PlaySound()
