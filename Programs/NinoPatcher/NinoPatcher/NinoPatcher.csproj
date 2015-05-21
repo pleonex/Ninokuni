@@ -116,6 +116,7 @@
     <Compile Include="Patcher.cs" />
     <Compile Include="Sprite.cs" />
     <Compile Include="BackgroundImage.cs" />
+    <Compile Include="ErrorCode.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />

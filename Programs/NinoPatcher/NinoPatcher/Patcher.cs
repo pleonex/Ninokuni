@@ -71,21 +71,84 @@ namespace NinoPatcher
             private set;
         }
 
-        public bool SetInput(string input)
+        public ErrorCode SetInput(string input)
         {
-            bool valid = CheckRomSize(input) ? IsMd5Valid(input) : false;
-            if (valid)
+            ErrorCode code = CheckPath(input);
+            code = code.Valid() ? CheckFileExists(input) : code;
+            code = code.Valid() ? CheckRomSize(input)    : code;
+            code = code.Valid() ? IsMd5Valid(input)      : code;
+
+            if (code.Valid())
                 Input = input;
 
-            return valid;
+            return code;
         }
 
-        private bool IsMd5Valid(string rom)
+        public ErrorCode SetOutput(string output)
+        {
+            ErrorCode code = CheckPath(output);
+            code = code.Valid() ? CheckCanWrite(output) : code;
+
+            if (code.Valid())
+                Output = output;
+
+            return code;
+        }
+
+        public void Patch()
+        {
+            if (string.IsNullOrEmpty(Input) || string.IsNullOrEmpty(Output))
+                throw new ArgumentException();
+
+            using (var fsIn  = new FileStream(Input,  FileMode.Open, FileAccess.Read,      FileShare.Read)) {
+                using (var fsOut = new FileStream(Output, FileMode.Open, FileAccess.ReadWrite, FileShare.Read)) {
+                    Stream patch = Assembly.GetExecutingAssembly().GetManifestResourceStream(
+                        PatchId);
+                    Decoder decoder = new Decoder(fsIn, patch, fsOut);
+                    decoder.Run();
+                }
+            }
+        }
+
+        private ErrorCode CheckPath(string file)
+        {
+            ErrorCode error = ErrorCode.InvalidPath;
+            if (!string.IsNullOrEmpty(file))
+                return error;
+             
+            // If there is an exception the path has invalid chars or no priviledges
+            // https://msdn.microsoft.com/es-es/library/system.io.fileinfo.fileinfo%28v=vs.110%29.aspx
+            FileInfo info;
+            try   { info = new FileInfo(file); }
+            catch { return error; }
+
+            if (info.Attributes != FileAttributes.Normal)
+                return error;
+
+            return ErrorCode.Valid;
+        }
+
+        private ErrorCode CheckFileExists(string file)
+        {
+            return File.Exists(file) ? ErrorCode.Valid : ErrorCode.DoesNotExist;
+        }
+
+        private ErrorCode CheckCanWrite(string file)
+        {
+            return new FileInfo(file).IsReadOnly ? ErrorCode.IsReadOnly : ErrorCode.Valid;
+        }
+
+        private ErrorCode CheckRomSize(string rom)
+        {
+            return (new FileInfo(rom).Length == ExpectedLength) ? ErrorCode.Valid : ErrorCode.InvalidSize;
+        }
+
+        private ErrorCode IsMd5Valid(string rom)
         {
             int md5Index = GetMd5Index(rom);
             UpdateAvailablePatchs(md5Index);
 
-            return md5Index != -1;
+            return md5Index == -1 ? ErrorCode.InvalidChecksum : ErrorCode.Valid;
         }
 
         private int GetMd5Index(string rom)
@@ -130,32 +193,6 @@ namespace NinoPatcher
             if (md5Index == 4) {
                 AntiPiracy = false;
                 Banner = false;
-            }
-        }
-
-        private bool CheckRomSize(string cleanRom)
-        {
-            return new FileInfo(cleanRom).Length == ExpectedLength;
-        }
-
-        public bool SetOutput(string output)
-        {
-            Output = output;
-            return true;
-        }
-
-        public void Patch()
-        {
-            if (string.IsNullOrEmpty(Input) || string.IsNullOrEmpty(Output))
-                throw new ArgumentException();
-
-            using (var fsIn  = new FileStream(Input,  FileMode.Open, FileAccess.Read,      FileShare.Read)) {
-            using (var fsOut = new FileStream(Output, FileMode.Open, FileAccess.ReadWrite, FileShare.Read)) {
-                    Stream patch = Assembly.GetExecutingAssembly().GetManifestResourceStream(
-                        PatchId);
-                    Decoder decoder = new Decoder(fsIn, patch, fsOut);
-                    decoder.Run();
-            }
             }
         }
     }
