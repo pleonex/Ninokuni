@@ -1,5 +1,5 @@
 ﻿//
-//  ErrorCode.cs
+//  RomType.cs
 //
 //  Author:
 //       Benito Palacios Sánchez <benito356@gmail.com>
@@ -22,22 +22,13 @@ using System;
 
 namespace NinoPatcher
 {
-    public enum ErrorCode {
-        Valid,
-        InvalidPath,
-        DoesNotExist,
-        InvalidSize,
-        IsReadOnly,
-        InvalidChecksum,
-        DoNothing
-    }
-
-    public static class ErrorCodeExtension
-    {
-        public static bool IsValid(this ErrorCode error)
-        {
-            return error == ErrorCode.Valid;
-        }
+    public enum RomType : int {
+        Invalid = -1,
+        Clean = 0,
+        Translation = 1,
+        TranslationAp = 2,
+        TranslationBanner = 3,
+        TranslationApBanner = 4
     }
 }
 

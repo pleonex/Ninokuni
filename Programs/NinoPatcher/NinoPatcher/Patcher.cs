@@ -29,15 +29,6 @@ namespace NinoPatcher
     public class Patcher
     {
         private const string PatchId = "NinoPatcher.Resources.PatchES.xdelta";
-        private const long ExpectedLength = 512 * 1024 * 1024;
-        private static readonly string[] Md5s = {
-            "f0e3027b9e97618732b4f2d4298ad0cf", // ROM
-            "", // ROM + Spanish Patch
-            "", // ROM + Spanish Patch + AP
-            "", // ROM + Spanish Patch + Banner
-            ""  // ROM + Spanish Patch + AP + Banner
-        };
-
 
         public Patcher(bool antipiracy, bool banner)
         {
@@ -73,12 +64,11 @@ namespace NinoPatcher
 
         public ErrorCode SetInput(string input)
         {
-            ErrorCode code = CheckPath(input);
-            code = code.Valid() ? CheckFileExists(input) : code;
-            code = code.Valid() ? CheckRomSize(input)    : code;
-            code = code.Valid() ? IsMd5Valid(input)      : code;
+            RomType type;
+            ErrorCode code = FileChecker.CheckInput(input, out type);
+            UpdateAvailablePatchs(type);
 
-            if (code.Valid())
+            if (code.IsValid())
                 Input = input;
 
             return code;
@@ -86,10 +76,8 @@ namespace NinoPatcher
 
         public ErrorCode SetOutput(string output)
         {
-            ErrorCode code = CheckPath(output);
-            code = code.Valid() ? CheckCanWrite(output) : code;
-
-            if (code.Valid())
+            ErrorCode code = FileChecker.CheckOutput(output);
+            if (code.IsValid())
                 Output = output;
 
             return code;
@@ -110,87 +98,29 @@ namespace NinoPatcher
             }
         }
 
-        private ErrorCode CheckPath(string file)
-        {
-            ErrorCode error = ErrorCode.InvalidPath;
-            if (!string.IsNullOrEmpty(file))
-                return error;
-             
-            // If there is an exception the path has invalid chars or no priviledges
-            // https://msdn.microsoft.com/es-es/library/system.io.fileinfo.fileinfo%28v=vs.110%29.aspx
-            FileInfo info;
-            try   { info = new FileInfo(file); }
-            catch { return error; }
-
-            if (info.Attributes != FileAttributes.Normal)
-                return error;
-
-            return ErrorCode.Valid;
-        }
-
-        private ErrorCode CheckFileExists(string file)
-        {
-            return File.Exists(file) ? ErrorCode.Valid : ErrorCode.DoesNotExist;
-        }
-
-        private ErrorCode CheckCanWrite(string file)
-        {
-            return new FileInfo(file).IsReadOnly ? ErrorCode.IsReadOnly : ErrorCode.Valid;
-        }
-
-        private ErrorCode CheckRomSize(string rom)
-        {
-            return (new FileInfo(rom).Length == ExpectedLength) ? ErrorCode.Valid : ErrorCode.InvalidSize;
-        }
-
-        private ErrorCode IsMd5Valid(string rom)
-        {
-            int md5Index = GetMd5Index(rom);
-            UpdateAvailablePatchs(md5Index);
-
-            return md5Index == -1 ? ErrorCode.InvalidChecksum : ErrorCode.Valid;
-        }
-
-        private int GetMd5Index(string rom)
-        {
-            int md5Index;
-            using (FileStream fs = 
-                new FileStream(rom, FileMode.Open, FileAccess.Read, FileShare.Read)) {
-
-                MD5 md5 = MD5.Create();
-                string currentHash = BitConverter.ToString(md5.ComputeHash(fs));
-                currentHash = currentHash.Replace("-", "").ToLower();
-
-                md5Index = Array.IndexOf<string>(Md5s, currentHash);
-                md5.Clear();
-            }
-
-            return md5Index;
-        }
-
-        private void UpdateAvailablePatchs(int md5Index)
+        private void UpdateAvailablePatchs(RomType romType)
         {
             // If it's invalid do nothing
-            if (md5Index == -1)
+            if (romType == RomType.Invalid)
                 return;
 
             // If it's clean everything is available
-            if (md5Index == 0)
+            if (romType == RomType.Clean)
                 return;
 
             // Other rom types has the translation patch already, so disable it
             Translation = false;
 
             // If it has already the AP patch (maybe the user wants the banner too)
-            if (md5Index == 2)
+            if (romType == RomType.TranslationAp)
                 AntiPiracy = false;
 
             // If it has already the banner patch (maybe the user wants the AP too)
-            if (md5Index == 3)
+            if (romType == RomType.TranslationBanner)
                 Banner = false;
 
             // If it has everything already (maybe the user is stupid)
-            if (md5Index == 4) {
+            if (romType == RomType.TranslationApBanner) {
                 AntiPiracy = false;
                 Banner = false;
             }

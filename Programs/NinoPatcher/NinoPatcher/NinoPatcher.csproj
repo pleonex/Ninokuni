@@ -117,6 +117,8 @@
     <Compile Include="Sprite.cs" />
     <Compile Include="BackgroundImage.cs" />
     <Compile Include="ErrorCode.cs" />
+    <Compile Include="FileChecker.cs" />
+    <Compile Include="RomType.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
