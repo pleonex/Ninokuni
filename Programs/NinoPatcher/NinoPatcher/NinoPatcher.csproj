@@ -119,6 +119,9 @@
     <Compile Include="ErrorCode.cs" />
     <Compile Include="FileChecker.cs" />
     <Compile Include="RomType.cs" />
+    <Compile Include="..\..\xdelta-sharp\xdelta\ProgressDelegates.cs">
+      <Link>xdelta\ProgressDelegates.cs</Link>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
@@ -143,5 +146,6 @@
     <EmbeddedResource Include="Resources\Buttons\options_1.png" />
     <EmbeddedResource Include="Resources\Buttons\patch_0.png" />
     <EmbeddedResource Include="Resources\Buttons\patch_1.png" />
+    <EmbeddedResource Include="Resources\PatchES.xdelta" />
   </ItemGroup>
 </Project>

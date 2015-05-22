@@ -23,6 +23,7 @@ using System.IO;
 using System.Security.Cryptography;
 using Xdelta;
 using System.Reflection;
+using System.ComponentModel;
 
 namespace NinoPatcher
 {
@@ -62,6 +63,9 @@ namespace NinoPatcher
             private set;
         }
 
+        public event ProgressChangedHandler ProgressChanged;
+        public event FinishedHandler Finished;
+
         public ErrorCode SetInput(string input)
         {
             RomType type;
@@ -88,14 +92,61 @@ namespace NinoPatcher
             if (string.IsNullOrEmpty(Input) || string.IsNullOrEmpty(Output))
                 throw new ArgumentException();
 
-            using (var fsIn  = new FileStream(Input,  FileMode.Open, FileAccess.Read,      FileShare.Read)) {
-                using (var fsOut = new FileStream(Output, FileMode.Open, FileAccess.ReadWrite, FileShare.Read)) {
-                    Stream patch = Assembly.GetExecutingAssembly().GetManifestResourceStream(
-                        PatchId);
+            BackgroundWorker worker = new BackgroundWorker();
+            worker.ProgressChanged += HandleProgressChanged;;
+            worker.RunWorkerCompleted += HandleRunWorkerCompleted;
+            worker.WorkerReportsProgress = true;
+            worker.WorkerSupportsCancellation = false;
+            worker.DoWork += delegate {
+                if (Translation)
+                    ApplyTranslation(worker);
+
+                if (AntiPiracy)
+                    ApplyAntipiracy();
+
+                if (Banner)
+                    ApplyBanner();
+            };
+
+            worker.RunWorkerAsync();
+        }
+
+        private void HandleProgressChanged(object sender, ProgressChangedEventArgs e)
+        {
+            if (ProgressChanged != null)
+                ProgressChanged(e.ProgressPercentage);
+        }
+
+        private void HandleRunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
+        {
+            Console.WriteLine(e.Error);
+            if (Finished != null)
+                Finished();
+        }
+
+        private void ApplyTranslation(BackgroundWorker worker)
+        {
+            using (var fsIn  = new FileStream(Input, FileMode.Open, FileAccess.Read, FileShare.Read)) {
+                using (var fsOut = new FileStream(Output, FileMode.Create, FileAccess.ReadWrite, FileShare.Read)) {
+                    Stream patch = Assembly.GetExecutingAssembly().GetManifestResourceStream(PatchId);
                     Decoder decoder = new Decoder(fsIn, patch, fsOut);
+                    decoder.ProgressChanged += delegate (double p) {
+                        worker.ReportProgress((int)(p * 100));
+                    };
+
                     decoder.Run();
                 }
             }
+        }
+
+        private void ApplyAntipiracy()
+        {
+            throw new NotImplementedException();
+        }
+
+        private void ApplyBanner()
+        {
+            throw new NotImplementedException();
         }
 
         private void UpdateAvailablePatchs(RomType romType)
