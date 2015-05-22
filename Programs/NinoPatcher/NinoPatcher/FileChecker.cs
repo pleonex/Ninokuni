@@ -56,7 +56,7 @@ namespace NinoPatcher
         private static ErrorCode CheckPath(string file)
         {
             ErrorCode error = ErrorCode.InvalidPath;
-            if (!string.IsNullOrEmpty(file))
+            if (string.IsNullOrEmpty(file))
                 return error;
 
             // If there is an exception the path has invalid chars or no priviledges
@@ -65,7 +65,7 @@ namespace NinoPatcher
             try   { info = new FileInfo(file); }
             catch { return error; }
 
-            if (info.Attributes != FileAttributes.Normal)
+            if (info.Exists && info.Attributes != FileAttributes.Normal)
                 return error;
 
             return ErrorCode.Valid;
@@ -78,6 +78,9 @@ namespace NinoPatcher
 
         private static ErrorCode CheckCanWrite(string file)
         {
+            if (!File.Exists(file))
+                return ErrorCode.Valid;
+
             return new FileInfo(file).IsReadOnly ? ErrorCode.IsReadOnly : ErrorCode.Valid;
         }
 
