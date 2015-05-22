@@ -41,7 +41,6 @@ namespace NinoPatcher
 		{
             InitializeComponents();
             PlaySound();
-			Animation.Instance.Interval = 50;
         }
 
         private void InitializeComponents()
@@ -89,7 +88,7 @@ namespace NinoPatcher
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_2.png"));
             Image termitoImg3 = Image.FromStream(
                 assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_3.png"));
-            Sprite termitoSprite = new Sprite(0, -1, 3, new Point(470, 30), 
+            Sprite termitoSprite = new Sprite(0, -1, 1, new Point(470, 30), 
                                        new Point(10, 30), new Size(-1, 0), 1,
                                        termitoImg0, termitoImg1, termitoImg2, termitoImg3);
             Animation.Instance.Add(bgBottom, termitoSprite);
@@ -100,6 +99,13 @@ namespace NinoPatcher
                 assembly.GetManifestResourceStream(ButtonResourcePath + "patch_0.png"));
             btnPatch.PressedImage = Image.FromStream(
                 assembly.GetManifestResourceStream(ButtonResourcePath + "patch_1.png"));
+            btnPatch.Click += delegate {
+                Patcher test = new Patcher(false, false);
+                test.SetInput("/store/Juegos/NDS/Ninokuni [CLEAN].nds");
+                test.SetOutput("/home/benito/test.nds");
+                test.ProgressChanged += (double progress) => progressBar.Value = (int)progress;
+                test.Patch();
+            };
             bgBottom.Controls.Add(btnPatch);
 
             ImageButton btnDownloadBook = new ImageButton();
@@ -147,20 +153,20 @@ namespace NinoPatcher
 
             Image jaboImage = Image.FromStream(assembly.GetManifestResourceStream(AniResourceJabo));
 			Point jaboOffset = new Point(93, 0);
-			Fade jaboFade  = new Fade(5,  85, 2, jaboOffset, -1,  0.020f, jaboImage);
-			Fade jaboBlink = new Fade(90, -1, 2, jaboOffset, 12, -0.020f, jaboImage, 1.0f);
+			Fade jaboFade  = new Fade(5,  85, 1, jaboOffset, -1,  0.020f, jaboImage);
+			Fade jaboBlink = new Fade(90, -1, 1, jaboOffset, 12, -0.020f, jaboImage, 1.0f);
 
             Image textImage = Image.FromStream(assembly.GetManifestResourceStream(AniResourceLogo));
             Point textOffset = new Point(84, 0);
-            Fade textFade  = new Fade(50, 40, 2, textOffset, -1,  0.025f, textImage);
-			BackgroundImage textFixed = new BackgroundImage(90, -1, 2, textOffset, textImage);
+            Fade textFade  = new Fade(50, 40, 1, textOffset, -1,  0.025f, textImage);
+			BackgroundImage textFixed = new BackgroundImage(90, -1, 1, textOffset, textImage);
 
 			Animation animation = Animation.Instance;
 			animation.Add(bgPanel, jaboFade);
 			animation.Add(bgPanel, textFade);
 			animation.Add(bgPanel, jaboBlink);
 			animation.Add(bgPanel, textFixed);
-			animation.Interval = 50;	// Setting that, it starts
+			animation.Interval = 150;	// Setting that, it starts
         }
 
         private void PlaySound()
