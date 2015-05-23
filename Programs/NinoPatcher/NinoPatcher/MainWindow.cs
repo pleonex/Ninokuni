@@ -127,7 +127,7 @@ namespace NinoPatcher
             Image jaboImage  = ResourcesManager.GetImage("Jabologo.png");
 			Point jaboOffset = new Point(93, 0);
 			Fade jaboFade    = new Fade(5,  85, 1, jaboOffset, -1,  0.020f, jaboImage);
-			Fade jaboBlink   = new Fade(90, -1, 1, jaboOffset, 12, -0.020f, jaboImage, 1.0f);
+			Fade jaboBlink   = new Fade(90, -1, 1, jaboOffset, 12, -0.030f, jaboImage, 1.0f);
 
             Image textImage  = ResourcesManager.GetImage("logonombre.png");
             Point textOffset = new Point(84, 0);
