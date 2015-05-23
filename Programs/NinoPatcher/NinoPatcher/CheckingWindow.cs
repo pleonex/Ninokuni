@@ -53,9 +53,9 @@ namespace NinoPatcher
             Icon = ResourcesManager.GetIcon("icon.ico");
 
             Label label = new Label();
-            label.Text = "Comprobando ROM introducida.\nEsto puede durar unos minutos.";
+            label.Text = "Comprobando ROM introducida.\nEsto puede tardar unos minutos.";
             label.AutoSize = true;
-            label.Location = new Point(115, 10);
+            label.Location = new Point(116, 10);
             Controls.Add(label);
 
             animationPanel = new Panel();
