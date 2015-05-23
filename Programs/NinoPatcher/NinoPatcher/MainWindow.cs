@@ -28,6 +28,9 @@ namespace NinoPatcher
     public class MainWindow : Form
     {
         private SoundPlayer player;
+        private Sprite termito;
+
+        private Panel bgBottom;
         private ProgressBar progressBar;
 
         public MainWindow()
@@ -51,7 +54,7 @@ namespace NinoPatcher
 
             CreateAnimation();
 
-            Panel bgBottom = new Panel();
+            bgBottom = new Panel();
             bgBottom.BackColor = Color.Transparent;
             bgBottom.Location  = new Point(0, 480);
             bgBottom.Size      = new Size(800, 120);
@@ -72,26 +75,11 @@ namespace NinoPatcher
             progressBar.ForeColor = Color.SkyBlue;
             bgBottom.Controls.Add(progressBar);
 
-            Sprite termitoSprite = new Sprite(0, -1, 1,                       // delay, duration, steps
-                                       new Point(10, 30), new Point(460, 30), // start, end pos
-                                       new Size(1, 0), 1,                     // movement
-                                       ResourcesManager.GetImage("anime_0.png"),  // frame 0
-                                       ResourcesManager.GetImage("anime_1.png"),  // frame 1
-                                       ResourcesManager.GetImage("anime_2.png"),  // frame 2
-                                       ResourcesManager.GetImage("anime_3.png")); // frame 3
-            Animation.Instance.Add(bgBottom, termitoSprite);
-
             ImageButton btnPatch = new ImageButton();
             btnPatch.Location = new Point(543, 10);
             btnPatch.DefaultImage = ResourcesManager.GetImage("Buttons.patch_0.png");
             btnPatch.PressedImage = ResourcesManager.GetImage("Buttons.patch_1.png");
-            btnPatch.Click += delegate {
-                Patcher test = new Patcher(false, false);
-                test.SetInput("/store/Juegos/NDS/Ninokuni [CLEAN].nds");
-                test.SetOutput("/home/benito/test.nds");
-                test.ProgressChanged += (double progress) => progressBar.Value = (int)progress;
-                test.Patch();
-            };
+            btnPatch.Click += BtnPatchOnClick;
             bgBottom.Controls.Add(btnPatch);
 
             ImageButton btnDownloadBook = new ImageButton();
@@ -152,6 +140,15 @@ namespace NinoPatcher
 			animation.Add(bgPanel, jaboBlink);
 			animation.Add(bgPanel, textFixed);
 			animation.Interval = 150;	// Setting that, it starts
+
+            // Create sprite animations for later use
+            termito = new Sprite(0, -1, 1,                  // delay, duration, steps
+                new Point(10, 30), new Point(460, 30),      // start, end pos
+                new Size(0, 0), 1,                          // movement
+                ResourcesManager.GetImage("anime_0.png"),   // frame 0
+                ResourcesManager.GetImage("anime_1.png"),   // frame 1
+                ResourcesManager.GetImage("anime_2.png"),   // frame 2
+                ResourcesManager.GetImage("anime_3.png"));  // frame 3
         }
 
         private void PlaySound()
@@ -159,6 +156,43 @@ namespace NinoPatcher
             player = new SoundPlayer(ResourcesManager.GetStream("sound.wav"));
             player.PlayLooping();
             FormClosing += delegate { player.Stop(); };
+        }
+
+        private void BtnPatchOnClick(object sender, EventArgs e)
+        {
+            // Add animation
+            termito.Position = new Point(10, 30);
+            Animation.Instance.Add(bgBottom, termito);
+
+            // TODO: Ask files and check if they are valid
+
+            // TODO: Get properties AP and Banner
+            bool antipiracy = false;
+            bool banner = false;
+
+            Patcher test = new Patcher(antipiracy, banner);
+            test.SetInput("/store/Juegos/NDS/Ninokuni [CLEAN].nds");
+            test.SetOutput("/home/benito/test.nds");
+            test.ProgressChanged += PatchProgressChanged;
+            test.Finished += PatchFinished;
+            test.Patch();
+        }
+
+        private void PatchFinished()
+        {
+            Animation.Instance.Remove(bgBottom, termito);
+            MessageBox.Show("Done!");
+        }
+
+        private void PatchProgressChanged(double progress)
+        {
+            int startX = 10 - 39;
+            int endX   = 460;
+            int distance = endX - startX;
+            int x = (int)(startX + distance * progress / 100);
+
+            termito.Position  = new Point(x, termito.Position.Y);
+            progressBar.Value = (int)progress;
         }
     }
 }
