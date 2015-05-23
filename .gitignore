@@ -16,3 +16,6 @@ packages/
 
 # StyleCop
 StyleCop.Cache
+
+# Ignore patch
+Programs/NinoPatcher/NinoPatcher/Resources/PatchES.xdelta

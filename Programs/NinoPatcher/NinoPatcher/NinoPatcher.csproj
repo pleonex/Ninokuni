@@ -39,6 +39,7 @@
     <Folder Include="Resources\" />
     <Folder Include="Resources\Buttons\" />
     <Folder Include="Resources\Loading\" />
+    <Folder Include="Resources\Termito\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\xdelta-sharp\xdelta\Decoder\Decoder.cs">
@@ -138,10 +139,10 @@
     <EmbeddedResource Include="Resources\logonombre.png" />
     <EmbeddedResource Include="Resources\sound.wav" />
     <EmbeddedResource Include="Resources\skingold.png" />
-    <EmbeddedResource Include="Resources\anime_0.png" />
-    <EmbeddedResource Include="Resources\anime_1.png" />
-    <EmbeddedResource Include="Resources\anime_2.png" />
-    <EmbeddedResource Include="Resources\anime_3.png" />
+    <EmbeddedResource Include="Resources\Termito\anime_0.png" />
+    <EmbeddedResource Include="Resources\Termito\anime_1.png" />
+    <EmbeddedResource Include="Resources\Termito\anime_2.png" />
+    <EmbeddedResource Include="Resources\Termito\anime_3.png" />
     <EmbeddedResource Include="Resources\Buttons\book_0.png" />
     <EmbeddedResource Include="Resources\Buttons\book_1.png" />
     <EmbeddedResource Include="Resources\Buttons\credits_0.png" />

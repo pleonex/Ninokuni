@@ -143,12 +143,12 @@ namespace NinoPatcher
 
             // Create sprite animations for later use
             termito = new Sprite(0, -1, 1,                  // delay, duration, steps
-                new Point(10, 30), new Point(460, 30),      // start, end pos
-                new Size(0, 0), 1,                          // movement
-                ResourcesManager.GetImage("anime_0.png"),   // frame 0
-                ResourcesManager.GetImage("anime_1.png"),   // frame 1
-                ResourcesManager.GetImage("anime_2.png"),   // frame 2
-                ResourcesManager.GetImage("anime_3.png"));  // frame 3
+                new Point(10, 30), new Point(10, 30),      // start, end pos
+                new Size(3, 0), 1,                          // movement
+                ResourcesManager.GetImage("Termito.anime_0.png"),   // frame 0
+                ResourcesManager.GetImage("Termito.anime_1.png"),   // frame 1
+                ResourcesManager.GetImage("Termito.anime_2.png"),   // frame 2
+                ResourcesManager.GetImage("Termito.anime_3.png"));  // frame 3
         }
 
         private void PlaySound()
@@ -161,7 +161,7 @@ namespace NinoPatcher
         private void BtnPatchOnClick(object sender, EventArgs e)
         {
             // Add animation
-            termito.Position = new Point(0, 30);
+            termito.Position = new Point(-29, 30);
             Animation.Instance.Add(bgBottom, termito);
 
             // TODO: Get properties AP and Banner
@@ -195,7 +195,7 @@ namespace NinoPatcher
             int distance = endX - startX;
             int x = (int)(startX + distance * progress / 100);
 
-            termito.Position  = new Point(x, termito.Position.Y);
+            termito.EndPosition  = new Point(x, termito.EndPosition.Y);
             progressBar.Value = (int)progress;
         }
     }

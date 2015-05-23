@@ -25,7 +25,6 @@ namespace NinoPatcher
 {
     public class Sprite : AnimationElement
     {
-        private Point endPosition;
         private Size movement;
         private int changeFrequency;
         private Image[] images;
@@ -37,13 +36,18 @@ namespace NinoPatcher
             Point endPosition, Size movement, int changeFrequency, params Image[] images)
 			: base(delay, duration, steps, position)
         {
-            this.endPosition = endPosition;
+            EndPosition = endPosition;
             this.movement = movement;
             this.images = images;
             this.changeFrequency = changeFrequency;
 
             currentIndex = 0;
 			count = 0;
+        }
+
+        public Point EndPosition {
+            get;
+            set;
         }
 
         public override void Update()
@@ -54,7 +58,8 @@ namespace NinoPatcher
 			count++;
 
             // Update position
-            if (!Position.Equals(endPosition))
+            if ((EndPosition.X - Position.X >= movement.Width) &&
+                (EndPosition.Y - Position.Y >= movement.Height))
                 Position = Point.Add(Position, movement);
         }
 
