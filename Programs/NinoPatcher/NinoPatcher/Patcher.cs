@@ -98,14 +98,18 @@ namespace NinoPatcher
             worker.WorkerReportsProgress = true;
             worker.WorkerSupportsCancellation = false;
             worker.DoWork += delegate {
+                using (var outStream =
+                    new FileStream(Output, FileMode.Create, FileAccess.ReadWrite, FileShare.Read)) {
+                
                 if (Translation)
-                    ApplyTranslation(worker);
+                    ApplyTranslation(worker, outStream);
 
                 if (AntiPiracy)
                     ApplyAntipiracy();
 
                 if (Banner)
                     ApplyBanner();
+                }
             };
 
             worker.RunWorkerAsync();
@@ -124,12 +128,12 @@ namespace NinoPatcher
                 Finished();
         }
 
-        private void ApplyTranslation(BackgroundWorker worker)
+        private void ApplyTranslation(BackgroundWorker worker, FileStream outStream)
         {
-            using (var fsIn  = new FileStream(Input, FileMode.Open, FileAccess.Read, FileShare.Read)) {
-                using (var fsOut = new FileStream(Output, FileMode.Create, FileAccess.ReadWrite, FileShare.Read)) {
-                    Stream patch = ResourcesManager.GetStream(PatchId);
-                    Decoder decoder = new Decoder(fsIn, patch, fsOut);
+            using (FileStream inStream = 
+                new FileStream(Input, FileMode.Open, FileAccess.Read, FileShare.Read)) {
+                using (Stream patch = ResourcesManager.GetStream(PatchId)) {
+                    Decoder decoder = new Decoder(inStream, patch, outStream);
                     decoder.ProgressChanged += delegate (double p) {
                         worker.ReportProgress((int)(p * 100));
                     };
