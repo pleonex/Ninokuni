@@ -122,6 +122,7 @@
     <Compile Include="..\..\xdelta-sharp\xdelta\ProgressDelegates.cs">
       <Link>xdelta\ProgressDelegates.cs</Link>
     </Compile>
+    <Compile Include="CreditsWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
@@ -147,5 +148,6 @@
     <EmbeddedResource Include="Resources\Buttons\patch_0.png" />
     <EmbeddedResource Include="Resources\Buttons\patch_1.png" />
     <EmbeddedResource Include="Resources\PatchES.xdelta" />
+    <EmbeddedResource Include="Resources\credits.png" />
   </ItemGroup>
 </Project>

@@ -122,6 +122,11 @@ namespace NinoPatcher
             btnShowCredits.PressedImage = Image.FromStream(
                 assembly.GetManifestResourceStream(ButtonResourcePath + "credits_1.png"));
             btnShowCredits.Location = new Point(668, 10);
+            btnShowCredits.Click += delegate {
+                CreditsWindow credits = new CreditsWindow();
+                credits.ShowDialog();
+                credits.Dispose();
+            };
             bgBottom.Controls.Add(btnShowCredits);
 
             ImageButton btnShowExtras = new ImageButton();
