@@ -161,21 +161,25 @@ namespace NinoPatcher
         private void BtnPatchOnClick(object sender, EventArgs e)
         {
             // Add animation
-            termito.Position = new Point(10, 30);
+            termito.Position = new Point(0, 30);
             Animation.Instance.Add(bgBottom, termito);
-
-            // TODO: Ask files and check if they are valid
 
             // TODO: Get properties AP and Banner
             bool antipiracy = false;
             bool banner = false;
+            Patcher patcher = new Patcher(antipiracy, banner);
 
-            Patcher test = new Patcher(antipiracy, banner);
-            test.SetInput("/store/Juegos/NDS/Ninokuni [CLEAN].nds");
-            test.SetOutput("/home/benito/test.nds");
-            test.ProgressChanged += PatchProgressChanged;
-            test.Finished += PatchFinished;
-            test.Patch();
+            // TODO: Ask files and check if they are valid
+            string input = "/store/Juegos/NDS/Ninokuni [CLEAN].nds";
+            string output = "/home/benito/test.nds";
+            CheckingWindow checkWindow = new CheckingWindow();
+            checkWindow.Run(patcher, input, output);
+            checkWindow.ShowDialog();
+            checkWindow.Dispose();
+
+            patcher.ProgressChanged += PatchProgressChanged;
+            patcher.Finished += PatchFinished;
+            patcher.Patch();
         }
 
         private void PatchFinished()

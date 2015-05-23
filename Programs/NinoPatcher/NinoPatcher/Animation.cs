@@ -77,6 +77,9 @@ namespace NinoPatcher
 				throw new ArgumentException();
 
 			elements[parent].Remove(element);
+
+            if (elements[parent].Count == 0)
+                elements.Remove(parent);
 		}
 
 		private void HandleControlPaint(object sender, PaintEventArgs e)
