@@ -63,34 +63,43 @@ namespace NinoPatcher
 
 		public void Add(Control parent, AnimationElement element)
 		{
-			if (!elements.ContainsKey(parent)) {
-				elements.Add(parent, new List<AnimationElement>());
-				parent.Paint += HandleControlPaint;
-			}
+            lock (syncRoot) {
+                if (!elements.ContainsKey(parent)) {
+                    elements.Add(parent, new List<AnimationElement>());
+                    parent.Paint += HandleControlPaint;
+                }
 
-			elements[parent].Add(element);
+                elements[parent].Add(element);
+            }
 		}
 
 		public void Remove(Control parent, AnimationElement element)
 		{
-			if (!elements.ContainsKey(parent))
-				throw new ArgumentException();
+            lock (syncRoot) {
+    			if (!elements.ContainsKey(parent))
+    				throw new ArgumentException();
 
-			elements[parent].Remove(element);
+    			elements[parent].Remove(element);
 
-            if (elements[parent].Count == 0)
-                elements.Remove(parent);
+                if (elements[parent].Count == 0) {
+                    parent.Paint -= HandleControlPaint;
+                    elements.Remove(parent);
+                }
+            }
 		}
 
 		private void HandleControlPaint(object sender, PaintEventArgs e)
 		{
-			PaintControl((Control)sender, false);
+            lock (syncRoot)
+                PaintControl((Control)sender, false);
 		}
 
         private void PaintFrame(object sender, EventArgs e)
         {
-			foreach (Control key in elements.Keys)
-				PaintControl(key, true);
+            lock (syncRoot) {
+                foreach (Control key in elements.Keys)
+                    PaintControl(key, true);
+            }
         }
 
 		private void PaintControl(Control control, bool mustUpdate)
