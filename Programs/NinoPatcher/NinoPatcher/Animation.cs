@@ -73,6 +73,12 @@ namespace NinoPatcher
             }
 		}
 
+        public bool Contains(Control parent, AnimationElement element)
+        {
+            lock (syncRoot)
+                return elements.ContainsKey(parent) && elements[parent].Contains(element);
+        }
+
 		public void Remove(Control parent, AnimationElement element)
 		{
             lock (syncRoot) {

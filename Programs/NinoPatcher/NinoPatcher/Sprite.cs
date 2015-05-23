@@ -43,6 +43,7 @@ namespace NinoPatcher
 
             currentIndex = 0;
 			count = 0;
+            Enabled = true;
         }
 
         public Point EndPosition {
@@ -50,8 +51,16 @@ namespace NinoPatcher
             set;
         }
 
+        public bool Enabled {
+            get;
+            set;
+        }
+
         public override void Update()
         {
+            if (!Enabled)
+                return;
+
             // Update frame
 			if (count != 0 && (count % changeFrequency) == 0)
                 currentIndex = (currentIndex + 1) % images.Length;

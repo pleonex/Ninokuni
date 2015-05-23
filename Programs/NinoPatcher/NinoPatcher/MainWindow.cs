@@ -160,15 +160,29 @@ namespace NinoPatcher
 
         private void BtnPatchOnClick(object sender, EventArgs e)
         {
-            // Add animation
-            termito.Position = new Point(-29, 30);
-            Animation.Instance.Add(bgBottom, termito);
-
             // TODO: Get properties AP and Banner
             bool antipiracy = false;
             bool banner = false;
             Patcher patcher = new Patcher(antipiracy, banner);
 
+            AskForFiles(patcher);
+
+            // Add animation
+            if (!Animation.Instance.Contains(bgBottom, termito))
+                Animation.Instance.Add(bgBottom, termito);
+
+            // Starts
+            termito.Enabled = true;
+            termito.Position = new Point(0, 30);
+            PatchProgressChanged(0);
+
+            patcher.ProgressChanged += PatchProgressChanged;
+            patcher.Finished += PatchFinished;
+            patcher.Patch();
+        }
+
+        private void AskForFiles(Patcher patcher)
+        {
             // TODO: Ask files and check if they are valid
             string input = "/store/Juegos/NDS/Ninokuni [CLEAN].nds";
             string output = "/home/benito/test.nds";
@@ -177,14 +191,11 @@ namespace NinoPatcher
             checkWindow.ShowDialog();
             checkWindow.Dispose();
 
-            patcher.ProgressChanged += PatchProgressChanged;
-            patcher.Finished += PatchFinished;
-            patcher.Patch();
         }
 
         private void PatchFinished()
         {
-            Animation.Instance.Remove(bgBottom, termito);
+            termito.Enabled = false;
             MessageBox.Show("Done!");
         }
 
