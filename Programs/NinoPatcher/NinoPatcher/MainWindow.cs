@@ -172,9 +172,10 @@ namespace NinoPatcher
                 Animation.Instance.Add(bgBottom, termito);
 
             // Starts
-            termito.Enabled = true;
-            termito.Position = new Point(0, 30);
+            termito.Position = new Point(-29, 30);
             PatchProgressChanged(0);
+            termito.AutoDisable = false;
+            termito.Enabled = true;
 
             patcher.ProgressChanged += PatchProgressChanged;
             patcher.Finished += PatchFinished;
@@ -195,7 +196,7 @@ namespace NinoPatcher
 
         private void PatchFinished()
         {
-            termito.Enabled = false;
+            termito.AutoDisable = true;
             MessageBox.Show("Done!");
         }
 

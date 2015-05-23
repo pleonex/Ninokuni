@@ -45,7 +45,7 @@ namespace NinoPatcher
             Text = "Comprobando...";
             Width  = 320;
             Height = 70;
-            BackColor = Color.SkyBlue;
+            BackColor = Color.LightSkyBlue;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             MaximizeBox = false;
             MinimizeBox = false;

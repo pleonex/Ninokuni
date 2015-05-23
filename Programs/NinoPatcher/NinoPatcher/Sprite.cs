@@ -44,9 +44,15 @@ namespace NinoPatcher
             currentIndex = 0;
 			count = 0;
             Enabled = true;
+            AutoDisable = false;
         }
 
         public Point EndPosition {
+            get;
+            set;
+        }
+
+        public bool AutoDisable {
             get;
             set;
         }
@@ -70,6 +76,8 @@ namespace NinoPatcher
             if ((EndPosition.X - Position.X >= movement.Width) &&
                 (EndPosition.Y - Position.Y >= movement.Height))
                 Position = Point.Add(Position, movement);
+            else if (AutoDisable)
+                Enabled = false;
         }
 
         public override void Draw(Graphics g)
