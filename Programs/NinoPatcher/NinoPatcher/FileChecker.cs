@@ -21,12 +21,12 @@
 using System;
 using System.IO;
 using System.Security.Cryptography;
+using System.Diagnostics;
 
 namespace NinoPatcher
 {
     public static class FileChecker
     {
-        private const long ExpectedLength = 512 * 1024 * 1024;
         private static readonly string[] Md5s = {
             "f0e3027b9e97618732b4f2d4298ad0cf", // ROM
             "", // ROM + Spanish Patch
@@ -36,21 +36,30 @@ namespace NinoPatcher
             ""  // ROM + AP
         };
 
+        public static long RomLength {
+            get { return 512 * 1024 * 1024; }
+        }
+
+        public static long TorrentLength {
+            get { return 1 * 1024 * 1024; }
+        }
+
         public static ErrorCode CheckInput(string file, out RomType type)
         {
             type = RomType.Invalid; // In case of previous invalid validations
 
             ErrorCode code = CheckPath(file);
             code = code.IsValid() ? CheckFileExists(file) : code;
-            code = code.IsValid() ? CheckRomSize(file) : code;
+            code = code.IsValid() ? CheckRomSize(file, RomLength) : code;
             code = code.IsValid() ? IsMd5Valid(file, out type) : code;
             return code;
         }
 
-        public static ErrorCode CheckOutput(string file)
+        public static ErrorCode CheckOutput(string file, long maxLength)
         {
             ErrorCode code = CheckPath(file);
             code = code.IsValid() ? CheckCanWrite(file) : code;
+            code = code.IsValid() ? CheckEnoughDiskSpace(file, maxLength) : code;
             return code;
         }
 
@@ -85,9 +94,68 @@ namespace NinoPatcher
             return new FileInfo(file).IsReadOnly ? ErrorCode.IsReadOnly : ErrorCode.Valid;
         }
 
-        private static ErrorCode CheckRomSize(string rom)
+        private static ErrorCode CheckEnoughDiskSpace(string file, long maxLength)
         {
-            return (new FileInfo(rom).Length == ExpectedLength) ? ErrorCode.Valid : ErrorCode.InvalidSize;
+
+            long availableSpace = 0;
+
+            switch (Environment.OSVersion.Platform) {
+            case PlatformID.MacOSX:
+            case PlatformID.Unix:
+                availableSpace = GetUnixDiskFreeSpace(file);
+                break;
+
+            default:
+                availableSpace = GetWindowsDiskFreeSpace(file);
+                break;
+            }
+
+            return availableSpace > maxLength ? ErrorCode.Valid : ErrorCode.NotEnoughDiskSpace;
+        }
+
+        private static long GetUnixDiskFreeSpace(string file)
+        {
+            // Since it is not very safe, on exception return maximum and guess the user
+            // has enough space
+            long freeSpace = Int64.MaxValue;
+            try {
+                ProcessStartInfo processInfo = new ProcessStartInfo();
+                processInfo.FileName = "df";
+                processInfo.Arguments = "-P -k " + file; // -P for portability in POSIX
+                processInfo.CreateNoWindow = true;
+                processInfo.ErrorDialog = false;
+                processInfo.UseShellExecute = false;
+                processInfo.RedirectStandardOutput = true;
+
+                Process dfProcess = Process.Start(processInfo);
+                string output = dfProcess.StandardOutput.ReadToEnd();
+                dfProcess.WaitForExit();
+
+                string freeSpaceStr = output.Split(new char[] {'\n'}, StringSplitOptions.RemoveEmptyEntries)[1];
+                freeSpaceStr = freeSpaceStr.Split(new char[] {' '}, StringSplitOptions.RemoveEmptyEntries)[3];
+                freeSpace = Convert.ToInt64(freeSpaceStr) * 1024;
+            } catch (Exception ex) { Console.WriteLine(ex); }
+
+            return freeSpace;
+        }
+
+        private static long GetWindowsDiskFreeSpace(string file)
+        {
+            // Since it is not very safe (does not work with UNC),
+            // on exception return maximum and guess the user has enough space
+            long freeSpace = Int64.MaxValue;
+            try {
+                FileInfo winFileInfo   = new FileInfo(file);
+                DriveInfo winDriveInfo = new DriveInfo(winFileInfo.Directory.Root.FullName);
+                freeSpace = winDriveInfo.AvailableFreeSpace;
+            } catch (Exception ex) { Console.WriteLine(ex); }
+
+            return freeSpace;
+        }
+
+        private static ErrorCode CheckRomSize(string rom, long length)
+        {
+            return (new FileInfo(rom).Length == length) ? ErrorCode.Valid : ErrorCode.InvalidSize;
         }
 
         private static ErrorCode IsMd5Valid(string rom, out RomType type)

@@ -81,7 +81,7 @@ namespace NinoPatcher
             worker.DoWork += delegate(object sender, DoWorkEventArgs e) {
                 ErrorCode code = patcher.SetInput(input);
                 if (code.IsValid())
-                    code = patcher.SetOutput(output);
+                    code = patcher.SetOutput(output, FileChecker.RomLength);
 
                 e.Result = code;
             };

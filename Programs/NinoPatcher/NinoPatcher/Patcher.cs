@@ -84,9 +84,9 @@ namespace NinoPatcher
             return code;
         }
 
-        public ErrorCode SetOutput(string output)
+        public ErrorCode SetOutput(string output, long maxLength)
         {
-            ErrorCode code = FileChecker.CheckOutput(output);
+            ErrorCode code = FileChecker.CheckOutput(output, maxLength);
             if (code.IsValid())
                 Output = output;
 
