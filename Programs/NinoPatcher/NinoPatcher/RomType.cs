@@ -25,6 +25,7 @@ namespace NinoPatcher
     public enum RomType : int {
         Invalid = -1,
         Clean = 0,
+        CleanAp = 5,
         Translation = 1,
         TranslationAp = 2,
         TranslationBanner = 3,

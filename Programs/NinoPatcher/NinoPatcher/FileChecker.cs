@@ -32,7 +32,8 @@ namespace NinoPatcher
             "", // ROM + Spanish Patch
             "", // ROM + Spanish Patch + AP
             "", // ROM + Spanish Patch + Banner
-            ""  // ROM + Spanish Patch + AP + Banner
+            "", // ROM + Spanish Patch + AP + Banner
+            ""  // ROM + AP
         };
 
         public static ErrorCode CheckInput(string file, out RomType type)

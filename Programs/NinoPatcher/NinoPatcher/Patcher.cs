@@ -36,9 +36,15 @@ namespace NinoPatcher
             AntiPiracy = antipiracy;
             Banner = banner;
             Translation = true; // By default true, later will disable if needed
+            RemoveAntiPiracy = false;   // Later could be enable if needed
         }
 
         public bool Translation {
+            get;
+            private set;
+        }
+
+        public bool RemoveAntiPiracy {
             get;
             private set;
         }
@@ -101,14 +107,17 @@ namespace NinoPatcher
                 using (var outStream =
                     new FileStream(Output, FileMode.Create, FileAccess.ReadWrite, FileShare.Read)) {
                 
-                if (Translation)
-                    ApplyTranslation(worker, outStream);
+                    if (RemoveAntiPiracy)
+                        UnpatchAntipiracy();
 
-                if (AntiPiracy)
-                    ApplyAntipiracy();
+                    if (Translation)
+                        ApplyTranslation(worker, outStream);
 
-                if (Banner)
-                    ApplyBanner();
+                    if (AntiPiracy)
+                        ApplyAntipiracy();
+
+                    if (Banner)
+                        ApplyBanner();
                 }
             };
 
@@ -148,6 +157,11 @@ namespace NinoPatcher
             throw new NotImplementedException();
         }
 
+        private void UnpatchAntipiracy()
+        {
+            throw new NotImplementedException();
+        }
+
         private void ApplyBanner()
         {
             throw new NotImplementedException();
@@ -162,6 +176,11 @@ namespace NinoPatcher
             // If it's clean everything is available
             if (romType == RomType.Clean)
                 return;
+
+            if (romType == RomType.CleanAp) {
+                RemoveAntiPiracy = true;
+                return;
+            }
 
             // Other rom types has the translation patch already, so disable it
             Translation = false;
