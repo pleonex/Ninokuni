@@ -36,9 +36,7 @@ namespace NinoPatcher
         {
             Text = "Créditos";
             BackgroundImageLayout = ImageLayout.Stretch;
-            BackgroundImage = Image.FromStream(
-                Assembly.GetExecutingAssembly().GetManifestResourceStream(
-                    "NinoPatcher.Resources.credits.png"));
+            BackgroundImage = ResourcesManager.GetImage("credits.png");
             Resize += delegate {
                 this.Invalidate();
             };

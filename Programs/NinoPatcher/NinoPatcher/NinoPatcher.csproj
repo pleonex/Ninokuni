@@ -123,6 +123,7 @@
       <Link>xdelta\ProgressDelegates.cs</Link>
     </Compile>
     <Compile Include="CreditsWindow.cs" />
+    <Compile Include="ResourcesManager.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />

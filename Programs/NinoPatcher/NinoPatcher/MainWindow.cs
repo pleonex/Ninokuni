@@ -20,20 +20,13 @@
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
 using System.Drawing;
-using System.Reflection;
-using System.Windows.Forms;
 using System.Media;
+using System.Windows.Forms;
 
 namespace NinoPatcher
 {
     public class MainWindow : Form
     {
-        private const string IconResource       = "NinoPatcher.Resources.icon.ico";
-		private const string AniResourceJabo    = "NinoPatcher.Resources.Jabologo.png";
-		private const string AniResourceLogo    = "NinoPatcher.Resources.logonombre.png";
-        private const string ButtonResourcePath = "NinoPatcher.Resources.Buttons.";
-
-        private Assembly assembly = Assembly.GetExecutingAssembly();
         private SoundPlayer player;
         private ProgressBar progressBar;
 
@@ -54,51 +47,44 @@ namespace NinoPatcher
             MinimumSize = new Size(800, 600);
             MaximumSize = new Size(800, 600);
             Text = "Ninokuni - El Mago de las Tinieblas v1.0 ~~ GradienWords";
-            Icon = new Icon(assembly.GetManifestResourceStream(IconResource));
+            Icon = ResourcesManager.GetIcon("icon.ico");
 
             CreateAnimation();
 
             Panel bgBottom = new Panel();
             bgBottom.BackColor = Color.Transparent;
-            bgBottom.Location = new Point(0, 480);
-            bgBottom.Size = new Size(800, 120);
-            bgBottom.BackgroundImage = Image.FromStream(
-                assembly.GetManifestResourceStream("NinoPatcher.Resources.skingold.png"));
+            bgBottom.Location  = new Point(0, 480);
+            bgBottom.Size      = new Size(800, 120);
+            bgBottom.BackgroundImage = ResourcesManager.GetImage("skingold.png");
             Controls.Add(bgBottom);
 
             Panel separationLine = new Panel();
             separationLine.BackColor = Color.White;
-            separationLine.Size = new Size(800, 3);
-            separationLine.Location = new Point(0, 0);
+            separationLine.Location  = new Point(0, 0);
+            separationLine.Size      = new Size(800, 3);
             bgBottom.Controls.Add(separationLine);
 
             progressBar = new ProgressBar();
-            progressBar.Value = 0;
-            progressBar.Location = new Point(10, 73);
-            progressBar.Size = new Size(523, 15);
-            progressBar.Style = ProgressBarStyle.Continuous;
+            progressBar.Value     = 0;
+            progressBar.Location  = new Point(10, 73);
+            progressBar.Size      = new Size(523, 15);
+            progressBar.Style     = ProgressBarStyle.Continuous;
             progressBar.ForeColor = Color.SkyBlue;
             bgBottom.Controls.Add(progressBar);
 
-            Image termitoImg0 = Image.FromStream(
-                assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_0.png"));
-            Image termitoImg1 = Image.FromStream(
-                assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_1.png"));
-            Image termitoImg2 = Image.FromStream(
-                assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_2.png"));
-            Image termitoImg3 = Image.FromStream(
-                assembly.GetManifestResourceStream("NinoPatcher.Resources.anime_3.png"));
-            Sprite termitoSprite = new Sprite(0, -1, 1, new Point(470, 30), 
-                                       new Point(10, 30), new Size(-1, 0), 1,
-                                       termitoImg0, termitoImg1, termitoImg2, termitoImg3);
+            Sprite termitoSprite = new Sprite(0, -1, 1,                       // delay, duration, steps
+                                       new Point(10, 30), new Point(460, 30), // start, end pos
+                                       new Size(1, 0), 1,                     // movement
+                                       ResourcesManager.GetImage("anime_0.png"),  // frame 0
+                                       ResourcesManager.GetImage("anime_1.png"),  // frame 1
+                                       ResourcesManager.GetImage("anime_2.png"),  // frame 2
+                                       ResourcesManager.GetImage("anime_3.png")); // frame 3
             Animation.Instance.Add(bgBottom, termitoSprite);
 
             ImageButton btnPatch = new ImageButton();
             btnPatch.Location = new Point(543, 10);
-            btnPatch.DefaultImage = Image.FromStream(
-                assembly.GetManifestResourceStream(ButtonResourcePath + "patch_0.png"));
-            btnPatch.PressedImage = Image.FromStream(
-                assembly.GetManifestResourceStream(ButtonResourcePath + "patch_1.png"));
+            btnPatch.DefaultImage = ResourcesManager.GetImage("Buttons.patch_0.png");
+            btnPatch.PressedImage = ResourcesManager.GetImage("Buttons.patch_1.png");
             btnPatch.Click += delegate {
                 Patcher test = new Patcher(false, false);
                 test.SetInput("/store/Juegos/NDS/Ninokuni [CLEAN].nds");
@@ -109,18 +95,14 @@ namespace NinoPatcher
             bgBottom.Controls.Add(btnPatch);
 
             ImageButton btnDownloadBook = new ImageButton();
-            btnDownloadBook.DefaultImage = Image.FromStream(
-                assembly.GetManifestResourceStream(ButtonResourcePath + "book_0.png"));
-            btnDownloadBook.PressedImage = Image.FromStream(
-                assembly.GetManifestResourceStream(ButtonResourcePath + "book_1.png"));
+            btnDownloadBook.DefaultImage = ResourcesManager.GetImage("Buttons.book_0.png");
+            btnDownloadBook.PressedImage = ResourcesManager.GetImage("Buttons.book_1.png");
             btnDownloadBook.Location = new Point(543, 55);
             bgBottom.Controls.Add(btnDownloadBook);
 
             ImageButton btnShowCredits = new ImageButton();
-            btnShowCredits.DefaultImage = Image.FromStream(
-                assembly.GetManifestResourceStream(ButtonResourcePath + "credits_0.png"));
-            btnShowCredits.PressedImage = Image.FromStream(
-                assembly.GetManifestResourceStream(ButtonResourcePath + "credits_1.png"));
+            btnShowCredits.DefaultImage = ResourcesManager.GetImage("Buttons.credits_0.png");
+            btnShowCredits.PressedImage = ResourcesManager.GetImage("Buttons.credits_1.png");
             btnShowCredits.Location = new Point(668, 10);
             btnShowCredits.Click += delegate {
                 CreditsWindow credits = new CreditsWindow();
@@ -130,10 +112,8 @@ namespace NinoPatcher
             bgBottom.Controls.Add(btnShowCredits);
 
             ImageButton btnShowExtras = new ImageButton();
-            btnShowExtras.DefaultImage = Image.FromStream(
-                assembly.GetManifestResourceStream(ButtonResourcePath + "options_0.png"));
-            btnShowExtras.PressedImage = Image.FromStream(
-                assembly.GetManifestResourceStream(ButtonResourcePath + "options_1.png"));
+            btnShowExtras.DefaultImage = ResourcesManager.GetImage("Buttons.options_0.png");
+            btnShowExtras.PressedImage = ResourcesManager.GetImage("Buttons.options_1.png");
             btnShowExtras.Location = new Point(668, 55);
             bgBottom.Controls.Add(btnShowExtras);
             btnShowExtras.Click += delegate {
@@ -156,14 +136,14 @@ namespace NinoPatcher
             bgPanel.Size = new Size(800, 480);
             Controls.Add(bgPanel);
 
-            Image jaboImage = Image.FromStream(assembly.GetManifestResourceStream(AniResourceJabo));
+            Image jaboImage  = ResourcesManager.GetImage("Jabologo.png");
 			Point jaboOffset = new Point(93, 0);
-			Fade jaboFade  = new Fade(5,  85, 1, jaboOffset, -1,  0.020f, jaboImage);
-			Fade jaboBlink = new Fade(90, -1, 1, jaboOffset, 12, -0.020f, jaboImage, 1.0f);
+			Fade jaboFade    = new Fade(5,  85, 1, jaboOffset, -1,  0.020f, jaboImage);
+			Fade jaboBlink   = new Fade(90, -1, 1, jaboOffset, 12, -0.020f, jaboImage, 1.0f);
 
-            Image textImage = Image.FromStream(assembly.GetManifestResourceStream(AniResourceLogo));
+            Image textImage  = ResourcesManager.GetImage("logonombre.png");
             Point textOffset = new Point(84, 0);
-            Fade textFade  = new Fade(50, 40, 1, textOffset, -1,  0.025f, textImage);
+            Fade textFade    = new Fade(50, 40, 1, textOffset, -1,  0.025f, textImage);
 			BackgroundImage textFixed = new BackgroundImage(90, -1, 1, textOffset, textImage);
 
 			Animation animation = Animation.Instance;
@@ -176,8 +156,7 @@ namespace NinoPatcher
 
         private void PlaySound()
         {
-            player = new SoundPlayer(
-                assembly.GetManifestResourceStream("NinoPatcher.Resources.sound.wav"));
+            player = new SoundPlayer(ResourcesManager.GetStream("sound.wav"));
             player.PlayLooping();
             FormClosing += delegate { player.Stop(); };
         }

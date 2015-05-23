@@ -29,7 +29,7 @@ namespace NinoPatcher
 {
     public class Patcher
     {
-        private const string PatchId = "NinoPatcher.Resources.PatchES.xdelta";
+        private const string PatchId = "PatchES.xdelta";
 
         public Patcher(bool antipiracy, bool banner)
         {
@@ -128,7 +128,7 @@ namespace NinoPatcher
         {
             using (var fsIn  = new FileStream(Input, FileMode.Open, FileAccess.Read, FileShare.Read)) {
                 using (var fsOut = new FileStream(Output, FileMode.Create, FileAccess.ReadWrite, FileShare.Read)) {
-                    Stream patch = Assembly.GetExecutingAssembly().GetManifestResourceStream(PatchId);
+                    Stream patch = ResourcesManager.GetStream(PatchId);
                     Decoder decoder = new Decoder(fsIn, patch, fsOut);
                     decoder.ProgressChanged += delegate (double p) {
                         worker.ReportProgress((int)(p * 100));
