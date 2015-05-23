@@ -165,7 +165,8 @@ namespace NinoPatcher
             bool banner = false;
             Patcher patcher = new Patcher(antipiracy, banner);
 
-            AskForFiles(patcher);
+            ErrorCode result = AskForFiles(patcher);
+            MessageBox.Show(result.ToString());
 
             // Add animation
             if (!Animation.Instance.Contains(bgBottom, termito))
@@ -182,16 +183,53 @@ namespace NinoPatcher
             patcher.Patch();
         }
 
-        private void AskForFiles(Patcher patcher)
+        private ErrorCode AskForFiles(Patcher patcher)
         {
-            // TODO: Ask files and check if they are valid
-            string input = "/store/Juegos/NDS/Ninokuni [CLEAN].nds";
-            string output = "/home/benito/test.nds";
+            string input;
+            using (OpenFileDialog inputDialog = new OpenFileDialog()) {
+                inputDialog.AddExtension = true;
+                inputDialog.CheckFileExists = true;
+                inputDialog.CheckPathExists = true;
+                inputDialog.DefaultExt = ".nds";
+                inputDialog.DereferenceLinks = true;
+                inputDialog.Filter = "Nintendo DS ROM |*.nds";
+                inputDialog.Multiselect = false;
+                inputDialog.ShowHelp = false;
+                inputDialog.ShowReadOnly = false;
+                inputDialog.SupportMultiDottedExtensions = true;
+                inputDialog.Title = "Selecciona la ROM limpia";
+                inputDialog.ValidateNames = true;
+                if (inputDialog.ShowDialog() != DialogResult.OK)
+                    return ErrorCode.UserCancel;
+
+                input = inputDialog.FileName;
+            }
+
+            string output;
+            using (SaveFileDialog outputDialog = new SaveFileDialog()) {
+                outputDialog.AddExtension = true;
+                outputDialog.CheckFileExists = false;
+                outputDialog.CheckPathExists = true;
+                outputDialog.DefaultExt = ".nds";
+                outputDialog.DereferenceLinks = true;
+                outputDialog.Filter = "Nintendo DS ROM |*.nds";
+                outputDialog.ShowHelp = false;
+                outputDialog.SupportMultiDottedExtensions = true;
+                outputDialog.Title = "Selecciona el destino de la ROM con parche";
+                outputDialog.ValidateNames = true;
+                outputDialog.OverwritePrompt = true;
+                if (outputDialog.ShowDialog() != DialogResult.OK)
+                    return ErrorCode.UserCancel;
+
+                output = outputDialog.FileName;
+            }
+
             CheckingWindow checkWindow = new CheckingWindow();
             checkWindow.Run(patcher, input, output);
             checkWindow.ShowDialog();
             checkWindow.Dispose();
 
+            return checkWindow.Result;
         }
 
         private void PatchFinished()

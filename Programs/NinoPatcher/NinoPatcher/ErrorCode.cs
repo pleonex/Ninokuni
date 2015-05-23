@@ -30,7 +30,8 @@ namespace NinoPatcher
         IsReadOnly,
         InvalidChecksum,
         DoNothing,
-        NotEnoughDiskSpace
+        NotEnoughDiskSpace,
+        UserCancel
     }
 
     public static class ErrorCodeExtension
