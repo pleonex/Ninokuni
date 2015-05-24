@@ -58,7 +58,6 @@ namespace NinoPatcher
         public static ErrorCode CheckOutput(string file, long maxLength)
         {
             ErrorCode code = CheckPath(file);
-            code = code.IsValid() ? CheckCanWrite(file) : code;
             code = code.IsValid() ? CheckEnoughDiskSpace(file, maxLength) : code;
             return code;
         }
@@ -73,10 +72,15 @@ namespace NinoPatcher
             // https://msdn.microsoft.com/es-es/library/system.io.fileinfo.fileinfo%28v=vs.110%29.aspx
             FileInfo info;
             try   { info = new FileInfo(file); }
-            catch { return error; }
+            catch (Exception ex) { Console.WriteLine(ex); return error; }
 
-            if (info.Exists && info.Attributes != FileAttributes.Normal)
-                return error;
+            Console.WriteLine(info.Attributes);
+            if (info.Exists && (info.Attributes & FileAttributes.Normal) != FileAttributes.Normal) {
+                if (info.IsReadOnly)
+                    return ErrorCode.IsReadOnly;
+                else
+                    return error;
+            }
 
             return ErrorCode.Valid;
         }
@@ -84,14 +88,6 @@ namespace NinoPatcher
         private static ErrorCode CheckFileExists(string file)
         {
             return File.Exists(file) ? ErrorCode.Valid : ErrorCode.DoesNotExist;
-        }
-
-        private static ErrorCode CheckCanWrite(string file)
-        {
-            if (!File.Exists(file))
-                return ErrorCode.Valid;
-
-            return new FileInfo(file).IsReadOnly ? ErrorCode.IsReadOnly : ErrorCode.Valid;
         }
 
         private static ErrorCode CheckEnoughDiskSpace(string file, long maxLength)
