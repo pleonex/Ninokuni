@@ -88,13 +88,13 @@ namespace NinoPatcher
             ImageButton btnDownloadBook = new ImageButton();
             btnDownloadBook.DefaultImage = ResourcesManager.GetImage("Buttons.book_0.png");
             btnDownloadBook.PressedImage = ResourcesManager.GetImage("Buttons.book_1.png");
-            btnDownloadBook.Location = new Point(543, 55);
+            btnDownloadBook.Location = new Point(668, 10);
             bgBottom.Controls.Add(btnDownloadBook);
 
             ImageButton btnShowCredits = new ImageButton();
             btnShowCredits.DefaultImage = ResourcesManager.GetImage("Buttons.credits_0.png");
             btnShowCredits.PressedImage = ResourcesManager.GetImage("Buttons.credits_1.png");
-            btnShowCredits.Location = new Point(668, 10);
+            btnShowCredits.Location = new Point(668, 55);
             btnShowCredits.Click += delegate {
                 CreditsWindow credits = new CreditsWindow();
                 credits.ShowDialog(this);
@@ -105,10 +105,12 @@ namespace NinoPatcher
             ImageButton btnShowExtras = new ImageButton();
             btnShowExtras.DefaultImage = ResourcesManager.GetImage("Buttons.options_0.png");
             btnShowExtras.PressedImage = ResourcesManager.GetImage("Buttons.options_1.png");
-            btnShowExtras.Location = new Point(668, 55);
+            btnShowExtras.Location = new Point(543, 55);
             bgBottom.Controls.Add(btnShowExtras);
             btnShowExtras.Click += delegate {
-                new ExtrasWindow().ShowDialog(this);
+                ExtrasWindow extras = new ExtrasWindow();
+                extras.ShowDialog(this);
+                extras.Dispose();
             };
 
             ResumeLayout(false);
