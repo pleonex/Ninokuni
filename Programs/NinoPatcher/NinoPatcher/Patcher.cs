@@ -27,6 +27,8 @@ using System.ComponentModel;
 
 namespace NinoPatcher
 {
+    public delegate void FinishedPatchingHandler(ErrorCode error);
+
     public class Patcher
     {
         private const string PatchId = "PatchES.xdelta";
@@ -70,7 +72,7 @@ namespace NinoPatcher
         }
 
         public event ProgressChangedHandler ProgressChanged;
-        public event FinishedHandler Finished;
+        public event FinishedPatchingHandler Finished;
 
         public ErrorCode SetInput(string input)
         {
@@ -134,7 +136,7 @@ namespace NinoPatcher
         {
             Console.WriteLine(e.Error);
             if (Finished != null)
-                Finished();
+                Finished(e.Error == null ? ErrorCode.Valid : ErrorCode.UnknownError);
         }
 
         private void ApplyTranslation(BackgroundWorker worker, FileStream outStream)

@@ -246,12 +246,14 @@ namespace NinoPatcher
             return result;
         }
 
-        private void PatchFinished()
+        private void PatchFinished(ErrorCode error)
         {
             termito.AutoDisable = true;
-            DoneDialog doneDialog = new DoneDialog();
-            doneDialog.ShowDialog(this);
-            doneDialog.Dispose();
+
+            if (error.IsValid())
+                DoneDialog.ShowWindow(this);
+            else
+                MessageErrorDialog.Show(ErrorCode.UnknownError, this);
         }
 
         private void PatchProgressChanged(double progress)

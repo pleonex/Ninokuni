@@ -49,12 +49,21 @@ namespace NinoPatcher
             { ErrorCode.Valid,
               "Todo correcto." },
             { ErrorCode.OutputIsInputToo,
-              "El archivo donde se escribirá la ROM\nparcheada no puede ser el mismo\nde la ROM limpia." }
+              "El archivo donde se escribirá la ROM\nparcheada no puede ser el mismo\nde la ROM limpia." },
+            { ErrorCode.UnknownError,
+              "Se ha producido un error desconocido\nal parchear. Por favor contacta\ncon Gradienwords." }
         };
 
         public MessageErrorDialog(ErrorCode error)
         {
             InitializeComponents(error);
+        }
+
+        public static void Show(ErrorCode error, IWin32Window parent)
+        {
+            MessageErrorDialog dialog = new MessageErrorDialog(error);
+            dialog.ShowDialog(parent);
+            dialog.Dispose();
         }
 
         private void InitializeComponents(ErrorCode error)

@@ -33,6 +33,7 @@ namespace NinoPatcher
         NotEnoughDiskSpace,
         UserCancel,
         OutputIsInputToo,
+        UnknownError
     }
 
     public static class ErrorCodeExtension

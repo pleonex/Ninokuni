@@ -35,6 +35,13 @@ namespace NinoPatcher
             FormClosing += HandleFormClosing;
         }
 
+        public static void ShowWindow(IWin32Window parent)
+        {
+            DoneDialog dialog = new DoneDialog();
+            dialog.ShowDialog(parent);
+            dialog.Dispose();
+        }
+
         private void InitializeComponents()
         {
             Text   = "Completado";
