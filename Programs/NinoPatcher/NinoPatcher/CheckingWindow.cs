@@ -80,9 +80,10 @@ namespace NinoPatcher
             BackgroundWorker worker = new BackgroundWorker();
             worker.RunWorkerCompleted += HandleRunWorkerCompleted;
             worker.DoWork += delegate(object sender, DoWorkEventArgs e) {
-                ErrorCode code = patcher.SetInput(input);
+                // Check first output since it takes less time
+                ErrorCode code = patcher.SetOutput(output, FileChecker.RomLength);
                 if (code.IsValid())
-                    code = patcher.SetOutput(output, FileChecker.RomLength);
+                    code = patcher.SetInput(input);
 
                 e.Result = code;
             };

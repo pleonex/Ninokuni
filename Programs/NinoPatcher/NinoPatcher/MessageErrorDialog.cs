@@ -31,7 +31,7 @@ namespace NinoPatcher
         private static readonly Dictionary<ErrorCode, string> Messages = 
             new Dictionary<ErrorCode, string>() {
             { ErrorCode.InvalidPath,
-              "La ruta al archivo es inválida.\nComprueba que no hay caracteres extraños." },
+              "La ruta al archivo es inválida.\nComprueba que no haya caracteres\nextraños en la ruta." },
             { ErrorCode.DoesNotExist,
               "El archivo seleccionado no exsite.\nPrueba a seleccionarlo de nuevo." },
             { ErrorCode.DoNothing,
@@ -41,7 +41,7 @@ namespace NinoPatcher
             { ErrorCode.InvalidSize,
               "Esta ROM no ocupa 512 MB por lo que\nha sido \"trimeada\".\nPor favor, descarga una ROM entera." },
             { ErrorCode.IsReadOnly,
-              "El archivo seleccionado no tiene permisos\nde escritura. Por favor, deselecciona la casilla de solo-lectura." },
+              "El archivo seleccionado no tiene permisos\nde escritura. Por favor, desmarca\nla casilla de solo-lectura." },
             { ErrorCode.NotEnoughDiskSpace,
               "No hay espacio suficiente en el disco\nactual para guardar la nueva ROM.\nSelecciona otro disco." },
             { ErrorCode.UserCancel,
@@ -57,7 +57,7 @@ namespace NinoPatcher
 
         private void InitializeComponents(ErrorCode error)
         {
-            Width  = 330;
+            Width  = 335;
             Height = 100;
             MaximizeBox = false;
             FormBorderStyle = FormBorderStyle.FixedDialog;
