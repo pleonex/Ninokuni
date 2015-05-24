@@ -40,6 +40,7 @@
     <Folder Include="Resources\Buttons\" />
     <Folder Include="Resources\Loading\" />
     <Folder Include="Resources\Termito\" />
+    <Folder Include="Resources\Done\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\xdelta-sharp\xdelta\Decoder\Decoder.cs">
@@ -109,7 +110,6 @@
       <Link>xdelta\VcdReader.cs</Link>
     </Compile>
     <Compile Include="Program.cs" />
-    <Compile Include="MainWindow.cs" />
     <Compile Include="ExtrasWindow.cs" />
     <Compile Include="Animation.cs" />
     <Compile Include="AnimationElement.cs" />
@@ -128,6 +128,8 @@
     <Compile Include="ResourcesManager.cs" />
     <Compile Include="CheckingWindow.cs" />
     <Compile Include="MessageErrorDialog.cs" />
+    <Compile Include="DoneDialog.cs" />
+    <Compile Include="MainWindow.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
@@ -161,5 +163,12 @@
     <EmbeddedResource Include="Resources\Loading\loading_4.png" />
     <EmbeddedResource Include="Resources\Loading\loading_5.png" />
     <EmbeddedResource Include="Resources\shizuku_error.png" />
+    <EmbeddedResource Include="Resources\Done\shizuku_happy_1.png" />
+    <EmbeddedResource Include="Resources\Done\shizuku_happy_0.png" />
+    <EmbeddedResource Include="Resources\Done\shizuku_happy_2.png" />
+    <EmbeddedResource Include="Resources\Done\shizuku_happy_3.png" />
+    <EmbeddedResource Include="Resources\Done\shizuku_happy_4.png" />
+    <EmbeddedResource Include="Resources\Done\shizuku_happy_5.png" />
+    <EmbeddedResource Include="Resources\Done\shizuku_happy_6.png" />
   </ItemGroup>
 </Project>

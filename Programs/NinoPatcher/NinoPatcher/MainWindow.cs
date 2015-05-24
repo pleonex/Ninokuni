@@ -94,7 +94,7 @@ namespace NinoPatcher
             btnShowCredits.Location = new Point(668, 10);
             btnShowCredits.Click += delegate {
                 CreditsWindow credits = new CreditsWindow();
-                credits.ShowDialog();
+                credits.ShowDialog(this);
                 credits.Dispose();
             };
             bgBottom.Controls.Add(btnShowCredits);
@@ -204,7 +204,7 @@ namespace NinoPatcher
                 inputDialog.SupportMultiDottedExtensions = true;
                 inputDialog.Title = "Selecciona la ROM limpia";
                 inputDialog.ValidateNames = true;
-                if (inputDialog.ShowDialog() != DialogResult.OK)
+                if (inputDialog.ShowDialog(this) != DialogResult.OK)
                     return ErrorCode.UserCancel;
 
                 input = inputDialog.FileName;
@@ -223,7 +223,7 @@ namespace NinoPatcher
                 outputDialog.Title = "Selecciona el destino de la ROM parcheada";
                 outputDialog.ValidateNames = true;
                 outputDialog.OverwritePrompt = true;
-                if (outputDialog.ShowDialog() != DialogResult.OK)
+                if (outputDialog.ShowDialog(this) != DialogResult.OK)
                     return ErrorCode.UserCancel;
 
                 output = outputDialog.FileName;
@@ -231,7 +231,7 @@ namespace NinoPatcher
 
             CheckingWindow checkWindow = new CheckingWindow();
             checkWindow.Run(patcher, input, output);
-            checkWindow.ShowDialog();
+            checkWindow.ShowDialog(this);
             checkWindow.Dispose();
 
             return checkWindow.Result;
@@ -240,7 +240,9 @@ namespace NinoPatcher
         private void PatchFinished()
         {
             termito.AutoDisable = true;
-            MessageBox.Show("Done!");
+            DoneDialog doneDialog = new DoneDialog();
+            doneDialog.ShowDialog(this);
+            doneDialog.Dispose();
         }
 
         private void PatchProgressChanged(double progress)
