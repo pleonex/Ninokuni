@@ -130,6 +130,7 @@
     <Compile Include="MessageErrorDialog.cs" />
     <Compile Include="DoneDialog.cs" />
     <Compile Include="MainWindow.cs" />
+    <Compile Include="InfoDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
@@ -170,5 +171,6 @@
     <EmbeddedResource Include="Resources\Done\shizuku_happy_4.png" />
     <EmbeddedResource Include="Resources\Done\shizuku_happy_5.png" />
     <EmbeddedResource Include="Resources\Done\shizuku_happy_6.png" />
+    <EmbeddedResource Include="Resources\oliver_info.png" />
   </ItemGroup>
 </Project>

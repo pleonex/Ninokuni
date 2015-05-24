@@ -193,6 +193,7 @@ namespace NinoPatcher
         private ErrorCode AskForFiles(Patcher patcher)
         {
             string input;
+            InfoDialog.Show("Primero selecciona la ROM limpia.", "ROM de entrada", this);
             using (OpenFileDialog inputDialog = new OpenFileDialog()) {
                 inputDialog.AddExtension = true;
                 inputDialog.CheckFileExists = true;
@@ -213,6 +214,7 @@ namespace NinoPatcher
             }
 
             string output;
+            InfoDialog.Show("Ahora selecciona dónde guardar\nla ROM parcheada.", "ROM de salida", this);
             using (SaveFileDialog outputDialog = new SaveFileDialog()) {
                 outputDialog.AddExtension = true;
                 outputDialog.CheckFileExists = false;
