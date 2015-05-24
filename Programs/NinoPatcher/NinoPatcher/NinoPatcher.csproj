@@ -127,6 +127,7 @@
     <Compile Include="CreditsWindow.cs" />
     <Compile Include="ResourcesManager.cs" />
     <Compile Include="CheckingWindow.cs" />
+    <Compile Include="MessageErrorDialog.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
@@ -159,5 +160,6 @@
     <EmbeddedResource Include="Resources\Loading\loading_3.png" />
     <EmbeddedResource Include="Resources\Loading\loading_4.png" />
     <EmbeddedResource Include="Resources\Loading\loading_5.png" />
+    <EmbeddedResource Include="Resources\shizuku_error.png" />
   </ItemGroup>
 </Project>

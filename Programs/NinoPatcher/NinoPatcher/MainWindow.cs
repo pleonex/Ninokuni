@@ -143,7 +143,7 @@ namespace NinoPatcher
 
             // Create sprite animations for later use
             termito = new Sprite(0, -1, 1,                  // delay, duration, steps
-                new Point(10, 30), new Point(10, 30),      // start, end pos
+                new Point(10, 30), new Point(10, 30),       // start, end pos
                 new Size(3, 0), 1,                          // movement
                 ResourcesManager.GetImage("Termito.anime_0.png"),   // frame 0
                 ResourcesManager.GetImage("Termito.anime_1.png"),   // frame 1
@@ -166,7 +166,12 @@ namespace NinoPatcher
             Patcher patcher = new Patcher(antipiracy, banner);
 
             ErrorCode result = AskForFiles(patcher);
-            MessageBox.Show(result.ToString());
+            if (!result.IsValid()) {
+                MessageErrorDialog errorDialog = new MessageErrorDialog(result);
+                errorDialog.ShowDialog(this);
+                errorDialog.Dispose();
+                return;
+            }
 
             // Add animation
             if (!Animation.Instance.Contains(bgBottom, termito))
@@ -215,7 +220,7 @@ namespace NinoPatcher
                 outputDialog.Filter = "Nintendo DS ROM |*.nds";
                 outputDialog.ShowHelp = false;
                 outputDialog.SupportMultiDottedExtensions = true;
-                outputDialog.Title = "Selecciona el destino de la ROM con parche";
+                outputDialog.Title = "Selecciona el destino de la ROM parcheada";
                 outputDialog.ValidateNames = true;
                 outputDialog.OverwritePrompt = true;
                 if (outputDialog.ShowDialog() != DialogResult.OK)
