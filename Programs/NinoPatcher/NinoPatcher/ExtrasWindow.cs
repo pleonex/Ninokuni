@@ -85,6 +85,13 @@ namespace NinoPatcher
             checkBanner.CheckAlign = ContentAlignment.TopLeft;
             checkBanner.CheckedChanged += delegate { Banner = checkBanner.Checked; };
             Controls.Add(checkBanner);
+
+            Button closeBtn = new Button();
+            closeBtn.Location = new Point(265, 148);
+            closeBtn.AutoSize = true;
+            closeBtn.Text = "Cerrar";
+            closeBtn.Click += delegate { this.Close(); };
+            Controls.Add(closeBtn);
         }
     }
 }

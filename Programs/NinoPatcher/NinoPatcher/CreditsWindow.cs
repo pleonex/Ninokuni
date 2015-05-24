@@ -42,6 +42,13 @@ namespace NinoPatcher
             StartPosition   = FormStartPosition.CenterParent;
             BackgroundImage = ResourcesManager.GetImage("credits.png");
             ShowInTaskbar   = false;
+
+            Button closeBtn = new Button();
+            closeBtn.Location = new Point(715, 548);
+            closeBtn.AutoSize = true;
+            closeBtn.Text = "Cerrar";
+            closeBtn.Click += delegate { this.Close(); };
+            Controls.Add(closeBtn);
         }
     }
 }

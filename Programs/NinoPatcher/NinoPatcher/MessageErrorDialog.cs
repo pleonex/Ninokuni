@@ -39,7 +39,7 @@ namespace NinoPatcher
             { ErrorCode.InvalidChecksum,
               "La ROM seleccionada es inválida.\nPor favor, vuelve a descargarte una ROM limpia." },
             { ErrorCode.InvalidSize,
-              "Esta ROM no ocupa 512 MB por lo que\nha sido \"trimeada\".\nPor favor, descarga una ROM entera." },
+              "Esta ROM no ocupa 512 MB por lo que\nha sido \"trimeada\". Por favor,\ndescarga una ROM entera." },
             { ErrorCode.IsReadOnly,
               "El archivo seleccionado no tiene permisos\nde escritura. Por favor, desmarca\nla casilla de solo-lectura." },
             { ErrorCode.NotEnoughDiskSpace,
@@ -66,7 +66,7 @@ namespace NinoPatcher
             ShowInTaskbar = false;
 
             Label lblError = new Label();
-            lblError.Location = new Point(80, 25);
+            lblError.Location = new Point(80, 15);
             lblError.AutoSize = true;
             lblError.Text = Messages[error];
             Controls.Add(lblError);
@@ -76,6 +76,13 @@ namespace NinoPatcher
             shizukuImageBox.Size = new Size(60, 70);
             shizukuImageBox.Image = ResourcesManager.GetImage("shizuku_error.png");
             Controls.Add(shizukuImageBox);
+
+            Button closeBtn = new Button();
+            closeBtn.Location = new Point(250, 48);
+            closeBtn.AutoSize = true;
+            closeBtn.Text = "Cerrar";
+            closeBtn.Click += delegate { this.Close(); };
+            Controls.Add(closeBtn);
         }
     }
 }

@@ -48,9 +48,16 @@ namespace NinoPatcher
 
             Label lblText = new Label();
             lblText.Text = "¡Parcheo completado con éxito!";
-            lblText.Location = new Point(55, 20);
+            lblText.Location = new Point(55, 5);
             lblText.AutoSize = true;
             Controls.Add(lblText);
+
+            Button closeBtn = new Button();
+            closeBtn.Location = new Point(105, 23);
+            closeBtn.AutoSize = true;
+            closeBtn.Text = "Cerrar";
+            closeBtn.Click += delegate { this.Close(); };
+            Controls.Add(closeBtn);
 
             spritePanel = new Panel();
             spritePanel.Location = new Point(5, 0);
