@@ -74,7 +74,6 @@ namespace NinoPatcher
             try   { info = new FileInfo(file); }
             catch (Exception ex) { Console.WriteLine(ex); return error; }
 
-            Console.WriteLine(info.Attributes);
             if (info.Exists && (info.Attributes & FileAttributes.Normal) != FileAttributes.Normal) {
                 if (info.IsReadOnly)
                     return ErrorCode.IsReadOnly;
@@ -115,9 +114,11 @@ namespace NinoPatcher
             // has enough space
             long freeSpace = Int64.MaxValue;
             try {
+                string path = Path.GetDirectoryName(file);
+
                 ProcessStartInfo processInfo = new ProcessStartInfo();
                 processInfo.FileName = "df";
-                processInfo.Arguments = "-P -k " + file; // -P for portability in POSIX
+                processInfo.Arguments = "-P -k \"" + path + "\""; // -P for portability in POSIX
                 processInfo.CreateNoWindow = true;
                 processInfo.ErrorDialog = false;
                 processInfo.UseShellExecute = false;
