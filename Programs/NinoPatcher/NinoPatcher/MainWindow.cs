@@ -233,12 +233,17 @@ namespace NinoPatcher
                 output = outputDialog.FileName;
             }
 
+            if (input == output)
+                return ErrorCode.OutputIsInputToo;
+
             CheckingWindow checkWindow = new CheckingWindow();
             checkWindow.Run(patcher, input, output);
             checkWindow.ShowDialog(this);
+
+            ErrorCode result = checkWindow.Result;
             checkWindow.Dispose();
 
-            return checkWindow.Result;
+            return result;
         }
 
         private void PatchFinished()

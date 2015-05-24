@@ -47,7 +47,9 @@ namespace NinoPatcher
             { ErrorCode.UserCancel,
               "Has cancelado el parcheo." },
             { ErrorCode.Valid,
-              "Todo correcto." }
+              "Todo correcto." },
+            { ErrorCode.OutputIsInputToo,
+              "El archivo donde se escribirá la ROM\nparcheada no puede ser el mismo\nde la ROM limpia." }
         };
 
         public MessageErrorDialog(ErrorCode error)

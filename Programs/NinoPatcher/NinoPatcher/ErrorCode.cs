@@ -31,7 +31,8 @@ namespace NinoPatcher
         InvalidChecksum,
         DoNothing,
         NotEnoughDiskSpace,
-        UserCancel
+        UserCancel,
+        OutputIsInputToo,
     }
 
     public static class ErrorCodeExtension
