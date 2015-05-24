@@ -34,15 +34,13 @@ namespace NinoPatcher
 
         private void InitializeComponents()
         {
-            Text = "Créditos";
-            BackgroundImageLayout = ImageLayout.Stretch;
+            Text   = "Créditos";
+            Width  = 800;
+            Height = 600;
+            MaximizeBox = false;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            StartPosition   = FormStartPosition.CenterParent;
             BackgroundImage = ResourcesManager.GetImage("credits.png");
-            Resize += delegate {
-                this.Invalidate();
-            };
-            FormClosing += delegate {
-                MessageBox.Show(this.Width + " x " + this.Height);
-            };
         }
     }
 }

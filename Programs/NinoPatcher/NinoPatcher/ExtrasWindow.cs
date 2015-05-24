@@ -36,7 +36,10 @@ namespace NinoPatcher
 
         private void InitializeComponents()
         {
-            Width = 400;
+            Width  = 400;
+            MaximizeBox = false;
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            StartPosition = FormStartPosition.CenterParent;
 
             Label extraLabel = new Label();
             extraLabel.AutoSize = true;

@@ -51,6 +51,7 @@ namespace NinoPatcher
             MinimizeBox = false;
             ControlBox  = false;
             Icon = ResourcesManager.GetIcon("icon.ico");
+            StartPosition = FormStartPosition.CenterParent;
 
             Label label = new Label();
             label.Text = "Comprobando ROM introducida.\nEsto puede tardar unos minutos.";
