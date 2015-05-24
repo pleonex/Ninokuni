@@ -37,6 +37,9 @@ namespace NinoPatcher
 		{
             InitializeComponents();
             PlaySound();
+
+            ExtrasWindow.AntiPiracy = true;
+            ExtrasWindow.Banner     = false;
         }
 
         private void InitializeComponents()
@@ -160,10 +163,7 @@ namespace NinoPatcher
 
         private void BtnPatchOnClick(object sender, EventArgs e)
         {
-            // TODO: Get properties AP and Banner
-            bool antipiracy = false;
-            bool banner = false;
-            Patcher patcher = new Patcher(antipiracy, banner);
+            Patcher patcher = new Patcher(ExtrasWindow.AntiPiracy, ExtrasWindow.Banner);
 
             ErrorCode result = AskForFiles(patcher);
             if (!result.IsValid()) {

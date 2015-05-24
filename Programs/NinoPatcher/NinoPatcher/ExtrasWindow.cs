@@ -26,38 +26,63 @@ namespace NinoPatcher
 {
     public class ExtrasWindow : Form
     {
-        private CheckBox checkAntiPiracy;
-        private CheckBox checkBanner;
+        private const string AntiPiracyTextInfo = 
+            "Aunque no sea necesario en algunas flashcards,\n" +
+            "en muy pocas producirá problemas.";
+        private const string BannerTextInfo = 
+            "Marca esta opción si quieres ver el título del juego\n" +
+            "en español en el menú de la flaschard. Esta opción\n" +
+            "hace que muchas flashcard dejen de ser compatibles.";
 
         public ExtrasWindow()
         {
             InitializeComponents();
         }
 
+        public static bool AntiPiracy {
+            get;
+            set;
+        }
+
+        public static bool Banner {
+            get;
+            set;
+        }
+
         private void InitializeComponents()
         {
-            Width  = 400;
+            Text   = "Parches adicionales";
+            Width  = 350;
+            Height = 200;
             MaximizeBox = false;
+            BackColor   = Color.LightSkyBlue;
             FormBorderStyle = FormBorderStyle.FixedDialog;
-            StartPosition = FormStartPosition.CenterParent;
+            StartPosition   = FormStartPosition.CenterParent;
+            Icon = ResourcesManager.GetIcon("icon.ico");
 
             Label extraLabel = new Label();
+            extraLabel.Text  = "Opciones necesarias para determinadas flashcards.\n";
+            extraLabel.Text += "Cambia su valor solo si has probado y no funciona.";
+            extraLabel.Location = new Point(5, 10);
             extraLabel.AutoSize = true;
-            extraLabel.Text = "Opciones necesarias para determinadas flashcards.\n";
-            extraLabel.Text += "Actívala solo si has probado sin ellas y no funciona.";
-            extraLabel.Location = new Point(0, 20);
             Controls.Add(extraLabel);
 
-            checkAntiPiracy = new CheckBox();
+            CheckBox checkAntiPiracy = new CheckBox();
+            checkAntiPiracy.Text  = "Añadir parche antipiratería.\n" + AntiPiracyTextInfo;
+            checkAntiPiracy.Location = new Point(8, 50);
             checkAntiPiracy.AutoSize = true;
-            checkAntiPiracy.Text = "Añadir parche antipiratería";
-            checkAntiPiracy.Location = new Point(0, 50);
+            checkAntiPiracy.Checked  = AntiPiracy;
+            checkAntiPiracy.CheckAlign = ContentAlignment.TopLeft;
+            checkAntiPiracy.CheckedChanged += delegate { AntiPiracy = checkAntiPiracy.Checked; };
             Controls.Add(checkAntiPiracy);
 
-            checkBanner = new CheckBox();
+            CheckBox checkBanner = new CheckBox();
+            checkBanner.Text = "Añadir título de juego traducido.\n" + BannerTextInfo;
+            checkBanner.Location = new Point(8, 100);
             checkBanner.AutoSize = true;
-            checkBanner.Text = "Añadir título de juego traducido";
-            checkBanner.Location = new Point(0, 80);
+            checkBanner.Checked  = Banner;
+            checkBanner.CheckAlign = ContentAlignment.TopLeft;
+            checkBanner.CheckedChanged += delegate { Banner = checkBanner.Checked; };
             Controls.Add(checkBanner);
         }
     }
