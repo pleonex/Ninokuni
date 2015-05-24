@@ -63,6 +63,7 @@ namespace NinoPatcher
             FormBorderStyle = FormBorderStyle.FixedDialog;
             BackColor     = Color.LightSkyBlue;
             StartPosition = FormStartPosition.CenterParent;
+            ShowInTaskbar = false;
 
             Label lblError = new Label();
             lblError.Location = new Point(80, 25);

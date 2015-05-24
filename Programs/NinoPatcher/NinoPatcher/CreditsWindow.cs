@@ -41,6 +41,7 @@ namespace NinoPatcher
             FormBorderStyle = FormBorderStyle.FixedDialog;
             StartPosition   = FormStartPosition.CenterParent;
             BackgroundImage = ResourcesManager.GetImage("credits.png");
+            ShowInTaskbar   = false;
         }
     }
 }

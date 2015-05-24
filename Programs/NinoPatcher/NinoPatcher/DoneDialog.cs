@@ -44,6 +44,7 @@ namespace NinoPatcher
             StartPosition = FormStartPosition.CenterParent;
             BackColor   = Color.LightSkyBlue;
             MaximizeBox = false;
+            ShowInTaskbar = false;
 
             Label lblText = new Label();
             lblText.Text = "¡Parcheo completado con éxito!";

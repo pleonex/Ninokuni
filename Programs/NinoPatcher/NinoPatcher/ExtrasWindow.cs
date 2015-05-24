@@ -59,6 +59,7 @@ namespace NinoPatcher
             FormBorderStyle = FormBorderStyle.FixedDialog;
             StartPosition   = FormStartPosition.CenterParent;
             Icon = ResourcesManager.GetIcon("icon.ico");
+            ShowInTaskbar = false;
 
             Label extraLabel = new Label();
             extraLabel.Text  = "Opciones necesarias para determinadas flashcards.\n";
