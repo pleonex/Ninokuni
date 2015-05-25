@@ -58,7 +58,6 @@ namespace NinoPatcher
             BackColor   = Color.LightSkyBlue;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             StartPosition   = FormStartPosition.CenterParent;
-            Icon = ResourcesManager.GetIcon("icon.ico");
             ShowInTaskbar = false;
 
             Label extraLabel = new Label();

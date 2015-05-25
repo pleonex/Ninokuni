@@ -50,7 +50,6 @@ namespace NinoPatcher
             MaximizeBox = false;
             MinimizeBox = false;
             ControlBox  = false;
-            Icon = ResourcesManager.GetIcon("icon.ico");
             StartPosition = FormStartPosition.CenterParent;
             ShowInTaskbar = false;
 
