@@ -83,7 +83,7 @@ namespace NinoPatcher
         public override void Draw(Graphics g)
         {
             Rectangle outputRectangle = new Rectangle(Position, images[currentIndex].Size);
-            g.DrawImageUnscaled(images[currentIndex], outputRectangle);
+            g.DrawImage(images[currentIndex], outputRectangle);
         }
     }
 }

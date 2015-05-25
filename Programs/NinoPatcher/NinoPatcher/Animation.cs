@@ -132,13 +132,15 @@ namespace NinoPatcher
         private void ClearControl(Control control, Graphics g)
         {
             // If it has set a background image draw only it
-            if (control.BackgroundImage != null)
-                g.DrawImage(control.BackgroundImage, Point.Empty);
-            else
+            if (control.BackgroundImage != null) {
+                Rectangle outputRectangle = new Rectangle(Point.Empty, control.BackgroundImage.Size);
+                g.DrawImage(control.BackgroundImage, outputRectangle);
+            } else {
                 // Otherwise, draw background color
                 g.FillRectangle(
                     new SolidBrush(control.BackColor),
                     new Rectangle(Point.Empty, control.Size));
+            }
         }
 
 		private bool IsEnabled(AnimationElement element)
