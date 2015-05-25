@@ -47,6 +47,7 @@ namespace NinoPatcher
             closeBtn.Location = new Point(715, 548);
             closeBtn.AutoSize = true;
             closeBtn.Text = "Cerrar";
+            closeBtn.BackColor = SystemColors.Control;
             closeBtn.Click += delegate { this.Close(); };
             Controls.Add(closeBtn);
         }
