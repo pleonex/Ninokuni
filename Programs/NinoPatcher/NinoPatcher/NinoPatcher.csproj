@@ -6,7 +6,7 @@
     <ProjectGuid>{594749DD-608B-4065-B231-90990CEC800C}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>NinoPatcher</RootNamespace>
-    <AssemblyName>NinoPatcher</AssemblyName>
+    <AssemblyName>Ninokuni - El Mago de las Tinieblas</AssemblyName>
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <StartupObject>NinoPatcher.Program</StartupObject>
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
