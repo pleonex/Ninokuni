@@ -10,6 +10,7 @@
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <StartupObject>NinoPatcher.Program</StartupObject>
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+    <Win32Icon>Resources\icon.ico</Win32Icon>
     <SignAssembly>true</SignAssembly>
     <AssemblyOriginatorKeyFile>..\keypar.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
