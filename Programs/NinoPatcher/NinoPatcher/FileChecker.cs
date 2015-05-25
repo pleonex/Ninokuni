@@ -77,6 +77,8 @@ namespace NinoPatcher
             if (info.Exists && (info.Attributes & FileAttributes.Normal) != FileAttributes.Normal) {
                 if (info.IsReadOnly)
                     return ErrorCode.IsReadOnly;
+                else if (info.Attributes == FileAttributes.Archive)
+                    return ErrorCode.Valid;
                 else
                     return error;
             }
