@@ -19,3 +19,4 @@ StyleCop.Cache
 
 # Ignore patch
 Programs/NinoPatcher/NinoPatcher/Resources/PatchES.xdelta
+Programs/NinoPatcher/keypar.snk

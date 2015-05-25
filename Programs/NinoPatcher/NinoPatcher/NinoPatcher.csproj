@@ -10,6 +10,8 @@
     <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
     <StartupObject>NinoPatcher.Program</StartupObject>
     <ApplicationIcon>Resources\icon.ico</ApplicationIcon>
+    <SignAssembly>true</SignAssembly>
+    <AssemblyOriginatorKeyFile>..\keypar.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
     <DebugSymbols>true</DebugSymbols>
@@ -23,7 +25,6 @@
     <PlatformTarget>x86</PlatformTarget>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
-    <DebugType>full</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release</OutputPath>
     <ErrorReport>prompt</ErrorReport>
@@ -41,6 +42,7 @@
     <Folder Include="Resources\Loading\" />
     <Folder Include="Resources\Termito\" />
     <Folder Include="Resources\Done\" />
+    <Folder Include="Properties\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="..\..\xdelta-sharp\xdelta\Decoder\Decoder.cs">
@@ -131,6 +133,7 @@
     <Compile Include="DoneDialog.cs" />
     <Compile Include="MainWindow.cs" />
     <Compile Include="InfoDialog.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
