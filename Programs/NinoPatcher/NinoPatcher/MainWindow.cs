@@ -32,6 +32,10 @@ namespace NinoPatcher
 
         private Panel bgBottom;
         private ProgressBar progressBar;
+        private ImageButton btnPatch;
+        private ImageButton btnDownloadBook;
+        private ImageButton btnShowCredits;
+        private ImageButton btnShowExtras;
 
         public MainWindow()
 		{
@@ -78,20 +82,20 @@ namespace NinoPatcher
             progressBar.ForeColor = Color.SkyBlue;
             bgBottom.Controls.Add(progressBar);
 
-            ImageButton btnPatch = new ImageButton();
+            btnPatch = new ImageButton();
             btnPatch.Location = new Point(543, 10);
             btnPatch.DefaultImage = ResourcesManager.GetImage("Buttons.patch_0.png");
             btnPatch.PressedImage = ResourcesManager.GetImage("Buttons.patch_1.png");
             btnPatch.Click += BtnPatchOnClick;
             bgBottom.Controls.Add(btnPatch);
 
-            ImageButton btnDownloadBook = new ImageButton();
+            btnDownloadBook = new ImageButton();
             btnDownloadBook.DefaultImage = ResourcesManager.GetImage("Buttons.book_0.png");
             btnDownloadBook.PressedImage = ResourcesManager.GetImage("Buttons.book_1.png");
             btnDownloadBook.Location = new Point(668, 10);
             bgBottom.Controls.Add(btnDownloadBook);
 
-            ImageButton btnShowCredits = new ImageButton();
+            btnShowCredits = new ImageButton();
             btnShowCredits.DefaultImage = ResourcesManager.GetImage("Buttons.credits_0.png");
             btnShowCredits.PressedImage = ResourcesManager.GetImage("Buttons.credits_1.png");
             btnShowCredits.Location = new Point(668, 55);
@@ -102,7 +106,7 @@ namespace NinoPatcher
             };
             bgBottom.Controls.Add(btnShowCredits);
 
-            ImageButton btnShowExtras = new ImageButton();
+            btnShowExtras = new ImageButton();
             btnShowExtras.DefaultImage = ResourcesManager.GetImage("Buttons.options_0.png");
             btnShowExtras.PressedImage = ResourcesManager.GetImage("Buttons.options_1.png");
             btnShowExtras.Location = new Point(543, 55);
@@ -179,12 +183,17 @@ namespace NinoPatcher
             if (!Animation.Instance.Contains(bgBottom, termito))
                 Animation.Instance.Add(bgBottom, termito);
 
-            // Starts
+            // Start animation
             termito.Position = new Point(-29, 30);
             PatchProgressChanged(0);
             termito.AutoDisable = false;
             termito.Enabled = true;
 
+            // Disable button
+            btnPatch.Enabled = false;
+            btnShowExtras.Enabled = false;
+
+            // Patch
             patcher.ProgressChanged += PatchProgressChanged;
             patcher.Finished += PatchFinished;
             patcher.Patch();
@@ -248,7 +257,12 @@ namespace NinoPatcher
 
         private void PatchFinished(ErrorCode error)
         {
+            // Disable animation
             termito.AutoDisable = true;
+
+            // Enable buttons
+            btnPatch.Enabled = true;
+            btnShowExtras.Enabled = true;
 
             if (error.IsValid())
                 DoneDialog.ShowWindow(this);
