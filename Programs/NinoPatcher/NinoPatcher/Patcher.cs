@@ -19,11 +19,11 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
+using System.ComponentModel;
 using System.IO;
+using System.Reflection;
 using System.Security.Cryptography;
 using Xdelta;
-using System.Reflection;
-using System.ComponentModel;
 
 namespace NinoPatcher
 {
@@ -31,6 +31,7 @@ namespace NinoPatcher
 
     public class Patcher
     {
+        private const string GameTitle = "Ninokuni\nEl Mago de las Tinieblas\nLEVEL5";
         private const string PatchId = "PatchES.xdelta";
 
         public Patcher(bool antipiracy, bool banner)
@@ -119,7 +120,7 @@ namespace NinoPatcher
                         ApplyAntipiracy();
 
                     if (Banner)
-                        ApplyBanner();
+                        ApplyBanner(outStream);
                 }
             };
 
@@ -139,7 +140,7 @@ namespace NinoPatcher
                 Finished(e.Error == null ? ErrorCode.Valid : ErrorCode.UnknownError);
         }
 
-        private void ApplyTranslation(BackgroundWorker worker, FileStream outStream)
+        private void ApplyTranslation(BackgroundWorker worker, Stream outStream)
         {
             using (FileStream inStream = 
                 new FileStream(Input, FileMode.Open, FileAccess.Read, FileShare.Read)) {
@@ -164,9 +165,35 @@ namespace NinoPatcher
             throw new NotImplementedException();
         }
 
-        private void ApplyBanner()
+        private void ApplyBanner(Stream outStream)
         {
-            throw new NotImplementedException();
+            BinaryReader reader = new BinaryReader(outStream);
+            BinaryWriter writer = new BinaryWriter(outStream);
+
+            // Get banner offset
+            outStream.Position = 0x68;
+            uint offset = reader.ReadUInt32();
+
+            // Go to title strings
+            outStream.Position = offset + 0x20 + 0x200 + 0x20;
+
+            // Write six times the title (for all languages)
+            byte[] data = new byte[0x100];
+            System.Text.Encoding.Unicode.GetBytes(GameTitle, 0, GameTitle.Length, data, 0);
+            writer.Write(data); // Japanese
+            writer.Write(data); // English
+            writer.Write(data); // French
+            writer.Write(data); // German
+            writer.Write(data); // Italian
+            writer.Write(data); // Spanish
+
+            // Compute again the CRC
+            outStream.Position = offset + 0x20;
+            ushort crc16 = Crc16.Calculate(outStream, 0x200 + 0x20 + 0x0600);
+
+            // Write the CRC
+            outStream.Position = offset + 0x02;
+            writer.Write(crc16);
         }
 
         private void UpdateAvailablePatchs(RomType romType)

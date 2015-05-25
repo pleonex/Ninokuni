@@ -135,6 +135,7 @@
     <Compile Include="MainWindow.cs" />
     <Compile Include="InfoDialog.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Crc16.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="System.Windows.Forms" />
