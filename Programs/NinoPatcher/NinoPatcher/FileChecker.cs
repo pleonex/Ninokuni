@@ -93,6 +93,14 @@ namespace NinoPatcher
 
         private static ErrorCode CheckEnoughDiskSpace(string file, long maxLength)
         {
+            // If the file exist, the free space must be maxLengt - file_length
+            if (File.Exists(file)) {
+                maxLength -= new FileInfo(file).Length;
+
+                // If the file to overwrite was bigger, then we have enough space
+                if (maxLength <= 0)
+                    return ErrorCode.Valid;
+            }
 
             long availableSpace = 0;
 
