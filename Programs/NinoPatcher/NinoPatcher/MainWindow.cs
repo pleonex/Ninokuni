@@ -22,6 +22,7 @@ using System;
 using System.Drawing;
 using System.Media;
 using System.Windows.Forms;
+using System.IO;
 
 namespace NinoPatcher
 {
@@ -93,6 +94,7 @@ namespace NinoPatcher
             btnDownloadBook.DefaultImage = ResourcesManager.GetImage("Buttons.book_0.png");
             btnDownloadBook.PressedImage = ResourcesManager.GetImage("Buttons.book_1.png");
             btnDownloadBook.Location = new Point(668, 10);
+            btnDownloadBook.Click += ExportTorrentFile;
             bgBottom.Controls.Add(btnDownloadBook);
 
             btnShowCredits = new ImageButton();
@@ -279,6 +281,47 @@ namespace NinoPatcher
 
             termito.EndPosition  = new Point(x, termito.EndPosition.Y);
             progressBar.Value = (int)progress;
+        }
+
+        private void ExportTorrentFile(object sender, EventArgs e)
+        {
+            string output;
+            InfoDialog.Show("Selecciona dónde guardar\nel archivo torrent del vademécum.", "Exportar torrent", this);
+            InfoDialog.Show("Deberás abrirlo con programas\ncomo Deluge (http://deluge-torrent.org/)", "Exportar torrent", this);
+            InfoDialog.Show("Las tres versiones de Vademécum\ntienen el mismo contenido, descarga una.", "Exportar torrent", this);
+            using (SaveFileDialog outputDialog = new SaveFileDialog()) {
+                outputDialog.AddExtension = true;
+                outputDialog.CheckFileExists = false;
+                outputDialog.CheckPathExists = true;
+                outputDialog.DefaultExt = ".torrent";
+                outputDialog.DereferenceLinks = true;
+                outputDialog.Filter = "Archivo Torrent|*.torrent";
+                outputDialog.ShowHelp = false;
+                outputDialog.SupportMultiDottedExtensions = true;
+                outputDialog.Title = "Selecciona el destino del archivo torrent";
+                outputDialog.ValidateNames = true;
+                outputDialog.OverwritePrompt = true;
+                if (outputDialog.ShowDialog(this) != DialogResult.OK)
+                    return ErrorCode.UserCancel;
+
+                output = outputDialog.FileName;
+            }
+
+            using (Stream torrent = ResourcesManager.GetStream("Book.torrent"))
+            using (Stream outputStream = new FileStream(output, FileMode.Create))
+                ExportStream(outputStream, torrent);
+
+        }
+
+        private void ExportStream(Stream outputStream, Stream inputStream)
+        {
+            byte[] buffer = new byte[1024 * 5];
+            int read = 0;
+            do {
+                read = inputStream.Read(buffer, 0, buffer.Length);
+                if (read > 0)
+                    outputStream.Write(buffer, 0, read);
+            } while (read > 0);
         }
     }
 }

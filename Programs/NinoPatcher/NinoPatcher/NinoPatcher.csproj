@@ -177,5 +177,6 @@
     <EmbeddedResource Include="Resources\Done\shizuku_happy_5.png" />
     <EmbeddedResource Include="Resources\Done\shizuku_happy_6.png" />
     <EmbeddedResource Include="Resources\oliver_info.png" />
+    <EmbeddedResource Include="Resources\Book.torrent" />
   </ItemGroup>
 </Project>

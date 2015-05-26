@@ -19,4 +19,7 @@ StyleCop.Cache
 
 # Ignore patch
 Programs/NinoPatcher/NinoPatcher/Resources/PatchES.xdelta
+Programs/NinoPatcher/NinoPatcher/Resources/Book.torrent
+
+# Ignore private assembly sign keys
 Programs/NinoPatcher/keypar.snk
