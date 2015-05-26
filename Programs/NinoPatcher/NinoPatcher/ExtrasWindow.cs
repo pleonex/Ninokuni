@@ -28,7 +28,8 @@ namespace NinoPatcher
     {
         private const string AntiPiracyTextInfo = 
             "Aunque no sea necesario en algunas flashcards,\n" +
-            "en muy pocas producirá problemas.";
+            "en muy pocas causará problemas. No incluye el\n" +
+            "intercambio del ARM7.";
         private const string BannerTextInfo = 
             "Marca esta opción si quieres ver el título del juego\n" +
             "en español en el menú de la flaschard. Esta opción\n" +
@@ -53,12 +54,20 @@ namespace NinoPatcher
         {
             Text   = "Parches adicionales";
             Width  = 350;
-            Height = 200;
+            Height = 215;
             MaximizeBox = false;
             BackColor   = Color.LightSkyBlue;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             StartPosition   = FormStartPosition.CenterParent;
             ShowInTaskbar = false;
+
+            Button closeBtn = new Button();
+            closeBtn.Location = new Point(265, 163);
+            closeBtn.AutoSize = true;
+            closeBtn.Text = "Cerrar";
+            closeBtn.BackColor = SystemColors.Control;
+            closeBtn.Click += delegate { this.Close(); };
+            Controls.Add(closeBtn);
 
             Label extraLabel = new Label();
             extraLabel.Text  = "Opciones necesarias para determinadas flashcards.\n";
@@ -68,7 +77,7 @@ namespace NinoPatcher
             Controls.Add(extraLabel);
 
             CheckBox checkAntiPiracy = new CheckBox();
-            checkAntiPiracy.Text  = "Añadir parche antipiratería.\n" + AntiPiracyTextInfo;
+            checkAntiPiracy.Text  = "Añadir parche antipiratería básico.\n" + AntiPiracyTextInfo;
             checkAntiPiracy.Location = new Point(8, 50);
             checkAntiPiracy.AutoSize = true;
             checkAntiPiracy.Checked  = AntiPiracy;
@@ -78,20 +87,12 @@ namespace NinoPatcher
 
             CheckBox checkBanner = new CheckBox();
             checkBanner.Text = "Añadir título de juego traducido.\n" + BannerTextInfo;
-            checkBanner.Location = new Point(8, 100);
+            checkBanner.Location = new Point(8, 110);
             checkBanner.AutoSize = true;
             checkBanner.Checked  = Banner;
             checkBanner.CheckAlign = ContentAlignment.TopLeft;
             checkBanner.CheckedChanged += delegate { Banner = checkBanner.Checked; };
             Controls.Add(checkBanner);
-
-            Button closeBtn = new Button();
-            closeBtn.Location = new Point(265, 148);
-            closeBtn.AutoSize = true;
-            closeBtn.Text = "Cerrar";
-            closeBtn.BackColor = SystemColors.Control;
-            closeBtn.Click += delegate { this.Close(); };
-            Controls.Add(closeBtn);
         }
     }
 }
