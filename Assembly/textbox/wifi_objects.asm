@@ -25,3 +25,8 @@
 ; # Recipes needed objects quantity
 .org 0x020A03B8
   MOV     R1, #0xB5 + 6         ; X pos
+
+
+; # Slot color
+.org 0x020A2F50
+  MOV     R1, #162 - 16;        ; X pos
