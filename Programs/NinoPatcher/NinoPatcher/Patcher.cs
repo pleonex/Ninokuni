@@ -159,8 +159,16 @@ namespace NinoPatcher
                     if (Translation)
                         ApplyTranslation(worker, outStream);
 
-                    if (AntiPiracy)
+                    if (AntiPiracy) {
                         ApplyAntipiracy(outStream);
+
+                        // If we have remove the AP from source, add again
+                        if (RemoveAntiPiracy) {
+                            using (FileStream inStream = 
+                                new FileStream(Input, FileMode.Open, FileAccess.ReadWrite, FileShare.Read))
+                                ApplyAntipiracy(inStream);
+                        }
+                    }
 
                     if (Banner)
                         ApplyBanner(outStream);
