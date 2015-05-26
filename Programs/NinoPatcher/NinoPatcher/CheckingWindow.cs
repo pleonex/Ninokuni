@@ -42,6 +42,7 @@ namespace NinoPatcher
 
         private void InitializeComponents()
         {
+            Text   = "Comprobando...";
             Width  = 320;
             Height = 70;
             BackColor = Color.LightSkyBlue;
