@@ -31,27 +31,27 @@ namespace NinoPatcher
         private static readonly Dictionary<ErrorCode, string> Messages = 
             new Dictionary<ErrorCode, string>() {
             { ErrorCode.InvalidPath,
-              "La ruta al archivo es inválida.\nComprueba que no haya caracteres\nextraños en la ruta." },
+              "No se puede acceder al archivo.\nComprueba que no hay caracteres\nextraños en la ruta." },
             { ErrorCode.DoesNotExist,
-              "El archivo seleccionado no exsite.\nPrueba a seleccionarlo de nuevo." },
+              "El archivo seleccionado no existe.\nInténtalo de nuevo." },
             { ErrorCode.DoNothing,
-              "Esta ROM ya tiene la traducción,\nel parche antipiratería y el banner.\nNo se realiza ninguna operación" },
+              "Esta ROM posee la traducción,\nel parche antipiratería y el banner.\nNo se realizarán más cambios." },
             { ErrorCode.InvalidChecksum,
-              "La ROM seleccionada es inválida.\nPor favor, vuelve a descargarte una ROM limpia." },
+              "La ROM seleccionada no es válida.\nPor favor, selecciona una ROM limpia." },
             { ErrorCode.InvalidSize,
-              "Esta ROM no ocupa 512 MB por lo que\nha sido \"trimeada\". Por favor,\ndescarga una ROM entera." },
+              "Esta ROM no ocupa 512 MB.\nPor favor, selecciona una ROM entera." },
             { ErrorCode.IsReadOnly,
-              "El archivo seleccionado no tiene permisos\nde escritura. Por favor, desmarca\nla casilla de solo-lectura." },
+              "El archivo seleccionado no tiene permisos\nde escritura. Por favor, desmarca\nla casilla de solo lectura." },
             { ErrorCode.NotEnoughDiskSpace,
-              "No hay espacio suficiente en el disco\nactual para guardar la nueva ROM.\nSelecciona otro disco." },
+              "No hay espacio suficiente\npara guardar la nueva ROM." },
             { ErrorCode.UserCancel,
-              "Has cancelado el parcheo." },
+              "Parcheo interrumpido." },
             { ErrorCode.Valid,
               "Todo correcto." },
             { ErrorCode.OutputIsInputToo,
-              "El archivo donde se escribirá la ROM\nparcheada no puede ser el mismo\nde la ROM limpia." },
+              "No puedes sobreescribir la\nROM de origen." },
             { ErrorCode.UnknownError,
-              "Se ha producido un error desconocido\nal parchear. Por favor contacta\ncon Gradienwords." }
+              "Se ha producido un error desconocido\nal parchear. Por favor, contacta\ncon GradienWords." }
         };
 
         public MessageErrorDialog(ErrorCode error)
@@ -76,6 +76,14 @@ namespace NinoPatcher
             StartPosition = FormStartPosition.CenterParent;
             ShowInTaskbar = false;
 
+            Button closeBtn = new Button();
+            closeBtn.Location = new Point(250, 48);
+            closeBtn.AutoSize = true;
+            closeBtn.Text = "Cerrar";
+            closeBtn.BackColor = SystemColors.Control;
+            closeBtn.Click += delegate { this.Close(); };
+            Controls.Add(closeBtn);
+
             Label lblError = new Label();
             lblError.Location = new Point(80, 15);
             lblError.AutoSize = true;
@@ -87,14 +95,6 @@ namespace NinoPatcher
             shizukuImageBox.Size = new Size(60, 70);
             shizukuImageBox.Image = ResourcesManager.GetImage("shizuku_error.png");
             Controls.Add(shizukuImageBox);
-
-            Button closeBtn = new Button();
-            closeBtn.Location = new Point(250, 48);
-            closeBtn.AutoSize = true;
-            closeBtn.Text = "Cerrar";
-            closeBtn.BackColor = SystemColors.Control;
-            closeBtn.Click += delegate { this.Close(); };
-            Controls.Add(closeBtn);
         }
     }
 }

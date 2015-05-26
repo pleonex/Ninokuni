@@ -42,7 +42,6 @@ namespace NinoPatcher
 
         private void InitializeComponents()
         {
-            Text = "Comprobando...";
             Width  = 320;
             Height = 70;
             BackColor = Color.LightSkyBlue;
@@ -54,7 +53,7 @@ namespace NinoPatcher
             ShowInTaskbar = false;
 
             Label label = new Label();
-            label.Text = "Comprobando ROM introducida.\nEsto puede tardar unos minutos.";
+            label.Text = "Comprobando la ROM.\nEsto puede llevar unos instantes.";
             label.AutoSize = true;
             label.Location = new Point(116, 10);
             Controls.Add(label);

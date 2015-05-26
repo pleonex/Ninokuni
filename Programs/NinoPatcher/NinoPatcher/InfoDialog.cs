@@ -39,6 +39,22 @@ namespace NinoPatcher
             dialog.Dispose();
         }
 
+        public static void ShowSelectInput(IWin32Window parent)
+        {
+            Show("Primero selecciona la ROM original.", "", parent);
+        }
+
+        public static void ShowSelectOutput(IWin32Window parent)
+        {
+            Show("Ahora, elige dónde guardar\nla ROM parcheada.", "", parent);
+        }
+
+        public static void ShowWriteTorrent(IWin32Window parent)
+        {
+            Show("Selecciona dónde guardar el archivo\ntorrent. Usa cualquier cliente\npara descargarlo.",
+                "", parent);
+        }
+
         private void InitializeComponents(string message)
         {
             Width  = 335;

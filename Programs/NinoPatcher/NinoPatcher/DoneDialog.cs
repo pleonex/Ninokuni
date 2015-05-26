@@ -44,7 +44,6 @@ namespace NinoPatcher
 
         private void InitializeComponents()
         {
-            Text   = "Completado";
             Width  = 250;
             Height = 75;
             FormBorderStyle = FormBorderStyle.FixedDialog;

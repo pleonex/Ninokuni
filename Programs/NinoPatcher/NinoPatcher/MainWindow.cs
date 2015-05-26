@@ -204,19 +204,18 @@ namespace NinoPatcher
         private ErrorCode AskForFiles(Patcher patcher)
         {
             string input;
-            InfoDialog.Show("Primero selecciona la ROM limpia.", "ROM de entrada", this);
+            InfoDialog.ShowSelectInput(this);
             using (OpenFileDialog inputDialog = new OpenFileDialog()) {
                 inputDialog.AddExtension = true;
                 inputDialog.CheckFileExists = true;
                 inputDialog.CheckPathExists = true;
                 inputDialog.DefaultExt = ".nds";
                 inputDialog.DereferenceLinks = true;
-                inputDialog.Filter = "Nintendo DS ROM |*.nds";
+                inputDialog.Filter = "Nintendo DS ROM|*.nds";
                 inputDialog.Multiselect = false;
                 inputDialog.ShowHelp = false;
                 inputDialog.ShowReadOnly = false;
                 inputDialog.SupportMultiDottedExtensions = true;
-                inputDialog.Title = "Selecciona la ROM limpia";
                 inputDialog.ValidateNames = true;
                 if (inputDialog.ShowDialog(this) != DialogResult.OK)
                     return ErrorCode.UserCancel;
@@ -225,19 +224,19 @@ namespace NinoPatcher
             }
 
             string output;
-            InfoDialog.Show("Ahora selecciona dónde guardar\nla ROM parcheada.", "ROM de salida", this);
+            InfoDialog.ShowSelectOutput(this);
             using (SaveFileDialog outputDialog = new SaveFileDialog()) {
                 outputDialog.AddExtension = true;
                 outputDialog.CheckFileExists = false;
                 outputDialog.CheckPathExists = true;
                 outputDialog.DefaultExt = ".nds";
                 outputDialog.DereferenceLinks = true;
-                outputDialog.Filter = "Nintendo DS ROM |*.nds";
+                outputDialog.Filter = "Nintendo DS ROM|*.nds";
                 outputDialog.ShowHelp = false;
                 outputDialog.SupportMultiDottedExtensions = true;
-                outputDialog.Title = "Selecciona el destino de la ROM parcheada";
                 outputDialog.ValidateNames = true;
                 outputDialog.OverwritePrompt = true;
+                outputDialog.FileName = "Ninokuni - El Mago de las Tinieblas.nds";
                 if (outputDialog.ShowDialog(this) != DialogResult.OK)
                     return ErrorCode.UserCancel;
 
@@ -286,9 +285,7 @@ namespace NinoPatcher
         private void ExportTorrentFile(object sender, EventArgs e)
         {
             string output;
-            InfoDialog.Show("Selecciona dónde guardar\nel archivo torrent del vademécum.", "Exportar torrent", this);
-            InfoDialog.Show("Deberás abrirlo con programas\ncomo Deluge (http://deluge-torrent.org/)", "Exportar torrent", this);
-            InfoDialog.Show("Las tres versiones de Vademécum\ntienen el mismo contenido, descarga una.", "Exportar torrent", this);
+            InfoDialog.ShowWriteTorrent(this);
             using (SaveFileDialog outputDialog = new SaveFileDialog()) {
                 outputDialog.AddExtension = true;
                 outputDialog.CheckFileExists = false;
@@ -298,9 +295,9 @@ namespace NinoPatcher
                 outputDialog.Filter = "Archivo Torrent|*.torrent";
                 outputDialog.ShowHelp = false;
                 outputDialog.SupportMultiDottedExtensions = true;
-                outputDialog.Title = "Selecciona el destino del archivo torrent";
                 outputDialog.ValidateNames = true;
                 outputDialog.OverwritePrompt = true;
+                outputDialog.FileName = "Vademécum del mago.torrent";
                 if (outputDialog.ShowDialog(this) != DialogResult.OK)
                     return;
 
