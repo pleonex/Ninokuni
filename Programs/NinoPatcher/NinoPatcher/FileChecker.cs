@@ -29,11 +29,11 @@ namespace NinoPatcher
     {
         private static readonly string[] Md5s = {
             "f0e3027b9e97618732b4f2d4298ad0cf", // ROM
-            "", // ROM + Spanish Patch
-            "", // ROM + Spanish Patch + AP
-            "", // ROM + Spanish Patch + Banner
-            "", // ROM + Spanish Patch + AP + Banner
-            ""  // ROM + AP
+            "", // NOT SUPPORTED - ROM + Spanish Patch
+            "", // NOT SUPPORTED - ROM + Spanish Patch + AP
+            "", // NOT SUPPORTED - ROM + Spanish Patch + Banner
+            "", // NOT SUPPORTED - ROM + Spanish Patch + AP + Banner
+            "a5581b5cf0a4bfa854851a5634b989b8"  // ROM + AP
         };
 
         public static long RomLength {
