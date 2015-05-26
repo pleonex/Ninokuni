@@ -41,7 +41,7 @@ namespace NinoPatcher
         }
 
         public static long TorrentLength {
-            get { return 15446; }
+            get { return 30069; }
         }
 
         public static ErrorCode CheckInput(string file, out RomType type)

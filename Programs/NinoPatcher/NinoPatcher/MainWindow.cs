@@ -302,15 +302,20 @@ namespace NinoPatcher
                 outputDialog.ValidateNames = true;
                 outputDialog.OverwritePrompt = true;
                 if (outputDialog.ShowDialog(this) != DialogResult.OK)
-                    return ErrorCode.UserCancel;
+                    return;
 
                 output = outputDialog.FileName;
+            }
+
+            ErrorCode result = FileChecker.CheckOutput(output, FileChecker.TorrentLength);
+            if (!result.IsValid()) {
+                MessageErrorDialog.Show(result, this);
+                return;
             }
 
             using (Stream torrent = ResourcesManager.GetStream("Book.torrent"))
             using (Stream outputStream = new FileStream(output, FileMode.Create))
                 ExportStream(outputStream, torrent);
-
         }
 
         private void ExportStream(Stream outputStream, Stream inputStream)
