@@ -79,6 +79,7 @@
     <Compile Include="DlcItem.cs" />
     <Compile Include="DlcType.cs" />
     <Compile Include="Rc4.cs" />
+    <Compile Include="DlcBinaryFlags.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AlchemyInfoControl.resx">

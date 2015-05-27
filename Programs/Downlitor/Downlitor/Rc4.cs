@@ -25,13 +25,10 @@ namespace Downlitor
 {
     public static class Rc4
     {
-        public static DataStream Run(DataStream data, byte[] key)
+        public static void Run(DataStream input, byte[] key, DataStream output)
         {
             byte[] s = CreateArrayS(key);
-            DataStream output = new DataStream(
-                new System.IO.MemoryStream((int)data.Length), 0, data.Length);
-
-            for (int i = 0, j = 0; data.Position < data.Length; ) {
+            for (int i = 0, j = 0; input.Position < input.Length; ) {
                 i = (i + 1) % 256;
                 j = (j + s[i]) % 256;
 
@@ -40,10 +37,8 @@ namespace Downlitor
                 s[j] = swap;
 
                 byte k = s[(s[i] + s[j]) % 256];
-                output.WriteByte((byte)(data.ReadByte() ^ k));
+                output.WriteByte((byte)(input.ReadByte() ^ k));
             }
-
-            return output;
         }
 
         private static byte[] CreateArrayS(byte[] key)
