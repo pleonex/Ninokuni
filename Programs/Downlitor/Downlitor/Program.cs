@@ -27,6 +27,7 @@ namespace Downlitor
 {
 	public static class Program
 	{
+        private const int NumEntries = 0x72;
         private static readonly byte[] Key = new byte[] {
             0x72, 0x2B, 0x41, 0x8B, 0x4C, 0xFB, 0x9F, 0x27,
             0xB2, 0x1D, 0x05, 0xAF, 0xFB, 0x2B, 0x80, 0x9F
@@ -45,7 +46,10 @@ namespace Downlitor
                 else
                     Export(args[1]);
                 return;
-            } 
+            }  else if (args.Length == 3 && args[0] == "-i") {
+                Import(args[1], args[2]);
+                return;
+            }
 
             MainWindow window = new MainWindow();
             window.ShowDialog();
@@ -78,10 +82,13 @@ namespace Downlitor
 
         private static bool[] GetActivation(string dlc)
         {
-            bool[] activation = new bool[0x72];
+            bool[] activation = new bool[NumEntries];
             var dlcStream = new FileStream(dlc, FileMode.Open);
             var dlcDecoded = Rc4.Run(dlcStream, Key);
             dlcStream.Dispose();
+
+            dlcDecoded.Position = 0;
+            Console.WriteLine(new BinaryReader(dlcDecoded).ReadUInt32());
 
             dlcDecoded.Position = 8;
             byte bitCount = 0;
@@ -99,6 +106,51 @@ namespace Downlitor
 
             dlcDecoded.Dispose();
             return activation;
+        }
+
+        private static void Import(string output, string list)
+        {
+            var activation = GetActivation(XDocument.Load(list));
+            WriteDlc(output, activation);
+        }
+
+        private static bool[] GetActivation(XDocument list)
+        {
+            bool[] activation = new bool[NumEntries];
+            foreach (var entry in list.Elements("Element")) {
+                int index = Convert.ToInt32(entry.Attribute("ID"));
+                if (index >= NumEntries)
+                    continue;
+
+                activation[index] = Convert.ToBoolean(entry.Value);
+            }
+
+            return activation;
+        }
+
+        private static void WriteDlc(string output, bool[] activation)
+        {
+            FileStream stream = new FileStream(output, FileMode.Create);
+            BinaryWriter writer = new BinaryWriter(stream);
+
+            writer.Write(0x4E4B4E4E);   // 'NNKN'
+            writer.Write(0x00);         // CRC updated later
+
+            int bitCount = 0;
+            byte value = 0;
+            for (int i = 0; i < activation.Length; i++) {
+                value = (byte)((value << 1) | (activation[i] ? 1 : 0));
+
+                if (bitCount == 8) {
+                    writer.Write(value);
+                    bitCount = 0;
+                }
+            }
+
+            if (bitCount > 0)
+                writer.Write(value);
+
+            stream.Dispose();
         }
 	}
 }
