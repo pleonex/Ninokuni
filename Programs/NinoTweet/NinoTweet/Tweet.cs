@@ -41,6 +41,8 @@ namespace NinoTweet
         public Tweet()
         {
             entries = new Entry[MaxEntries];
+            for (int i = 0; i < MaxEntries; i++)
+                entries[i] = new Entry();
         }
 
         public void Read(string file)
@@ -124,6 +126,14 @@ namespace NinoTweet
             private const int TitleSize = 0x30;
             private const int BodySize  = 0x120;
 
+            public Entry()
+            {
+                Title = "";
+                Body  = "";
+                Date  = new DateTime(1, 1, 1);
+                Id = 0; // If ID is 0, the game skip this entry
+            }
+
             public static int Size {
                 get { return 0x158; }
             }
@@ -178,9 +188,16 @@ namespace NinoTweet
 				bw.Write(this.Title, TitleSize);
 				bw.Write(this.Body,  BodySize);
                 bw.Write(this.Id);
-                bw.Write((ushort)this.Date.Year);
-                bw.Write((ushort)this.Date.Month);
-                bw.Write((ushort)this.Date.Day);
+
+                if (this.Date.Year > 1) {
+                    bw.Write((ushort)this.Date.Year);
+                    bw.Write((ushort)this.Date.Month);
+                    bw.Write((ushort)this.Date.Day);
+                } else {
+                    bw.Write((ushort)0x00);
+                    bw.Write((ushort)0x00);
+                    bw.Write((ushort)0x00);
+                }
             }
 
             public XElement Export()
