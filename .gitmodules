@@ -13,3 +13,6 @@
 [submodule "Programs/xdelta-sharp"]
 	path = Programs/xdelta-sharp
 	url = git@github.com:pleonex/xdelta-sharp
+[submodule "Programs/NinoTweet/libgame"]
+	path = Programs/NinoTweet/libgame
+	url = git@github.com:pleonex/libgame.git
