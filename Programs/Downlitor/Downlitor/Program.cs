@@ -33,10 +33,33 @@ namespace Downlitor
 			var document = XDocument.Load(xmlEdit);
 			Configuration.Initialize(document);
 
+            if (args.Length == 2 && args[0] == "-e") {
+                Export(args[1]);
+                return;
+            }
+
             MainWindow window = new MainWindow();
             window.ShowDialog();
             window.Dispose();
 		}
+
+        private static void Export(string output)
+        {
+            XDocument xml = new XDocument();
+            XElement root = new XElement("NinoDlc");
+
+            var manager = DlcManager.Instance;
+            for (int i = 0; i < manager.NumEntries; i++) {
+                XElement entry = new XElement("Element");
+                entry.SetAttributeValue("ID", i.ToString("D2"));
+                entry.SetAttributeValue("Name", manager[i]);
+                entry.Value = "false";
+                root.Add(entry);
+            }
+
+            xml.Add(root);
+            xml.Save(output);
+        }
 	}
 }
 
