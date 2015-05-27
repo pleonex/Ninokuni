@@ -1,53 +1,98 @@
-﻿using System;
-using System.Linq;
+﻿//
+//  Tweet.cs
+//
+//  Author:
+//       Benito Palacios Sánchez <benito356@gmail.com>
+//
+//  Copyright (c) 2015 Benito Palacios Sánchez
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System;
+using System.IO;
 using System.Xml.Linq;
 using Libgame;
 using Libgame.IO;
+using Libgame.Utils.Checksums;
 
 namespace NinoTweet
 {
     public class Tweet
     {
+        private static readonly byte[] Key = new byte[] {
+            0x72, 0x2B, 0x41, 0x8B, 0x4C, 0xFB, 0x9F, 0x27,
+            0xB2, 0x1D, 0x05, 0xAF, 0xFB, 0x2B, 0x80, 0x9F
+        };
+
         private const string MagicHeader = "NTWM";  // Nintendo TWeet Media ??
-        private const int NumEntries = 7;
+        private const int MaxEntries = 7;
         private Entry[] entries;
 
         public Tweet()
         {
-            this.entries = new Entry[NumEntries];
+            entries = new Entry[MaxEntries];
         }
 
         public void Read(string file)
         {
-			DataStream stream = new DataStream(file, System.IO.FileMode.Open, System.IO.FileAccess.Read);
-            this.Read(stream);
-            stream.Dispose();
+            using (DataStream stream = new DataStream(file, FileMode.Open, FileAccess.Read))
+                Read(stream);
         }
 
 		public void Read(DataStream inStr)
         {
-			DataReader br = new DataReader(inStr);
-			if (br.ReadString(4) != MagicHeader)
-                throw new FormatException("Invalid MagicHeader");
+            using (var decodedStr = new DataStream(new MemoryStream(), 0, -1)) {
+                // Decode data
+                Rc4.Run(inStr, Key, decodedStr);
+                decodedStr.Seek(0, SeekMode.Origin);
 
-			br.ReadUInt32();
-            //uint crc32 = br.ReadUInt32();
-            // TODO: Check CRC
+                DataReader br = new DataReader(decodedStr);
+                if (br.ReadString(4) != MagicHeader)
+                    throw new FormatException("Invalid MagicHeader");
 
-            for (int i = 0; i < NumEntries; i++)
-                this.entries[i] = Entry.FromStream(inStr);
+                br.ReadUInt32();    // CRC, I am not checking it
+
+                for (int i = 0; i < MaxEntries; i++)
+                    this.entries[i] = Entry.FromStream(decodedStr);
+            }
+        }
+
+        public void Write(string file)
+        {
+            using (var stream = new DataStream(file, FileMode.Create, FileAccess.Write))
+                Write(stream);
         }
 
 		public void Write(DataStream outStr)
         {
-			DataWriter bw = new DataWriter(outStr);
-            bw.Write(MagicHeader);
+            using (var decodedStr = new DataStream(new MemoryStream(), 0, -1)) {
+                DataWriter bw = new DataWriter(decodedStr);
+                bw.Write(MagicHeader);
+                bw.Write((uint)0x00);   // CRC will be updated later
 
-            uint crc = 0;   // TODO: Calculate CRC
-            bw.Write(crc);
+                foreach (Entry entry in this.entries)
+                    entry.Write(decodedStr);
 
-            foreach (Entry entry in this.entries)
-                entry.Write(outStr);
+                // Calculate CRC and write it
+                decodedStr.Seek(8, SeekMode.Origin);
+                uint crc = Crc32.Run(decodedStr, (uint)decodedStr.Length - 8);
+                decodedStr.Seek(4, SeekMode.Origin);
+                bw.Write(crc);
+
+                // Encode and write
+                decodedStr.Seek(0, SeekMode.Origin);
+                Rc4.Run(decodedStr, Key, outStr);
+            }
         }
 
         public void Export(string filePath)
@@ -58,7 +103,7 @@ namespace NinoTweet
             XElement root = new XElement("NinoTweet");
             xml.Add(root);
 
-			foreach (Entry entry in this.entries)
+			foreach (Entry entry in entries)
 				root.Add(entry.Export());
 
 			xml.Save(filePath);
@@ -68,12 +113,9 @@ namespace NinoTweet
         {
             XDocument xml = XDocument.Load(filePath);
 
-            if (xml.Root.Elements().Count() != NumEntries)
-                throw new FormatException("The XML does NOT have 7 entries");
-
             int i = 0;
             foreach (XElement xmlEntry in xml.Root.Elements())
-                this.entries[i++] = Entry.FromXml(xmlEntry);
+                entries[i++] = Entry.FromXml(xmlEntry);
         }
 
         private class Entry

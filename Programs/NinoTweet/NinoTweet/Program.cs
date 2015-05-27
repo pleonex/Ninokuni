@@ -1,4 +1,24 @@
-﻿using System;
+﻿//
+//  Program.cs
+//
+//  Author:
+//       Benito Palacios Sánchez <benito356@gmail.com>
+//
+//  Copyright (c) 2015 Benito Palacios Sánchez
+//
+//  This program is free software: you can redistribute it and/or modify
+//  it under the terms of the GNU General Public License as published by
+//  the Free Software Foundation, either version 3 of the License, or
+//  (at your option) any later version.
+//
+//  This program is distributed in the hope that it will be useful,
+//  but WITHOUT ANY WARRANTY; without even the implied warranty of
+//  MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+//  GNU General Public License for more details.
+//
+//  You should have received a copy of the GNU General Public License
+//  along with this program.  If not, see <http://www.gnu.org/licenses/>.
+using System;
 using System.IO;
 using System.Xml.Linq;
 using Libgame;
@@ -7,48 +27,44 @@ namespace NinoTweet
 {
     class MainClass
     {
-        private static readonly byte[] Key = new byte[] {
-            0x72, 0x2B, 0x41, 0x8B, 0x4C, 0xFB, 0x9F, 0x27,
-            0xB2, 0x1D, 0x05, 0xAF, 0xFB, 0x2B, 0x80, 0x9F
-        };
-
         public static void Main(string[] args)
         {
-            args = new string[] { "tweet111209.bin" };
-
-            if (args.Length != 1)
+            if (args.Length != 3)
                 return;
 
-			XDocument xml = new XDocument();
-			XElement root = new XElement("Configuration");
-			root.Add(new XElement("RelativePaths"));
-			root.Add(new XElement("CharTables"));
-			XElement spchar = new XElement("SpecialChars");
-			spchar.Add(new XElement("Ellipsis", "…"));
-			spchar.Add(new XElement("QuoteOpen", "ﾜ"));
-			spchar.Add(new XElement("QuoteClose", "ﾝ"));
-			spchar.Add(new XElement("FuriganaOpen", "【"));
-			spchar.Add(new XElement("FuriganaClose", "】"));
-			root.Add(spchar);
-			xml.Add(root);
-			Configuration.Initialize(xml);
+            Configuration.Initialize(CreateConfiguration());
 
-            string inputPath = args[0];
-            string outputPath = Path.Combine(
-                Path.GetDirectoryName(inputPath),
-                Path.GetFileNameWithoutExtension(inputPath) + "_new" + ".bin"
-                                );
-			string outputXmlPath = Path.Combine(
-				Path.GetDirectoryName(inputPath),
-				Path.GetFileNameWithoutExtension(inputPath) + ".xml"
-			                       );
+            string inputPath  = args[1];
+            string outputPath = args[2];
+            Tweet tweet = new Tweet();
 
-            byte[] output = Rc4.Run(File.ReadAllBytes(args[0]), Key);
-            File.WriteAllBytes(outputPath, output);
+            if (args[0] == "-e") {
+                tweet.Read(inputPath);
+                tweet.Export(outputPath);
+            } else if (args[0] == "-i") {
+                tweet.Import(inputPath);
+                tweet.Write(outputPath);
+            }
+        }
 
-			Tweet tweet = new Tweet();
-			tweet.Read(outputPath);
-			tweet.Export(outputXmlPath);
+        private static XDocument CreateConfiguration()
+        {
+            XDocument xml = new XDocument();
+
+            XElement root = new XElement("Configuration");
+            root.Add(new XElement("RelativePaths"));
+            root.Add(new XElement("CharTables"));
+            XElement spchar = new XElement("SpecialChars");
+            root.Add(spchar);
+
+            spchar.Add(new XElement("Ellipsis", "…"));
+            spchar.Add(new XElement("QuoteOpen", "ﾜ"));
+            spchar.Add(new XElement("QuoteClose", "ﾝ"));
+            spchar.Add(new XElement("FuriganaOpen", "【"));
+            spchar.Add(new XElement("FuriganaClose", "】"));
+
+            xml.Add(root);
+            return xml;
         }
     }
 }
