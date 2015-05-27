@@ -78,6 +78,7 @@
     <Compile Include="DlcManager.cs" />
     <Compile Include="DlcItem.cs" />
     <Compile Include="DlcType.cs" />
+    <Compile Include="Rc4.cs" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AlchemyInfoControl.resx">
