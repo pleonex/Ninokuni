@@ -22,6 +22,8 @@ using System;
 using System.IO;
 using System.Xml.Linq;
 using Libgame;
+using Libgame.Utils.Checksums;
+using Libgame.IO;
 
 namespace Downlitor
 {
@@ -83,14 +85,14 @@ namespace Downlitor
         private static bool[] GetActivation(string dlc)
         {
             bool[] activation = new bool[NumEntries];
-            var dlcStream = new FileStream(dlc, FileMode.Open);
+            var dlcStream = new DataStream(dlc, FileMode.Open, FileAccess.Read);
             var dlcDecoded = Rc4.Run(dlcStream, Key);
             dlcStream.Dispose();
 
-            dlcDecoded.Position = 0;
-            Console.WriteLine(new BinaryReader(dlcDecoded).ReadUInt32());
+            dlcDecoded.Seek(0, SeekMode.Origin);
+            Console.WriteLine(new DataReader(dlcDecoded).ReadUInt32());
 
-            dlcDecoded.Position = 8;
+            dlcDecoded.Seek(8, SeekMode.Origin);
             byte bitCount = 0;
             byte value = 0;
             for (int i = 0; i < activation.Length; i++) {
@@ -117,8 +119,8 @@ namespace Downlitor
         private static bool[] GetActivation(XDocument list)
         {
             bool[] activation = new bool[NumEntries];
-            foreach (var entry in list.Elements("Element")) {
-                int index = Convert.ToInt32(entry.Attribute("ID"));
+            foreach (var entry in list.Root.Elements("Element")) {
+                int index = Convert.ToInt32(entry.Attribute("ID").Value);
                 if (index >= NumEntries)
                     continue;
 
@@ -130,19 +132,21 @@ namespace Downlitor
 
         private static void WriteDlc(string output, bool[] activation)
         {
-            FileStream stream = new FileStream(output, FileMode.Create);
-            BinaryWriter writer = new BinaryWriter(stream);
+            DataStream stream = new DataStream(new MemoryStream(24), 0, 24);
+            DataWriter writer = new DataWriter(stream);
 
             writer.Write(0x4E4B4E4E);   // 'NNKN'
             writer.Write(0x00);         // CRC updated later
 
             int bitCount = 0;
-            byte value = 0;
+            uint value = 0;
             for (int i = 0; i < activation.Length; i++) {
-                value = (byte)((value << 1) | (activation[i] ? 1 : 0));
+                value |= (activation[i] ? 1u : 0u) << bitCount;
+                bitCount++;
 
-                if (bitCount == 8) {
+                if (bitCount == 32) {
                     writer.Write(value);
+                    value = 0;
                     bitCount = 0;
                 }
             }
@@ -150,6 +154,20 @@ namespace Downlitor
             if (bitCount > 0)
                 writer.Write(value);
 
+            // Calculate CRC32
+            stream.Seek(8, SeekMode.Origin);
+            uint crc = Crc32.Run(stream, (uint)(stream.Length - 8));
+
+            // Write it
+            stream.Seek(4, SeekMode.Origin);
+            writer.Write(crc);
+
+            // Encode it
+            stream.Seek(0, SeekMode.Origin);
+            var encoded = Rc4.Run(stream, Key);
+            encoded.WriteTo(output);
+
+            encoded.Dispose();
             stream.Dispose();
         }
 	}

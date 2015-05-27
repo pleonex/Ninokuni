@@ -19,16 +19,17 @@
 //  You should have received a copy of the GNU General Public License
 //  along with this program.  If not, see <http://www.gnu.org/licenses/>.
 using System;
-using System.IO;
+using Libgame.IO;
 
 namespace Downlitor
 {
     public static class Rc4
     {
-        public static Stream Run(Stream data, byte[] key)
+        public static DataStream Run(DataStream data, byte[] key)
         {
             byte[] s = CreateArrayS(key);
-            Stream output = new MemoryStream((int)data.Length);
+            DataStream output = new DataStream(
+                new System.IO.MemoryStream((int)data.Length), 0, data.Length);
 
             for (int i = 0, j = 0; data.Position < data.Length; ) {
                 i = (i + 1) % 256;
