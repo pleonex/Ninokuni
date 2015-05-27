@@ -48,7 +48,7 @@ namespace NinoPatcher
             Height = 75;
             FormBorderStyle = FormBorderStyle.FixedDialog;
             StartPosition = FormStartPosition.CenterParent;
-            BackColor   = Color.LightSkyBlue;
+            BackColor   = Color.FromArgb(177, 210, 229);
             MaximizeBox = false;
             ShowInTaskbar = false;
 
