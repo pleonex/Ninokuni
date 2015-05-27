@@ -46,6 +46,19 @@
 .org 0x0209F658
   MOV     R1, #0xED + 5     ; X pos
 
+; # Date again but just after download
+; Year
+.org 0x0209EEAC
+  MOV     R1, #0xCD + 5     ; X pos
+
+; Month
+.org 0x0209EED4
+  MOV     R1, #0xE1 + 5     ; X pos
+
+; Day
+.org 0x0209EF00
+  MOV     R1, #0xED + 5     ; X pos 
+
 
 ; # Title news (bottom screen)
 .org 0x0209F710
