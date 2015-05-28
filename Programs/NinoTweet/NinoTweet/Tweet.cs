@@ -163,10 +163,18 @@ namespace NinoTweet
 				DataReader br = new DataReader(inStr, EndiannessMode.LittleEndian, Encoding);
                 Entry entry = new Entry();
 
-				entry.Title = br.ReadString(TitleSize);
-				entry.Body  = br.ReadString(BodySize);
+				entry.Title = br.ReadString(TitleSize, "replace", false);
+				entry.Body  = br.ReadString(BodySize, "replace", false);
                 entry.Id    = br.ReadUInt16();
-                entry.Date  = new DateTime(br.ReadUInt16(), br.ReadUInt16(), br.ReadUInt16());
+
+                ushort year  = br.ReadUInt16();
+                ushort month = br.ReadUInt16();
+                ushort day   = br.ReadUInt16();
+
+                if (year > 0)
+                    entry.Date = new DateTime(year, month, day);
+                else
+                    entry.Date = new DateTime(1, 1, 1);
 
                 return entry;
             }
@@ -185,8 +193,8 @@ namespace NinoTweet
 			public void Write(DataStream outStr)
             {
 				DataWriter bw = new DataWriter(outStr, EndiannessMode.LittleEndian, Encoding);
-				bw.Write(this.Title, TitleSize);
-				bw.Write(this.Body,  BodySize);
+				bw.Write(this.Title, TitleSize, "replace", true);
+				bw.Write(this.Body,  BodySize, "replace", true);
                 bw.Write(this.Id);
 
                 if (this.Date.Year > 1) {
