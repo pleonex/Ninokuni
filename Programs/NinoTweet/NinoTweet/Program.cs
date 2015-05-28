@@ -32,7 +32,9 @@ namespace NinoTweet
             if (args.Length != 3)
                 return;
 
-            Configuration.Initialize(CreateConfiguration());
+            string xmlEdit = "Ninokuni español.xml";
+            var document = XDocument.Load(xmlEdit);
+            Configuration.Initialize(document);
 
             string inputPath  = args[1];
             string outputPath = args[2];
@@ -45,26 +47,6 @@ namespace NinoTweet
                 tweet.Import(inputPath);
                 tweet.Write(outputPath);
             }
-        }
-
-        private static XDocument CreateConfiguration()
-        {
-            XDocument xml = new XDocument();
-
-            XElement root = new XElement("Configuration");
-            root.Add(new XElement("RelativePaths"));
-            root.Add(new XElement("CharTables"));
-            XElement spchar = new XElement("SpecialChars");
-            root.Add(spchar);
-
-            spchar.Add(new XElement("Ellipsis", "…"));
-            spchar.Add(new XElement("QuoteOpen", "ﾜ"));
-            spchar.Add(new XElement("QuoteClose", "ﾝ"));
-            spchar.Add(new XElement("FuriganaOpen", "【"));
-            spchar.Add(new XElement("FuriganaClose", "】"));
-
-            xml.Add(root);
-            return xml;
         }
     }
 }
