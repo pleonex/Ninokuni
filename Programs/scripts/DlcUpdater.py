@@ -20,8 +20,29 @@
 from argparse import ArgumentParser
 # from struct import unpack
 from os import listdir, path
-from datetime import date, datetime
+from datetime import datetime
 import xml.etree.ElementTree as ET
+
+# Set today as global variable just in case the day change while the
+# program is running (very very rare case but...)
+TODAY = datetime.today()
+
+
+def xml2binary(node, date_format):
+    NUM_ELEMENTS = 0x80 / 8  # Actually, there are 0x72
+    INVALID_DATE = datetime(1, 1, 1)
+
+    data = bytearray(NUM_ELEMENTS)
+    for element in node.findall("Element"):
+        element_date = datetime.strptime(element.get("releaseOn"), date_format)
+
+        if element_date != INVALID_DATE and element_date <= TODAY:
+            element_id = int(element.get("id"))
+            byte_index = element_id / 8
+            bit_index = element_id % 8
+            data[byte_index] |= (1 << bit_index)
+
+    return data
 
 
 def should_update_file(path, prefix):
@@ -34,8 +55,12 @@ def should_update_file(path, prefix):
             filename = file.replace(".bin", "")
             date_string = filename.replace(prefix, "")
 
+    # If the file does not exist
+    if date_string == "":
+        return True
+
     file_date = datetime.strptime(date_string, FILE_DATE_FORMAT).date()
-    return file_date < date.today()
+    return file_date < TODAY
 
 
 def update_distribution(node, base_path, lang):
@@ -44,11 +69,10 @@ def update_distribution(node, base_path, lang):
     date_format = node.get("dateFormat")
 
     # Get distribution node
-    if not should_update_file(out_path, lang + "_" + "tweet"):
-        print "Distribution already updated"
-        return
-    
-    print date_format
+    if should_update_file(out_path, lang + "_" + "tweet"):
+        print "Updating distribution DLC"
+        data = xml2binary(node, date_format)
+        print '-'.join('{:02x}'.format(x) for x in data)
 
 
 def update_magic_news(node, base_path, lang):
