@@ -18,14 +18,21 @@
 ###############################################################################
 
 from argparse import ArgumentParser
-# from struct import unpack
+from struct import pack
 from os import listdir, path
 from datetime import datetime
+from binascii import crc32
 import xml.etree.ElementTree as ET
 
 # Set today as global variable just in case the day change while the
 # program is running (very very rare case but...)
 TODAY = datetime.today()
+
+
+def add_distribution_header(data):
+    HEADER = "NNKN"
+    checksum = crc32(data)
+    return bytearray(HEADER, 'ascii') + pack("<i", checksum) + data
 
 
 def xml2binary(node, date_format):
@@ -72,6 +79,7 @@ def update_distribution(node, base_path, lang):
     if should_update_file(out_path, lang + "_" + "tweet"):
         print "Updating distribution DLC"
         data = xml2binary(node, date_format)
+        data = add_distribution_header(data)
         print '-'.join('{:02x}'.format(x) for x in data)
 
 
