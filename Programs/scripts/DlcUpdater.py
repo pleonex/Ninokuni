@@ -26,10 +26,7 @@ import xml.etree.ElementTree as ET
 
 # Set today as global variable just in case the day change while the
 # program is running (very very rare case but...)
-TODAY = date.today()
-
-# Date format for filenames
-FILE_DATE_FORMAT = "%m%d%Y"
+TODAY = datetime.utcnow().date()
 
 
 def rc4(data):
@@ -94,19 +91,17 @@ def xml2binary(node, date_format):
     return data
 
 
-def should_update_file(path, prefix):
+def should_update_file(base_path, filename):
     # Get full name without extension and basename
-    date_string = ""
-    for file in listdir(path):
-        if file.startswith(prefix) and file.endswith(".bin"):
-            filename = file.replace(".bin", "")
-            date_string = filename.replace(prefix, "")
+    file_date = date(1, 1, 1)
+    for file in listdir(base_path):
+        if file == filename:
+            file_date = datetime.utcfromtimestamp(path.getmtime(file)).date()
 
     # If the file does not exist
-    if date_string == "":
+    if file_date.year == 1:
         return True
 
-    file_date = datetime.strptime(date_string, FILE_DATE_FORMAT).date()
     return file_date < TODAY
 
 
@@ -116,16 +111,16 @@ def update_distribution(node, base_path, lang):
     date_format = node.get("dateFormat")
 
     # Get distribution node
-    prefix = lang + "_tweet"
-    if should_update_file(out_path, prefix):
+    filename = lang + "_tweet.bin"
+    if should_update_file(out_path, filename):
         print "Updating distribution DLC"
         data = xml2binary(node, date_format)
         data = add_distribution_header(data)
         data = rc4(data)
 
         # Write to file
-        fname = path.join(out_path, prefix + TODAY.strftime(FILE_DATE_FORMAT))
-        with open(fname + ".bin", "wb") as file:
+        file_path = path.join(out_path, filename)
+        with open(file_path, "wb") as file:
             file.write(data)
 
 
