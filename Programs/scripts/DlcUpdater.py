@@ -70,12 +70,12 @@ def rc4_create_array_s(key):
 
 def add_distribution_header(data):
     HEADER = "NNKN"
-    checksum = crc32(data)
-    return bytearray(HEADER, 'ascii') + pack("<i", checksum) + data
+    checksum = crc32(data) & 0xffffffff
+    return bytearray(HEADER, 'ascii') + pack("<I", checksum) + data
 
 
 def xml2binary(node, date_format):
-    NUM_ELEMENTS = 0x80 / 8  # Actually, there are 0x72
+    NUM_ELEMENTS = int(0x80 / 8)  # Actually, there are 0x72
     INVALID_DATE = datetime(1, 1, 1)
 
     data = bytearray(NUM_ELEMENTS)
@@ -84,7 +84,7 @@ def xml2binary(node, date_format):
 
         if el_date != INVALID_DATE and el_date <= TODAY:
             el_id = int(el.get("id"))
-            byte_index = el_id / 8
+            byte_index = int(el_id / 8)
             bit_index = el_id % 8
             data[byte_index] |= (1 << bit_index)
 
@@ -113,7 +113,6 @@ def update_distribution(node, base_path, lang):
     # Get distribution node
     filename = lang + "_tweet.bin"
     if should_update_file(out_path, filename):
-        print "Updating distribution DLC"
         data = xml2binary(node, date_format)
         data = add_distribution_header(data)
         data = rc4(data)
