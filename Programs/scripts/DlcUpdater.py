@@ -76,7 +76,7 @@ def add_distribution_header(data):
 
 def xml2binary(node, date_format):
     NUM_ELEMENTS = int(0x80 / 8)  # Actually, there are 0x72
-    INVALID_DATE = datetime(1, 1, 1)
+    INVALID_DATE = date(1, 1, 1)
 
     data = bytearray(NUM_ELEMENTS)
     for el in node.findall("Element"):
