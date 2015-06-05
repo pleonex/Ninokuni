@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <DlcUpdater>
-    <Ninokuni language="es">
+    <Ninokuni language="SPA">
         <MagicNewsFile dateFormat="%d/%m/%Y" output="."></MagicNewsFile>
         <Distribution  dateFormat="%d/%m/%Y" output=".">
             <Element id="000" releaseOn="xx/yy/zzzz" name="" />
