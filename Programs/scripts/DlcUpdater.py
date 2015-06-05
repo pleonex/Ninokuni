@@ -96,7 +96,7 @@ def should_update_file(base_path, filename):
     file_date = date(1, 1, 1)
     for file in listdir(base_path):
         if file == filename:
-            file_date = datetime.utcfromtimestamp(path.getmtime(file)).date()
+            file_date = datetime.utcfromtimestamp(path.getmtime(path.join(base_path,file))).date()
 
     # If the file does not exist
     if file_date.year == 1:
@@ -105,40 +105,62 @@ def should_update_file(base_path, filename):
     return file_date < TODAY
 
 
-def update_distribution(node, base_path, lang):
+def update_distribution(node, base_path, lang, list_data):
     # Get output path and date format
     out_path = path.join(base_path, node.get("output"))
     date_format = node.get("dateFormat")
 
     # Get distribution node
-    filename = lang + "_tweet.bin"
+    filename =  "distribution_" + lang + ".bin"
+    file_path = path.join(out_path, filename)
+    filesize = 0
     if should_update_file(out_path, filename):
         data = xml2binary(node, date_format)
         data = add_distribution_header(data)
         data = rc4(data)
 
+        filesize = len(data)
+
         # Write to file
-        file_path = path.join(out_path, filename)
         with open(file_path, "wb") as file:
             file.write(data)
+    else:
+        # Get filesize
+        filesize = path.getsize(file_path)
+        
+
+    list_data.append((filename, filesize, lang))
 
 
-def update_magic_news(node, base_path, lang):
+def update_magic_news(node, base_path, lang, list_data):
+    if lang == "SPA":
+        list_data.append(("tweets29052015_spa.bin", 2416, "SPA")) # Remove once magic news is implemented
+
     # Not implemented
     pass
 
 
-def update_translation_files(node, base_path):
+def update_translation_files(node, base_path, list_data):
     lang = node.get("language")
 
     # Get distribution node
     distribution = node.find("Distribution")
-    update_distribution(distribution, base_path, lang)
+    update_distribution(distribution, base_path, lang, list_data)
 
     # Get magic news node
     magic_news = node.find("MagicNews")
-    update_magic_news(magic_news, base_path, lang)
+    update_magic_news(magic_news, base_path, lang, list_data)
 
+
+
+def write_list_file(base_path, list_data):
+    file_path = path.join(base_path, "_list.txt")
+
+    format = "%s\t\t%s\t\t\t%d"
+    with open(file_path, "w") as file:
+        for l in list_data:
+            file.write(format % (l[0], l[2], l[1]))
+            file.write("\n")
 
 if __name__ == "__main__":
     # Get arguments
@@ -149,7 +171,14 @@ if __name__ == "__main__":
     # Get base path (the one from the xml)
     base_path = path.dirname(path.realpath(args.dlcinfo))
 
+    # The data for the output _list.txt database file
+    # Initial values are the static Japanese DLC files
+    list_data = [ ("distribution110609.bin", 24, ""), ("tweet111209.bin", 2416, "") ] # For Japanese DLC
+
     # Get translations nodes
     root = ET.parse(args.dlcinfo).getroot()
     for trans in root.findall("Ninokuni"):
-        update_translation_files(trans, base_path)
+        update_translation_files(trans, base_path, list_data)
+
+    print list_data
+    write_list_file(base_path, list_data)
