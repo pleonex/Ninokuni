@@ -1,6 +1,24 @@
 # How to create familiar's passwords
 
+## Convert to text
+[TODO...]
 
+Once the password is in text format, the game checks that applying the following algorithm is can get back the original data. The data is a 64-bits value.
+```
+data_i = data_i-1 + (char_i_index * alphabet1_len^i)
+```
+
+In python (*Programs/scripts/Password.py*) it would be:
+```python
+ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
+ITERATION = 0xB
+PASSWORD = "" # 11 password-len here
+
+data = 0
+for i in range(ITERATION):
+    idx = ALPHABET1.find(PASSWORD[i])
+    data = data + (idx * (len(ALPHABET1) ** i))
+```
 
 ## Change of alphabet
 The last operation is to mess the current password replacing each char with another. To do so, it's used the function `0x020C8BD0` with the following steps.
