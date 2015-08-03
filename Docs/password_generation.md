@@ -1,16 +1,27 @@
 # How to create familiar's passwords
 
 ## Convert to text
-[TODO...]
+The game convert the current 64-bits value to a string with a dictionary / alphabet. First it does the modulo operation to get the index of the char and then divide the value until it become 0. The *alphabet1* is used with length `0x3A` (58 chars) and 8-bits per char.
+```python
+ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
+```
 
-Once the password is in text format, the game checks that applying the following algorithm is can get back the original data. The data is a 64-bits value.
+The process in *Python* is the following (*Programs/script/Password.py*):
+```python
+text = ''
+while data != 0:
+    index = data % 0x3A
+    text += ALPHABET1[index]
+    data /= 0x3A
+```
+
+Once the password is in text format, the game checks if it can get back the value.
 ```
 data_i = data_i-1 + (char_i_index * alphabet1_len^i)
 ```
 
 In python (*Programs/scripts/Password.py*) it would be:
 ```python
-ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
 ITERATION = 0xB
 PASSWORD = "" # 11 password-len here
 
@@ -30,17 +41,8 @@ The last operation is to mess the current password replacing each char with anot
     3. Write the output char.
 3. Write a null char at the end.
 
-* Alphabet 1 (8-bits char, 56 chars)
-```
-0123456789abcdef
-ghijkmnpqrstuvwx
-yzABCDEFGHJKLMNP
-QRSTUVWXYZ
-```
-
-* Alphabet 2 (16-bits char)
-```
-
+```python
+ALPHABET2 = ""
 ```
 
 For the Spanish translation with the hack *Assembly/password/alphabet.asm* we replace the *alphabet 2* Japanese kanjis with ASCII chars and some UNICODE symbols like arrows and circles. The game continue to read two bytes to get a char, so if it's the index is in the ASCII part it replace one with two char.

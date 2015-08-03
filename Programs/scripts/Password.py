@@ -19,14 +19,24 @@
 
 ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
 ITERATION = 0xB
-PASSWORD = "WJPC7CweGCc"
+KEY = 0x207A49CEE50C8047
 
 if __name__ == "__main__":
-    checksum = 0
-    for i in range(ITERATION):
-        idx = ALPHABET1.find(PASSWORD[i])
-        checksum = checksum + (idx * (len(ALPHABET1) ** i))
+    data = KEY
+    text = ''
+    while data != 0:
+        index = data % 0x3A
+        text += ALPHABET1[index]
+        data /= 0x3A
 
-        print("Iteration {0:0{1}}: ".format(i, 2) +
-              "{0:0{1}X}".format(checksum >> 32, 8) + "  " +
-              "{0:0{1}X}".format(checksum & 0xFFFFFFFF, 8))
+    key_new = 0
+    for i in range(ITERATION):
+        idx = ALPHABET1.find(text[i])
+        key_new = key_new + (idx * (len(ALPHABET1) ** i))
+
+        # print("Iteration {0:0{1}}: ".format(i, 2) +
+        #       "{0:0{1}X}".format(key_new >> 32, 8) + "  " +
+        #       "{0:0{1}X}".format(key_new & 0xFFFFFFFF, 8))
+
+    print("{0:#0{2}X} == {1:#0{2}X} => {3} is ".format(KEY, key_new, 16, text) +
+          str(KEY == key_new))
