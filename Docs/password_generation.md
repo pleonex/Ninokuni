@@ -1,4 +1,41 @@
-# How to create familiar's passwords
+# How to create familiar's keys
+In the Familiar shelter / gutter there is a menu that **generates a key**. Pressing 'X' when you try to store or retrieve a familiar on the shelter a small dialog appear with some random text. **Nobody knows the meaning**, there is no information on the Internet and probably is a **forgotten feature**. There are some [hidden image](http://gbatemp.net/threads/spanish-v1-0-released-ninokuni-shikkoku-no-madoushi-translation-project.310214/page-34#post-5176232) on the game, probably of the Demo version, with buttons to *Insert a key*, but they do not appear in the final game. As you can read in this document, the key **contains information about the familiar** and some random numbers. In my opinion, it was a final-not-implemented-feature **to share familiar globally**, sharing codes, without Internet connection, similar to save-keys when there wasn't save memories on video games or like *Pokémon Mystery Dungeon* to rescue another user.
+
+<!-- TOC depth:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [How to create familiar's keys](#how-to-create-familiars-keys)
+	- [Copy stats from familiar](#copy-stats-from-familiar)
+	- [Add random number](#add-random-number)
+	- [Reverse](#reverse)
+	- [Encrypt](#encrypt)
+	- [Add random bytes](#add-random-bytes)
+	- [Convert to text](#convert-to-text)
+	- [Change of alphabet](#change-of-alphabet)
+<!-- /TOC -->
+
+## Copy stats from familiar
+
+
+## Add random number
+Next step is to add some random bits. The game implements a *pseudo-random generator* for 32-bits values. In this case, it updated the *pseudo-random* number and take 11 bits, skipping the first 16 bits, to write in our stream. That is:
+```
+random_number = update_random_number()
+random_number >>= 16
+stream.write_bits(random_number, 11)
+```
+
+The *pseudo-random number generator* is initialize with a 4-bytes pseudo-random number (TODO: figure out how). Each time it's used, the number is updated as follow. The constants values are set at the initialization (function `0x020D13A4`) and the three values are stored at `0x02143100`.
+```
+CONSTANT1 = 0x5D588B65
+CONSTANT2 = 0x269EC3
+new_random_number = random_number * CONSTANT1 + CONSTANT2
+```
+
+## Reverse
+
+## Encrypt
+
+## Add random bytes
 
 ## Convert to text
 The game convert the current 64-bits value to a string with a dictionary / alphabet. First it does the modulo operation to get the index of the char and then divide the value until it become 0. The *alphabet1* is used with length `0x3A` (58 chars) and 8-bits per char.
