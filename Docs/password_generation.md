@@ -6,13 +6,13 @@ In the Familiar shelter / gutter there is a menu that **generates a key**. Press
 3. [Reverse](#reverse)
 4. [Encrypt](#encrypt)
 5. [Append CRC](#append-crc)
-6. [Encrypt with CRC](#encrypt-with-crc)
+6. [Encrypt2](#encrypt2)
 7. [Swap](#swap)
 8. [Convert to text](#convert-to-text)
 9. [Change of alphabet](#change-of-alphabet)
 
 ## Copy stats from familiar
-Firstly and most important, the game copies familiar's stats. This is the purpose of the password and the last step when doing the reverse operation. The information to copy is the following. Beware it copies bits, not bytes.
+Firstly and most important, the game copies familiar's stats. This is the purpose of the key and the last step when doing the reverse operation. The information to copy is the following. Beware it copies bits, not bytes.
 
 | Field          | Bits  | Notes |
 | -------------- |:---- :| ----- |
@@ -44,12 +44,38 @@ new_random_number = random_number * CONSTANT1 + CONSTANT2
 ```
 
 ## Reverse
+Reverse the current bytes so last byte is not the first one.
 
 ## Encrypt
+Encrypt the key with the `XOR` operator. The first operator will be like the key that it's updated each time the operation is applied. The second operator will be each byte of the current familiar key.
+
+The encryption key is initialized with the first byte of the familiar key, this byte is not encrypted and remain the same thus. In this way, later doing the reverse operation we can know that value. After encrypting a byte, the key is updated moving its most significant bit to the less significant position and doing a `NOT` operation. The operation in python would be:
+
+```python
+FAMILIAR_KEY = [ ]  # 14 bytes key.
+encrypt_key = FAMILIAR_KEY[0]
+
+for i in range(1, len(FAMILIAR_KEY)):
+    FAMILIAR_KEY[i] ^= encrypt_key
+    encrypt_key = ((encrypt_key << 1) & 0xFF) | (encrypt_key >> 7)
+    encrypt_key ^= 0xFF  # NOT operation, in this way no casting is needed.
+```
 
 ## Append CRC
+Next step is to generate some CRC-16 codes and mix them. The algorithm used is "CRC-16/GENIBUS" as described in this [CRC catalog](http://reveng.sourceforge.net/crc-catalogue) with this specification:
+```
+width=16 poly=0x1021 init=0xffff refin=false refout=false xorout=0xffff check=0xd64e
+```
 
-## Encrypt with CRC
+The first CRC is computed with the current 14-bytes length familra key. A second CRC value is calculated with the constant 8 bytes value:
+```
+21 6D EC 88 FF CC 85 EF  A2
+```
+so it's always `0x00D3`. This constant is at `0x020CC1A4`. The bytes are copied in reverse and with a `NOT` operation.
+
+Once both CRC are calculated, they are mixed doing the following `XOR` operation: `CRC1 XOR CRC2 XOR 0x62D3`. This value is appended at the end of the familiar key so we get a 16 bytes length key.
+
+## Encrypt2
 
 ## Swap
 
@@ -68,7 +94,7 @@ while data != 0:
     data /= 0x3A
 ```
 
-Once the password is in text format, the game checks if it can get back the value.
+Once the key is in text format, the game checks if it can get back the value.
 ```
 data_i = data_i-1 + (char_i_index * alphabet1_len^i)
 ```
@@ -76,16 +102,16 @@ data_i = data_i-1 + (char_i_index * alphabet1_len^i)
 In python (*Programs/scripts/Password.py*) it would be:
 ```python
 ITERATION = 0xB
-PASSWORD = "" # 11 password-len here
+KEY = "" # 11 key-len here
 
 data = 0
 for i in range(ITERATION):
-    idx = ALPHABET1.find(PASSWORD[i])
+    idx = ALPHABET1.find(KEY[i])
     data = data + (idx * (len(ALPHABET1) ** i))
 ```
 
 ## Change of alphabet
-The last operation is to mess the current password replacing each char with another. To do so, it's used the function `0x020C8BD0` with the following steps.
+The last operation is to mess the current key replacing each char with another. To do so, it's used the function `0x020C8BD0` with the following steps.
 
 1. Check input is not null.
 2. For each char:
