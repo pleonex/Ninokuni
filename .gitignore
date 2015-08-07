@@ -23,3 +23,6 @@ Programs/NinoPatcher/NinoPatcher/Resources/Book.torrent
 
 # Ignore private assembly sign keys
 Programs/NinoPatcher/keypar.snk
+
+# Assembly fuctions that I cannot share for copyright reasons...
+Docs/asm
