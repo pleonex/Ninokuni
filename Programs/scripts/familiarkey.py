@@ -19,6 +19,7 @@ limitations under the License.
 """
 
 from argparse import ArgumentParser, ArgumentTypeError
+from crcmod import predefined
 
 VERBOSE = 0
 HACK = True  # Assembly/password/alphabet.asm changes some things.
@@ -85,6 +86,13 @@ def get_familiar_info(text_key):
     encryption2(key)
     print_debug_hexlist(2, "Key: ", key)
 
+    crc_new = calculate_crc(key)
+    crc_old = get_crc(key)
+    valid_crc = crc_new == crc_old
+    print_debug(2, "Is valid CRC? " + str(valid_crc))
+    if not valid_crc:
+        raise KeyError("The CRC of the key does not match")
+
     return None
 
 
@@ -134,7 +142,7 @@ def text_to_key(text):
                         " makes " + hex(key_number))
 
         # Conver the number into a byte list and append
-        key += [(key_number >> i) & 0xFF for i in range(0, 64, 8)]
+        key += [int((key_number >> i) & 0xFF) for i in range(0, 64, 8)]
 
     return key
 
@@ -162,13 +170,49 @@ def swap(key):
 def encryption2(key):
     """Encrypt and decrypt with a second algorithm."""
     keylen = len(key)
-    crc = (key[keylen-2] << 8) | key[keylen-1]
+    crc = get_crc(key)
 
     rnd = 0x05888F27 + crc
     for i in range(keylen - 2):
         rnd = (rnd * 0x021FC436) + 1      # Update random number
         encrypt_key = (rnd >> 24) & 0xFF  # Take last byte
         key[i] ^= encrypt_key             # Encrypt
+
+
+def get_crc(key):
+    """Get the CRC from the key bytes."""
+    print_debug(3, "Getting the CRC from the key")
+
+    keylen = len(key)
+    return (key[keylen-1] << 8) | key[keylen-2]
+
+
+def calculate_crc(key):
+    """Calculate the CRC16 and compare it."""
+    print_debug(3, "Starting to compute CRC-16-genibus")
+
+    keylen = len(key)
+    keystring = [chr(b) for b in key[:keylen-2]]
+    print_debug(3, "ASCII key: " + str(keystring))
+
+    crc = predefined.Crc("crc-16-genibus")
+    crc.update(keystring)
+    crc_keydata = int(crc.hexdigest(), 16)
+
+    # Do it like the game does, because it's funny
+    constant = [0x5D, 0x10, 0x7A, 0x33, 0x00, 0x77, 0x13, 0x92, 0xDE]
+    constant.reverse()
+    constant = [(~b) & 0xFF for b in constant]
+    constant = [chr(b) for b in constant]
+    crc = predefined.Crc("crc-16-genibus")
+    crc.update(constant)
+    crc_constantdata = int(crc.hexdigest(), 16)  # It's always 0x00D3
+
+    # Mix CRC
+    crc_key = crc_constantdata ^ crc_keydata ^ 0x62D3
+    print_debug(3, "Key CRC: " + hex(crc_keydata) + ", constant CRC: " +
+                hex(crc_constantdata) + ", final CRC: " + hex(crc_key))
+    return crc_key
 
 
 if __name__ == "__main__":
