@@ -23,7 +23,7 @@ from argparse import ArgumentParser, ArgumentTypeError
 VERBOSE = 0
 HACK = True  # Assembly/password/alphabet.asm changes some things.
 
-ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ"
+ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
 ALPHABET2_ORIGINAL = ("０１２３４５６７８９"
                       "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん！？")
 ALPHABET2_HACK = ("!#$%&()*+,-./0123456789:;<=>?@"
@@ -68,8 +68,9 @@ def get_familiar_info(text_key):
     text_key = alphabet2_to_alphabet1(text_key)
     print_debug(2, "Key in alphabet1 format is " + text_key)
 
-    key_number = text_to_key(text_key)
-    print_debug(2, "Key in numeric number is " + hex(key_number))
+    key = text_to_key(text_key)
+    print_debug(2, "Key in numeric number is " +
+                ' '.join([hex(b) for b in key]))
 
     return None
 
@@ -104,15 +105,25 @@ def alphabet2_to_alphabet1(text_key):
 def text_to_key(text):
     """Convert the text representation of a key into a list of bytes."""
     print_debug(3, "Starting to convert to number")
-    num_iterations = 0xB  # It's a constant in code, should guess how to get it
+    subkey_length = 0xB
 
-    key_number = 0
-    for i in range(num_iterations):
-        idx = ALPHABET1.index(text[i])
-        key_number = key_number + (idx * (len(ALPHABET1) ** i))
-        print_debug(3, str(i) + ": char " + text[i] + " at " + str(idx))
+    # Password is splitted into two substrings
+    key = []
+    for n in range(2):
+        subkey = text[n * subkey_length:(n + 1) * subkey_length]
+        print_debug(3, "Subkey: " + subkey)
 
-    return key_number
+        key_number = 0
+        for i in range(subkey_length):
+            idx = ALPHABET1.index(subkey[i])
+            key_number = key_number + (idx * (len(ALPHABET1) ** i))
+            print_debug(3, str(i) + ": char " + subkey[i] + " at " + str(idx) +
+                        " makes " + hex(key_number))
+
+        # Conver the number into a byte list and append
+        key += [(key_number >> i) & 0xFF for i in range(0, 64, 8)]
+
+    return key
 
 
 if __name__ == "__main__":
