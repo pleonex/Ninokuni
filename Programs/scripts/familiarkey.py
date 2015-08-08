@@ -169,14 +169,18 @@ def swap(key):
 
 def encryption2(key):
     """Encrypt and decrypt with a second algorithm."""
+    print_debug(3, "Starting second encryption")
     keylen = len(key)
     crc = get_crc(key)
 
     rnd = 0x05888F27 + crc
     for i in range(keylen - 2):
         rnd = (rnd * 0x021FC436) + 1      # Update random number
+        rnd = rnd & 0xFFFFFFFF   # It is not necessay but make easier debugging
         encrypt_key = (rnd >> 24) & 0xFF  # Take last byte
         key[i] ^= encrypt_key             # Encrypt
+        print_debug(3, '"random" number is ' + hex(rnd) + ", key: " +
+                    hex(encrypt_key) + ", decryped: " + hex(key[i]))
 
 
 def get_crc(key):
@@ -184,7 +188,10 @@ def get_crc(key):
     print_debug(3, "Getting the CRC from the key")
 
     keylen = len(key)
-    return (key[keylen-1] << 8) | key[keylen-2]
+    crc = (key[keylen-1] << 8) | key[keylen-2]
+    print_debug(3, "CRC is " + hex(crc))
+
+    return crc
 
 
 def calculate_crc(key):

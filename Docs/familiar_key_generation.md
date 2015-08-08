@@ -67,9 +67,9 @@ Next step is to generate some CRC-16 codes and mix them. The algorithm used is "
 width=16 poly=0x1021 init=0xffff refin=false refout=false xorout=0xffff check=0xd64e
 ```
 
-The first CRC is computed with the current 14-bytes length familra key. A second CRC value is calculated with the constant 8 bytes value:
+The first CRC is computed with the current 14-bytes length familra key. A second CRC value is calculated with the constant 9 bytes value:
 ```
-21 6D EC 88 FF CC 85 EF  A2
+21 6D EC 88 FF CC 85 EF A2
 ```
 so it's always `0x00D3`. This constant is at `0x020CC1A4`. The bytes are copied in reverse and with a `NOT` operation.
 
