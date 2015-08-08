@@ -15,7 +15,7 @@ In the Familiar shelter / gutter there is a menu that **generates a key**. Press
 Firstly and most important, the game copies familiar's stats. This is the purpose of the key and the last step when doing the reverse operation. The information to copy is the following. Beware it copies bits, not bytes.
 
 | Field          | Bits  | Notes |
-| -------------- |:---- :| ----- |
+| -------------- |:-----:| ----- |
 | Name           | 4 * 8 | Copy only the first 4 characters. |
 | Level          | 7     | |
 | Unknown        | 3     | It's bits 1-3 from 0x27 save familiar structure. |
@@ -80,7 +80,7 @@ Once both CRC are calculated, they are mixed doing the following `XOR` operation
 ## Swap
 
 ## Convert to text
-The game convert the current 64-bits value to a string with a dictionary / alphabet. First it does the modulo operation to get the index of the char and then divide the value until it become 0. The *alphabet1* is used with length `0x3A` (58 chars) and 8-bits per char.
+The game convert the current 64-bits value to a string with a dictionary / alphabet. First it does the modulo operation to get the index of the char and then divide the value until it become 0. The *alphabet1* is used with length `0x3A` (58 chars) and 8-bits per char. It's at `0x0x020CC8E8`.
 ```python
 ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
 ```
@@ -115,12 +115,13 @@ The last operation is to mess the current key replacing each char with another. 
 
 1. Check input is not null.
 2. For each char:
-    1. Get the index of char in the **alphabet 1**. In this alphabet     each char is one-byte. It's at `0x020CC8E8`. The size is fixed: 56 chars.
-    2. Get the char in that index from the **alphabet 2**. In this case, there are two bytes per char. It's at `0x020CC924`. The size is variable, until found a null char.
+    1. Get the index of char in the **alphabet 1**.
+    2. Get the char in that index from the **alphabet 2**.
     3. Write the output char.
 3. Write a null char at the end.
 
-```python
+The *alphabet2* it's at `0x020CC924` with two bytes per char. The size is variable, until found a null char.
+```
 ALPHABET2 = ""
 ```
 
