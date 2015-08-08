@@ -18,7 +18,7 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from argparse import ArgumentParser
+from argparse import ArgumentParser, ArgumentTypeError
 
 ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
 ALPHABET2 = ""  # Selected in run-time.
@@ -56,6 +56,14 @@ def get_familiar_info(text_key):
     return None
 
 
+def is_valid_key(text_key):
+    """Check if it's a valid familiar key."""
+    if len(text_key) != 44:
+        raise ArgumentTypeError("Invalid familiar key length. It must be 44.")
+
+    return text_key
+
+
 def alphabet2_to_alphabet1(text_key):
     """1.- Convert the string from alphabet2 representation to alphabet1."""
     for i in range(len(text_key)):
@@ -79,7 +87,7 @@ def key_to_text(key):
 if __name__ == "__main__":
     # Parse argument
     parser = ArgumentParser(description="Get familiar information from a key.")
-    parser.add_argument("key", help="The familiar key")
+    parser.add_argument("key", help="The familiar key", type=is_valid_key)
     parser.add_argument("--language",
                         help="The game language where the key was generated.",
                         choices=['japanese', 'spanish'],
