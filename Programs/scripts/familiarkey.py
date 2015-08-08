@@ -82,6 +82,9 @@ def get_familiar_info(text_key):
     swap(key)
     print_debug_hexlist(2, "Key: ", key)
 
+    encryption2(key)
+    print_debug_hexlist(2, "Key: ", key)
+
     return None
 
 
@@ -154,6 +157,18 @@ def swap(key):
     tmp = key[crc_pos]
     key[crc_pos] = key[idx]
     key[idx] = tmp
+
+
+def encryption2(key):
+    """Encrypt and decrypt with a second algorithm."""
+    keylen = len(key)
+    crc = (key[keylen-2] << 8) | key[keylen-1]
+
+    rnd = 0x05888F27 + crc
+    for i in range(keylen - 2):
+        rnd = (rnd * 0x021FC436) + 1      # Update random number
+        encrypt_key = (rnd >> 24) & 0xFF  # Take last byte
+        key[i] ^= encrypt_key             # Encrypt
 
 
 if __name__ == "__main__":
