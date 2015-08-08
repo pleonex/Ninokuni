@@ -103,11 +103,16 @@ def alphabet2_to_alphabet1(text_key):
 
 def text_to_key(text):
     """Convert the text representation of a key into a list of bytes."""
+    print_debug(3, "Starting to convert to number")
     num_iterations = 0xB  # It's a constant in code, should guess how to get it
-    key_new = 0
+
+    key_number = 0
     for i in range(num_iterations):
         idx = ALPHABET1.find(text[i])
-        key_new = key_new + (idx * (len(ALPHABET1) ** i))
+        key_number = key_number + (idx * (len(ALPHABET1) ** i))
+        print_debug(3, str(i) + ": char " + text[i] + " at " + str(idx))
+
+    return key_number
 
 
 if __name__ == "__main__":
