@@ -23,13 +23,13 @@ from argparse import ArgumentParser, ArgumentTypeError
 VERBOSE = 0
 HACK = True  # Assembly/password/alphabet.asm changes some things.
 
-ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
+ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNOPQRSTUVWXYZ"
 ALPHABET2_ORIGINAL = ("０１２３４５６７８９"
                       "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん！？")
 ALPHABET2_HACK = ("!#$%&()*+,-./0123456789:;<=>?@"
-                  "ABCDEFGHIJKLMNPQRSTUVWXYZ[\\]_"
-                  "abcdefghijkmnpqrstuvwxyz{|}")
-""  # TODO: Missing symbol chars
+                  "ABCDEFGHIJKLMNOPQRSTUVWXYZ[\\]"
+                  "_abcdefghijklmnopqrstuvwxyz{|}"
+                  "~")  # TODO: Missing symbol chars
 
 
 def print_debug(verbose_level, msg):
@@ -69,7 +69,7 @@ def get_familiar_info(text_key):
     print_debug(2, "Key in alphabet1 format is " + text_key)
 
     key_number = text_to_key(text_key)
-    print_debug(2, "Key in numeric number is " + str(key_number))
+    print_debug(2, "Key in numeric number is " + hex(key_number))
 
     return None
 
@@ -93,7 +93,7 @@ def alphabet2_to_alphabet1(text_key):
 
     for i in range(0, len(text_key), step):
         char = text_key[i:i+2] if HACK else text_key[i]
-        idx = ALPHABET2.find(text_key[i]) / step
+        idx = ALPHABET2.index(text_key[i]) / step
         alphabet1_key += ALPHABET1[idx]
         print_debug(3, str(i) + " key char " + char + " is at " + str(idx) +
                     " in alphabet2 and is " + ALPHABET1[idx] + " in alphabet1")
@@ -108,7 +108,7 @@ def text_to_key(text):
 
     key_number = 0
     for i in range(num_iterations):
-        idx = ALPHABET1.find(text[i])
+        idx = ALPHABET1.index(text[i])
         key_number = key_number + (idx * (len(ALPHABET1) ** i))
         print_debug(3, str(i) + ": char " + text[i] + " at " + str(idx))
 
