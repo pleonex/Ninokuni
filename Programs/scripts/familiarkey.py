@@ -20,6 +20,8 @@ limitations under the License.
 
 from argparse import ArgumentParser, ArgumentTypeError
 
+VERBOSE = 0
+
 ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
 ALPHABET2 = ""  # Selected in run-time.
 ALPHABET2_JAPANESE = "０１２３４５６７８９"
@@ -27,6 +29,13 @@ ALPHABET2_JAPANESE = "０１２３４５６７８９"
 ALPHABET2_SPANISH = "!#$%&()*+,-./0123456789:;<=>?@"
 "ABCDEFGHJKLMNPQRSTUVWXYZ[\\]_abcdefghijkmnpqrstuvwxyz{|}"
 ""  # TODO: Missing symbol chars
+
+
+def print_debug(verbose_level, msg):
+    """Print a message in the console depending its verbose level."""
+    if verbose_level <= VERBOSE:
+        print "# DEBUG" + str(verbose_level) + ":",
+        print msg
 
 
 ##################################
@@ -53,8 +62,13 @@ def key_to_text(key):
 ####################################
 def get_familiar_info(text_key):
     """Get a dictionary with familiar information from the key."""
+    print_debug(2, "Starting to decrypt key.")
+
     text_key = alphabet2_to_alphabet1(text_key)
-    key = text_to_key(text_key)
+    print_debug(2, "Key in alphabet1 format is " + text_key)
+
+    key_number = text_to_key(text_key)
+    print_debug(2, "Key in numeric number is " + str(key_number))
 
     return None
 
@@ -94,7 +108,12 @@ if __name__ == "__main__":
                         help="The game language where the key was generated.",
                         choices=['japanese', 'spanish'],
                         default='japanese')
+    parser.add_argument("--verbose", "-v", action='count')
     args = parser.parse_args()
+
+    # Set verbose level
+    VERBOSE = args.verbose
+    print_debug(2, "Verbose level set to " + str(VERBOSE))
 
     # Select the alphabet2 to use depending the game version.
     if args.language == "japanese":
@@ -103,4 +122,9 @@ if __name__ == "__main__":
         ALPHABET2 = ALPHABET2_SPANISH
 
     # Decrypt key
+    print_debug(2, "Input key is " + args.key)
     info = get_familiar_info(args.key)
+
+    # Print result
+    print "\nResult:"
+    print info
