@@ -21,13 +21,14 @@ limitations under the License.
 from argparse import ArgumentParser, ArgumentTypeError
 
 VERBOSE = 0
+HACK = True  # Assembly/password/alphabet.asm changes some things.
 
 ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
-ALPHABET2 = ""  # Selected in run-time.
-ALPHABET2_JAPANESE = "０１２３４５６７８９"
-"あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん！？"
-ALPHABET2_SPANISH = "!#$%&()*+,-./0123456789:;<=>?@"
-"ABCDEFGHJKLMNPQRSTUVWXYZ[\\]_abcdefghijkmnpqrstuvwxyz{|}"
+ALPHABET2_ORIGINAL = ("０１２３４５６７８９"
+                      "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん！？")
+ALPHABET2_HACK = ("!#$%&()*+,-./0123456789:;<=>?@"
+                  "ABCDEFGHIJKLMNPQRSTUVWXYZ[\\]_"
+                  "abcdefghijkmnpqrstuvwxyz{|}")
 ""  # TODO: Missing symbol chars
 
 
@@ -83,10 +84,19 @@ def is_valid_key(text_key):
 
 def alphabet2_to_alphabet1(text_key):
     """1.- Convert the string from alphabet2 representation to alphabet1."""
+    print_debug(3, "Starting to convert to alphabet1")
     alphabet1_key = ""
-    for i in range(len(text_key)):
-        idx = ALPHABET2.find(text_key[i])
+
+    # With the hack we converted one kanji char to two ASCII chars.
+    step = 2 if HACK else 1
+    ALPHABET2 = ALPHABET2_HACK if HACK else ALPHABET2_ORIGINAL
+
+    for i in range(0, len(text_key), step):
+        char = text_key[i:i+2] if HACK else text_key[i]
+        idx = ALPHABET2.find(text_key[i]) / step
         alphabet1_key += ALPHABET1[idx]
+        print_debug(3, str(i) + " key char " + char + " is at " + str(idx) +
+                    " in alphabet2 and is " + ALPHABET1[idx] + " in alphabet1")
 
     return alphabet1_key
 
@@ -104,10 +114,10 @@ if __name__ == "__main__":
     # Parse argument
     parser = ArgumentParser(description="Get familiar information from a key.")
     parser.add_argument("key", help="The familiar key", type=is_valid_key)
-    parser.add_argument("--language",
-                        help="The game language where the key was generated.",
-                        choices=['japanese', 'spanish'],
-                        default='japanese')
+    parser.add_argument("--hack",
+                        help="If the game had the password ASCII hack.",
+                        type=bool,
+                        default=True)
     parser.add_argument("--verbose", "-v", action='count')
     args = parser.parse_args()
 
@@ -116,10 +126,8 @@ if __name__ == "__main__":
     print_debug(2, "Verbose level set to " + str(VERBOSE))
 
     # Select the alphabet2 to use depending the game version.
-    if args.language == "japanese":
-        ALPHABET2 = ALPHABET2_JAPANESE
-    elif args.language == "spanish":
-        ALPHABET2 = ALPHABET2_SPANISH
+    print_debug(2, "The game had the ASCII hack? " + str(args.hack))
+    HACK = args.hack
 
     # Decrypt key
     print_debug(2, "Input key is " + args.key)
