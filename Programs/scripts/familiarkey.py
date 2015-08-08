@@ -37,12 +37,15 @@ def generate_key(familiar_info):
     return None
 
 
-def text_to_key(text):
-    """Convert the text representation of a key into a list of bytes."""
-    num_iterations = 0xB  # It's a constant in code, should guess how to get it
-    for i in range(num_iterations):
-        idx = ALPHABET1.find(text[i])
-        key_new = key_new + (idx * (len(ALPHABET1) ** i))
+def key_to_text(key):
+    """2.- Convert the key bytes into text representation."""
+    text = ''
+    while key != 0:
+        index = key % 0x3A
+        text += ALPHABET1[index]
+        key /= 0x3A
+
+    return text
 
 
 ####################################
@@ -51,7 +54,7 @@ def text_to_key(text):
 def get_familiar_info(text_key):
     """Get a dictionary with familiar information from the key."""
     text_key = alphabet2_to_alphabet1(text_key)
-    key = key_to_text(text_key)
+    key = text_to_key(text_key)
 
     return None
 
@@ -66,22 +69,21 @@ def is_valid_key(text_key):
 
 def alphabet2_to_alphabet1(text_key):
     """1.- Convert the string from alphabet2 representation to alphabet1."""
+    alphabet1_key = ""
     for i in range(len(text_key)):
         idx = ALPHABET2.find(text_key[i])
-        text_key[i] = ALPHABET1[idx]
+        alphabet1_key += ALPHABET1[idx]
 
-    return text_key
+    return alphabet1_key
 
 
-def key_to_text(key):
-    """2.- Convert the key bytes into text representation."""
-    text = ''
-    while key != 0:
-        index = key % 0x3A
-        text += ALPHABET1[index]
-        key /= 0x3A
-
-    return text
+def text_to_key(text):
+    """Convert the text representation of a key into a list of bytes."""
+    num_iterations = 0xB  # It's a constant in code, should guess how to get it
+    key_new = 0
+    for i in range(num_iterations):
+        idx = ALPHABET1.find(text[i])
+        key_new = key_new + (idx * (len(ALPHABET1) ** i))
 
 
 if __name__ == "__main__":
