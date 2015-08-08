@@ -93,6 +93,21 @@ def get_familiar_info(text_key):
     if not valid_crc:
         raise KeyError("The CRC of the key does not match")
 
+    # CRC is no longer necessary in key
+    key = key[0:len(key) - 2]
+
+    encryption(key)
+    print_debug_hexlist(2, "Key: ", key)
+
+    # Reverse, I think it's not necessary to create a method for that
+    print_debug(3, "Reversing key")
+    key.reverse()
+    print_debug_hexlist(2, "Key: ", key)
+
+    # Random number can be skipped.
+
+    # TODO: Read familira bit information
+
     return None
 
 
@@ -147,6 +162,9 @@ def text_to_key(text):
     return key
 
 
+#####################
+# Common algorithms #
+#####################
 def swap(key):
     """Make the swap operation. It's the same in both ways."""
     print_debug(3, "Starting to swap")
@@ -220,6 +238,21 @@ def calculate_crc(key):
     print_debug(3, "Key CRC: " + hex(crc_keydata) + ", constant CRC: " +
                 hex(crc_constantdata) + ", final CRC: " + hex(crc_key))
     return crc_key
+
+
+def encryption(key):
+    """Encrypt and decrypt with a first algorithm."""
+    print_debug(3, "Starting first encryption")
+
+    encryption_key = key[0]
+    print_debug(3, "Encryption starts with " + hex(encryption_key))
+
+    for i in range(1, len(key)):
+        key[i] ^= encryption_key
+        encryption_key = ((encryption_key << 1) & 0xFF) | (encryption_key >> 7)
+        encryption_key ^= 0xFF
+        print_debug(3, "New value is " + hex(key[i]) + ", new key: " +
+                    hex(encryption_key))
 
 
 if __name__ == "__main__":

@@ -44,7 +44,7 @@ new_random_number = random_number * CONSTANT1 + CONSTANT2
 ```
 
 ## Reverse
-Reverse the current bytes so last byte is not the first one.
+Reverse the current bytes so last byte is the first one.
 
 ## Encrypt
 Encrypt the key with the `XOR` operator. The first operator will be like the key that it's updated each time the operation is applied. The second operator will be each byte of the current familiar key.
