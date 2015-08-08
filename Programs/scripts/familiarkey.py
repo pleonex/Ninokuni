@@ -33,10 +33,18 @@ ALPHABET2_HACK = ("!#$%&()*+,-./0123456789:;<=>?@"
 
 
 def print_debug(verbose_level, msg):
-    """Print a message in the console depending its verbose level."""
+    """Print a message in the output depending verbose level."""
     if verbose_level <= VERBOSE:
         print "# DEBUG" + str(verbose_level) + ":",
         print msg
+
+
+def print_debug_hexlist(verbose_level, msg, hexlist):
+    """Print a message and a hex list in the output depending verbose level."""
+    if verbose_level <= VERBOSE:
+        print "# DEBUG" + str(verbose_level) + ":",
+        print msg,
+        print "[" + ', '.join(["{:02X}".format(b) for b in hexlist]) + "]"
 
 
 ##################################
@@ -69,8 +77,7 @@ def get_familiar_info(text_key):
     print_debug(2, "Key in alphabet1 format is " + text_key)
 
     key = text_to_key(text_key)
-    print_debug(2, "Key in numeric number is " +
-                ' '.join([hex(b) for b in key]))
+    print_debug_hexlist(2, "Key in numeric number is ", key)
 
     return None
 
