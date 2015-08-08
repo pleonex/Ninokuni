@@ -18,13 +18,14 @@ See the License for the specific language governing permissions and
 limitations under the License.
 """
 
-from argparse. import ArgumentParser
+from argparse import ArgumentParser
 
 ALPHABET1 = "0123456789abcdefghijkmnpqrstuvwxyzABCDEFGHJKLMNPQRSTUVWXYZ"
-ALPHABET2_ORIGINAL = "０１２３４５６７８９" +
+ALPHABET2_ORIGINAL = "０１２３４５６７８９"
 "あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん！？"
-ALPHABET2_SPANISH = "!#$%&()*+,-./0123456789:;<=>?@ABCDEFGHJKLMNPQRSTUVWXYZ" +
-"[\\]_abcdefghijkmnpqrstuvwxyz{|}"  # TODO: Missing symbol chars
+ALPHABET2_SPANISH = "!#$%&()*+,-./0123456789:;<=>?@"
+"ABCDEFGHJKLMNPQRSTUVWXYZ[\\]_abcdefghijkmnpqrstuvwxyz{|}"
+""  # TODO: Missing symbol chars
 
 
 ##################################
@@ -36,7 +37,7 @@ def generate_key(familiar_info):
 
 
 def text_to_key(text):
-    """Convert the text representation of a key into a list of bytes.""""
+    """Convert the text representation of a key into a list of bytes."""
     num_iterations = 0xB  # It's a constant in code, should guess how to get it
     for i in range(num_iterations):
         idx = ALPHABET1.find(text[i])
@@ -54,7 +55,7 @@ def get_familiar_info(text_key):
 
 
 def key_to_text(key):
-    """Convert the key bytes into text representation.""""
+    """Convert the key bytes into text representation."""
     text = ''
     while key != 0:
         index = key % 0x3A
@@ -66,7 +67,7 @@ def key_to_text(key):
 
 if __name__ == "__main__":
     # Parse argument
-    parser = ArgumentParser(description="Get familira key information.")
+    parser = ArgumentParser(description="Get familiar information from a key.")
     parser.add_argument("key", help="The familiar key")
     args = parser.parse_args()
 
