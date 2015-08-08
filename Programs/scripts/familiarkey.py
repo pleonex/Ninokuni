@@ -77,7 +77,10 @@ def get_familiar_info(text_key):
     print_debug(2, "Key in alphabet1 format is " + text_key)
 
     key = text_to_key(text_key)
-    print_debug_hexlist(2, "Key in numeric number is ", key)
+    print_debug_hexlist(2, "Key: ", key)
+
+    swap(key)
+    print_debug_hexlist(2, "Key: ", key)
 
     return None
 
@@ -131,6 +134,26 @@ def text_to_key(text):
         key += [(key_number >> i) & 0xFF for i in range(0, 64, 8)]
 
     return key
+
+
+def swap(key):
+    """Make the swap operation. It's the same in both ways."""
+    print_debug(3, "Starting to swap")
+
+    # Game implementation, because it's funny.
+    rnd = 0x014A76E0              # Init random number
+    rnd = (rnd * 0x021FC436) + 1  # Update random number
+    rnd &= 0xFFFFFFFF             # ... cast to 32-bits.
+    idx = rnd % (len(key) - 2)    # Get swap index, it's ALWAYS 0x0B.
+    crc_pos = len(key) - 2
+    print_debug(3, '"random" number: ' + hex(rnd) + ", index: " + str(idx) +
+                ", CRC index: " + str(crc_pos) + " -> " + hex(key[crc_pos]) +
+                ", " + hex(key[idx]))
+
+    # Swap
+    tmp = key[crc_pos]
+    key[crc_pos] = key[idx]
+    key[idx] = tmp
 
 
 if __name__ == "__main__":
