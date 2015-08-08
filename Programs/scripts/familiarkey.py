@@ -106,9 +106,8 @@ def get_familiar_info(text_key):
 
     # Random number can be skipped.
 
-    # TODO: Read familira bit information
-
-    return None
+    info = create_information_dict(key)
+    return info
 
 
 def is_valid_key(text_key):
@@ -160,6 +159,27 @@ def text_to_key(text):
         key += [int((key_number >> i) & 0xFF) for i in range(0, 64, 8)]
 
     return key
+
+
+def create_information_dict(key):
+    """Create a dictionary with the familiar information from the key."""
+    info = {}
+    stream = BitStream(bytearray(key))
+    # stream.write(key, int8)
+
+    info["name"] = stream.read('str', 4)
+    info["level"] = stream.read('int', 7)
+    info["unknown"] = stream.read('int', 3)
+    info["internal_index"] = stream.read('int', 10)
+    info["hp"] = stream.read('int', 7) * 8
+    info["mp"] = stream.read('int', 7) * 8
+    info["attack"] = stream.read('int', 7) * 8
+    info["defense"] = stream.read('int', 7) * 8
+    info["magic_attack"] = stream.read('int', 7) * 8
+    info["magic_defense"] = stream.read('int', 7) * 8
+    info["ability"] = stream.read('int', 7) * 8
+
+    return info
 
 
 #####################
@@ -255,6 +275,50 @@ def encryption(key):
                     hex(encryption_key))
 
 
+class BitStream:
+
+    """Class to read types from a stream of bits."""
+
+    def __init__(self, data):
+        """Initialize the object with a list of integers."""
+        self.data = data
+        self.bitpos = 0
+
+    def read(self, type, length):
+        """Read a type. Supported 'str' and 'int'."""
+        if type == 'str':
+            return self.read_string(length)
+        elif type == 'int':
+            return self.read_bits(length)
+        else:
+            return None
+
+    def read_bit(self):
+        """Read the next bit and advance the position."""
+        bytepos = self.bitpos / 8
+        bitoffset = self.bitpos % 8
+
+        self.bitpos += 1
+        return (self.data[bytepos] >> bitoffset) & 1
+
+    def read_bits(self, length):
+        """Read a integer value of variable bits length."""
+        b = 0
+        for i in range(length):
+            b |= self.read_bit() << i
+        return b
+
+    def read_byte(self):
+        """Read a byte."""
+        return self.read_bits(8)
+
+    def read_string(self, length):
+        """Read a string of ASCII chars with a variable length."""
+        string = ''
+        for i in range(length):
+            string += chr(self.read_byte())
+        return string
+
 if __name__ == "__main__":
     # Parse argument
     parser = ArgumentParser(description="Get familiar information from a key.")
@@ -279,5 +343,6 @@ if __name__ == "__main__":
     info = get_familiar_info(args.key)
 
     # Print result
-    print "\nResult:"
-    print info
+    print_debug(1, "Result:")
+    for x in info:
+        print "{0:} {1}".format(x + ":", info[x])
