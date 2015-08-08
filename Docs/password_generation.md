@@ -76,8 +76,34 @@ so it's always `0x00D3`. This constant is at `0x020CC1A4`. The bytes are copied 
 Once both CRC are calculated, they are mixed doing the following `XOR` operation: `CRC1 XOR CRC2 XOR 0x62D3`. This value is appended at the end of the familiar key so we get a 16 bytes length key.
 
 ## Encrypt2
+By using the CRC the game encrypt again the password. In this case it's involved a *psuedo random generator* different to the one previously used. The way it updates the 32-bits value is described below:
+```
+rnd = (rnd * 0x021FC436) + 1
+```
+
+Firstly, it's initialized adding `0x05888F27` to the CRC. Then, for each byte, the game first update the random number and by using the last byte do the `XOR` operation over a key value. Obviously the CRC is not encrypted so it's possible to initialize the key again to decrypt.
+```python
+rnd = 0x05888F27 + CRC
+for i in range(len(FAMILIAR_KEY) - 2):
+    rnd = (rnd * 0x021FC436) + 1      # Update random number
+    encrypt_key = (rnd >> 24) & 0xFF  # Take last byte
+    FAMILIAR_KEY[i] ^= encrypt_key    # Encrypt
+```
 
 ## Swap
+After encrypt the key, one the CRC byte is swap with a key value, in this way the full CRC-16 value is not at the end of the key, making more difficult to guess it. To do that, the previously used *random generator* is initialized with the constant `0x014A76E0` and updated, so the final *random* number would be `0x6DD89341`. The modulo operation is applied to this value and the length of the key without CRC, 14. The result, 11 (0xB), is the position where the first CRC value will be swapped.
+
+```
+rnd = 0x014A76E0              # Init random number
+rnd = (rnd * 0x021FC436) + 1  # Update random number
+idx = rnd % (len(FAMILIAR_KEY) - 2)  # Get index
+
+# Swap
+crc_pos = len(FAMILIAR_KEY) - 2
+tmp = FAMILIAR_KEY[crc_pos]
+FAMILIAR_KEY[crc_pos] = FAMILIAR_KEY[idx]
+FAMILIAR_KEY[idx] = tmp
+```
 
 ## Convert to text
 The game convert the current 64-bits value to a string with a dictionary / alphabet. First it does the modulo operation to get the index of the char and then divide the value until it become 0. The *alphabet1* is used with length `0x3A` (58 chars) and 8-bits per char. It's at `0x0x020CC8E8`.
