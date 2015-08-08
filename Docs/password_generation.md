@@ -148,7 +148,7 @@ The last operation is to mess the current key replacing each char with another. 
 
 The *alphabet2* it's at `0x020CC924` with two bytes per char. The size is variable, until found a null char.
 ```
-ALPHABET2 = ""
+ALPHABET2 = "０１２３４５６７８９あいうえおかきくけこさしすせそたちつてとなにぬねのはひふへほまみむめもやゆよらりるれろわをん！？"
 ```
 
 For the Spanish translation with the hack *Assembly/password/alphabet.asm* we replace the *alphabet 2* Japanese kanjis with ASCII chars and some UNICODE symbols like arrows and circles. The game continue to read two bytes to get a char, so if it's the index is in the ASCII part it replace one with two char.
