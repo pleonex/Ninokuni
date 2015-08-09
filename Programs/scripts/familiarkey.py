@@ -165,11 +165,13 @@ def create_information_dict(key):
     """Create a dictionary with the familiar information from the key."""
     info = {}
     stream = BitStream(bytearray(key))
-    # stream.write(key, int8)
+
+    BRANDS = ('sun', 'moon', 'star', 'planet', 'twin_sun', 'twin_moon',
+              'twin_star', 'twin_planet')
 
     info["name"] = stream.read('str', 4)
     info["level"] = stream.read('int', 7)
-    info["unknown"] = stream.read('int', 3)
+    info["brand"] = BRANDS[stream.read('int', 3)]
     info["internal_index"] = stream.read('int', 10)
     info["hp"] = stream.read('int', 7) * 8
     info["mp"] = stream.read('int', 7) * 8

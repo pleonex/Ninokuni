@@ -18,15 +18,15 @@ Firstly and most important, the game copies familiar's stats. This is the purpos
 | -------------- |:-----:| ----- |
 | Name           | 4 * 8 | Copy only the first 4 characters. |
 | Level          | 7     | |
-| Unknown        | 3     | It's bits 1-3 from 0x27 save familiar structure. |
+| Brand          | 3     | Bits 1-3 from 0x27. |
 | Index          | 10    | |
 | HP             | 7     | Divided by 8, less precision but higher values. |
 | MP             | 7     | Divided by 8. |
 | Attack         | 7     | Divided by 8. |
-| Defense       | 7     | Divided by 8. |
+| Defense        | 7     | Divided by 8. |
 | Magic Attack   | 7     | Divided by 8. |
-| Magic Defense | 7     | Divided by 8. |
-| Ability       | 7     | Divided by 8. |
+| Magic Defense  | 7     | Divided by 8. |
+| Ability        | 7     | Divided by 8. |
 
 ## Add random number
 Next step is to add some random bits. The game implements a *pseudo-random generator* for 32-bits values. In this case, it updated the *pseudo-random* number and take 11 bits, skipping the first 16 bits, to write in our stream. That is:
