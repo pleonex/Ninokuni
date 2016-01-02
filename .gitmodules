@@ -19,3 +19,6 @@
 [submodule "Programs/NinoImager"]
 	path = Programs/NinoImager
 	url = git@github.com:pleonex/NinoImager.git
+[submodule "Programs/NinoDrive"]
+	path = Programs/NinoDrive
+	url = https://bitbucket.org/Zkarts/ni-no-drive.git
