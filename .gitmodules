@@ -22,3 +22,6 @@
 [submodule "Programs/NinoDrive"]
 	path = Programs/NinoDrive
 	url = https://bitbucket.org/Zkarts/ni-no-drive.git
+[submodule "Programs/Zerum"]
+	path = Programs/Zerum
+	url = https://github.com/pleonex/Zerum.git

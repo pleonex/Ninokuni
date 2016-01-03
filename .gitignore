@@ -1,3 +1,6 @@
+# Ignore the game data
+GameData/
+
 # Ignore armips executable for tests
 Assembly/armips.exe
 
