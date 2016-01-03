@@ -52,6 +52,32 @@ TST     R4, R7           ; To save memory
   ADD R6, SP
   SUB r2, #0x8          ; New, decrease pointer to spell name
 
+; TODO: Fenix spell
+;.thumb
+;.org 0x0211C360
+;LDR     R1, =dword_2141660              ; Format
+;MOVS    R2, R0                          ; Spell pointer
+;LDR     R1, [R1,#0x38]                  ; Format pointer
+;ADD     R0, SP, #0x1B4                  ; Output pointer
+;BLX 0x0202159C
+;ADD     R0, SP, #0x134
+;ADD     R1, SP, #0x1B4
+;BL      sub_20DEF40
+;LDR     R0, =0x2159E64
+;LDR     R1, [SP,#0x10]
+; STRB    R5, [R0,#0x10]
+;RAM:0211C37A STR     R1, [R0,#0x14]
+;RAM:0211C37C LDR     R1, =0x548
+;RAM:0211C37E STR     R4, [R0,#0x18]
+;RAM:0211C380 ADD     R1, SP
+;RAM:0211C382 LDR     R1, [R1]
+;RAM:0211C384 LDR     R2, =0x211C6B1
+;RAM:0211C386 STR     R1, [R0,#0x1C]
+;RAM:0211C388 MOVS    R0, #0
+;RAM:0211C38A STR     R0, [SP]
+;RAM:0211C38C STR     R0, [SP,#4]
+;RAM:0211C38E LDR     R0, [SP,#0x10]
+;RAM:0211C390 LDR     R3, =0x2159E74
 
 .arm
 .org 0x2106034
