@@ -3,7 +3,7 @@
   <RelativePaths>
     <Path>
       <Variable>NinokuniPath</Variable>
-      <Location>./../English</Location>
+      <Location>/home/benito/Dropbox/Ninokuni English/English</Location>
     </Path>
     <Path>
       <Variable>ImagePath</Variable>
@@ -1793,6 +1793,15 @@
       <Import>{$ScriptPath}/__009t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/__010t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/__010t.xml</Import>
+      <Parameters>
+        <Key>1876yuNP5lAoEXqK-WMKtEjykLTf3LEAtXJ_4-RfBNl0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/__010t.bin</Path>
       <Import>{$ScriptPath}/__010t.xml</Import>
     </File>
@@ -1813,20 +1822,65 @@
       <Import>{$ScriptPath}/__014t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba000p.xml</Import>
+      <Parameters>
+        <Key>1u7wOFHUtYJ1F5H2cVZsj5Q2wST_U0pSMrn55w_mOs-Q</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba000p.bin</Path>
       <Import>{$ScriptPath}/ba000p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba001t.xml</Import>
+      <Parameters>
+        <Key>1odmqD1u4oVtrzJsnmbzba49UTh03uvBfnaKhCCVGC-M</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba001t.bin</Path>
       <Import>{$ScriptPath}/ba001t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba002t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba002t.xml</Import>
+      <Parameters>
+        <Key>1E7Sr54m4NW57neT0zSEiAauoM3K5wBQvgSSooaEk6W8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba002t.bin</Path>
       <Import>{$ScriptPath}/ba002t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba003p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba003p.xml</Import>
+      <Parameters>
+        <Key>1w7ST_82sinlZxvbkIAU_XvlT3PwlnnhcnuzsjiG_h58</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba003p.bin</Path>
       <Import>{$ScriptPath}/ba003p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba004p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba004p.xml</Import>
+      <Parameters>
+        <Key>1LhGKKYWUCuyJGq-b3HjrBosRO7f3gYSb6krwahJrhxY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba004p.bin</Path>
@@ -1837,72 +1891,234 @@
       <Import>{$ScriptPath}/ba005p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba006p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba006p.xml</Import>
+      <Parameters>
+        <Key>1_jZEOkIHLdUkW71Fne1p_28fulHjlhlSzSOaXcWLikU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba006p.bin</Path>
       <Import>{$ScriptPath}/ba006p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba007t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba007t.xml</Import>
+      <Parameters>
+        <Key>1FxqPwJp-sVy5JlXMajy-aEOnlDmeU3y_Yfx3RBPJyUQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba007t.bin</Path>
       <Import>{$ScriptPath}/ba007t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba008t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba008t.xml</Import>
+      <Parameters>
+        <Key>1MsDSisx7s2KQefIKIKjP2z3b2kqM8KNIaO3aOCELzco</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba008t.bin</Path>
       <Import>{$ScriptPath}/ba008t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba009p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba009p.xml</Import>
+      <Parameters>
+        <Key>1jstm6s05vh_T4l2L4-_l7IbH-4GoErej5pY_kFa5DMM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba009p.bin</Path>
       <Import>{$ScriptPath}/ba009p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba010t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba010t.xml</Import>
+      <Parameters>
+        <Key>1qZZfIvw662oWMjU7onq3rOz5ZbS0VqBw-LdPFqP_q1E</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba010t.bin</Path>
       <Import>{$ScriptPath}/ba010t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba011t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba011t.xml</Import>
+      <Parameters>
+        <Key>1r3A4s4IN8jIGL5fJzxlQMIZjtx2eiT2w45u5tGJDZ7A</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba011t.bin</Path>
       <Import>{$ScriptPath}/ba011t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba012p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba012p.xml</Import>
+      <Parameters>
+        <Key>1nyLmLXQxFhj7foySh1-KMDU1m_H63V8O-hRsztRuvaI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba012p.bin</Path>
       <Import>{$ScriptPath}/ba012p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba013p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba013p.xml</Import>
+      <Parameters>
+        <Key>19xAad0xI9zisN2RDU16IsDXaPweg1H6kquBeGchKZMo</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba013p.bin</Path>
       <Import>{$ScriptPath}/ba013p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba014p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba014p.xml</Import>
+      <Parameters>
+        <Key>1Nf-liwHYti3zeBmBpx1ppJU0egKfn1oPkn0E-p50nkU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba014p.bin</Path>
       <Import>{$ScriptPath}/ba014p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba015p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba015p.xml</Import>
+      <Parameters>
+        <Key>1Gi82kk1gzqF0b6gBvunssEkcXX_U4djzEj5Eev5-WBs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba015p.bin</Path>
       <Import>{$ScriptPath}/ba015p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba016t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba016t.xml</Import>
+      <Parameters>
+        <Key>1p1jg22mfSApxn-_6QsxDVS8HUn77s8sMiJBSfc3U0_s</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba016t.bin</Path>
       <Import>{$ScriptPath}/ba016t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba103t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba103t.xml</Import>
+      <Parameters>
+        <Key>1SS7tfMxv0h8IeGc4me-1k7iH_Qa4M4z_WxVUg5Q7Be4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba103t.bin</Path>
       <Import>{$ScriptPath}/ba103t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba104t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba104t.xml</Import>
+      <Parameters>
+        <Key>1Co3kYMWDjzSbBJWKGm68vJExcjd_Wu6rq9L8ddcd4uY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba104t.bin</Path>
       <Import>{$ScriptPath}/ba104t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba105t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba105t.xml</Import>
+      <Parameters>
+        <Key>1UEzTrd95y9vbsV2rKU08q2LOZl9WtBqQWNgt1JEccZs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba105t.bin</Path>
       <Import>{$ScriptPath}/ba105t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba106t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba106t.xml</Import>
+      <Parameters>
+        <Key>1FJAu66yFPdfsHcem_ECrxsCXB00zQ0D0CNtgbQUIQl8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba106t.bin</Path>
       <Import>{$ScriptPath}/ba106t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba107t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba107t.xml</Import>
+      <Parameters>
+        <Key>1f4Yl7pD3kT-w8Hq3nT6nVlxasY3Hm2ZGRSvSDuyEjYA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba107t.bin</Path>
       <Import>{$ScriptPath}/ba107t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ba108t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ba108t.xml</Import>
+      <Parameters>
+        <Key>16c-PPH9llL1uhcSI3dS-dMV7fAtizw-_bNw_rnrCGrc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ba108t.bin</Path>
       <Import>{$ScriptPath}/ba108t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bi000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bi000p.xml</Import>
+      <Parameters>
+        <Key>1RJcIKzGCuLMb6glrWN20j1GA6eZi0_mkuzUNIkbZz0w</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bi000p.bin</Path>
@@ -1917,8 +2133,26 @@
       <Import>{$ScriptPath}/bi002t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bi003t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bi003t.xml</Import>
+      <Parameters>
+        <Key>1xwK9eUre_zdEkfHbQ4YrPMODprcUraYm3qv4KtOicN4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bi003t.bin</Path>
       <Import>{$ScriptPath}/bi003t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bi004t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bi004t.xml</Import>
+      <Parameters>
+        <Key>1wWySJXcy-SOOaWZhDm_dKaCR8C38bpVwC74f1ArcBjc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bi004t.bin</Path>
@@ -1929,12 +2163,30 @@
       <Import>{$ScriptPath}/bi005t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bi006t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bi006t.xml</Import>
+      <Parameters>
+        <Key>1cGcBaKEImvEkejhB0WgxKlqu573y1uARyeIuvkogFuE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bi006t.bin</Path>
       <Import>{$ScriptPath}/bi006t.xml</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bi100t.bin</Path>
       <Import>{$ScriptPath}/bi100t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bi101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bi101t.xml</Import>
+      <Parameters>
+        <Key>1J1I7BB3U56V7_bjd1xUZfAtsSfpbebQmt0iN_llR-NY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bi101t.bin</Path>
@@ -1957,16 +2209,52 @@
       <Import>{$ScriptPath}/bo002t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo003t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo003t.xml</Import>
+      <Parameters>
+        <Key>1C-NBJaRtczTVsAji1sCgVNUUVPg5PLQ4EAMWJ8pePxU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo003t.bin</Path>
       <Import>{$ScriptPath}/bo003t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo004t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo004t.xml</Import>
+      <Parameters>
+        <Key>1wzq0l-JsMnaBZZzcFIGFTU7OMi5Cxq2mGhTgxD589EM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo004t.bin</Path>
       <Import>{$ScriptPath}/bo004t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo005p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo005p.xml</Import>
+      <Parameters>
+        <Key>1vxp14z6Ed1xoWY40yVPRx-mypsJlod6yWlq3RaGqxUE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo005p.bin</Path>
       <Import>{$ScriptPath}/bo005p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo006t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo006t.xml</Import>
+      <Parameters>
+        <Key>1VpLwz14JIOXyziG3wAh-bvgFWn3Dz_3rt5ugmkxgO6Q</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo006t.bin</Path>
@@ -1981,8 +2269,26 @@
       <Import>{$ScriptPath}/bo008t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo010t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo010t.xml</Import>
+      <Parameters>
+        <Key>1Dm61rOH0-sFC9bXZsaowVKYqdUthMzPnySiO2l_UwJU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo010t.bin</Path>
       <Import>{$ScriptPath}/bo010t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo011p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo011p.xml</Import>
+      <Parameters>
+        <Key>136_za6zX3_y7dY7coojxt95LlNHETJKvX3KR6w6sXlc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo011p.bin</Path>
@@ -1993,12 +2299,30 @@
       <Import>{$ScriptPath}/bo012p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo013t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo013t.xml</Import>
+      <Parameters>
+        <Key>1adv1tCg0hTPt7341fxMXo8fyl0JvLFRusuqm7AhtoJA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo013t.bin</Path>
       <Import>{$ScriptPath}/bo013t.xml</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo014t.bin</Path>
       <Import>{$ScriptPath}/bo014t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo100t.xml</Import>
+      <Parameters>
+        <Key>1xHfBThIYNjI8ZsEC9ZcUo4zzhWpRH_jeyfpTVKaKDcs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo100t.bin</Path>
@@ -2013,8 +2337,26 @@
       <Import>{$ScriptPath}/bo102t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo103t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo103t.xml</Import>
+      <Parameters>
+        <Key>1d5Ow_38dhY0_00QBYRrZrlr7DW52uzxGmOqmVtiUR88</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo103t.bin</Path>
       <Import>{$ScriptPath}/bo103t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo104t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo104t.xml</Import>
+      <Parameters>
+        <Key>10dJfWFsG4mAdV0feCRkwKeA-gEIFuknqrXPTR3IzSyk</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo104t.bin</Path>
@@ -2029,6 +2371,15 @@
       <Import>{$ScriptPath}/bo106t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo107t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo107t.xml</Import>
+      <Parameters>
+        <Key>1oGAdNeueBIjXpzJl7G-8DEODLlJNDLpCVm9ZlJEAy_k</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo107t.bin</Path>
       <Import>{$ScriptPath}/bo107t.xml</Import>
     </File>
@@ -2041,8 +2392,26 @@
       <Import>{$ScriptPath}/bo109t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo110t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo110t.xml</Import>
+      <Parameters>
+        <Key>1t1i1mgTKi9ZLEwvK7oyimIP6V_3WWern9LWc-eA_0AU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo110t.bin</Path>
       <Import>{$ScriptPath}/bo110t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo111t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo111t.xml</Import>
+      <Parameters>
+        <Key>1LLUqc-ErY9hesp2dkrxGEc0DYP0F6KePHCAjFS9elX4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo111t.bin</Path>
@@ -2051,6 +2420,15 @@
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo112t.bin</Path>
       <Import>{$ScriptPath}/bo112t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/bo113t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/bo113t.xml</Import>
+      <Parameters>
+        <Key>1VIjiqQGb_wn4ksMw-qVa-6Nu1lEmfMv2eIR3qmzIh34</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/bo113t.bin</Path>
@@ -2121,6 +2499,15 @@
       <Import>{$ScriptPath}/cn111d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/cn112t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/cn112t.xml</Import>
+      <Parameters>
+        <Key>1i1BcHB2KX7H9ydN-Wqo7_jlRHX9b5SxaV6p-8vYqG2Q</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/cn112t.bin</Path>
       <Import>{$ScriptPath}/cn112t.xml</Import>
     </File>
@@ -2133,12 +2520,39 @@
       <Import>{$ScriptPath}/cn114t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd000p.xml</Import>
+      <Parameters>
+        <Key>1b93CSJnXH8tdNN-8PRkW56wkK9da9wV3El9IbytWceU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd000p.bin</Path>
       <Import>{$ScriptPath}/dd000p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd101t.xml</Import>
+      <Parameters>
+        <Key>1xqVoY2fv3Tct7RCeTrohP_kUL0_rP_yEIFWjpPdvgFc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd101t.bin</Path>
       <Import>{$ScriptPath}/dd101t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd102t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd102t.xml</Import>
+      <Parameters>
+        <Key>1l8Vm9ER50_itMn1d90pqMFnbDS32N6u8yTEP-FDLRU4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd102t.bin</Path>
@@ -2149,20 +2563,65 @@
       <Import>{$ScriptPath}/dd103t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd104p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd104p.xml</Import>
+      <Parameters>
+        <Key>1yN5hiKD1RupYpn20dS3mE0xQPSfekjzAB52PrAfEHhc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd104p.bin</Path>
       <Import>{$ScriptPath}/dd104p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd105t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd105t.xml</Import>
+      <Parameters>
+        <Key>1ezCWYc2yV85tgmK6Bdg8-wIBCieCPDm_Lz74VqSCNsA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd105t.bin</Path>
       <Import>{$ScriptPath}/dd105t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd106t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd106t.xml</Import>
+      <Parameters>
+        <Key>1hqKdLXqLkdjdnEjic1VATYJ_H0a9s0OUx2sX8P3Rj9k</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd106t.bin</Path>
       <Import>{$ScriptPath}/dd106t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd107p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd107p.xml</Import>
+      <Parameters>
+        <Key>18QbAs9M75mJtcpnYzeE3e9BJJUjmkzGoSykJi_KiFC8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd107p.bin</Path>
       <Import>{$ScriptPath}/dd107p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd108t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd108t.xml</Import>
+      <Parameters>
+        <Key>1nuTNwY3sGjJljTmRR1wFy9MfO3PPEBdqAqB-VRqaBqE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd108t.bin</Path>
@@ -2173,32 +2632,104 @@
       <Import>{$ScriptPath}/dd109t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd110t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd110t.xml</Import>
+      <Parameters>
+        <Key>1nCkTn-1b4Z3Xdl8qQb4Wfu__5-OvgmGsv67rsCAqb3Y</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd110t.bin</Path>
       <Import>{$ScriptPath}/dd110t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd111p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd111p.xml</Import>
+      <Parameters>
+        <Key>19IA50fTzkLcOZ8WC3U4kf7MMC1Xa9yKQ9f940C1Dx94</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd111p.bin</Path>
       <Import>{$ScriptPath}/dd111p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd112p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd112p.xml</Import>
+      <Parameters>
+        <Key>1Rnjut6rHZfbE0yaav_PQy-4LmlYa693AKoRzLyqigdI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd112p.bin</Path>
       <Import>{$ScriptPath}/dd112p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dd113t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dd113t.xml</Import>
+      <Parameters>
+        <Key>1lOlehlXkoqXd-GNo0GtjlCix8TXwjuVSTB4CJBy3gMM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dd113t.bin</Path>
       <Import>{$ScriptPath}/dd113t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de000p.xml</Import>
+      <Parameters>
+        <Key>1Ywfv9v5bq1Ftl-EXkKSZwfFBciza-rF2CMt8YAJgXNs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de000p.bin</Path>
       <Import>{$ScriptPath}/de000p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de001t.xml</Import>
+      <Parameters>
+        <Key>1DrohbIbhwV_JeRoZTHK2P5i59vJkkfiYVuH1aW-Lzn8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de001t.bin</Path>
       <Import>{$ScriptPath}/de001t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de002t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de002t.xml</Import>
+      <Parameters>
+        <Key>1zzDAje7_QABVyWAe3zeuDVWc8CSl7C2s84sS99AR0CU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de002t.bin</Path>
       <Import>{$ScriptPath}/de002t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de003p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de003p.xml</Import>
+      <Parameters>
+        <Key>1fhtrZrCGu1renXgRQGBJD4qib0eQi5eOOyYwB8T8r8k</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de003p.bin</Path>
@@ -2209,40 +2740,130 @@
       <Import>{$ScriptPath}/de004t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de005p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de005p.xml</Import>
+      <Parameters>
+        <Key>1NlBzRygsBcJFtZElZTJ8H9uGiY8l8lWgB8vPRyiCQ38</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de005p.bin</Path>
       <Import>{$ScriptPath}/de005p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de006t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de006t.xml</Import>
+      <Parameters>
+        <Key>1DR6s83ZPF-grPHWhBVs7Wkq1qpa8K98O3Qx-KvkPP1o</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de006t.bin</Path>
       <Import>{$ScriptPath}/de006t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de007p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de007p.xml</Import>
+      <Parameters>
+        <Key>1SAfjN68F0D60nKAd7LkQ2xKdX309ihcTGMODdCpgHnU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de007p.bin</Path>
       <Import>{$ScriptPath}/de007p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de008p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de008p.xml</Import>
+      <Parameters>
+        <Key>1RZmV9vWA-uWbh6TPIrFoLszQImMtqfeqyDg1PHEGtyM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de008p.bin</Path>
       <Import>{$ScriptPath}/de008p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de009t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de009t.xml</Import>
+      <Parameters>
+        <Key>1IqZkzG55cFjM3wVCw2lxjGd6vXlreXq01xDcfQXg2PA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de009t.bin</Path>
       <Import>{$ScriptPath}/de009t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de010t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de010t.xml</Import>
+      <Parameters>
+        <Key>1cyXDrRBDNN2B6O7oItNJiNWWCtqXjeKgI4lCzNp4_1I</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de010t.bin</Path>
       <Import>{$ScriptPath}/de010t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de011p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de011p.xml</Import>
+      <Parameters>
+        <Key>1jKQO7Rm8QxsrExumzyhLdhJLnCohcVh008t-cmhG_w4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de011p.bin</Path>
       <Import>{$ScriptPath}/de011p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de012p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de012p.xml</Import>
+      <Parameters>
+        <Key>1XnVvK2tKTwqPgZkDjypiohJx4rsU0gh5MNe-QNvwibs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de012p.bin</Path>
       <Import>{$ScriptPath}/de012p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de100t.xml</Import>
+      <Parameters>
+        <Key>1k0Enp0ivMpr2JsmgM-gggrpoOnfRvA9WrNEdbQ54eaU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de100t.bin</Path>
       <Import>{$ScriptPath}/de100t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de101t.xml</Import>
+      <Parameters>
+        <Key>1lcOjHK5QXD8JIeJ8zlF8q1lfOZyeFqy-uA7v4Zvh3uk</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de101t.bin</Path>
@@ -2253,12 +2874,39 @@
       <Import>{$ScriptPath}/de102t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de103t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de103t.xml</Import>
+      <Parameters>
+        <Key>1oqL5xPzNFFB8vBa04sTOr_mf_jjy6gq2dI5eqm0xSsk</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de103t.bin</Path>
       <Import>{$ScriptPath}/de103t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de104t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de104t.xml</Import>
+      <Parameters>
+        <Key>1_bjBMNCjF75PyxJxbDlE0kaFIeXxeOVgO2MFRIgBzw4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de104t.bin</Path>
       <Import>{$ScriptPath}/de104t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/de105p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/de105p.xml</Import>
+      <Parameters>
+        <Key>1dqIC8kJwW-yRFZ3d4tTn8U8DZfVNpLS3BI44XXiMRXQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/de105p.bin</Path>
@@ -2277,12 +2925,30 @@
       <Import>{$ScriptPath}/dl002t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dl003t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dl003t.xml</Import>
+      <Parameters>
+        <Key>1ygN2HTGpfSOMAjX5Mmt_EBVXhII_CCdsAPIKMqhZUNA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dl003t.bin</Path>
       <Import>{$ScriptPath}/dl003t.xml</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dl004t.bin</Path>
       <Import>{$ScriptPath}/dl004t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dl005p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dl005p.xml</Import>
+      <Parameters>
+        <Key>1WSrC1rrm4HxLnQG--Y2oGstQmC-IUWs2DwJLXN0F3j0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dl005p.bin</Path>
@@ -2301,44 +2967,143 @@
       <Import>{$ScriptPath}/dl008p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dm001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dm001t.xml</Import>
+      <Parameters>
+        <Key>10ux3B78-TOkokUoy3kitdRPgL6HWADbFcMjJBgCCCvM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dm001t.bin</Path>
       <Import>{$ScriptPath}/dm001t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dr000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dr000p.xml</Import>
+      <Parameters>
+        <Key>1iyZXDAMuUL6V3osXq6psAScblUdLzxClGTXnMSIQsH4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dr000p.bin</Path>
       <Import>{$ScriptPath}/dr000p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dr001p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dr001p.xml</Import>
+      <Parameters>
+        <Key>1DFO1ymTT03z-YQdyQr69dzihkjxEGeMwhslKfofvXBU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dr001p.bin</Path>
       <Import>{$ScriptPath}/dr001p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dr002t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dr002t.xml</Import>
+      <Parameters>
+        <Key>1FBUKIkOXqLFdkk9mgBawh9466Z8yv4kYyT0BJrOKMdk</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dr002t.bin</Path>
       <Import>{$ScriptPath}/dr002t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dr003t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dr003t.xml</Import>
+      <Parameters>
+        <Key>1Kre0usfqAJmxSLaZ58QJ5B0mBV6dvKJRO4lkUu0iq-4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dr003t.bin</Path>
       <Import>{$ScriptPath}/dr003t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dr004t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dr004t.xml</Import>
+      <Parameters>
+        <Key>1oSRtzN3E7VjpMhmdVoWkzKBs2Ck5di9njX-vSJCIC8A</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dr004t.bin</Path>
       <Import>{$ScriptPath}/dr004t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dr005t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dr005t.xml</Import>
+      <Parameters>
+        <Key>1xpiAGcdaxKnx20065TVdhNTm6mAzltAtwrXnAwrtpH8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dr005t.bin</Path>
       <Import>{$ScriptPath}/dr005t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dr006t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dr006t.xml</Import>
+      <Parameters>
+        <Key>1w-t_BOFFWMPPeN1EXlNf0h7nR1sfgRW3Rhm_Xi1fCB4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dr006t.bin</Path>
       <Import>{$ScriptPath}/dr006t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dr007p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dr007p.xml</Import>
+      <Parameters>
+        <Key>1A3tfP5ovcw5-eJUXKjUmAxhGFHLz8-cPVxBO8qyvrZI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dr007p.bin</Path>
       <Import>{$ScriptPath}/dr007p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dr008p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dr008p.xml</Import>
+      <Parameters>
+        <Key>1FzE6jWtazEvjcZu6UGYPvCuHaCnoiaascPFvBcrGKWw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dr008p.bin</Path>
       <Import>{$ScriptPath}/dr008p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/dw000t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/dw000t.xml</Import>
+      <Parameters>
+        <Key>1blrPuuVUmZlcxK39Gxgvrorc6IGROJ5VkVgAV8IX210</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/dw000t.bin</Path>
@@ -2389,12 +3154,30 @@
       <Import>{$ScriptPath}/ev010t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ev011t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ev011t.xml</Import>
+      <Parameters>
+        <Key>1YlJQMO40Iu4RgLeQL6pNz6hyAhQjWWxEDRoG6jhissM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ev011t.bin</Path>
       <Import>{$ScriptPath}/ev011t.xml</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ev012t.bin</Path>
       <Import>{$ScriptPath}/ev012t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ev013t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ev013t.xml</Import>
+      <Parameters>
+        <Key>1Sigr02nxiOyIgi2i766kuACYCaHy0rj1bSwPaQnObt8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ev013t.bin</Path>
@@ -2405,80 +3188,260 @@
       <Import>{$ScriptPath}/ev014t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/go000t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/go000t.xml</Import>
+      <Parameters>
+        <Key>11VM4nNsd8ZsGIhgPLr7B15wlzWs3VjqiD_PwPF4-8pc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/go000t.bin</Path>
       <Import>{$ScriptPath}/go000t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/go001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/go001t.xml</Import>
+      <Parameters>
+        <Key>1aaHTzS7FoDgkQ4mmbHcNfWaeSCIcluLiLYhoYH1NyIs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/go001t.bin</Path>
       <Import>{$ScriptPath}/go001t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr000p.xml</Import>
+      <Parameters>
+        <Key>1Id33U0hkXcFj2W5ayJUlbaEcBjWDNVrso2bpK9eMTLw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr000p.bin</Path>
       <Import>{$ScriptPath}/gr000p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr001p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr001p.xml</Import>
+      <Parameters>
+        <Key>1W_5mcvJO6IrUNJuQXTPIOH1vzXX-DEmOMATZ3y62v04</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr001p.bin</Path>
       <Import>{$ScriptPath}/gr001p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr002p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr002p.xml</Import>
+      <Parameters>
+        <Key>1iOyB5Kt7S16ClLtUD3Jlb5o104WqtikYPFe-h3c-RAE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr002p.bin</Path>
       <Import>{$ScriptPath}/gr002p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr003t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr003t.xml</Import>
+      <Parameters>
+        <Key>1jNhBV0yvm7C3D0Z_yAj0FEJLsBnRpLQXkRhW3zSQObg</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr003t.bin</Path>
       <Import>{$ScriptPath}/gr003t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr004p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr004p.xml</Import>
+      <Parameters>
+        <Key>1hqaGEkM-cy4DlYo-f1Z-nK2-tGET89B1yLQM9rkD-J8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr004p.bin</Path>
       <Import>{$ScriptPath}/gr004p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr005p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr005p.xml</Import>
+      <Parameters>
+        <Key>1NBlWqWu6xjkL-3EFdhgtEzt1BoTagSAWVJ48hj4RrxM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr005p.bin</Path>
       <Import>{$ScriptPath}/gr005p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr006p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr006p.xml</Import>
+      <Parameters>
+        <Key>1CxCeL3hDXI2ycNq86Xv9DvYsL5Ered1OXcR75OsJE30</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr006p.bin</Path>
       <Import>{$ScriptPath}/gr006p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr007t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr007t.xml</Import>
+      <Parameters>
+        <Key>1u1Bpfk0C9g5aszVdUgver9qQzIKnrzQaaG6ZGYWVfls</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr007t.bin</Path>
       <Import>{$ScriptPath}/gr007t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr008t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr008t.xml</Import>
+      <Parameters>
+        <Key>15_wuAnd3CAFHTJjlrVNYjSXLmFT2KUrb4pXrLPms0rA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr008t.bin</Path>
       <Import>{$ScriptPath}/gr008t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr009t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr009t.xml</Import>
+      <Parameters>
+        <Key>1D70yfR-URJRDWKOndl8RVNK7RIfhIQd9K7ZnnTCXUMw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr009t.bin</Path>
       <Import>{$ScriptPath}/gr009t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr010t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr010t.xml</Import>
+      <Parameters>
+        <Key>1xrqODPf5beIyNTGFQ83qguFXjDA7mfGbLfUlhANiIZE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr010t.bin</Path>
       <Import>{$ScriptPath}/gr010t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr011p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr011p.xml</Import>
+      <Parameters>
+        <Key>1rWM4ArU4_vs7XrWzcCeTUmOkXWWspl39zraXULloMMg</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr011p.bin</Path>
       <Import>{$ScriptPath}/gr011p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr012p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr012p.xml</Import>
+      <Parameters>
+        <Key>1QYjQpei8StAhkcfOKgUb0XOIf8wOEs6WuiqnBUDTKis</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr012p.bin</Path>
       <Import>{$ScriptPath}/gr012p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr013p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr013p.xml</Import>
+      <Parameters>
+        <Key>18mSlGwGrwgCbn_zOLegm4oO9m_nmIiW7OEHrFKnScEs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr013p.bin</Path>
       <Import>{$ScriptPath}/gr013p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr014t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr014t.xml</Import>
+      <Parameters>
+        <Key>1J4I0bFy4ksGmTxoj-ukLFw7tjMorZYFnXsOoic1OgG0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr014t.bin</Path>
       <Import>{$ScriptPath}/gr014t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr100t.xml</Import>
+      <Parameters>
+        <Key>1rF5L74pBZVmzNH4EaC55vi7ySalIQh2aT9Lz2BsmYcw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr100t.bin</Path>
       <Import>{$ScriptPath}/gr100t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr101t.xml</Import>
+      <Parameters>
+        <Key>1_B0QZG6HNGg3pSnYTYqcB5LsjwL-f1iKkV7bn34ugEs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr101t.bin</Path>
       <Import>{$ScriptPath}/gr101t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr102p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr102p.xml</Import>
+      <Parameters>
+        <Key>1PhuTm0-ty1olvyQaY5azJfBSl6Q4YkKQdK7ItxUmihA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr102p.bin</Path>
@@ -2489,8 +3452,26 @@
       <Import>{$ScriptPath}/gr103t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr104t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr104t.xml</Import>
+      <Parameters>
+        <Key>1GEcrXG_0yDDOcEFiWgdg3nLEOAycgkGd8nwuGDlaf_Y</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr104t.bin</Path>
       <Import>{$ScriptPath}/gr104t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr105p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr105p.xml</Import>
+      <Parameters>
+        <Key>1otv3GOmQ-JbdHkcqB0P-rBg8mXH5E5D-VrmhxCKe438</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr105p.bin</Path>
@@ -2501,12 +3482,39 @@
       <Import>{$ScriptPath}/gr106p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr107p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr107p.xml</Import>
+      <Parameters>
+        <Key>1l8X-OGO1fbtZg0UKdYXNsYprhL9m38bCy4n64muG-no</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr107p.bin</Path>
       <Import>{$ScriptPath}/gr107p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gr109t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gr109t.xml</Import>
+      <Parameters>
+        <Key>1M6UolJrOVW15g88aCO8MSEXqGll1zbgp-FxGVYDJOe4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gr109t.bin</Path>
       <Import>{$ScriptPath}/gr109t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gv001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gv001t.xml</Import>
+      <Parameters>
+        <Key>1LFWZc3pvuDkVFdDKpnTV5ny4nj6l3d3RSQsvm723740</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gv001t.bin</Path>
@@ -2521,6 +3529,15 @@
       <Import>{$ScriptPath}/gv003t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gv004p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gv004p.xml</Import>
+      <Parameters>
+        <Key>1SOoPGTmTiZFtpOkDgWAB3-Onxcm8VLiSk2bhALnRshA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gv004p.bin</Path>
       <Import>{$ScriptPath}/gv004p.xml</Import>
     </File>
@@ -2533,52 +3550,169 @@
       <Import>{$ScriptPath}/gv100t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/gv101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/gv101t.xml</Import>
+      <Parameters>
+        <Key>1b9rzyGKk3WNObwBCWzUsd4RY_UblN4fY9ThCbZmv-YU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/gv101t.bin</Path>
       <Import>{$ScriptPath}/gv101t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he000p.xml</Import>
+      <Parameters>
+        <Key>1mHrdJNH7EU-bsYNua4FWlp2thwvOrDOQJQxudgl5nxw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he000p.bin</Path>
       <Import>{$ScriptPath}/he000p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he001p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he001p.xml</Import>
+      <Parameters>
+        <Key>107ZMcXOgFGJdSYJqkWnh11_eGBFm2ZfRP7nrtK7JLac</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he001p.bin</Path>
       <Import>{$ScriptPath}/he001p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he002t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he002t.xml</Import>
+      <Parameters>
+        <Key>1TT2VLhmh5GFQEfo46y0wM6YChUGaHtjvsU7aFzbq_-U</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he002t.bin</Path>
       <Import>{$ScriptPath}/he002t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he003t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he003t.xml</Import>
+      <Parameters>
+        <Key>16p9J_Si8dawSc30AanDpyJhewQ2TLbgY2T3dZvQoiy0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he003t.bin</Path>
       <Import>{$ScriptPath}/he003t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he004p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he004p.xml</Import>
+      <Parameters>
+        <Key>1rP4vIQwgyeff-YsV4RqnMnOLtkeddps5EFirenXtDeA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he004p.bin</Path>
       <Import>{$ScriptPath}/he004p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he005p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he005p.xml</Import>
+      <Parameters>
+        <Key>1kaQkV5MAm21EieLgS9Eo6KzmPCrAQIXFoH60lf2_7IY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he005p.bin</Path>
       <Import>{$ScriptPath}/he005p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he100p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he100p.xml</Import>
+      <Parameters>
+        <Key>1mTUEzf-qrhOJ3gqwx0mikMkAp3NyL2pdoWnTbC1Nufw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he100p.bin</Path>
       <Import>{$ScriptPath}/he100p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he101p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he101p.xml</Import>
+      <Parameters>
+        <Key>1NnDDU6ENM1usu8U4JIauORExs7QlYfQb8hh7HA92F3s</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he101p.bin</Path>
       <Import>{$ScriptPath}/he101p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he102t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he102t.xml</Import>
+      <Parameters>
+        <Key>1zCUhFY6oKluXAIi5gTRZOQMp8ei2sYA6IZP-Vo7MqLs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he102t.bin</Path>
       <Import>{$ScriptPath}/he102t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he103t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he103t.xml</Import>
+      <Parameters>
+        <Key>1qeBhgrGIaF8XDWgOq4_jlcd1tl54nLn4Nh2CnW4HKI8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he103t.bin</Path>
       <Import>{$ScriptPath}/he103t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he104t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he104t.xml</Import>
+      <Parameters>
+        <Key>1cH4LLTy8ppYWPsBlv68IfyEKMZkmjzqhzhNOb1JQd8o</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he104t.bin</Path>
       <Import>{$ScriptPath}/he104t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he105p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he105p.xml</Import>
+      <Parameters>
+        <Key>1wuQ7i2XnGKbh25Y5UiC3De0XIfIIgd0Db7LztFY60so</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he105p.bin</Path>
@@ -2589,168 +3723,546 @@
       <Import>{$ScriptPath}/he106p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he107t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he107t.xml</Import>
+      <Parameters>
+        <Key>1Iur6fK-deBWNb2isWMbrvQgM5z6VjSmGmzWlSioh53M</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he107t.bin</Path>
       <Import>{$ScriptPath}/he107t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/he108t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/he108t.xml</Import>
+      <Parameters>
+        <Key>1LijFh43X9_sstNWnkiWiogEMWoEiQS2bmQ9bPeAoQl4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/he108t.bin</Path>
       <Import>{$ScriptPath}/he108t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/hh001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/hh001t.xml</Import>
+      <Parameters>
+        <Key>1qdc7BtkPMPqmzzkhHQa8AI6n4xpDFzNL3s-X2IHkqcA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/hh001t.bin</Path>
       <Import>{$ScriptPath}/hh001t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/hh021t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/hh021t.xml</Import>
+      <Parameters>
+        <Key>1mXiW5Py_NXMyZp0z9OATE4ARHHRbW_tbV1srs8aUrg4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/hh021t.bin</Path>
       <Import>{$ScriptPath}/hh021t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/hk000t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/hk000t.xml</Import>
+      <Parameters>
+        <Key>1obZRrytTUpHhRFfc_ZUmTHtwg7OE4txC4dhZgQaMOTE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/hk000t.bin</Path>
       <Import>{$ScriptPath}/hk000t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/hk100p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/hk100p.xml</Import>
+      <Parameters>
+        <Key>1-KNuoDwPRFtUR--CLurOnt2wwyG5_LYyBaoA03mJMTA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/hk100p.bin</Path>
       <Import>{$ScriptPath}/hk100p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/hm001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/hm001t.xml</Import>
+      <Parameters>
+        <Key>1pzZ8jRVVN2JKXm0zmIiEbVvpums_dQ3NAB3v1_VNue4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/hm001t.bin</Path>
       <Import>{$ScriptPath}/hm001t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/hm100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/hm100t.xml</Import>
+      <Parameters>
+        <Key>1UCs66LmD5k48S4f6oKCQ3__0sqKn7JVvcjH2Yr95760</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/hm100t.bin</Path>
       <Import>{$ScriptPath}/hm100t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho000p.xml</Import>
+      <Parameters>
+        <Key>1coBQWHo2wmgI8EZ8xGzEoFJv-q4a2gkNcHt8t6sjBDU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho000p.bin</Path>
       <Import>{$ScriptPath}/ho000p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho001t.xml</Import>
+      <Parameters>
+        <Key>1Y_8I1Fi3oFD4jS9Pnu7UozFK-XtpShgi9_pQBEp-igE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho001t.bin</Path>
       <Import>{$ScriptPath}/ho001t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho002t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho002t.xml</Import>
+      <Parameters>
+        <Key>1u41xr9Oghhmrr6iuoZCnUwj_C5MW6auuMZwnpyPlm4g</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho002t.bin</Path>
       <Import>{$ScriptPath}/ho002t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho006p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho006p.xml</Import>
+      <Parameters>
+        <Key>1pjg3WEoXfuZRFbPYI8C9wcVvy976J9Ynykd5NuzulJg</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho006p.bin</Path>
       <Import>{$ScriptPath}/ho006p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho020p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho020p.xml</Import>
+      <Parameters>
+        <Key>1obLS7aVg3qgOdvfCATxtyOLtLQr1lAx49VB5SObrbxM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho020p.bin</Path>
       <Import>{$ScriptPath}/ho020p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho021t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho021t.xml</Import>
+      <Parameters>
+        <Key>1YaEXo5XpDQYeT10ocFv-g73V0ArTyl20fvgS-c14A9w</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho021t.bin</Path>
       <Import>{$ScriptPath}/ho021t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho026p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho026p.xml</Import>
+      <Parameters>
+        <Key>1Tc3pYnK_Wgs8dvj1V5uormn9N3ucYyKgacmvv0Lc1ng</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho026p.bin</Path>
       <Import>{$ScriptPath}/ho026p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho040p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho040p.xml</Import>
+      <Parameters>
+        <Key>1MAJ7Vm616G_UNCnMoeDgdmi4ZzF1_1PAU4RohKXDs4o</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho040p.bin</Path>
       <Import>{$ScriptPath}/ho040p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho041t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho041t.xml</Import>
+      <Parameters>
+        <Key>1UAPcLHPZZT1UxSEJ2hM3N4C24tIDFkVkaf7sHDUand0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho041t.bin</Path>
       <Import>{$ScriptPath}/ho041t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho100t.xml</Import>
+      <Parameters>
+        <Key>1uQI-BSGFSImw1KejjPvYsNo5NqNqgUT7nuxyvbx34Wk</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho100t.bin</Path>
       <Import>{$ScriptPath}/ho100t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho101t.xml</Import>
+      <Parameters>
+        <Key>1rHHklVLiqA-69HYTQ-AtlmhBMBwfuBOZcthDehq--Fs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho101t.bin</Path>
       <Import>{$ScriptPath}/ho101t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho102p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho102p.xml</Import>
+      <Parameters>
+        <Key>1KmLyx9ubxv33tPOC9rJPGEkoYMf7-sebDlyNDh9JapI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho102p.bin</Path>
       <Import>{$ScriptPath}/ho102p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho103t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho103t.xml</Import>
+      <Parameters>
+        <Key>1m7x9GbglIA4wqTBLUz27IH5pwkYHYHBibz0f163Og5U</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho103t.bin</Path>
       <Import>{$ScriptPath}/ho103t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho104p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho104p.xml</Import>
+      <Parameters>
+        <Key>1gSZtGGazfDFiQUUAd0NzmoEEIAA7PWxdf0PfnHHtJlQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho104p.bin</Path>
       <Import>{$ScriptPath}/ho104p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho105p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho105p.xml</Import>
+      <Parameters>
+        <Key>1W3Es5gOEehitd4GmyvT_7NDLMooZEoeCphYAvl07SsI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho105p.bin</Path>
       <Import>{$ScriptPath}/ho105p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho106p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho106p.xml</Import>
+      <Parameters>
+        <Key>1B37gHRQpz5cRIKxYOcRB3rilxK3pb2RhPdTvo4yLVi0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho106p.bin</Path>
       <Import>{$ScriptPath}/ho106p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho108t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho108t.xml</Import>
+      <Parameters>
+        <Key>1XwyhkBf_d2quVYxNEW6xeYHVFe4QolPwBhK2YtfME3M</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho108t.bin</Path>
       <Import>{$ScriptPath}/ho108t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho120t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho120t.xml</Import>
+      <Parameters>
+        <Key>1NPHbG0qs66eUra-Uus-dAXmLKZKHJ9rAujS8JSmUvBo</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho120t.bin</Path>
       <Import>{$ScriptPath}/ho120t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho121t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho121t.xml</Import>
+      <Parameters>
+        <Key>1iXWVdgJWM71EN09sOZJmbSSbdO3CBR_C9KXAipmKYjw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho121t.bin</Path>
       <Import>{$ScriptPath}/ho121t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho123t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho123t.xml</Import>
+      <Parameters>
+        <Key>1l37j7Z0pvzHdVHp94xZSLsoU4dYtqBK9m3SDaFjgf_8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho123t.bin</Path>
       <Import>{$ScriptPath}/ho123t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho124p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho124p.xml</Import>
+      <Parameters>
+        <Key>1DZwi1nS30ILkkevJJIzRij-a1BxGccksg2oBzVLXW6M</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho124p.bin</Path>
       <Import>{$ScriptPath}/ho124p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho125p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho125p.xml</Import>
+      <Parameters>
+        <Key>1mHtIXRjXAeuXWDNopjU4u2tj_dKabNzMgTyxH3PZTYE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho125p.bin</Path>
       <Import>{$ScriptPath}/ho125p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho127p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho127p.xml</Import>
+      <Parameters>
+        <Key>1tTuyQzaqRDxXtkvcOnOUqIjvdnK-WpooqKKk4Ix7cDQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho127p.bin</Path>
       <Import>{$ScriptPath}/ho127p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho140t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho140t.xml</Import>
+      <Parameters>
+        <Key>1HHAMtQykCPWEgIIpRx69-lvPm4IgPtDvCK53CtTpyfI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho140t.bin</Path>
       <Import>{$ScriptPath}/ho140t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho141t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho141t.xml</Import>
+      <Parameters>
+        <Key>1Q9lhSMXfL2Wk80LSv62MqtFxpKB7L3Rt7SXaJ1Pwhvc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho141t.bin</Path>
       <Import>{$ScriptPath}/ho141t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho143t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho143t.xml</Import>
+      <Parameters>
+        <Key>1lF9sieuLldB9zg_EihC_t6JAbPA9CCxIN7Z5oq6L2g4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho143t.bin</Path>
       <Import>{$ScriptPath}/ho143t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho144p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho144p.xml</Import>
+      <Parameters>
+        <Key>17WozQYjIVrWSzfvwf6hIlegRoiwDq-V5G5ucKofcoM0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho144p.bin</Path>
       <Import>{$ScriptPath}/ho144p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho145p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho145p.xml</Import>
+      <Parameters>
+        <Key>1WXTuuqgSscGBT9Pd2KgOmwJeDoUgrn5ix7K9tzW58IY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho145p.bin</Path>
       <Import>{$ScriptPath}/ho145p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho146p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho146p.xml</Import>
+      <Parameters>
+        <Key>1mSIoW-1cRwd6GD71XWdoxs_ZCsnCGITYTz3IEwuw_Jo</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho146p.bin</Path>
       <Import>{$ScriptPath}/ho146p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho998p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho998p.xml</Import>
+      <Parameters>
+        <Key>1-uyTnVdii3al_Oto83Hvp11JoXzhAazmHkHPzhsQ5WQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho998p.bin</Path>
       <Import>{$ScriptPath}/ho998p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ho999p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ho999p.xml</Import>
+      <Parameters>
+        <Key>1UBTRixEc8YO73do0N5vkR3MtSkwapJYnMhhYvgeQqwI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ho999p.bin</Path>
       <Import>{$ScriptPath}/ho999p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/hs000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/hs000p.xml</Import>
+      <Parameters>
+        <Key>1SPabaUCEKBQ_YTfNxlHRIEqjoz5oYwdpXxLWamtM2ow</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/hs000p.bin</Path>
       <Import>{$ScriptPath}/hs000p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/hs001p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/hs001p.xml</Import>
+      <Parameters>
+        <Key>1GgvXrSyvLAgzumhOEKFD9SndVaYp9FFYbVlO4La9mOg</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/hs001p.bin</Path>
       <Import>{$ScriptPath}/hs001p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/hs100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/hs100t.xml</Import>
+      <Parameters>
+        <Key>1d4qa9hlyDAyKFyRStI2qjNF9av20dz2iPyQtuvYl80I</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/hs100t.bin</Path>
@@ -2793,8 +4305,26 @@
       <Import>{$ScriptPath}/ja008t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ja100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ja100t.xml</Import>
+      <Parameters>
+        <Key>1oEUyubrrogQoGbRfivsuwnv6z7SLcv0ZNDh2wqr_3CU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ja100t.bin</Path>
       <Import>{$ScriptPath}/ja100t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/ja101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/ja101t.xml</Import>
+      <Parameters>
+        <Key>1Nnw-oSbA0D0HnAfmB6wC99SlcBAerIG8Ou0VfALQXHw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/ja101t.bin</Path>
@@ -2837,16 +4367,52 @@
       <Import>{$ScriptPath}/lg007t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/mo000t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/mo000t.xml</Import>
+      <Parameters>
+        <Key>1YexHHfYm9uFwOaNizQtk7_m73I30Gv80LCSDIdoUpVs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/mo000t.bin</Path>
       <Import>{$ScriptPath}/mo000t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/mo001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/mo001t.xml</Import>
+      <Parameters>
+        <Key>1GC3YznmSjHmYe5cQ1o35J973JEM7ACiZBgCfx379HEQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/mo001t.bin</Path>
       <Import>{$ScriptPath}/mo001t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/mo002t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/mo002t.xml</Import>
+      <Parameters>
+        <Key>1G8go31y6MvqFMK9eXrL5w2Ge5JT8IFad6i10ldu20kc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/mo002t.bin</Path>
       <Import>{$ScriptPath}/mo002t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/mo003p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/mo003p.xml</Import>
+      <Parameters>
+        <Key>1Ar--JU50X1sZhajRn9cUvLQ5s6FgBBtwQfxDqJ1R9vo</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/mo003p.bin</Path>
@@ -2855,6 +4421,15 @@
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/mo004t.bin</Path>
       <Import>{$ScriptPath}/mo004t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/mo005t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/mo005t.xml</Import>
+      <Parameters>
+        <Key>1ZyD25XbY4t9H4RAYSdYwWcfEr_KgcVWbyiIyX8W8sDE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/mo005t.bin</Path>
@@ -2879,6 +4454,15 @@
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/my003p.bin</Path>
       <Import>{$ScriptPath}/my003p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/my004p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/my004p.xml</Import>
+      <Parameters>
+        <Key>1oXkJABmKko85hn7JP5uDX5xNmlyexvOwvjK2q9PnMsc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/my004p.bin</Path>
@@ -2925,96 +4509,312 @@
       <Import>{$ScriptPath}/myd00d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd01d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd01d.xml</Import>
+      <Parameters>
+        <Key>1elSP0wWCKRCvezE8BFaXI2IVAy7rrEs6S16Xr2cxncQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd01d.bin</Path>
       <Import>{$ScriptPath}/myd01d.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd02d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd02d.xml</Import>
+      <Parameters>
+        <Key>1cb2QdIbN5iVFHhzOECL4cOZjzUne6RJDqlq75Rh3Bgs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd02d.bin</Path>
       <Import>{$ScriptPath}/myd02d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd03d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd03d.xml</Import>
+      <Parameters>
+        <Key>1bfJk2vIlWsxwlUhfpRWBq7RRU5MsFk-zf7TGOk0bNnw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd03d.bin</Path>
       <Import>{$ScriptPath}/myd03d.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd04d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd04d.xml</Import>
+      <Parameters>
+        <Key>1Sh0F1WAj0hXyJGPj0C_c2L2EuwHvYR9N7EL3JXb-g_U</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd04d.bin</Path>
       <Import>{$ScriptPath}/myd04d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd05d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd05d.xml</Import>
+      <Parameters>
+        <Key>1adxzizEX2GrC_-Ejr5ufOMigjb-ELnaP0msrgEWuZ28</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd05d.bin</Path>
       <Import>{$ScriptPath}/myd05d.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd06d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd06d.xml</Import>
+      <Parameters>
+        <Key>172KWXoaaqA1qRPUwwy6ze1GAm8MDFDoQ4IxKP5dSrVA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd06d.bin</Path>
       <Import>{$ScriptPath}/myd06d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd07d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd07d.xml</Import>
+      <Parameters>
+        <Key>1bOE9pKxUXy4JzyNj6Zyj3PEacTVBvMZIn32BbIvv5RM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd07d.bin</Path>
       <Import>{$ScriptPath}/myd07d.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd08d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd08d.xml</Import>
+      <Parameters>
+        <Key>1XGP0SoD0ZyzOJPOdvX6HmxwVCa5YqRu5goU6fEYCE3A</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd08d.bin</Path>
       <Import>{$ScriptPath}/myd08d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd09d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd09d.xml</Import>
+      <Parameters>
+        <Key>1Si0RVG6YB3zYZzXbT-wObYvjDmWIC6jdpk-_SdCysHQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd09d.bin</Path>
       <Import>{$ScriptPath}/myd09d.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd10d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd10d.xml</Import>
+      <Parameters>
+        <Key>1z0PPIzx2NbDDVvKmDh6i45acUekNiZhdlxWuAh0dJQc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd10d.bin</Path>
       <Import>{$ScriptPath}/myd10d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd11d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd11d.xml</Import>
+      <Parameters>
+        <Key>1_XYuAM0bMPFTvxeudnbYirrLfkmUvzTl1fwxrD6eC-w</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd11d.bin</Path>
       <Import>{$ScriptPath}/myd11d.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd12d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd12d.xml</Import>
+      <Parameters>
+        <Key>1vovd33N3xyuXSS2Xfd1LNKcU880v2lmzbyNXWHVvbf0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd12d.bin</Path>
       <Import>{$ScriptPath}/myd12d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd13d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd13d.xml</Import>
+      <Parameters>
+        <Key>1-0fTeSQi05bwt6To9TqB3OxVz_p6zER2E6oz0weG4_A</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd13d.bin</Path>
       <Import>{$ScriptPath}/myd13d.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd14d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd14d.xml</Import>
+      <Parameters>
+        <Key>1d-eX-sj6E0sr17zHHrq6cpaaVj1v7G_PILc3ZzqEklg</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd14d.bin</Path>
       <Import>{$ScriptPath}/myd14d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd15d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd15d.xml</Import>
+      <Parameters>
+        <Key>1LFE29D9XhyaAJchvfTUFFsxApz5RY8tx454bdbAXrGY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd15d.bin</Path>
       <Import>{$ScriptPath}/myd15d.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd16d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd16d.xml</Import>
+      <Parameters>
+        <Key>1-6C3SEjZOLwt-qYVwhRGUJg-_hS4Pr8CdGT8w1ePf7E</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd16d.bin</Path>
       <Import>{$ScriptPath}/myd16d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd17d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd17d.xml</Import>
+      <Parameters>
+        <Key>1NqU2icWNVh_wXWgGsHHml95NhqF7I0SqTGIz-MKZNrY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd17d.bin</Path>
       <Import>{$ScriptPath}/myd17d.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd18d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd18d.xml</Import>
+      <Parameters>
+        <Key>1lkYsW3KOXGKiuFevV89cB4IXf2GM6Cvcl6nhBdCuGaU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd18d.bin</Path>
       <Import>{$ScriptPath}/myd18d.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/myd19d.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/myd19d.xml</Import>
+      <Parameters>
+        <Key>1J37BRjV07RGtI7sBiN2orG6huByMYvHxWNY5wOjkIgI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/myd19d.bin</Path>
       <Import>{$ScriptPath}/myd19d.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/na000t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/na000t.xml</Import>
+      <Parameters>
+        <Key>1BbWsW4D_G-CMh3IMzcO8JK1N_pS4DnLDxxLK0GEL4mo</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/na000t.bin</Path>
       <Import>{$ScriptPath}/na000t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/na001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/na001t.xml</Import>
+      <Parameters>
+        <Key>18-7BTJwaWTtPjPJ8HEXtg7-KFQustKjQSMj0fbd6_7Y</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/na001t.bin</Path>
       <Import>{$ScriptPath}/na001t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nc000t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nc000t.xml</Import>
+      <Parameters>
+        <Key>1KOcwLbBKE2mmjQbukzh7hKD28iJRlkoXfnV7lDUAFr4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nc000t.bin</Path>
       <Import>{$ScriptPath}/nc000t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nc001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nc001t.xml</Import>
+      <Parameters>
+        <Key>1xbs6FNO4jSVC4qcezfR5XpDZoW35jBhvIZeYDNZO56E</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nc001t.bin</Path>
       <Import>{$ScriptPath}/nc001t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nc002t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nc002t.xml</Import>
+      <Parameters>
+        <Key>1_0UXGF359hhxU68JFjoV47dfT84MFi18f-uenUe5t9Y</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nc002t.bin</Path>
@@ -3025,16 +4825,52 @@
       <Import>{$ScriptPath}/nc100p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nc101p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nc101p.xml</Import>
+      <Parameters>
+        <Key>1YyFQ54Lx6lH3kAk_2Vx35i63qfHbplMxS2lyHhxoqEk</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nc101p.bin</Path>
       <Import>{$ScriptPath}/nc101p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nc102p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nc102p.xml</Import>
+      <Parameters>
+        <Key>1uEaeFREd-dgjCECqeudqWt2EhCssQ3fFShc2zIcE_P8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nc102p.bin</Path>
       <Import>{$ScriptPath}/nc102p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nc103p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nc103p.xml</Import>
+      <Parameters>
+        <Key>1cndjJHKARc-N97b5KdJZVlMTyp15qiNTX-_tIz8p6s4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nc103p.bin</Path>
       <Import>{$ScriptPath}/nc103p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nc104t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nc104t.xml</Import>
+      <Parameters>
+        <Key>1ueI5HZw07OhrHolgpqlAUgjX1X-YGwkvIKH85KwH2fY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nc104t.bin</Path>
@@ -3049,56 +4885,182 @@
       <Import>{$ScriptPath}/nc106t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nc107t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nc107t.xml</Import>
+      <Parameters>
+        <Key>1juXx0ghX1pufoMd8CFQXP6LLQrT91xz3tPZnjCd1YeI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nc107t.bin</Path>
       <Import>{$ScriptPath}/nc107t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nc108p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nc108p.xml</Import>
+      <Parameters>
+        <Key>1h_FH-jCVFgR92739oz6KjEHcA28F2OpZQiENRaADky8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nc108p.bin</Path>
       <Import>{$ScriptPath}/nc108p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nc109p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nc109p.xml</Import>
+      <Parameters>
+        <Key>1KI4fQyWzjcrh0GVZrbtEG1o1dgc4pp1j72G4qDjw2xY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nc109p.bin</Path>
       <Import>{$ScriptPath}/nc109p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf000t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf000t.xml</Import>
+      <Parameters>
+        <Key>1To0gVrIgBHBDOuQDrMyDotmYamoQh_QqpxTHwrCnk04</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf000t.bin</Path>
       <Import>{$ScriptPath}/nf000t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf001t.xml</Import>
+      <Parameters>
+        <Key>1cPjgXeSeR0jdpmTSu5fvA8gkmEa5QJfwZyIyDognS-k</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf001t.bin</Path>
       <Import>{$ScriptPath}/nf001t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf002p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf002p.xml</Import>
+      <Parameters>
+        <Key>1qlgYjZE_YeQAVA0uFTR7XrVLsUtygdv8RttPnEbOV5w</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf002p.bin</Path>
       <Import>{$ScriptPath}/nf002p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf003t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf003t.xml</Import>
+      <Parameters>
+        <Key>1M5F9X5hePEq4d-c_JM6RPZJSCgd2jrEACzuqBsK3gTo</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf003t.bin</Path>
       <Import>{$ScriptPath}/nf003t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf004t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf004t.xml</Import>
+      <Parameters>
+        <Key>1Uxx1wHx8xCmM353JBEEKlOfMG-CAx8bcP7SqtYPAzlc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf004t.bin</Path>
       <Import>{$ScriptPath}/nf004t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf005t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf005t.xml</Import>
+      <Parameters>
+        <Key>1dZaE7jTuLIY3WUJFYrqCPUt2m0ALdlEQnPfg3-AHXqM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf005t.bin</Path>
       <Import>{$ScriptPath}/nf005t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf006p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf006p.xml</Import>
+      <Parameters>
+        <Key>1id_iBqdAH0scIT6NUQnTY3M1kOSIosJPOsoQaPX7Qus</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf006p.bin</Path>
       <Import>{$ScriptPath}/nf006p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf007p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf007p.xml</Import>
+      <Parameters>
+        <Key>1mDZk-pezRnkdCHg8W1gR1qVzNG680o2GaVoPvKcKOQU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf007p.bin</Path>
       <Import>{$ScriptPath}/nf007p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf008p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf008p.xml</Import>
+      <Parameters>
+        <Key>1BuHq91Qt763xd8JWBvooIUs1WhxvL7DlfOO1ukfzbbU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf008p.bin</Path>
       <Import>{$ScriptPath}/nf008p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf009t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf009t.xml</Import>
+      <Parameters>
+        <Key>1i88Ap7dSvOziNrAbrJi51iaPffCl2SqpKR8butfHT3o</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf009t.bin</Path>
       <Import>{$ScriptPath}/nf009t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nf010t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nf010t.xml</Import>
+      <Parameters>
+        <Key>1daRXx_K0oIEZHXacFp3i9j1KYzrnr5_-99Sphewzeak</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nf010t.bin</Path>
@@ -3109,24 +5071,78 @@
       <Import>{$ScriptPath}/nf011t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nn000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nn000p.xml</Import>
+      <Parameters>
+        <Key>1ZLnhB5-p4i1Y87FwaOpvk6UTD1nojBVVQXD9B1HI7z0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nn000p.bin</Path>
       <Import>{$ScriptPath}/nn000p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nn001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nn001t.xml</Import>
+      <Parameters>
+        <Key>1ZVLH68T3E-WMwLQkLZQcvDkQJWuPrtbTzfYH6g3L3RY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nn001t.bin</Path>
       <Import>{$ScriptPath}/nn001t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nn100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nn100t.xml</Import>
+      <Parameters>
+        <Key>1TlrUQuJWKJ72emTB13iRmsQw0rqXfxOJ8tD9PY9t8MI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nn100t.bin</Path>
       <Import>{$ScriptPath}/nn100t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nn101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nn101t.xml</Import>
+      <Parameters>
+        <Key>1pwuGTRznqVoreMxy87e90zPnvixQHcozQGVihckRrWA</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nn101t.bin</Path>
       <Import>{$ScriptPath}/nn101t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nn102t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nn102t.xml</Import>
+      <Parameters>
+        <Key>1M9vS8HJ-TWtNhduZGOS7KmMtfhtTWko_L4ohe27TN6c</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nn102t.bin</Path>
       <Import>{$ScriptPath}/nn102t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/nn103t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/nn103t.xml</Import>
+      <Parameters>
+        <Key>1Zj_Ww1Odam5NYVcx__FzQhdWiqRli2XbJkiLv_KKqB4</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/nn103t.bin</Path>
@@ -3169,6 +5185,15 @@
       <Import>{$ScriptPath}/re004p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/re005t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/re005t.xml</Import>
+      <Parameters>
+        <Key>1o_YLD0gwVLzsm1RvIOVWZJW0QNR1q1js-4O12V798mc</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/re005t.bin</Path>
       <Import>{$ScriptPath}/re005t.xml</Import>
     </File>
@@ -3181,8 +5206,26 @@
       <Import>{$ScriptPath}/re007p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/re100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/re100t.xml</Import>
+      <Parameters>
+        <Key>1dzrsIsV5NKGoN7cKDNMNu6yX0PnowkiCWL87GFkeNIk</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/re100t.bin</Path>
       <Import>{$ScriptPath}/re100t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/re101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/re101t.xml</Import>
+      <Parameters>
+        <Key>1fIEKi1i4-ZipwAYVnZmu_Ilk41_RyxhIars_KYB4eYE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/re101t.bin</Path>
@@ -3225,6 +5268,15 @@
       <Import>{$ScriptPath}/sa005p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/sa006p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/sa006p.xml</Import>
+      <Parameters>
+        <Key>1qduipNHo8VfQiN8bx_Ovei-g8si5bCxKSUQHbbYK2Fg</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/sa006p.bin</Path>
       <Import>{$ScriptPath}/sa006p.xml</Import>
     </File>
@@ -3233,8 +5285,26 @@
       <Import>{$ScriptPath}/sa100t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/sa101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/sa101t.xml</Import>
+      <Parameters>
+        <Key>12P3PjcGfEJcjdoQ1VgZAWaMLp1maM458cT8hTGmJKXo</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/sa101t.bin</Path>
       <Import>{$ScriptPath}/sa101t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/sa102t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/sa102t.xml</Import>
+      <Parameters>
+        <Key>1Kc7Yq63qThshvvxB8cDrjKcrLx2UTE0SehB7sifhF2M</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/sa102t.bin</Path>
@@ -3245,6 +5315,15 @@
       <Import>{$ScriptPath}/sa103t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/sa104t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/sa104t.xml</Import>
+      <Parameters>
+        <Key>1PGN-qW1mAyIGTfV8s8Kc7R3rqdy5P4tjYdZ4emT3lcw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/sa104t.bin</Path>
       <Import>{$ScriptPath}/sa104t.xml</Import>
     </File>
@@ -3253,76 +5332,247 @@
       <Import>{$ScriptPath}/sa105t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/sl000t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/sl000t.xml</Import>
+      <Parameters>
+        <Key>18PmjOBfIeB6tyQVrfr1wn6lFFkYzd0D6-EOsUDzAxRE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/sl000t.bin</Path>
       <Import>{$ScriptPath}/sl000t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/sl001t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/sl001t.xml</Import>
+      <Parameters>
+        <Key>1f8lxfxDdsrXPlz_SCC8C8qZygaoNC3tbgKX8dIQ-IK8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/sl001t.bin</Path>
       <Import>{$ScriptPath}/sl001t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/sl100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/sl100t.xml</Import>
+      <Parameters>
+        <Key>1l784r9CtDGFlDeQb4NPAz2QLgLWXpuncJ05adTWyjBQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/sl100t.bin</Path>
       <Import>{$ScriptPath}/sl100t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/sl101t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/sl101t.xml</Import>
+      <Parameters>
+        <Key>1dRNUce5nVqX2lenTdpo6Y26hP7ywikKfKX5HZ00UyMM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/sl101t.bin</Path>
       <Import>{$ScriptPath}/sl101t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td000p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td000p.xml</Import>
+      <Parameters>
+        <Key>1Lrb0hxE8cbwvG7Hu1mkLCuecymURUCmwtbphnX9bOE8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td000p.bin</Path>
       <Import>{$ScriptPath}/td000p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td001p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td001p.xml</Import>
+      <Parameters>
+        <Key>1t9DOccP3xY3nECQstZom2r0KTGpudQ0atu42UUsIx8A</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td001p.bin</Path>
       <Import>{$ScriptPath}/td001p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td002t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td002t.xml</Import>
+      <Parameters>
+        <Key>1GIpVBaXTDZcJdWo4-KVpVBBMIzR36eK627d6CA4uNrs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td002t.bin</Path>
       <Import>{$ScriptPath}/td002t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td003t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td003t.xml</Import>
+      <Parameters>
+        <Key>1vC4WsPm1_lsxa1NlUmbyiIaDkleIEZ6QCwI8xWwCIAU</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td003t.bin</Path>
       <Import>{$ScriptPath}/td003t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td100t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td100t.xml</Import>
+      <Parameters>
+        <Key>1lYdB-GTRzuN_WJkFn0m7zTiev0NvegP1bFB0v10HWoQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td100t.bin</Path>
       <Import>{$ScriptPath}/td100t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td101p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td101p.xml</Import>
+      <Parameters>
+        <Key>13l_ZPZOQPQcPW0zINzErAzZ4ppLBiJ-KsCKBAKWlETI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td101p.bin</Path>
       <Import>{$ScriptPath}/td101p.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td102p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td102p.xml</Import>
+      <Parameters>
+        <Key>1gxR__PKAN0zOZcm-Vjc0_FY5NcsxuH2spwaPT0COjqs</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td102p.bin</Path>
       <Import>{$ScriptPath}/td102p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td103t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td103t.xml</Import>
+      <Parameters>
+        <Key>1ciRLyEenZVB4583g86cW1Qtl7Mnf0d4dFUt9YNnHsRg</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td103t.bin</Path>
       <Import>{$ScriptPath}/td103t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td104t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td104t.xml</Import>
+      <Parameters>
+        <Key>1FYQ5BlzNJgbjZwO64Xrrv3VJG5SjtUnD_o-HW3srSs0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td104t.bin</Path>
       <Import>{$ScriptPath}/td104t.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td105t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td105t.xml</Import>
+      <Parameters>
+        <Key>1KaFNDYfTXVx6YBcf7DmJV_P4E8LlRbs_LEbPF4N4C6U</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td105t.bin</Path>
       <Import>{$ScriptPath}/td105t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td107p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td107p.xml</Import>
+      <Parameters>
+        <Key>1f5SEeAmFS0ot4oyxFLCEzJ_qt5QOqxdLZXuX3PtV28Y</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td107p.bin</Path>
       <Import>{$ScriptPath}/td107p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td108t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td108t.xml</Import>
+      <Parameters>
+        <Key>1VpEI8NxZhn9AD0XMqtC8YLPrg1hTKtpPleEUVPHqRfI</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td108t.bin</Path>
       <Import>{$ScriptPath}/td108t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td109t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td109t.xml</Import>
+      <Parameters>
+        <Key>1hrcVaJu57C62ZmcNYQ0K56X5ss_VCYTfDtEIR7q2o6o</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td109t.bin</Path>
       <Import>{$ScriptPath}/td109t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td110p.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td110p.xml</Import>
+      <Parameters>
+        <Key>1gW4C2OWboT3N7fnB_tn8TD04MYpv7f9c4WOtmSN05Aw</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td110p.bin</Path>
       <Import>{$ScriptPath}/td110p.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/td111t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/td111t.xml</Import>
+      <Parameters>
+        <Key>1ZYYxw4oO5q0A9fGuDOB2EJsVTZZH--F-dRXgn5Ptkgk</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/td111t.bin</Path>
@@ -3333,12 +5583,30 @@
       <Import>{$ScriptPath}/tn100t.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/wf000t.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/wf000t.xml</Import>
+      <Parameters>
+        <Key>1T1IC_7JGcfrfm7pHQpkYHd2wIm71hh87HPNuhx5PeNo</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/wf000t.bin</Path>
       <Import>{$ScriptPath}/wf000t.xml</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/wm001w.bin</Path>
       <Import>{$ScriptPath}/wm001w.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/wm002w.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/wm002w.xml</Import>
+      <Parameters>
+        <Key>1Noqq-0ZMm3AUxFEKCnjccVtFMTQ4G6u0mVahiuuITY8</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/wm002w.bin</Path>
@@ -3401,8 +5669,26 @@
       <Import>{$ScriptPath}/wm018w.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/wm019w.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/wm019w.xml</Import>
+      <Parameters>
+        <Key>175cHakMgEg9xUFx8v4Bcam-BOvpi5L8dq0bC5LLWFZM</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/wm019w.bin</Path>
       <Import>{$ScriptPath}/wm019w.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/wm020w.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/wm020w.xml</Import>
+      <Parameters>
+        <Key>19fy-xTd8a5BCNma0ZNFvsumG7lgrEhZWd_uswV_E2v0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/wm020w.bin</Path>
@@ -3413,12 +5699,30 @@
       <Import>{$ScriptPath}/wm021w.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/wm022w.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/wm022w.xml</Import>
+      <Parameters>
+        <Key>1DVUV87ARmJMMHywoCnNvmRjILEKdA4TA86GtO_jpeCY</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/wm022w.bin</Path>
       <Import>{$ScriptPath}/wm022w.xml</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/wm023w.bin</Path>
       <Import>{$ScriptPath}/wm023w.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/wm024w.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/wm024w.xml</Import>
+      <Parameters>
+        <Key>1HKmryotwwWsSetudm-LIAGc83vFiZ7-9SNOLaymw7M0</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/wm024w.bin</Path>
@@ -3441,8 +5745,26 @@
       <Import>{$ScriptPath}/wm028w.xml</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/wm100w.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/wm100w.xml</Import>
+      <Parameters>
+        <Key>11QVRwIkJz99mNrbHU95iStGLueb9FBaOQekrZedm4hE</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/wm100w.bin</Path>
       <Import>{$ScriptPath}/wm100w.xml</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/script/wm200w.bin/script</Path>
+      <InternalFilter>false</InternalFilter>
+      <Import>{$ScriptPath}/wm200w.xml</Import>
+      <Parameters>
+        <Key>1-E0nHnGjFVaMJI485VUXqOGAl1TRTwu_5qGLxuoD0tQ</Key>
+        <WorksheetId>od6</WorksheetId>
+      </Parameters>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/map/script/wm200w.bin</Path>
