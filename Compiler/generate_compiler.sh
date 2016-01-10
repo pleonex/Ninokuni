@@ -8,7 +8,7 @@ COMPILER_DIR="${SCRIPT_DIR}"
 PROGRAMS_DIR="${SCRIPT_DIR}/../Programs"
 
 # Default xbuild command to build
-XBUILD="xbuild /v:minimal /p:TarjetFrameworkVersion=v4.0 /p:Configuration=Release /p:OutputPath=${COMPILER_DIR}"
+XBUILD="xbuild /v:minimal /p:TarjetFrameworkVersion=v4.0 /p:Configuration=Debug /p:OutputPath=${COMPILER_DIR}"
 
 # First and most important: modime
 ${XBUILD} "${PROGRAMS_DIR}"/modime/modime.sln

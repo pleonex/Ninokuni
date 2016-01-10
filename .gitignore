@@ -1,7 +1,10 @@
 # Ignore generated compiler files
-Compiler/*.exe
+Compiler/*.exe*
 Compiler/*.dll*
 Compiler/NinoScritor.exe
+Compiler/.addins
+Compiler/token
+Compiler/programs
 
 # Ignore the game data
 GameData/
