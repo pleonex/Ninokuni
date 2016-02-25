@@ -8347,5 +8347,15 @@
       <Type>Common.Replace</Type>
       <DependsOn>/Ninokuni.nds</DependsOn>
     </FileInfo>
+    <FileInfo>
+      <Path>/Ninokuni.nds/ROM/data/Battle/Logo/InitiativeEnemy.n3d</Path>
+      <Type>Common.Replace</Type>
+      <DependsOn>/Ninokuni.nds</DependsOn>
+    </FileInfo>
+    <FileInfo>
+      <Path>/Ninokuni.nds/ROM/data/Battle/Logo/InitiativePlayer.n3d</Path>
+      <Type>Common.Replace</Type>
+      <DependsOn>/Ninokuni.nds</DependsOn>
+    </FileInfo>
   </Files>
 </GameInfo>

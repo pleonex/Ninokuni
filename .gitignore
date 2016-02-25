@@ -9,6 +9,7 @@ Compiler/.addins
 Compiler/token
 Compiler/programs
 Compiler/temp_*.xml
+Compiler/linux
 
 # Ignore the game data
 GameData/
