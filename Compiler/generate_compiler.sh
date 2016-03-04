@@ -16,5 +16,8 @@ ${XBUILD} "${PROGRAMS_DIR}"/modime/modime.sln
 # Also NinoDrive with the GDrive Spreadsheets support
 ${XBUILD} "${PROGRAMS_DIR}"/NinoDrive/NinoDrive/NinoDrive.csproj
 
+# NinoImager for the images!
+# ${XBUILD} "${PROGRAMS_DIR}"/NinoImager/ninoimager.sln
+
 # Finally remove all the debug symbols
 rm "${COMPILER_DIR}"/*.mdb
