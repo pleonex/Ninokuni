@@ -8357,5 +8357,10 @@
       <Type>Common.Replace</Type>
       <DependsOn>/Ninokuni.nds</DependsOn>
     </FileInfo>
+    <FileInfo>
+      <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/Naming/cursor.n2d</Path>
+      <Type>Common.Replace</Type>
+      <DependsOn>/Ninokuni.nds</DependsOn>
+    </FileInfo>
   </Files>
 </GameInfo>
