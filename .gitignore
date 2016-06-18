@@ -10,6 +10,8 @@ Compiler/token
 Compiler/programs
 Compiler/temp_*.xml
 Compiler/linux
+Compiler/skipped.txt
+Compiler/fallo bytes.txt
 
 # Ignore the game data
 GameData/
