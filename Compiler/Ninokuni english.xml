@@ -12438,6 +12438,50 @@
       <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/Setting/bg_b.n2d</Path>
       <Import>{$ImagePath}/UI/Menu/Skin/2/Setting/bg_b_new.n2d</Import>
     </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/Battle/imd/BattleIcon.n3d</Path>
+      <Import>{$ImagePath}/Battle/imd/BattleIcon_new.n3d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/Battle/imd/CmdMenuBtn.n3d</Path>
+      <Import>{$ImagePath}/Battle/imd/CmdMenuBtn_new.n3d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/Battle/imd/Number.n3d</Path>
+      <Import>{$ImagePath}/Battle/imd/Number_new.n3d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/Battle/imd/ParamWindow.n3d</Path>
+      <Import>{$ImagePath}/Battle/imd/ParamWindow_new.n3d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/Battle/imd/SelectWindowButton.n3d</Path>
+      <Import>{$ImagePath}/Battle/imd/SelectWindowButton_new.n3d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/Battle/imd/SystemImage.n3d</Path>
+      <Import>{$ImagePath}/Battle/imd/SystemImage_new.n3d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/Event/Demo/Ev_G_00/ef_g_00_c07.n3d</Path>
+      <Import>{$ImagePath}/Event/Demo/Ev_G_00/ef_g_00_c07_new.n3d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/Event/Demo/stone/bg041.n2d</Path>
+      <Import>{$ImagePath}/Event/Demo/stone/bg041_new.n2d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/Event/Demo/stone/bg051.n2d</Path>
+      <Import>{$ImagePath}/Event/Demo/stone/bg051_new.n2d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/MadoTsu/bg_a.n2d</Path>
+      <Import>{$ImagePath}/UI/Menu/Skin/2/MadoTsu/bg_a_new.n2d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/MadoTsu/new.n2d</Path>
+      <Import>{$ImagePath}/UI/Menu/Skin/2/MadoTsu/new_new.n2d</Import>
+    </File>
   </Files>
   <SpecialChars>
     <Ellipsis>…</Ellipsis>
