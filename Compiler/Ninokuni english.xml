@@ -12482,6 +12482,18 @@
       <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/MadoTsu/new.n2d</Path>
       <Import>{$ImagePath}/UI/Menu/Skin/2/MadoTsu/new_new.n2d</Import>
     </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/EquipImagen/bg_b2.n2d</Path>
+      <Import>{$ImagePath}/UI/Menu/Skin/2/EquipImagen/bg_b2_new.n2d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/MonsterBook/type07.n2d</Path>
+      <Import>{$ImagePath}/UI/Menu/Skin/2/MonsterBook/type07_new.n2d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/map/obj/plate/np20.n3d</Path>
+      <Import>{$ImagePath}/map/obj/plate/np20_new.n3d</Import>
+    </File>
   </Files>
   <SpecialChars>
     <Ellipsis>…</Ellipsis>

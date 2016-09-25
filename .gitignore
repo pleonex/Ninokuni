@@ -12,6 +12,7 @@ Compiler/temp_*.xml
 Compiler/linux
 Compiler/skipped.txt
 Compiler/fallo bytes.txt
+Compiler/bad quotes.txt
 
 # Ignore the game data
 GameData/
