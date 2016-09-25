@@ -8,7 +8,7 @@ COMPILER_DIR="${SCRIPT_DIR}"
 PROGRAMS_DIR="${SCRIPT_DIR}/../Programs"
 
 # Default xbuild command to build
-XBUILD="xbuild /v:minimal /p:TarjetFrameworkVersion=v4.0 /p:Configuration=Release /p:OutputPath=${COMPILER_DIR}"
+XBUILD="xbuild /v:minimal /p:TarjetFrameworkVersion=v4.5 /p:Configuration=Release /p:OutputPath=${COMPILER_DIR}"
 
 # First and most important: modime
 ${XBUILD} "${PROGRAMS_DIR}"/modime/modime.sln
@@ -17,7 +17,13 @@ ${XBUILD} "${PROGRAMS_DIR}"/modime/modime.sln
 ${XBUILD} "${PROGRAMS_DIR}"/NinoDrive/NinoDrive/NinoDrive.csproj
 
 # NinoImager for the images!
-# ${XBUILD} "${PROGRAMS_DIR}"/NinoImager/ninoimager.sln
+pushd "${PROGRAMS_DIR}"/NinoImager/lib/emgucv
+cmake .
+make
+popd
+
+mkdir "${COMPILER_DIR}/linux"
+${XBUILD}/linux "${PROGRAMS_DIR}"/NinoImager/ninoimager.sln
 
 # Finally remove all the debug symbols
 rm "${COMPILER_DIR}"/*.mdb
