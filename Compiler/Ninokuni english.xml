@@ -12494,6 +12494,18 @@
       <Path>/Ninokuni.nds/ROM/data/map/obj/plate/np20.n3d</Path>
       <Import>{$ImagePath}/map/obj/plate/np20_new.n3d</Import>
     </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/ConnectBattle/button.n2d</Path>
+      <Import>{$ImagePath}/UI/Menu/Skin/2/ConnectBattle/button_new.n2d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/ConnectBattle/table2.n2d</Path>
+      <Import>{$ImagePath}/UI/Menu/Skin/2/ConnectBattle/table2_new.n2d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/ConnectBattle/table.n2d</Path>
+      <Import>{$ImagePath}/UI/Menu/Skin/2/ConnectBattle/table_new.n2d</Import>
+    </File>
   </Files>
   <SpecialChars>
     <Ellipsis>…</Ellipsis>

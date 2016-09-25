@@ -1,0 +1,222 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<MultiImport>
+  <Pack>
+    <Mode>ChangePaletteBg</Mode>
+    <Images>
+      <Image>UI/Common/CESA01</Image>
+    </Images>
+  </Pack>
+  <Pack>
+    <Mode>SharePaletteChangeDepth</Mode>
+    <Images>
+      <Image>UI/Menu/Skin/2/Magic/bg_b</Image>
+      <Image>UI/Menu/Skin/2/Magic/bg_c</Image>
+    </Images>
+  </Pack>
+  <Pack>
+    <Mode>ShareImage</Mode>
+    <Images>
+      <Image>UI/Menu/Skin/2/Quest/bg_a</Image>
+      <Image>UI/Menu/Skin/2/Quest/bg_a2</Image>
+    </Images>
+  </Pack>
+  <Pack>
+    <Mode>ShareImage</Mode>
+    <Images>
+      <Image>UI/Menu/Skin/2/TargetSelect/bg_b_I</Image>
+      <Image>UI/Menu/Skin/2/TargetSelect/bg_b_M</Image>
+    </Images>
+  </Pack>
+  <Pack>
+    <Mode>ShareImage</Mode>
+    <Images>
+      <Image>UI/Menu/Skin/2/Rupe2/bg_a</Image>
+      <Image>UI/Menu/Skin/2/Rupe2/bg_a2</Image>
+    </Images>
+  </Pack>
+  <Pack>
+    <Mode>ShareImage</Mode>
+    <Images>
+      <Image>UI/Menu/Skin/2/EquipImagen/bg_b</Image>
+      <Image>UI/Menu/Skin/2/EquipImagen/bg_b2</Image>
+    </Images>
+  </Pack>
+  <Pack>
+      <Mode>TextureWithPalette</Mode>
+      <Images>
+          <Image frame="0" >Battle/imd/BattleIcon</Image>
+      </Images>
+      <Palette>
+          <!-- Old generated palette -->
+          <Color red="248" green="16" blue="248" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="72" green="64" blue="48" />
+          <Color red="168" green="64" blue="24" />
+          <Color red="216" green="80" blue="24" />
+          <Color red="184" green="120" blue="32" />
+          <Color red="192" green="136" blue="40" />
+          <Color red="248" green="128" blue="40" />
+          <Color red="208" green="160" blue="40" />
+          <Color red="232" green="176" blue="48" />
+          <Color red="240" green="192" blue="48" />
+          <Color red="240" green="208" blue="48" />
+          <Color red="248" green="224" blue="56" />
+          <Color red="248" green="232" blue="56" />
+          <Color red="248" green="248" blue="104" />
+          <Color red="248" green="248" blue="144" />
+      </Palette>
+  </Pack>
+  <Pack>
+      <Mode>TextureWithPalette</Mode>
+      <Images>
+          <Image frame="0" >Battle/imd/CmdMenuBtn</Image>
+      </Images>
+      <Palette>
+          <!-- Standard 16 colors web palette -->
+          <!-- From: https://en.wikipedia.org/wiki/Web_colors -->
+          <Color red="255" green="255" blue="255" />
+          <Color red="192" green="192" blue="192" />
+          <Color red="128" green="128" blue="128" />
+          <Color red="000" green="000" blue="000" />
+          <Color red="000" green="000" blue="255" />
+          <Color red="000" green="000" blue="128" />
+          <Color red="000" green="255" blue="255" />
+          <Color red="000" green="128" blue="128" />
+          <Color red="000" green="255" blue="000" />
+          <Color red="000" green="128" blue="000" />
+          <Color red="255" green="255" blue="000" />
+          <Color red="128" green="128" blue="000" />
+          <Color red="255" green="000" blue="000" />
+          <Color red="128" green="000" blue="000" />
+          <Color red="255" green="000" blue="255" />
+          <Color red="128" green="000" blue="128" />
+      </Palette>
+  </Pack>
+  <Pack>
+      <Mode>TextureWithPalette</Mode>
+      <Images>
+          <Image frame="0" >Battle/imd/Number</Image>
+      </Images>
+      <Palette>
+          <!-- Old generated palette -->
+          <Color red="248" green="16" blue="248" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="168" green="80" blue="24" />
+          <Color red="240" green="112" blue="32" />
+          <Color red="224" green="128" blue="40" />
+          <Color red="248" green="176" blue="48" />
+          <Color red="248" green="192" blue="48" />
+          <Color red="248" green="208" blue="56" />
+          <Color red="248" green="248" blue="72" />
+          <Color red="248" green="248" blue="248" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="0" green="0" blue="0" />
+      </Palette>
+  </Pack>
+  <Pack>
+      <Mode>TextureWithPalette</Mode>
+      <Images>
+          <Image frame="0" >Battle/imd/ParamWindow</Image>
+      </Images>
+      <Palette>
+          <!-- Old generated palette -->
+          <Color red="248" green="0" blue="248" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="16" green="40" blue="88" />
+          <Color red="112" green="24" blue="8" />
+          <Color red="72" green="72" blue="72" />
+          <Color red="40" green="56" blue="240" />
+          <Color red="216" green="40" blue="24" />
+          <Color red="40" green="128" blue="152" />
+          <Color red="56" green="88" blue="240" />
+          <Color red="144" green="88" blue="64" />
+          <Color red="232" green="80" blue="64" />
+          <Color red="96" green="160" blue="184" />
+          <Color red="224" green="160" blue="96" />
+          <Color red="160" green="208" blue="208" />
+          <Color red="224" green="248" blue="248" />
+          <Color red="248" green="248" blue="248" />
+      </Palette>
+  </Pack>
+  <Pack>
+      <Mode>TextureWithPalette</Mode>
+      <Images>
+          <Image frame="0" >Battle/imd/SelectWindow</Image>
+      </Images>
+      <Palette>
+          <!-- Standard 16 colors web palette -->
+          <!-- From: https://en.wikipedia.org/wiki/Web_colors -->
+          <Color red="255" green="255" blue="255" />
+          <Color red="192" green="192" blue="192" />
+          <Color red="128" green="128" blue="128" />
+          <Color red="000" green="000" blue="000" />
+          <Color red="000" green="000" blue="255" />
+          <Color red="000" green="000" blue="128" />
+          <Color red="000" green="255" blue="255" />
+          <Color red="000" green="128" blue="128" />
+          <Color red="000" green="255" blue="000" />
+          <Color red="000" green="128" blue="000" />
+          <Color red="255" green="255" blue="000" />
+          <Color red="128" green="128" blue="000" />
+          <Color red="255" green="000" blue="000" />
+          <Color red="128" green="000" blue="000" />
+          <Color red="255" green="000" blue="255" />
+          <Color red="128" green="000" blue="128" />
+      </Palette>
+  </Pack>
+  <Pack>
+      <Mode>TextureWithPalette</Mode>
+      <Images>
+          <Image frame="0" >Battle/imd/SelectWindowButton</Image>
+      </Images>
+      <Palette>
+          <!-- Standard 16 colors web palette -->
+          <!-- From: https://en.wikipedia.org/wiki/Web_colors -->
+          <Color red="255" green="255" blue="255" />
+          <Color red="192" green="192" blue="192" />
+          <Color red="128" green="128" blue="128" />
+          <Color red="000" green="000" blue="000" />
+          <Color red="000" green="000" blue="255" />
+          <Color red="000" green="000" blue="128" />
+          <Color red="000" green="255" blue="255" />
+          <Color red="000" green="128" blue="128" />
+          <Color red="000" green="255" blue="000" />
+          <Color red="000" green="128" blue="000" />
+          <Color red="255" green="255" blue="000" />
+          <Color red="128" green="128" blue="000" />
+          <Color red="255" green="000" blue="000" />
+          <Color red="128" green="000" blue="000" />
+          <Color red="255" green="000" blue="255" />
+          <Color red="128" green="000" blue="128" />
+      </Palette>
+  </Pack>
+  <Pack>
+      <Mode>TextureWithPalette</Mode>
+      <Images>
+          <Image frame="0" >Battle/imd/SystemImage</Image>
+      </Images>
+      <Palette>
+          <!-- Old generated palette -->
+          <Color red="248" green="0" blue="248" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="248" green="48" blue="24" />
+          <Color red="248" green="48" blue="56" />
+          <Color red="248" green="48" blue="88" />
+          <Color red="248" green="48" blue="120" />
+          <Color red="248" green="120" blue="32" />
+          <Color red="248" green="120" blue="160" />
+          <Color red="248" green="136" blue="32" />
+          <Color red="248" green="152" blue="32" />
+          <Color red="248" green="168" blue="48" />
+          <Color red="248" green="184" blue="32" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="0" green="0" blue="0" />
+          <Color red="0" green="0" blue="0" />
+      </Palette>
+  </Pack>
+</MultiImport>
