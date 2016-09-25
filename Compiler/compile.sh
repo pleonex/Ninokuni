@@ -6,12 +6,16 @@ if [ "$#" -lt 2 ]; then
 fi
 
 SCRIPT_DIR=$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )
-OUTPUT_ROM="${SCRIPT_DIR}/../GameData/Ninokuni_ENGLISH.nds"
+OUTPUT_ROM="${SCRIPT_DIR}/../GameData/Ninokuni_ENG.nds"
 OUTPUT_PATCH="${SCRIPT_DIR}/../GameData/Ninokuni.xdelta"
 
 ORIGINAL_ROM=$1
 TRANSLATION_DIR=$2
 IMPORT_IMGS=${3:-1}
+
+# Syncrhonize assembly files
+echo "Copying assembly files"
+cp -ru "${SCRIPT_DIR}"/../Assembly "${SCRIPT_DIR}"/../GameData/Dropbox/
 
 # Generate the fonts
 FONTS=(font10 font_b11)
