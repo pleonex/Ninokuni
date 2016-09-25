@@ -11,7 +11,7 @@ OUTPUT_PATCH="${SCRIPT_DIR}/../GameData/Ninokuni.xdelta"
 
 ORIGINAL_ROM=$1
 TRANSLATION_DIR=$2
-IMPORT_IMGS=$3
+IMPORT_IMGS=${3:-1}
 
 # Generate the images
 if [ "$IMPORT_IMGS" -ne "0" ] ; then
