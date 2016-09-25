@@ -25,5 +25,8 @@ popd
 mkdir "${COMPILER_DIR}/linux"
 ${XBUILD}/linux "${PROGRAMS_DIR}"/NinoImager/ninoimager.sln
 
+# NerdFontTerminatoR for fonts
+${XBUILD} "${PROGRAMS_DIR}"/NerdFontTerminatoR/NerdFontTerminatoR.sln
+
 # Finally remove all the debug symbols
 rm "${COMPILER_DIR}"/*.mdb

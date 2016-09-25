@@ -13,6 +13,16 @@ ORIGINAL_ROM=$1
 TRANSLATION_DIR=$2
 IMPORT_IMGS=${3:-1}
 
+# Generate the fonts
+FONTS=(font10 font_b11)
+for f in ${FONTS[@]} ; do
+    echo "Generating font: $f"
+    mono "${SCRIPT_DIR}/NerdFontTerminatoR.exe" -i \
+        "${SCRIPT_DIR}/../GameData/Dropbox/Fonts/$f.xml" \
+        "${SCRIPT_DIR}/../GameData/Dropbox/Fonts/$f.png" \
+        "${SCRIPT_DIR}/../GameData/Dropbox/Fonts/$f.NFTR"
+done
+
 # Generate the images
 if [ "$IMPORT_IMGS" -ne "0" ] ; then
     mono "${SCRIPT_DIR}/linux/ninoimager.exe" -i \
