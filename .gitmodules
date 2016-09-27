@@ -25,3 +25,6 @@
 [submodule "Programs/Zerum"]
 	path = Programs/Zerum
 	url = https://github.com/pleonex/Zerum.git
+[submodule "Programs/NinoTrade"]
+	path = Programs/NinoTrade
+	url = https://github.com/pleonex/NinoTrade
