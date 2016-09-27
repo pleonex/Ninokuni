@@ -10,6 +10,9 @@ PROGRAMS_DIR="${SCRIPT_DIR}/../Programs"
 # Default xbuild command to build
 XBUILD="xbuild /v:minimal /p:TarjetFrameworkVersion=v4.5 /p:Configuration=Release /p:OutputPath=${COMPILER_DIR}"
 
+# Clone submodules
+git submodule update --init --recursive
+
 # First and most important: modime
 ${XBUILD} "${PROGRAMS_DIR}"/modime/modime.sln
 
@@ -18,11 +21,15 @@ ${XBUILD} "${PROGRAMS_DIR}"/NinoDrive/NinoDrive/NinoDrive.csproj
 
 # NinoImager for the images!
 pushd "${PROGRAMS_DIR}"/NinoImager/lib/emgucv
-cmake .
-make
-popd
+  pushd opencv
+    patch -p1 -N -i ../../opencv_fix.patch
+  popd
 
-mkdir "${COMPILER_DIR}/linux"
+  patch -p1 -N -i ../emgucv_fix.patch
+  cmake .
+  make -j9
+popd
+cp "${PROGRAMS_DIR}"/NinoImager/lib/emgucv/bin/libcvextern.so "${COMPILER_DIR}"/linux/
 ${XBUILD}/linux "${PROGRAMS_DIR}"/NinoImager/ninoimager.sln
 
 # NerdFontTerminatoR for fonts
