@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <MultiImport>
   <Pack>
-    <Mode>ChangePaletteBg</Mode>
+    <Mode>ChangePalette</Mode>
     <Images>
       <Image>UI/Common/CESA01</Image>
     </Images>

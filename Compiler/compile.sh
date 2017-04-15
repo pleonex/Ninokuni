@@ -18,7 +18,7 @@ echo "Copying assembly files"
 cp -ru "${SCRIPT_DIR}"/../Assembly "${SCRIPT_DIR}"/../GameData/Dropbox/
 
 # Generate the fonts
-FONTS=(font10 font_b11)
+FONTS=(font10 font_b11 astram12)
 for f in ${FONTS[@]} ; do
     echo "Generating font: $f"
     mono "${SCRIPT_DIR}/NerdFontTerminatoR.exe" -i \
