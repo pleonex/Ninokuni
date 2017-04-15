@@ -13,9 +13,6 @@ XBUILD="xbuild /v:minimal /p:TarjetFrameworkVersion=v4.5 /p:Configuration=Releas
 # Clone submodules
 git submodule update --init --recursive
 
-# First and most important: modime
-${XBUILD} "${PROGRAMS_DIR}"/modime/modime.sln
-
 # Also NinoDrive with the GDrive Spreadsheets support
 ${XBUILD} "${PROGRAMS_DIR}"/NinoDrive/NinoDrive/NinoDrive.csproj
 
@@ -34,6 +31,10 @@ ${XBUILD}/linux "${PROGRAMS_DIR}"/NinoImager/ninoimager.sln
 
 # NerdFontTerminatoR for fonts
 ${XBUILD} "${PROGRAMS_DIR}"/NerdFontTerminatoR/NerdFontTerminatoR.sln
+mv NerdFontTerminatoR.CLI.exe NerdFontTerminatoR.exe
+
+# First and most important: modime
+${XBUILD} "${PROGRAMS_DIR}"/modime/modime.sln
 
 # Finally remove all the debug symbols
 rm "${COMPILER_DIR}"/*.mdb
