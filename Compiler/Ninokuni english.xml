@@ -2964,6 +2964,16 @@
       <Path>/Ninokuni.nds/System/Overlays9/Overlay9_0.bin</Path>
       <Import>{$OverlaysPath}/overlay9_0.xml</Import>
     </File>
+    <VirtualFile>
+      <!--Spreadsheet for: /Ninokuni.nds/System/Overlays9/Overlay9_1.bin-->
+      <InternalFilter>false</InternalFilter>
+      <Type>GDrive.Spreadsheet</Type>
+      <Parameters>
+        <Key>1bsGHtanlcKwpr908OicsfmrjFuOekRMO4BqVzIbf_4I</Key>
+        <WorksheetId>od6</WorksheetId>
+        <Output>{$OverlaysPath}/overlay9_1.xml</Output>
+      </Parameters>
+    </VirtualFile>
     <File>
       <Path>/Ninokuni.nds/System/Overlays9/Overlay9_1.bin</Path>
       <Import>{$HacksPath}/overlay9_1.asm</Import>
