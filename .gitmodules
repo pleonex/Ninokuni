@@ -21,7 +21,7 @@
 	url = git@github.com:pleonex/NinoImager.git
 [submodule "Programs/NinoDrive"]
 	path = Programs/NinoDrive
-	url = https://bitbucket.org/Zkarts/ni-no-drive.git
+	url = https://github.com/pleonex/NinoDrive.git
 [submodule "Programs/Zerum"]
 	path = Programs/Zerum
 	url = https://github.com/pleonex/Zerum.git
