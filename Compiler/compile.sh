@@ -15,16 +15,16 @@ IMPORT_IMGS=${3:-1}
 
 # Syncrhonize assembly files
 echo "Copying assembly files"
-cp -ru "${SCRIPT_DIR}"/../Assembly "${SCRIPT_DIR}"/../GameData/Dropbox/
+cp -ru "${SCRIPT_DIR}"/../Assembly "${TRANSLATION_DIR}"/
 
 # Generate the fonts
 FONTS=(font10 font_b11 astram12)
 for f in ${FONTS[@]} ; do
     echo "Generating font: $f"
     mono "${SCRIPT_DIR}/NerdFontTerminatoR.exe" -i \
-        "${SCRIPT_DIR}/../GameData/Dropbox/Fonts/$f.xml" \
-        "${SCRIPT_DIR}/../GameData/Dropbox/Fonts/$f.png" \
-        "${SCRIPT_DIR}/../GameData/Dropbox/Fonts/$f.NFTR"
+        "${TRANSLATION_DIR}/Fonts/$f.xml" \
+        "${TRANSLATION_DIR}/Fonts/$f.png" \
+        "${TRANSLATION_DIR}/Fonts/$f.NFTR"
 done
 
 # Generate the images
