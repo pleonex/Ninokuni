@@ -52,6 +52,25 @@ TST     R4, R7           ; To save memory
   ADD R6, SP
   SUB r2, #0x8          ; New, decrease pointer to spell name
 
+; Phoenix spell
+.thumb
+.org 0x0211C340
+  LDR     r6, [SP,#0x1C]  ; Replace R0 with R6 to save instructions later
+  CMP     r6, #0
+
+.org 0x0211C34C
+  CMP     r6, #0          ; Now we don't need to load R0 again
+  BNE     0x211C40C
+  LDR     R0, [SP,#0x10]
+  CMP     R0, #0
+  BEQ     0x211C40C
+  LDR     R0, [SP,#0x2C]
+  ADD     R1, R5, #0
+  .halfword 0xF7E9
+  .halfword 0xEFB9  ; Jump to some function
+  MOV    R2, R0     ; Spell pointer ...
+  .halfword 0x495A  ; LDR R1, =dword_2141660 ; Format
+  SUB    r2, #8     ; ... after our changes it starts 8 bytes before
 
 .arm
 .org 0x2106034
