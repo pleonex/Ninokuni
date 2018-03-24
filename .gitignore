@@ -1,5 +1,9 @@
 # Ignore GameData
 GameData/
+Compiler/
+
+# VS Code
+.vscode
 
 # Ignore armips executable for tests
 Assembly/armips.exe
