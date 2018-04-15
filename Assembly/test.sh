@@ -11,4 +11,5 @@ else
     echo "Good ;)"
 fi
 
+#wine /home/pleonex/Dropbox/NinokuniEnglish/NinoPatcher/programs/blz.exe -en "./overlay9_$overlay.bin"
 rm "./overlay9_$overlay.bin"

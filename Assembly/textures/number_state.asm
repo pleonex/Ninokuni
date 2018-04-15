@@ -117,19 +117,19 @@
   CMP     R4, #10
   BCC     @mediumNum
 
-; # Great points (0/0): [0, 93] -> [34 + 12, 105]
+; # Great points (0/0): [0, 93] -> [34 - 9, 105]
 .org 0x0208495C
   MOV     R0, #93
   STR     R0, [SP,@Ystart]
-  MOV     R1, #34 + 12
+  MOV     R1, #34 - 9
   MOV     R0, #105
   STR     R1, [SP,@Xend]
   MOV     R6, #105
   STR     R6, [SP,@Yend]
-  SUB     R0, #122 + 10
+  SUB     R0, #122
   STR     R0, [SP,@Xout]
   MOV     R0, #105
-  SUB     R0, #111 + 1
+  SUB     R0, #111
   STR     R0, [SP,@Yout]
   STR     R1, [SP,@Width]
   MOV     R0, #12
@@ -145,19 +145,19 @@
   MOV     R3, #0
   BLX     @v3d_setSubImage
 
-; # Slash -> [48 + 5, 67 + 25] -> [57 + 5, 80 + 25]
+; # Slash -> [48, 67] -> [57, 80]
 .org 0x02084A36
-  MOV     R0, #67 + 25
+  MOV     R0, #67
   STR     R0, [SP,@Ystart]
-  MOV     R0, #57 + 5
+  MOV     R0, #57
   STR     R0, [SP,@Xend]
-  MOV     R0, #80 + 25
+  MOV     R0, #80
   MOV     R1, #80
   STR     R0, [SP,@Yend]
-  SUB     R1, #84 + 1
+  SUB     R1, #84
   STR     R1, [SP,@Xout]
   MOV     R1, #80
-  SUB     R1, #86 + 1
+  SUB     R1, #86
   STR     R1, [SP,@Yout]
   MOV     R1, #9
   STR     R1, [SP,@Width]
@@ -165,9 +165,9 @@
   STR     R1, [SP,@Height]
   STR     R7, [SP,@Palette]
   LDR     R1, [R5,R4]
-  ADD     R0, #0xD8 - 25
+  ADD     R0, #0xD8
   ADD     R0, R1, R0
   MOV     R1, #0
   MOV     R2, #0
-  MOV     R3, #48 + 5
+  MOV     R3, #48
   BLX     @v3d_setSubImage

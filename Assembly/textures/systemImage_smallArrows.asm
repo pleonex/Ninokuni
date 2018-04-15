@@ -31,15 +31,15 @@
 .org 0x020A7300
   MOV     R7, #10
 
-; # Small Up Arrow (0/0): [29 - 29, 28 + 74] -> [39 - 29, 40 + 74]
+; # Small Up Arrow (0/0): [29 + 13, 28] -> [39 + 13, 40]
 .org 0x020A7318
-  MOV     R9, #102
+  MOV     R9, #28
   STR     R9, [SP,@Ystart]
-  MOV     R11, #10
-  MOV     R6, #40 + 74
+  MOV     R11, #39 + 13
+  MOV     R6, #40
   STR     R11, [SP,@Xend]
   STR     R6, [SP,@Yend]
-  SUB     R5, R6, #45 + 74
+  SUB     R5, R6, #45
   STR     R5, [SP,@Xout]
   STR     R8, [SP,@Yout]
   MOV     R1, #0
@@ -51,10 +51,10 @@
   LDR     R0, [R10,#0x6C]
   MOV     R2, R1
   ADD     R0, R0, #0x128
-  MOV     R3, #0
+  MOV     R3, #29 + 13
   BL      @v3d_setSubImage
 
-; # Small Up Arrow Other Palette (1/0): [29 - 29, 28 + 74] -> [39 - 29, 40 + 74]
+; # Small Up Arrow Other Palette (1/0): [29 + 13, 28] -> [39 + 13, 40]
   STMEA   SP, {R9,R11}
   STR     R6, [SP,@Yend]
   STR     R5, [SP,@Xout]
@@ -67,10 +67,10 @@
   MOV     R1, #1
   ADD     R0, R0, #0x128
   MOV     R2, #0
-  MOV     R3, #0
+  MOV     R3, #29 + 13
   BL      @v3d_setSubImage
 
-; # Small Up Arrow Other Palette (2/0): [29 - 29, 28 + 74] -> [39 - 29, 40 + 74]
+; # Small Up Arrow Other Palette (2/0): [29 + 13, 28] -> [39 + 13, 40]
   STMEA   SP, {R9,R11}
   STR     R6, [SP,@Yend]
   STR     R5, [SP,@Xout]
@@ -83,10 +83,10 @@
   MOV     R1, #2
   ADD     R0, R0, #0x128
   MOV     R2, #0
-  MOV     R3, #0
+  MOV     R3, #29 + 13
   BL      @v3d_setSubImage
 
-; # Small Up Arrow Other Palette (3/0): [29 - 29, 28 + 74] -> [39 - 29, 40 + 74]
+; # Small Up Arrow Other Palette (3/0): [29 + 13, 28] -> [39 + 13, 40]
   STMEA   SP, {R9,R11}
   STR     R6, [SP,@Yend]
   STR     R5, [SP,@Xout]
@@ -99,10 +99,10 @@
   MOV     R1, #3
   ADD     R0, R0, #0x128
   MOV     R2, #0
-  MOV     R3, #0
+  MOV     R3, #29 + 13
   BL      @v3d_setSubImage
 
-; # Small Up Arrow Other Palette (4/0): [29 - 29, 28 + 74] -> [39 - 29, 40 + 74]
+; # Small Up Arrow Other Palette (4/0): [29 + 13, 28] -> [39 + 13, 40]
   STMEA   SP, {R9,R11}
   STR     R6, [SP,@Yend]
   STR     R5, [SP,@Xout]
@@ -115,13 +115,13 @@
   MOV     R3, #0
   MOV     R1, #4
   ADD     R0, R0, #0x128
-  MOV     R2, #0
+  MOV     R2, #29 + 13
   BL      @v3d_setSubImage
 
-; # Small Down Arrow (5/0): [39 - 29, 28 + 74] -> [49 - 29, 40 + 74]
+; # Small Down Arrow (5/0): [39 + 13, 28] -> [49 + 13, 40]
   STR     R9, [SP,@Ystart]
   MOV     r11, r6
-  MOV     r6, #20
+  MOV     r6, #49 + 13
   STMFA   SP, {r6,r11}
   STR     R5, [SP,@Xout]
   STR     R8, [SP,@Yout]
@@ -133,10 +133,10 @@
   MOV     R1, #5
   ADD     R0, R0, #0x128
   MOV     R2, #0
-  MOV     R3, #10
+  MOV     R3, #39 + 13
   BL      @v3d_setSubImage
 
-; # Small Down Arrow Other Palette (6/0): [39 - 29, 28 + 74] -> [49 - 29, 40 + 74]
+; # Small Down Arrow Other Palette (6/0): [39 + 13, 28] -> [49 + 13, 40]
   STR     R9, [SP,@Ystart]
   STMFA   SP, {r6,r11}
   STR     R5, [SP,@Xout]
@@ -149,10 +149,10 @@
   MOV     R1, #6
   MOV     R2, #0
   ADD     R0, R0, #0x128
-  MOV     R3, #10
+  MOV     R3, #39 + 13
   BL      @v3d_setSubImage
 
-; # Small Down Arrow Other Palette (7/0): [39 - 29, 28 + 74] -> [49 - 29, 40 + 74]
+; # Small Down Arrow Other Palette (7/0): [39 + 13, 28] -> [49 + 13, 40]
   STR     R9, [SP,@Ystart]
   STMFA   SP, {r6,r11}
   STR     R5, [SP,@Xout]
@@ -165,12 +165,12 @@
   MOV     R1, #7
   MOV     R2, #0
   ADD     R0, R0, #0x128
-  MOV     R3, #10
+  MOV     R3, #39 + 13
   BL      @v3d_setSubImage
 
-; # Small Down Arrow Other Palette (8/0): [39 - 29, 28 + 74] -> [49 - 29, 40 + 74]
+; # Small Down Arrow Other Palette (8/0): [39 + 13, 28] -> [49 + 13, 40]
   STR     R9, [SP,@Ystart]
-  MOV     R0, #20
+  MOV     R0, #49 + 13
   STMFA   SP, {R0,r11}
   STR     R5, [SP,@Xout]
   STR     R8, [SP,@Yout]
@@ -182,12 +182,12 @@
   MOV     R2, #0
   ADD     R0, R0, #0x128
   MOV     R1, #8
-  MOV     R3, #10
+  MOV     R3, #39 + 13
   BL      @v3d_setSubImage
 
-; # Small Down Arrow Other Palette (9/0): [39 - 29, 28 + 74] -> [49 - 29, 40 + 74]
+; # Small Down Arrow Other Palette (9/0): [39 + 13, 28] -> [49 + 13, 40]
   STR     R9, [SP,@Ystart]
-  MOV     R0, #20
+  MOV     R0, #49 + 13
   STMFA   SP, {R0,r11}
   STR     R5, [SP,@Xout]
   STR     R8, [SP,@Yout]
@@ -198,7 +198,7 @@
   LDR     R0, [R10,#0x6C]
   MOV     R1, #9
   MOV     R2, #0
-  MOV     R3, #10
+  MOV     R3, #39 + 13
   ADD     R0, R0, #0x128
   BL      @v3d_setSubImage
 

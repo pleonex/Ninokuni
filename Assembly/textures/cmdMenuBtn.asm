@@ -178,7 +178,7 @@ ThirdFrameSetPaletteAndQuit:
 ; ------------------------------------------------- ;
 
 ;; Removed a call to some function
-@AutoW equ 0x04
+@AutoW equ 0x00
 
 ; # First Button (0/0): [0, 0] -> [54, 24], W=54+5
 .org 0x020A1910
@@ -288,8 +288,8 @@ ThirdFrameSetPaletteAndQuit:
   BL      @v3d_setSubImage
 
 ; # Common constants for "Automatic" word and "x" button
-  MOV     R9, -21 - @AutoW - 1      ; Move to the left
-  ADD     R8, R9, #15 + @AutoW +1   ; Keep Y position
+  MOV     R9, -21 + 4 - @AutoW       ; Move to the left
+  ADD     R8, R9, #15 - 4 + @AutoW   ; Keep Y position
   ADD     R6, R5, R4,LSL#2
   MOV     R11, #13
   MOV     R7, #12
@@ -300,28 +300,28 @@ setAutomatic:
   MOV     R2, #1
   BCS     setAutomaticIf2Palette13
 
-; # "Automatic" word (i/1): [41, 24] -> [86 + 5, 36]
+; # "Automatic" word (i/1): [41 + 5, 24] -> [86 - 8, 36]
   STR     R0, [SP,#0x60+@Ystart]
-  MOV     R0, #86 + 5
+  MOV     R0, #86 - 8
   STR     R0, [SP,#0x60+@Xend]
   MOV     R0, #36
   STR     R0, [SP,#0x60+@Yend]
   STR     R9, [SP,#0x60+@Xout]
   STR     R8, [SP,#0x60+@Yout]
-  MOV     R0, #45 + 5
+  MOV     R0, #32
   STR     R0, [SP,#0x60+@Width]
   STR     R7, [SP,#0x60+@Height]
   STR     R7, [SP,#0x60+@Palette]
   LDR     R0, [R6,#8]
   MOV     R1, R10
   ADD     R0, R0, #0x1A8
-  MOV     R3, #41
+  MOV     R3, #41 + 5
   BL      @v3d_setSubImage
 
-; # 'x' Button (i/2): [86 + 12, 25] -> [96, 35]
+; # 'x' Button (i/2): [86, 25] -> [96, 35]
   MOV     R0, #25
   STR     R0, [SP,#0x60+@Ystart]
-  MOV     R0, #96 + 12
+  MOV     R0, #96
   STR     R0, [SP,#0x60+@Xend]
   MOV     R0, #35
   STR     R0, [SP,#0x60+@Yend]
@@ -337,15 +337,15 @@ setAutomatic:
 
 setAutomaticIf2Palette13:
   STR     R0, [SP,#0x60+@Ystart]
-  MOV     R0, #86 + 5
+  MOV     R0, #86 - 8
   STR     R0, [SP,#0x60+@Xend]
   MOV     R0, #36
   STR     R0, [SP,#0x60+@Yend]
   CMP     R10, #2
-  MOV     R0, #45 + 5
+  MOV     R0, #32
   BNE     setAutomaticPalette12
 
-; # "Automatic" word (2/1): [41, 24] -> [86 + 5, 36]
+; # "Automatic" word (2/1): [41 + 5, 24] -> [86 - 8, 36]
   STR     R9, [SP,#0x60+@Xout]
   STR     R8, [SP,#0x60+@Yout]
   STR     R0, [SP,#0x60+@Width]
@@ -355,13 +355,13 @@ setAutomaticIf2Palette13:
   LDR     R0, [R6,#8]
   MOV     R1, R10
   ADD     R0, R0, #0x1A8
-  MOV     R3, #41
+  MOV     R3, #41 + 5
   BL      @v3d_setSubImage
 
-; # 'x' Button (2/2): [86 + 12, 25] -> [96, 35]
+; # 'x' Button (2/2): [86, 25] -> [96, 35]
   MOV     R0, #25
   STR     R0, [SP,#0x60+@Ystart]
-  MOV     R0, #96 + 12
+  MOV     R0, #96
   STR     R0, [SP,#0x60+@Xend]
   MOV     R0, #35
   STR     R0, [SP,#0x60+@Yend]
@@ -376,7 +376,7 @@ setAutomaticIf2Palette13:
   B       setButtonX
 
 setAutomaticPalette12:  ; Same as < 2
-; # "Automatic" word (i/1): [41, 24] -> [86 + 5, 36]
+; # "Automatic" word (i/1): [41 + 5, 24] -> [86 - 8, 36]
   STR     R9, [SP,#0x60+@Xout]
   STR     R8, [SP,#0x60+@Yout]
   STR     R0, [SP,#0x60+@Width]
@@ -386,13 +386,13 @@ setAutomaticPalette12:  ; Same as < 2
   LDR     R0, [R6,#8]
   MOV     R1, R10
   ADD     R0, R0, #0x1A8
-  MOV     R3, #41
+  MOV     R3, #41 + 5
   BL      @v3d_setSubImage
 
-; # 'x' Button (i/2): [86 + 12, 25] -> [96, 35]
+; # 'x' Button (i/2): [86, 25] -> [96, 35]
   MOV     R0, #25
   STR     R0, [SP,#0x60+@Ystart]
-  MOV     R0, #96 + 12
+  MOV     R0, #96
   STR     R0, [SP,#0x60+@Xend]
   MOV     R0, #35
   STR     R0, [SP,#0x60+@Yend]
@@ -411,7 +411,7 @@ setButtonX:
   MOV     R1, R10
   ADD     R0, R0, #0x1A8
   MOV     R2, #2
-  MOV     R3, #86 + 12
+  MOV     R3, #86
   BL      @v3d_setSubImage
 
   ; Loop condition, write Automatic word and X button for 5 frames
@@ -433,7 +433,7 @@ setButtonX:
   MOV     r1, #54
   STR     r1, [SP,#0x60+@Xend]
   STR     R6, [SP,#0x60+@Yend]
-  SUB     R9, R6, #51 + 2
+  SUB     R9, R6, #51
   STR     R9, [SP,#0x60+@Xout]
   SUB     R8, R6, #36
   STR     R8, [SP,#0x60+@Yout]
@@ -483,8 +483,8 @@ setButtonX:
   BL      @v3d_setSubImage
 
 ; # Common constants for "Formation" word and "y" button
-  MOV     R9, -18 + 4 - 2      ; Move to the left
-  ADD     R8, R9, #12 - 4 + 2  ; Keep Y pos
+  MOV     R9, -18 - 3
+  ADD     R8, R9, #12 + 3
   ADD     R6, R5, R4,LSL#2
   MOV     R11, #13
   MOV     R7, #12
@@ -492,16 +492,16 @@ setButtonX:
 setFormation:
   MOV     R0, #24
   STR     R0, [SP,#0x60+@Ystart]
-  MOV     R0, #38
+  MOV     R0, #43
   STR     R0, [SP,#0x60+@Xend]
   MOV     R0, #36
   STR     R0, [SP,#0x60+@Yend]
   CMP     R10, #2
   MOV     R2, #1
-  MOV     R0, #37
+  MOV     R0, #42
   BCS     setFormationPalette13
 
-; # "Formation" word (i/1): [1, 24] -> [38, 36]
+; # "Formation" word (i/1): [2, 24] -> [44, 36]
   STR     R9, [SP,#0x60+@Xout]
   STR     R8, [SP,#0x60+@Yout]
   STR     R0, [SP,#0x60+@Width]
@@ -513,14 +513,14 @@ setFormation:
   MOV     R3, R2
   BL      @v3d_setSubImage
 
-; # "y" button (i/2): [96 + 12, 25] -> [106 + 12, 35]
+; # "y" button (i/2): [96, 25] -> [106, 35]
   MOV     R0, #25
   STR     R0, [SP,#0x60+@Ystart]
-  MOV     R0, #106 + 12
+  MOV     R0, #106
   STR     R0, [SP,#0x60+@Xend]
   MOV     R0, #35
   STR     R0, [SP,#0x60+@Yend]
-  MOV     R0, #14 + @AutoW - 2
+  MOV     R0, #14 + @AutoW
   STR     R0, [SP,#0x60+@Xout]
   MOV     R0, #4
   STR     R0, [SP,#0x60+@Yout]
@@ -531,7 +531,7 @@ setFormation:
   B       setButtonY
 
 setFormationPalette13:
-; # "Formation" word (i/1): [1, 24] -> [38, 36]
+; # "Formation" word (i/1): [2, 24] -> [44, 36]
   STR     R9, [SP,#0x60+@Xout]
   STR     R8, [SP,#0x60+@Yout]
   STR     R0, [SP,#0x60+@Width]
@@ -544,14 +544,14 @@ setFormationPalette13:
   MOV     R3, R2
   BL      @v3d_setSubImage
 
-; # "y" button (i/2): [96 + 12, 25] -> [106 + 12, 35]
+; # "y" button (i/2): [96, 25] -> [106, 35]
   MOV     R0, #25
   STR     R0, [SP,#0x60+@Ystart]
-  MOV     R0, #106 + 12
+  MOV     R0, #106
   STR     R0, [SP,#0x60+@Xend]
   MOV     R0, #35
   STR     R0, [SP,#0x60+@Yend]
-  MOV     R0, #14 + @AutoW - 2
+  MOV     R0, #14 + @AutoW
   STR     R0, [SP,#0x60+@Xout]
   MOV     R0, #4
   STR     R0, [SP,#0x60+@Yout]
@@ -565,7 +565,7 @@ setButtonY:
   MOV     R1, R10
   ADD     R0, R0, #0x1A8
   MOV     R2, #2
-  MOV     R3, #96 + 12
+  MOV     R3, #96
   BL      @v3d_setSubImage
 
   ; Loop condition, write "Formation" word and "y" button for 3 frames
@@ -816,10 +816,10 @@ setButtonY:
 ; Formation cursor for the second tutorial battle
 .arm
 .org 0x020A9EDC
-  MOV     R2, #0x36000 + 0x4000     ; Width << 12
-  MOV     R3, #0x1C000              ; Height << 12
+  MOV     R2, #0x36000     ; Width << 12
+  MOV     R3, #0x1C000     ; Height << 12
 
 ; Formation button global position
 .arm
 .org 0x020A10A4
-  MOV     R0, #0x1F000 + 0x2000       ; X position
+  MOV     R0, #0x1F000     ; X position

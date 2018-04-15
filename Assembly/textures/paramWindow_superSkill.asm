@@ -25,11 +25,11 @@
 
 .thumb
 
-; # Super Skill (0/0): [56 + 4, 104] -> [112 + 4, 128]
+; # Super Skill (0/0): [56, 104] -> [112, 128]
 .org 0x02084050
   MOV     R0, #104
   STR     R0, [SP,#0x38+@Ystart]
-  MOV     R0, #112 + 4
+  MOV     R0, #112
   STR     R0, [SP,#0x38+@Xend]
   MOV     R1, #128
   STR     R1, [SP,#0x38+@Yend]
@@ -37,7 +37,7 @@
   STR     r1, [SP,#0x38+@Xout]
   ADD     r1, #16
   STR     R1, [SP,#0x38+@Yout]
-  MOV     r3, #56 + 4
+  MOV     r3, #56
   MOV     r0, #56
   STR     r0, [SP,#0x38+@Width]
   MOV     R0, #24

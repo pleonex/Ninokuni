@@ -24,7 +24,7 @@
 @Palette equ -0x3C
 @v3d_setSubImage equ 0x020FCD7C
 
-@AutoW equ 0x04 ; Width of the automatic button
+@AutoW equ 0x00 ; Width of the automatic button
 
 .arm
 
@@ -181,19 +181,19 @@
   MOV     R3, R9
   BL      @v3d_setSubImage
 
-; "Automatic" word (2/1): [41, 24] -> [86 + 5, 36]
+; "Automatic" word (2/1): [41 + 5, 24] -> [86 - 8, 36]
   MOV     r0, r4                        ; + Added
   ;STR     R4, [SP,#0x58+@Ystart]       ; - Deleted
-  MOV     r1, #86 + 5                   ; Edited
+  MOV     r1, #86 - 8                   ; Edited
   MOV     r2, #36                       ; Edited
   ;STR     R4, [SP,#0x58+@Xend]         ; - Deleted
   ;STR     R0, [SP,#0x58+@Yend]         ; - Deleted
   STMIA   sp, {r0,r1,r2}                ; + Added
-  SUB     r0, r11, @AutoW + 1           ; + Added
+  SUB     r0, r11, @AutoW               ; + Added
   STR     r0, [SP,#0x58+@Xout]          ; Edited
   SUB     R0, r2, #42                   ; Edited
   STR     R0, [SP,#0x58+@Yout]
-  MOV     R0, #45 + 5
+  MOV     R0, #32
   STR     R0, [SP,#0x58+@Width]
   MOV     R0, #12
   STR     R0, [SP,#0x58+@Height]
@@ -203,13 +203,13 @@
   MOV     R1, #2
   MOV     R2, #1
   ADD     R0, R0, #0x128
-  MOV     R3, #41
+  MOV     R3, #41 + 5
   BL      @v3d_setSubImage
 
-; # 'x' Button (2/2): [86 + 12, 25] -> [96 + 12, 35]
+; # 'x' Button (2/2): [86, 25] -> [96, 35]
   MOV     R0, #25
   STR     R0, [SP,#0x58+@Ystart]
-  MOV     R0, #96 + 12
+  MOV     R0, #96
   STMFA   SP, {R0,R8}
   MOV     R0, #14
   STR     R0, [SP,#0x58+@Xout]
@@ -222,6 +222,6 @@
   LDR     R0, [R10,#0x38]
   MOV     R1, #2
   MOV     R2, R1
-  MOV     R3, #86 + 12
+  MOV     R3, #86
   ADD     R0, R0, #0x128
   BL      @v3d_setSubImage

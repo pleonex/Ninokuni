@@ -31,7 +31,7 @@
 .include keyboard\set_string.asm
 .include keyboard\monster_search_toUpper.asm
 .include keyboard\textbox_touch_movement.asm
-.include pointers\overlay9_14.asm
+;.include pointers\overlay9_14.asm
 .include textbox\menu_request.asm
 .include password\alphabet.asm
 

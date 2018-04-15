@@ -29,12 +29,12 @@
 ; ------------------------------------------------- ;
 ; Attack subtitle
 ; ------------------------------------------------- ;
-; # Left arrow/box (0/0): [67 + 10, 14] -> [77 + 10, 32]
+; # Left arrow/box (0/0): [67, 14] -> [77, 32]
   MOV     R8, #32
   MOV     R9, #14
   MOV     R1, #0
   STR     R9, [SP,@YStart]
-  MOV     R0, #77 + 10
+  MOV     R0, #77
   STR     R0, [SP,@XEnd]
   STR     R8, [SP,@YEnd]
   SUB     R7, R8, #72
@@ -50,14 +50,14 @@
   LDR     R0, [R10,#0x10]
   MOV     R2, R1
   ADD     R0, R0, #0x1A8
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   BL      @v3d_setSubImage
 
-; # Box (0/1): [77 + 10, 14] -> [83 + 10, 32]
-  MOV     R0, #83 + 10
+; # Box (0/1): [77, 14] -> [83, 32]
+  MOV     R0, #83
   STR     R9, [SP,@YStart]
   STMFA   SP, {R0,R8}
-  SUB     R11, R0, #113 + 10
+  SUB     R11, R0, #113
   STR     R11, [SP,@XOut]
   STR     R6, [SP,@YOut]
   MOV     R0, #60
@@ -69,12 +69,12 @@
   MOV     R1, #0
   ADD     R0, R0, #0x1A8
   MOV     R2, #1
-  MOV     R3, #77 + 10
+  MOV     R3, #77
   BL      @v3d_setSubImage
 
-; # Right arrow/box (0/2): [83 + 10, 14] -> [93 + 10, 32]
+; # Right arrow/box (0/2): [83, 14] -> [93, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #93 + 10
+  MOV     R0, #93
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -87,7 +87,7 @@
   MOV     R1, #0
   ADD     R0, R0, #0x1A8
   MOV     R2, #2
-  MOV     R3, #83 + 10
+  MOV     R3, #83
   BL      @v3d_setSubImage
 
 ; # Attack string (0/3): [20, 0] -> [67, 14]
@@ -115,10 +115,10 @@
   MOV     R3, #20
   BL      @v3d_setSubImage
 
-; # X button (0/4): [93 + 10, 22] -> [103 + 10, 32]
+; # X button (0/4): [93, 22] -> [103, 32]
   MOV     R0, #22
   STR     R0, [SP,@YStart]
-  MOV     R0, #103 + 10
+  MOV     R0, #103
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -132,15 +132,15 @@
   MOV     R1, #0
   ADD     R0, R0, #0x1A8
   MOV     R2, #4
-  MOV     R3, #93 + 10
+  MOV     R3, #93
   BL      @v3d_setSubImage
 
 ; ------------------------------------------------- ;
 ; Attack subtitle (other palette)
 ; ------------------------------------------------- ;
-; # Left arrow/box (1/0): [67 + 10, 14] -> [77 + 10, 32]
+; # Left arrow/box (1/0): [67, 14] -> [77, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #77 + 10
+  MOV     R0, #77
   STMFA   SP, {R0,R8}
   STR     R7, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -152,12 +152,12 @@
   MOV     R1, #1
   ADD     R0, R0, #0x1A8
   MOV     R2, #0
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   BL      @v3d_setSubImage
 
-; # Box (1/1): [77 + 10, 14] -> [83 + 10, 32]
+; # Box (1/1): [77, 14] -> [83, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #83 + 10
+  MOV     R0, #83
   STMFA   SP, {R0,R8}
   STR     R11, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -170,12 +170,12 @@
   LDR     R0, [R10,#0x10]
   MOV     R2, R1
   ADD     R0, R0, #0x1A8
-  MOV     R3, #77 + 10
+  MOV     R3, #77
   BL      @v3d_setSubImage
 
-; # Right arrow/box (1/2): [83 + 10, 14] -> [93 + 10, 32]
+; # Right arrow/box (1/2): [83, 14] -> [93, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #93 + 10
+  MOV     R0, #93
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -188,7 +188,7 @@
   MOV     R1, #1
   ADD     R0, R0, #0x1A8
   MOV     R2, #2
-  MOV     R3, #83 + 10
+  MOV     R3, #83
   BL      @v3d_setSubImage
 
 ; # Attack string (1/3): [20, 0] -> [67, 14]
@@ -212,10 +212,10 @@
   ADD     R0, R0, #0x1A8
   BL      @v3d_setSubImage
 
-; # X button (1/4): [93 + 10, 22] -> [103 + 10, 32]
+; # X button (1/4): [93, 22] -> [103, 32]
   MOV     R0, #22
   STR     R0, [SP,@YStart]
-  MOV     R0, #103 + 10
+  MOV     R0, #103
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -229,15 +229,15 @@
   MOV     R1, #1
   ADD     R0, R0, #0x1A8
   MOV     R2, #4
-  MOV     R3, #93 + 10
+  MOV     R3, #93
   BL      @v3d_setSubImage
 
 ; ------------------------------------------------- ;
 ; Attack subtitle (other palette)
 ; ------------------------------------------------- ;
-; # Left arrow/box (2/0): [67 + 10, 14] -> [77 + 10, 32]
+; # Left arrow/box (2/0): [67, 14] -> [77, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #77 + 10
+  MOV     R0, #77
   STMFA   SP, {R0,R8}
   STR     R7, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -249,12 +249,12 @@
   MOV     R1, #2
   ADD     R0, R0, #0x1A8
   MOV     R2, #0
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   BL      @v3d_setSubImage
 
-; # Box (2/1): [77 + 10, 14] -> [83 + 10, 32]
+; # Box (2/1): [77, 14] -> [83, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #83 + 10
+  MOV     R0, #83
   STMFA   SP, {R0,R8}
   STR     R11, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -267,13 +267,13 @@
   MOV     R1, #2
   ADD     R0, R0, #0x1A8
   MOV     R2, #1
-  MOV     R3, #77 + 10
+  MOV     R3, #77
   BL      @v3d_setSubImage
 
-; # Right arrow/box (2/2): [83 + 10, 14] -> [93 + 10, 32]
+; # Right arrow/box (2/2): [83, 14] -> [93, 32]
   MOV     R1, #2
   STR     R9, [SP,@YStart]
-  MOV     R0, #93 + 10
+  MOV     R0, #93
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -285,7 +285,7 @@
   LDR     R0, [R10,#0x10]
   MOV     R2, R1
   ADD     R0, R0, #0x1A8
-  MOV     R3, #83 + 10
+  MOV     R3, #83
   BL      @v3d_setSubImage
 
 ; # Attack string (2/3): [20, 0] -> [67, 14]
@@ -309,10 +309,10 @@
   ADD     R0, R0, #0x1A8
   BL      @v3d_setSubImage
 
-; # X button (2/4): [93 + 10, 22] -> [103 + 10, 32]
+; # X button (2/4): [93, 22] -> [103, 32]
   MOV     R0, #22
   STR     R0, [SP,@YStart]
-  MOV     R0, #103 + 10
+  MOV     R0, #103
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -326,15 +326,15 @@
   MOV     R1, #2
   ADD     R0, R0, #0x1A8
   MOV     R2, #4
-  MOV     R3, #93 + 10
+  MOV     R3, #93
   BL      @v3d_setSubImage
 
 ; ------------------------------------------------- ;
 ; Health subtitle
 ; ------------------------------------------------- ;
-; # Left arrow/box (3/0): [67 + 10, 14] -> [77 + 10, 32]
+; # Left arrow/box (3/0): [67, 14] -> [77, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #77 + 10
+  MOV     R0, #77
   STMFA   SP, {R0,R8}
   STR     R7, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -346,12 +346,12 @@
   MOV     R1, #3
   ADD     R0, R0, #0x1A8
   MOV     R2, #0
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   BL      @v3d_setSubImage
 
-; # Box (3/1): [77 + 10, 14] -> [83 + 10, 32]
+; # Box (3/1): [77, 14] -> [83, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #83 + 10
+  MOV     R0, #83
   STMFA   SP, {R0,R8}
   STR     R11, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -364,12 +364,12 @@
   MOV     R1, #3
   ADD     R0, R0, #0x1A8
   MOV     R2, #1
-  MOV     R3, #77 + 10
+  MOV     R3, #77
   BL      @v3d_setSubImage
 
-; # Right arrow/box (3/2): [83 + 10, 14] -> [93 + 10, 32]
+; # Right arrow/box (3/2): [83, 14] -> [93, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #93 + 10
+  MOV     R0, #93
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -382,23 +382,24 @@
   MOV     R1, #3
   ADD     R0, R0, #0x1A8
   MOV     R2, #2
-  MOV     R3, #83 + 10
+  MOV     R3, #83
   BL      @v3d_setSubImage
 
-; # Heath string (3/3): [20, 15] -> [67 + 10, 14]
+; # Heath string (3/3): [20, 15] -> [67, 29]
   MOV     R0, #15
-  MOV     r1, #67 + 10
+  MOV     r1, #67
   STMIA   sp, {r0,r1}
   MOV     R0, #29
   STR     R0, [SP,@YEnd]
   LDR     R0, [SP,#0x20]
   MOV     R1, #3
-  SUB     r0, #5
+  ;SUB     r0, #5
+  NOP
   STR     R0, [SP,@XOut]
   LDR     R0, [SP,#0x24]
   MOV     R2, R1
   STR     R0, [SP,@YOut]
-  MOV     R0, #47 + 10
+  MOV     R0, #47
   STR     R0, [SP,@Width]
   STR     R9, [SP,@Height]
   MOV     R0, #8
@@ -408,10 +409,10 @@
   ADD     R0, R0, #0x1A8
   BL      @v3d_setSubImage
 
-; # X button (3/4): [93 + 10, 22] -> [103 + 10, 32]
+; # X button (3/4): [93, 22] -> [103, 32]
   MOV     R0, #22
   STR     R0, [SP,@YStart]
-  MOV     R0, #103 + 10
+  MOV     R0, #103
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -425,15 +426,15 @@
   MOV     R1, #3
   ADD     R0, R0, #0x1A8
   MOV     R2, #4
-  MOV     R3, #93 + 10
+  MOV     R3, #93
   BL      @v3d_setSubImage
 
 ; ------------------------------------------------- ;
 ; Health subtitle (other palette)
 ; ------------------------------------------------- ;
-; # Left arrow/box (4/0): [67 + 10, 14] -> [77 + 10, 32]
+; # Left arrow/box (4/0): [67, 14] -> [77, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #77 + 10
+  MOV     R0, #77
   STMFA   SP, {R0,R8}
   STR     R7, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -445,12 +446,12 @@
   MOV     R1, #4
   ADD     R0, R0, #0x1A8
   MOV     R2, #0
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   BL      @v3d_setSubImage
 
-; # Box (4/1): [77 + 10, 14] -> [83 + 10, 32]
+; # Box (4/1): [77, 14] -> [83, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #83 + 10
+  MOV     R0, #83
   STMFA   SP, {R0,R8}
   STR     R11, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -463,12 +464,12 @@
   MOV     R1, #4
   ADD     R0, R0, #0x1A8
   MOV     R2, #1
-  MOV     R3, #77 + 10
+  MOV     R3, #77
   BL      @v3d_setSubImage
 
-; # Right arrow/box (4/2): [83 + 10, 14] -> [93 + 10, 32]
+; # Right arrow/box (4/2): [83, 14] -> [93, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #93 + 10
+  MOV     R0, #93
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -481,23 +482,24 @@
   MOV     R1, #4
   ADD     R0, R0, #0x1A8
   MOV     R2, #2
-  MOV     R3, #83 + 10
+  MOV     R3, #83
   BL      @v3d_setSubImage
 
-; # Heath string (4/3): [20, 15] -> [67 + 10, 14]
+; # Heath string (4/3): [20, 15] -> [67, 14]
   MOV     R0, #15
-  MOV     r1, #67 + 10
+  MOV     r1, #67
   STMIA   sp, {r0,r1}
   MOV     R0, #29
   STR     R0, [SP,@YEnd]
   LDR     R0, [SP,0x20]
   MOV     R1, #4
-  SUB     r0, #5
+  ;SUB     r0, #5
+  NOP
   STR     R0, [SP,@XOut]
   LDR     R0, [SP,0x24]
   MOV     R2, #3
   STR     R0, [SP,@YOut]
-  MOV     R0, #47 + 10
+  MOV     R0, #47
   STR     R0, [SP,@Width]
   STR     R9, [SP,@Height]
   MOV     R0, #9
@@ -507,10 +509,10 @@
   ADD     R0, R0, #0x1A8
   BL      @v3d_setSubImage
 
-; # X button (4/4): [93 + 10, 22] -> [103 + 10, 32]
+; # X button (4/4): [93, 22] -> [103, 32]
   MOV     R0, #22
   STR     R0, [SP,@YStart]
-  MOV     R0, #103 + 10
+  MOV     R0, #103
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -524,15 +526,15 @@
   LDR     R0, [R10,#0x10]
   MOV     R2, R1
   ADD     R0, R0, #0x1A8
-  MOV     R3, #93 + 10
+  MOV     R3, #93
   BL      @v3d_setSubImage
 
 ; ------------------------------------------------- ;
 ; Health subtitle (other palette)
 ; ------------------------------------------------- ;
-; # Left arrow/box (5/0): [67 + 10, 14] -> [77 + 10, 32]
+; # Left arrow/box (5/0): [67, 14] -> [77, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #77 + 10
+  MOV     R0, #77
   STMFA   SP, {R0,R8}
   STR     R7, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -544,12 +546,12 @@
   MOV     R1, #5
   ADD     R0, R0, #0x1A8
   MOV     R2, #0
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   BL      @v3d_setSubImage
 
-; # Box (5/1): [77 + 10, 14] -> [83 + 10, 32]
+; # Box (5/1): [77, 14] -> [83, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #83 + 10
+  MOV     R0, #83
   STMFA   SP, {R0,R8}
   STR     R11, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -562,12 +564,12 @@
   MOV     R1, #5
   ADD     R0, R0, #0x1A8
   MOV     R2, #1
-  MOV     R3, #77 + 10
+  MOV     R3, #77
   BL      @v3d_setSubImage
 
-; # Right arrow/box (5/2): [83 + 10, 14] -> [93 + 10, 32]
+; # Right arrow/box (5/2): [83, 14] -> [93, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #93 + 10
+  MOV     R0, #93
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -580,23 +582,24 @@
   MOV     R1, #5
   ADD     R0, R0, #0x1A8
   MOV     R2, #2
-  MOV     R3, #83 + 10
+  MOV     R3, #83
   BL      @v3d_setSubImage
 
-; # Heath string (5/3): [20, 15] -> [67 + 10, 14]
+; # Heath string (5/3): [20, 15] -> [67, 14]
   MOV     R0, #15
-  MOV     r1, #67 + 10
+  MOV     r1, #67
   STMIA   sp, {r0,r1}
   MOV     R0, #29
   STR     R0, [SP,@YEnd]
   LDR     R0, [SP,#0x20]
   MOV     R3, #20
-  SUB     r0, #7
+  ;SUB     r0, #7
+  NOP
   STR     R0, [SP,@XOut]
   LDR     R0, [SP,#0x24]
   MOV     R1, #5
   STR     R0, [SP,@YOut]
-  MOV     R0, #47 + 10
+  MOV     R0, #47
   STR     R0, [SP,@Width]
   STR     R9, [SP,@Height]
   MOV     R0, #4
@@ -606,10 +609,10 @@
   ADD     R0, R0, #0x1A8
   BL      @v3d_setSubImage
 
-; # X button (5/4): [93 + 10, 22] -> [103 + 10, 32]
+; # X button (5/4): [93, 22] -> [103, 32]
   MOV     R0, #22
   STR     R0, [SP,@YStart]
-  MOV     R0, #103 + 10
+  MOV     R0, #103
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -623,15 +626,15 @@
   MOV     R1, #5
   MOV     R2, #4
   ADD     R0, R0, #0x1A8
-  MOV     R3, #93 + 10
+  MOV     R3, #93
   BL      @v3d_setSubImage
 
 ; ------------------------------------------------- ;
 ; Help subtitle
 ; ------------------------------------------------- ;
-; # Left arrow/box (6/0): [67 + 10, 14] -> [77 + 10, 32]
+; # Left arrow/box (6/0): [67, 14] -> [77, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #77 + 10
+  MOV     R0, #77
   STMFA   SP, {R0,R8}
   STR     R7, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -643,12 +646,12 @@
   MOV     R1, #6
   ADD     R0, R0, #0x1A8
   MOV     R2, #0
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   BL      @v3d_setSubImage
 
-; # Box (6/1): [77 + 10, 14] -> [83 + 10, 32]
+; # Box (6/1): [77, 14] -> [83, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #83 + 10
+  MOV     R0, #83
   STMFA   SP, {R0,R8}
   STR     R11, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -661,12 +664,12 @@
   MOV     R1, #6
   ADD     R0, R0, #0x1A8
   MOV     R2, #1
-  MOV     R3, #77 + 10
+  MOV     R3, #77
   BL      @v3d_setSubImage
 
-; # Right arrow/box (6/2): [83 + 10, 14] -> [93 + 10, 32]
+; # Right arrow/box (6/2): [83, 14] -> [93, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #93 + 10
+  MOV     R0, #93
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -679,13 +682,13 @@
   MOV     R1, #6
   ADD     R0, R0, #0x1A8
   MOV     R2, #2
-  MOV     R3, #83 + 10
+  MOV     R3, #83
   BL      @v3d_setSubImage
 
-; # Help string (6/3): [67 + 10, 0] -> [114 + 10, 14]
+; # Help string (6/3): [67, 0] -> [114, 14]
   MOV     R0, #0
   STR     R0, [SP,@YStart]
-  MOV     R0, #114 + 10
+  MOV     R0, #114
   STMFA   SP, {R0,R9}
   LDR     R0, [SP,#0x20]
   MOV     R1, #6
@@ -699,14 +702,14 @@
   MOV     R0, #11
   STR     R0, [SP,@Palette]
   LDR     R0, [R10,#0x10]
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   ADD     R0, R0, #0x1A8
   BL      @v3d_setSubImage
 
-; # X button (6/4): [93 + 10, 22] -> [103 + 10, 32]
+; # X button (6/4): [93, 22] -> [103, 32]
   MOV     R0, #22
   STR     R0, [SP,@YStart]
-  MOV     R0, #103 + 10
+  MOV     R0, #103
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -720,15 +723,15 @@
   MOV     R1, #6
   MOV     R2, #4
   ADD     R0, R0, #0x1A8
-  MOV     R3, #93 + 10
+  MOV     R3, #93
   BL      @v3d_setSubImage
 
 ; ------------------------------------------------- ;
 ; Help subtitle (other palette)
 ; ------------------------------------------------- ;
-; # Left arrow/box (7/0): [67 + 10, 14] -> [77 + 10, 32]
+; # Left arrow/box (7/0): [67, 14] -> [77, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #77 + 10
+  MOV     R0, #77
   STMFA   SP, {R0,R8}
   STR     R7, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -740,12 +743,12 @@
   MOV     R1, #7
   ADD     R0, R0, #0x1A8
   MOV     R2, #0
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   BL      @v3d_setSubImage
 
-; # Box (7/1): [77 + 10, 14] -> [83 + 10, 32]
+; # Box (7/1): [77, 14] -> [83, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #83 + 10
+  MOV     R0, #83
   STMFA   SP, {R0,R8}
   STR     R11, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -758,12 +761,12 @@
   MOV     R1, #7
   ADD     R0, R0, #0x1A8
   MOV     R2, #1
-  MOV     R3, #77 + 10
+  MOV     R3, #77
   BL      @v3d_setSubImage
 
-; # Right arrow/box (7/2): [83 + 10, 14] -> [93 + 10, 32]
+; # Right arrow/box (7/2): [83, 14] -> [93, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #93 + 10
+  MOV     R0, #93
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -776,13 +779,13 @@
   MOV     R1, #7
   ADD     R0, R0, #0x1A8
   MOV     R2, #2
-  MOV     R3, #83 + 10
+  MOV     R3, #83
   BL      @v3d_setSubImage
 
-; # Help string (7/3): [67 + 10, 0] -> [114 + 10, 14]
+; # Help string (7/3): [67, 0] -> [114, 14]
   MOV     R0, #0
   STR     R0, [SP,@YStart]
-  MOV     R0, #114 + 10
+  MOV     R0, #114
   STMFA   SP, {R0,R9}
   LDR     R0, [SP,#0x20]
   MOV     R1, #7
@@ -796,14 +799,14 @@
   MOV     R0, #12
   STR     R0, [SP,@Palette]
   LDR     R0, [R10,#0x10]
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   ADD     R0, R0, #0x1A8
   BL      @v3d_setSubImage
 
-; # X button (7/4): [93 + 10, 22] -> [103 + 10, 32]
+; # X button (7/4): [93, 22] -> [103, 32]
   MOV     R0, #22
   STR     R0, [SP,@YStart]
-  MOV     R0, #103 + 10
+  MOV     R0, #103
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -817,15 +820,15 @@
   MOV     R1, #7
   MOV     R2, #4
   ADD     R0, R0, #0x1A8
-  MOV     R3, #93 + 10
+  MOV     R3, #93
   BL      @v3d_setSubImage
 
 ; ------------------------------------------------- ;
 ; Help subtitle (other palette)
 ; ------------------------------------------------- ;
-; # Left arrow/box (8/0): [67 + 10, 14] -> [77 + 10, 32]
+; # Left arrow/box (8/0): [67, 14] -> [77, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #77 + 10
+  MOV     R0, #77
   STMFA   SP, {R0,R8}
   STR     R7, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -837,12 +840,12 @@
   MOV     R1, #8
   ADD     R0, R0, #0x1A8
   MOV     R2, #0
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   BL      @v3d_setSubImage
 
-; # Box (8/1): [77 + 10, 14] -> [83 + 10, 32]
+; # Box (8/1): [77, 14] -> [83, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #83 + 10
+  MOV     R0, #83
   STMFA   SP, {R0,R8}
   STR     R11, [SP,@XOut]
   STR     R6, [SP,@YOut]
@@ -853,14 +856,14 @@
   STR     R0, [SP,@Palette]
   LDR     R0, [R10,#0x10]
   MOV     R2, #1
-  MOV     R3, #77 + 10
+  MOV     R3, #77
   MOV     R1, #8
   ADD     R0, R0, #0x1A8
   BL      @v3d_setSubImage
 
-; # Right arrow/box (8/2): [83 + 10, 14] -> [93 + 10, 32]
+; # Right arrow/box (8/2): [83, 14] -> [93, 32]
   STR     R9, [SP,@YStart]
-  MOV     R0, #93 + 10
+  MOV     R0, #93
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -870,22 +873,22 @@
   MOV     R0, #4
   STR     R0, [SP,@Palette]
   LDR     R0, [R10,#0x10]
-  MOV     R3, #83 + 10
+  MOV     R3, #83
   MOV     R1, #8
   ADD     R0, R0, #0x1A8
   MOV     R2, #2
   BL      @v3d_setSubImage
 
-; # Help string (8/3): [67 + 10, 0] -> [114 + 10, 14]
+; # Help string (8/3): [67, 0] -> [114, 14]
   MOV     R0, #0
   STR     R0, [SP,@YStart]
-  MOV     R0, #114 + 10
+  MOV     R0, #114
   STMFA   SP, {R0,R9}
   LDR     R0, [SP,#0x20]
   MOV     R2, #3
   STR     R0, [SP,@XOut]
   LDR     R0, [SP,#0x24]
-  MOV     R3, #67 + 10
+  MOV     R3, #67
   STR     R0, [SP,@YOut]
   MOV     R0, #47
   STR     R0, [SP,@Width]
@@ -897,10 +900,10 @@
   ADD     R0, R0, #0x1A8
   BL      @v3d_setSubImage
 
-; # X button (8/4): [93 + 10, 22] -> [103 + 10, 32]
+; # X button (8/4): [93, 22] -> [103, 32]
   MOV     R0, #22
   STR     R0, [SP,@YStart]
-  MOV     R0, #103 + 10
+  MOV     R0, #103
   STMFA   SP, {R0,R8}
   MOV     R0, #30
   STR     R0, [SP,@XOut]
@@ -913,6 +916,6 @@
   LDR     R0, [R10,#0x10]
   MOV     R1, #8
   MOV     R2, #4
-  MOV     R3, #93 + 10
+  MOV     R3, #93
   ADD     R0, R0, #0x1A8
   BL      @v3d_setSubImage

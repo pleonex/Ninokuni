@@ -33,14 +33,14 @@
 .org 0x020AA464
   MOV     R6, #29
   STR     R8, [SP,@Ystart]
-  MOV     R7, #103 + 8
+  MOV     R7, #103
   STR     R7, [SP,@Xend]
   STR     R6, [SP,@Yend]
-  SUB     R5, R6, #49 + 8
+  SUB     R5, R6, #49
   STR     R5, [SP,@Xout]
   SUB     R4, R6, #42
   STR     R4, [SP,@Yout]
-  MOV     R11, #40 + 8
+  MOV     R11, #40
   STR     R11, [SP,@Width]
   MOV     R0, #27
   STR     R0, [SP,@Height]
@@ -58,7 +58,7 @@
   STR     R7, [SP,@Xend]
   MOV     R0, #63
   STR     R6, [SP,@Yend]
-  SUB     R0, R0, #81 + 8
+  SUB     R0, R0, #81
   STR     R0, [SP,@Xout]
   MOV     R0, 0xFFFFFFF5
   STR     R0, [SP,@Yout]

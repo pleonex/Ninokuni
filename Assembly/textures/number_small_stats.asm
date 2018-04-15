@@ -91,17 +91,17 @@
   CMP     R9, #10
   BCC     @smallDigits
 
-; # Slash -> [48 + 5, 67 + 25] -> [57 + 5, 80 + 25]
+; # Slash -> [48, 67] -> [57, 80]
 .org 0x020A7A80
-  MOV     R0, #67 + 25
+  MOV     R0, #67
   STR     R0, [SP,@Ystart]
-  MOV     R0, #57 + 5
+  MOV     R0, #57
   STR     R0, [SP,@Xend]
-  MOV     R1, #80 + 25
+  MOV     R1, #80
   STR     R1, [SP,@Yend]
-  SUB     R0, R1, #84 + 1 + 25
+  SUB     R0, R1, #84
   STR     R0, [SP,@Xout]
-  SUB     R0, R1, #86 + 1 + 25
+  SUB     R0, R1, #86
   STR     R0, [SP,@Yout]
   MOV     R0, #9
   STR     R0, [SP,@Width]
@@ -115,5 +115,5 @@
   LDR     R0, [R0,#0x80]
   MOV     R1, R6
   ADD     R0, R0, #0x128
-  MOV     R3, #48 + 5
+  MOV     R3, #48
   BL      @v3d_setSubImage

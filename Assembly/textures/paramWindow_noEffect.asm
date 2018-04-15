@@ -27,15 +27,15 @@
 .arm
 
 .org 0x0209A4A8
-; # Without effect (0/0): [0, 104 + 1] -> [56 + 3, 118 + 1]
-  MOV     R1, #118 + 1
-  MOV     R2, #56 + 3
-  ADD     r0, r11, #1
+; # Without effect (0/0): [0, 104] -> [56, 118]
+  MOV     R1, #118
+  MOV     R2, #56
+  ADD     r0, r11, #0
   STMIA   sp, {r0,r2}
   STR     R1, [SP,@YEnd]
-  SUB     R0, R1, #146 + 1
+  SUB     R0, R1, #146
   STR     R0, [SP,@XOut]
-  SUB     R8, R1, #125 + 1
+  SUB     R8, R1, #125
   STR     R8, [SP,@YOut]
   STR     R2, [SP,@Width]
   MOV     R0, #14

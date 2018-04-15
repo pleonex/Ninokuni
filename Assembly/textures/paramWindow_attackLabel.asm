@@ -31,17 +31,17 @@
   MOV     R8, R9        ; R9 is 0
   MOV     R4, #1
 
-; # Spells blink 1 (0/0): [78, 56] -> [108 + 11, 68]
+; # Spells blink 1 (0/0): [78, 56] -> [108 + 4, 68]
 .org 0x020A0E64
   MOV     R0, #56
   MOV     R9, #68
-  MOV     R1, #108 + 11
+  MOV     R1, #108 + 4
   STMEA   SP, {r0,r1,R9}
   SUB     R7, R9, #83 + 4
   STR     R7, [SP,#0x58+@Xout]
   SUB     R6, R9, #74
   STR     R6, [SP,#0x58+@Yout]
-  MOV     R0, #30 + 11
+  MOV     R0, #30 + 4
   STR     R0, [SP,#0x58+@Width]
   MOV     R11, #12
   STR     R11, [SP,#0x58+@Height]
@@ -54,17 +54,17 @@
   MOV     R3, #78
   BL      @v3d_setSubImage
 
- ; # Skills blink 1 (1/0): [78, 68] -> [115 + 6, 80]
+ ; # Skills blink 1 (1/0): [78, 68] -> [115, 80]
   STR     R9, [SP,#0x58+@Ystart]
-  MOV     R0, #115 + 6
+  MOV     R0, #115
   STR     R0, [SP,#0x58+@Xend]
   MOV     R0, #80
   STR     R0, [SP,#0x58+@Yend]
-  SUB     R5, R0, #97 + 3
+  SUB     R5, R0, #97
   STR     R5, [SP,#0x58+@Xout]
   SUB     r0, r6, #1
   STR     r0, [SP,#0x58+@Yout]
-  MOV     R0, #37 + 6
+  MOV     R0, #37
   STR     R0, [SP,#0x58+@Width]
   STR     R11, [SP,#0x58+@Height]
   MOV     R0, #9
@@ -76,13 +76,13 @@
   MOV     R3, #78
   BL      @v3d_setSubImage
 
-; Spells blink 2 (0/0): [78, 56] -> [108 + 11, 68]
+; Spells blink 2 (0/0): [78, 56] -> [108 + 4, 68]
   MOV     R0, #56
-  MOV     r1, #108 + 11
+  MOV     r1, #108 + 4
   STMEA   SP, {r0,r1,R9}
   STR     R7, [SP,#0x58+@Xout]
   STR     R6, [SP,#0x58+@Yout]
-  MOV     R0, #30 + 11
+  MOV     R0, #30 + 4
   STR     R0, [SP,#0x58+@Width]
   STR     R11, [SP,#0x18]
   MOV     R7, #7
@@ -94,16 +94,16 @@
   MOV     R3, #78
   BL      @v3d_setSubImage
 
-; Skills blink 2 (1/0): [78, 68] -> [115 + 6, 80]
+; Skills blink 2 (1/0): [78, 68] -> [115, 80]
   STR     R9, [SP,#0x58+@Ystart]
-  MOV     R0, #115 + 6
+  MOV     R0, #115
   STR     R0, [SP,#0x58+@Xend]
   MOV     R0, #80
   STR     R0, [SP,#0x58+@Yend]
   STR     R5, [SP,#0x58+@Xout]
   SUB     r0, r6, #1
   STR     r0, [SP,#0x58+@Yout]
-  MOV     R0, #37 + 6
+  MOV     R0, #37
   STR     R0, [SP,#0x58+@Width]
   STR     R11, [SP,#0x58+@Height]
   STR     R7, [SP,#0x58+@Palette]

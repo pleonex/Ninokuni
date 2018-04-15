@@ -131,10 +131,10 @@
 ; ------------------------------------------------- ;
 ; Number Strings
 ; ------------------------------------------------- ;
-; # Fail (0/0): [25 - 1, 68 - 1] -> [48 + 12, 80]
+; # Fail (0/0): [25, 68 - 1] -> [48 - 1, 80]
   MOV     R0, #68 - 1
   STR     R0, [SP,@YStart]
-  MOV     R0, #48 + 12
+  MOV     R0, #48 - 1
   STR     R0, [SP,@XEnd]
   MOV     R4, #80
   STR     R4, [SP,@YEnd]
@@ -142,7 +142,7 @@
   STR     R0, [SP,@XOut]
   SUB     R0, R4, #86
   STR     R0, [SP,@YOut]
-  MOV     R0, #23 + 13
+  MOV     R0, #23 - 1
   STR     R0, [SP,@Width]
   MOV     R0, #12 + 1
   STR     R0, [SP,@Height]
@@ -151,14 +151,14 @@
   MOV     R1, R8
   ADD     R0, R0, #0x128
   MOV     R2, R8
-  MOV     R3, #25 - 1
+  MOV     R3, #25
   BL      @v3d_setSubImage
 
 .org 0x0209A0E4
-; # Critic (0/0): [0, 80 - 1] -> [59 - 2, 93]
+; # Critic (0/0): [0, 80] -> [59, 93]
   MOV     R1, #93
-  MOV     r2, #79
-  MOV     r4, #59 - 2
+  MOV     r2, #80
+  MOV     r4, #59
   STMIA   sp, {r2,r4}
   STR     R1, [SP,@YEnd]
   SUB     R0, R1, #122
@@ -166,7 +166,7 @@
   SUB     R0, R1, #114
   STR     R0, [SP,@YOut]
   STR     r4, [SP,@Width]
-  MOV     R0, #13 + 1
+  MOV     R0, #13
   STR     R0, [SP,@Height]
   MOV     R0, #9
   STR     R0, [SP,@Palette]
@@ -186,7 +186,7 @@
   MOV     R4, #0
 
 .org 0x0209A17C
-; # Great! (0/0): [26 - 18, 104] -> [64, 128]
+; # Great! (0/0): [26, 104] -> [64, 128]
   STR     R11, [SP,@YStart]
   MOV     R0, #64
   STR     R0, [SP,@XEnd]
@@ -194,7 +194,7 @@
   STR     R0, [SP,@YEnd]
   STR     R7, [SP,@XOut]
   STR     R6, [SP,@YOut]
-  MOV     R0, #38 + 18
+  MOV     R0, #38
   STR     R0, [SP,@Width]
   MOV     R0, #24
   STR     R0, [SP,@Height]
@@ -204,7 +204,7 @@
   MOV     R1, R4
   ADD     R0, R0, #0x128
   MOV     R2, R4
-  MOV     R3, #26 - 18
+  MOV     R3, #26
   BL      @v3d_setSubImage
 
   ADD     R0, R8, #1
