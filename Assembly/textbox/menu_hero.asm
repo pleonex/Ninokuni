@@ -23,4 +23,4 @@
 
 ;; Number of cards
 .org 0x021339C8
-  MOV r1, #0xF0 + 6 ; X pos
+  MOV r1, #0xF0 - 8 ; X pos

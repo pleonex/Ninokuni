@@ -26,7 +26,7 @@ STR     R0, [SP,#4]
 .org 020C31A8h
 MOV     R0, #0x89000	  ; X position: Value >> 12 [original #0x98000]
 STR     R0, [R1,#0x14]
-MOV     R0, #0x4000		  ; Y position: Value >> 12 [original #0x4000]
+MOV     R0, #0x6000		  ; Y position: Value >> 12 [original #0x4000]
 STR     R0, [R1,#0x18]
 
 .org 020C4238h

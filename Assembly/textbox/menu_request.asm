@@ -19,7 +19,7 @@
 .arm
 .org 020C5804h
 MOV     r1, #0x49   ; X Position: original 0x50
-MOV     r2, #4      ; Y Position: original 0x03
+MOV     r2, #6      ; Y Position: original 0x03
 
 
 ;; # STAMP GIVEN #

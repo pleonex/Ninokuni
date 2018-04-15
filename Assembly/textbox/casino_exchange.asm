@@ -18,8 +18,8 @@
 
 ; Slot color when exchanging
 .arm
-.org 0x0207BCF0
-  MOV     R1, #0x8D     ; X pos, original 0xA2
+;.org 0x0207BCF0
+;  MOV     R1, #0x8D     ; X pos, original 0xA2
 
 ; Object name
 .org 0x0207C608

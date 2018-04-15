@@ -18,7 +18,7 @@
 ; Money number
 .arm
 .org 0x02134F78
-  MOV     R1, #0x16     ; X pos, original 0x8
+  MOV     R1, #0x12     ; X pos, original 0x8
 
 ; Number of casino coins
 .org 0x02134FB0

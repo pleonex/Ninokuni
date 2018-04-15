@@ -19,4 +19,4 @@
 ;; Tutorial title in top screen
 .arm
 .org 0x020A0540
-  MOV r2, #0xA7         ; Y pos, original 0xA6
+  MOV r2, #0xA9         ; Y pos, original 0xA6

@@ -29,8 +29,8 @@ MOV     r1, #0x73       ; X Position: Original 0x74
 ADD     r2, r2, #0x6B   ; Y Position: Original 0x6B
 
 ;; # MONEY GIVEN #
-.org 020B671Ch
-MOV R1, #0xCD + 9       ; X Position
+;.org 020B671Ch
+;MOV R1, #0xCD + 9       ; X Position
 
 .org 020B69D8h
 MOV R1, #0xCD + 9       ; X position when no familiar is select (------)

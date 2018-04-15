@@ -35,9 +35,9 @@
   MOV     R2, #0x9C         ; Y pos
 
 ;; Slot color in top screen
-.arm
-.org 0x0207BD08
-  MOV     R1, #0x9C    ; X pos, original 0xA2
+;.arm
+;.org 0x0207BD08
+;  MOV     R1, #0x9C    ; X pos, original 0xA2
 
 
 ;; Buy coins number

@@ -41,17 +41,17 @@
 
 ;; Number of battles
 .org 0x02095E84
-  MOV r1, #0x82     ; X pos, original 0x63
+  MOV r1, #0x73     ; X pos, original 0x63
   MOV r2, r6        ; Y pos, original 0x3F (r6)
 
 ;; Battles won
 .org 0x02095E98
-  MOV r1, #0xB1     ; X pos, original 0x63
+  MOV r1, #0xA2     ; X pos, original 0x63
   MOV r2, r6        ; Y pos, original 0x3F (r6)
 
 ;; Battles lose
 .org 0x02095EAC
-  MOV r1, #0xE0     ; X pos, original 0xC1 (r8)
+  MOV r1, #0xD1     ; X pos, original 0xC1 (r8)
   MOV r2, r6        ; Y pos, original 0x3F (r6)
 
 ;; Victory ratio
@@ -73,12 +73,12 @@
 ;; Number of battles
 .arm
 .org 0x0208E8DC
-  MOV r1, #0x71     ; X pos, original 0x57
+  MOV r1, #0x6E     ; X pos, original 0x57
 
 ;; Battles won
 .org 0x0208E8F0
-  MOV r1, #0xAA     ; X pos, original 0x90
+  MOV r1, #0x9F     ; X pos, original 0x90
 
 ;; Battles lose
 .org 0x0208E904
-  MOV r1, #0xD9     ; X pos, original 0xBF
+  MOV r1, #0xD1     ; X pos, original 0xBF

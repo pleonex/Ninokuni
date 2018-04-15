@@ -22,9 +22,9 @@
 
 
 ;; Item quantity
-.arm
-.org 0x02082228
-  MOV r1, #0xDB     ; X pos, originally 0xDD
+;.arm
+;.org 0x02082228
+;  MOV r1, #0xDB     ; X pos, originally 0xDD
 
 
 ;; Level
