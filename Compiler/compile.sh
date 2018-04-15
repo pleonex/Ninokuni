@@ -48,4 +48,4 @@ if [ $? -ne 0 ]; then echo "ERROR"; exit -1; fi
 
 # Generate patch
 echo "Making patch..."
-xdelta -e -9 -f -s "${ORIGINAL_ROM}" "${OUTPUT_ROM}" "${OUTPUT_PATCH}"
+xdelta -S -e -9 -f -s "${ORIGINAL_ROM}" "${OUTPUT_ROM}" "${OUTPUT_PATCH}"

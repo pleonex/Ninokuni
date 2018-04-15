@@ -3,7 +3,7 @@
   <RelativePaths>
     <Path>
       <Variable>NinokuniPath</Variable>
-      <Location>/home/benito/Dropbox/Ninokuni English/English</Location>
+      <Location>./../GameData/Dropbox</Location>
     </Path>
     <Path>
       <Variable>ImagePath</Variable>
