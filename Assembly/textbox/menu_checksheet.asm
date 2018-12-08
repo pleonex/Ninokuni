@@ -73,12 +73,12 @@
 ;; Number of battles
 .arm
 .org 0x0208E8DC
-  MOV r1, #0x6E     ; X pos, original 0x57
+  MOV r1, #0x6C     ; X pos, original 0x57
 
 ;; Battles won
 .org 0x0208E8F0
-  MOV r1, #0x9F     ; X pos, original 0x90
+  MOV r1, #0x9D     ; X pos, original 0x90
 
 ;; Battles lose
 .org 0x0208E904
-  MOV r1, #0xD1     ; X pos, original 0xBF
+  MOV r1, #0xCF     ; X pos, original 0xBF

@@ -3,7 +3,7 @@
   <RelativePaths>
     <Path>
       <Variable>NinokuniPath</Variable>
-      <Location>./../GameData/Dropbox</Location>
+      <Location>./../English</Location>
     </Path>
     <Path>
       <Variable>ImagePath</Variable>
@@ -51,19 +51,19 @@
     <!-- Fixed images -->
     <File>
       <Path>/Ninokuni.nds/ROM/data/credit/eddn51.bin</Path>
-      <Import>{$ImagePath}credit/eddn51m.bmp</Import>
+      <Import>{$ImagePath}/credit/eddn51.bmp</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/credit/eddn52.bin</Path>
-      <Import>{$ImagePath}credit/eddn52m.bmp</Import>
+      <Import>{$ImagePath}/credit/eddn52.bmp</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/credit/eddn61.bin</Path>
-      <Import>{$ImagePath}credit/eddn61m.bmp</Import>
+      <Import>{$ImagePath}/credit/eddn61.bmp</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/credit/eddn62.bin</Path>
-      <Import>{$ImagePath}credit/eddn62m.bmp</Import>
+      <Import>{$ImagePath}/credit/eddn62.bmp</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/UI/Common/MiniIcon.n2d</Path>
@@ -459,6 +459,14 @@
       <Import>{$ImagePath}/UI/Menu/Skin/2/WiFiMenu/bg_b_new.n2d</Import>
     </File>
     <!-- Fonts -->
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/font/astram12.NFTR</Path>
+      <Import>{$FontPath}/astram12.NFTR</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/font/astram19.NFTR</Path>
+      <Import>{$FontPath}/astram19.NFTR</Import>
+    </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/font/font8.NFTR</Path>
       <Import>{$FontPath}/font8.NFTR</Import>
@@ -11173,6 +11181,10 @@
       <Import>{$ImagePath}/UI/Shop/Tsubakuro/button_new.n2d</Import>
     </File>
     <File>
+      <Path>/Ninokuni.nds/ROM/data/UI/Shop/Tsubakuro/Menubutton.n2d</Path>
+      <Import>{$ImagePath}/UI/Shop/Tsubakuro/Menubutton_new.n2d</Import>
+    </File>
+    <File>
       <Path>/Ninokuni.nds/ROM/data/UI/Menu/Skin/2/DungeonList2/bg_a_window.n2d</Path>
       <Import>{$ImagePath}/UI/Menu/Skin/2/DungeonList2/bg_a_window_new.n2d</Import>
     </File>
@@ -11475,6 +11487,10 @@
     <File>
       <Path>/Ninokuni.nds/ROM/data/UI/Shop/CasinoPremiumExchange/bg_a.n2d</Path>
       <Import>{$ImagePath}/UI/Shop/CasinoPremiumExchange/bg_a_new.n2d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/UI/Shop/CasinoPremiumExchange/bg_b.n2d</Path>
+      <Import>{$ImagePath}/UI/Shop/CasinoPremiumExchange/bg_b_new.n2d</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/UI/Shop/CasinoPremiumExchange/bg_c.n2d</Path>
@@ -12543,6 +12559,10 @@
     <File>
       <Path>/Ninokuni.nds/ROM/data/Event/Demo/stone/bg161.n2d</Path>
       <Import>{$ImagePath}/Event/Demo/stone/bg161_new.n2d</Import>
+    </File>
+    <File>
+      <Path>/Ninokuni.nds/ROM/data/Event/Demo/stone/bg181.n2d</Path>
+      <Import>{$ImagePath}/Event/Demo/stone/bg181_new.n2d</Import>
     </File>
     <File>
       <Path>/Ninokuni.nds/ROM/data/Event/Demo/stone/bg191.n2d</Path>

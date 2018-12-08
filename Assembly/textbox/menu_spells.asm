@@ -19,3 +19,7 @@
 .org 020B41E4h
 MOV     r1, #5      ; X Position: original 0x05
 ADD     r2, R7, #8  ; Y Position: original 0x05
+
+;; # MP NUMBER #
+.org 0x020B421C
+MOV     R1, #0x60   ; X Position: original 0x6D

@@ -44,3 +44,18 @@ MOV     R0, #0x9 + 4    ; Width * 8
 .thumb
 .org 0207CD6Ah
 MOV     R0, #0x9 + 4    ; Width * 8
+
+;; ITEM LIST
+.thumb
+.org 0207E0C8h
+MOV    R2, #3  ; Item name Y, original 0
+
+.thumb
+.org 0207E0DCh
+MOV    R1, #0x61
+MOV    R2, #3  ; Item qty Y, original 0
+
+.thumb
+.org 0207E0FCh
+MOV    R1, #0x6C  ; 'x' X: Original 0x5E
+MOV    R2, #5     ; y: original 2

@@ -36,6 +36,16 @@
 ;.org 0x020A1868
 ;  MOV r1, #0x43     ; X pos, original 0x55
 
+;; Item name count
+.arm
+.org 0x020A2548
+  ADD     R1, R8, #0x05   ; X pos, original 0
+
+;; Item name count symbol again
+.arm
+.org 0x020A2568
+  ADD     R1, R8, #0x8    ; X pos
+  ADD     R2, R9, #0x1    ; Y pos
 
 ;; Item description to craft
 .arm
@@ -43,9 +53,14 @@
   MOV r1, #0x6D - 12    ; X pos
   MOV R2, #0x1B         ; Y pos
 
-
 ;; Item effect
 .arm
 .org 0x020A28D4
   MOV r1, #0x68 - 7     ; X pos
   MOV R2, #0x5E         ; Y pos
+
+;; Symbol 'x' for number of items
+.arm
+.org 0x020B2B38
+  MOV r1, #0x86         ; X pos, original 0x84
+

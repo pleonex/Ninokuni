@@ -814,12 +814,12 @@ setButtonY:
 
 
 ; Formation cursor for the second tutorial battle
-.arm
-.org 0x020A9EDC
-  MOV     R2, #0x36000     ; Width << 12
-  MOV     R3, #0x1C000     ; Height << 12
+;.arm
+;.org 0x020A9EDC
+;  MOV     R2, #0x36000     ; Width << 12
+;  MOV     R3, #0x1C000     ; Height << 12
 
 ; Formation button global position
-.arm
-.org 0x020A10A4
-  MOV     R0, #0x1F000     ; X position
+;.arm
+;.org 0x020A10A4
+;  MOV     R0, #0x1F000     ; X position

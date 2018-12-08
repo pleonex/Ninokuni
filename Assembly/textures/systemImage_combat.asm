@@ -123,7 +123,7 @@
   STR     R0, [SP,@XEnd]
   MOV     R0, #31
   STR     R0, [SP,@Width]
-  MOV     R3, #29
+  MOV     R0, #28
   STR     R0, [SP,@YEnd]
 ;  SUB     r0, r11, #5
   STR     r11, [SP,@XOut]
@@ -133,7 +133,7 @@
   MOV     R0, #5
   STR     R0, [SP,@Palette]
   LDR     R0, [R9,#0x1B8]
-  MOV     R0, #28
+  MOV     R3, #29
   MOV     R1, #4
   ADD     R0, R0, #0x128
   MOV     R2, R4

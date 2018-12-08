@@ -39,7 +39,7 @@
 .include textures\playerNames.asm
 .include keyboard\name_encoding.asm
 .include keyboard\textbox_longNames.asm
-.include pointers\overlay9_17.asm
+;.include pointers\overlay9_17.asm
 .include font\space_objects_title.asm
 ;.include font\int2str_ov17.asm
 

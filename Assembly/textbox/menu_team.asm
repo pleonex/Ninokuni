@@ -38,7 +38,7 @@
 
 ;; Move "Enemies targets" in the skill / magic description
 .org 0x021312D0
-  MOV     R1, #0x20 - 15        ; X position
+  MOV     R1, #0x20 - 24        ; X position
   ADD     R2, R2, #0x54 + 4     ; Y position
 
 .org 0x021312B4

@@ -1,5 +1,5 @@
 ;;----------------------------------------------------------------------------;;
-;;  Hacks for overlay 8 for arm9
+;;  Align the position of the numbers in the imagen manhole menu
 ;;  Copyright 2014 Benito Palacios (aka pleonex)
 ;;
 ;;  Licensed under the Apache License, Version 2.0 (the "License");
@@ -14,18 +14,14 @@
 ;;  See the License for the specific language governing permissions and
 ;;  limitations under the License.
 ;;----------------------------------------------------------------------------;;
-.nds
-.open overlay9_8.bin, 0x02079F80
 
-.relativeinclude on
-.erroronwarning on
+;; Deposited
+.arm
+.org 0x0207E6CC
+  RSB     R1, R0, #0x67  ; Original 0x52
 
-;.include pointers\overlay9_8.asm
-.include textbox\menu_checksheet.asm
-.include textbox\menu_imanhole.asm
-.include textbox\menu_adhoc_battles.asm
-.include textbox\menu_adhoc_exchange.asm
-.include keyboard\egg_comment.asm
 
-.close
-; EOF ;
+;; Total space
+;.arm
+;.org 0x0207E714
+;  RSB     R1, R0, #0xA5  ; Original 0x9A

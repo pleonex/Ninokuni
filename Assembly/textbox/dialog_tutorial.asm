@@ -22,3 +22,9 @@
 
 .org 0x020E12E2
   MOV     R3, #41       ; Y center pos (centered)
+
+;; Tutorial title list
+.arm
+.org 0x0211A2C4
+  ADD     R2, R2, #5    ; Y pos, original 0x02
+

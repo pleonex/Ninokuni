@@ -35,3 +35,8 @@
 .org 0x0207C72C
   RSB     R1, R0, #0x5B ; Align to the right, original 0x4D
   MOV     R2, #5        ; Y pos, original 0x06
+
+; Item description
+.org 0x0207C6B0
+  MOV     R1, #0x60     ; X pos, original 0x6D
+  MOV     R2, #0x42     ; Y pos, original 0x42
