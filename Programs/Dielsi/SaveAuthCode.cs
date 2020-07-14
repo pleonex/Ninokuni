@@ -59,7 +59,7 @@ namespace Dielsi
         public static void UpdateHash(DataStream stream)
         {
             using var dataStream = new DataStream(stream, 2, HashOffset - 2);
-            byte[] hash = KeyedHash.GetHash(dataStream, KeyOffset, Key);
+            byte[] hash = KeyedHash.GetHash(dataStream, KeyOffset - 2, Key);
 
             stream.Position = HashOffset;
             stream.Write(hash, 0, hash.Length);

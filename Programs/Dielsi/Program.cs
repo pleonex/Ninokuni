@@ -26,12 +26,14 @@ namespace Dielsi
                 Console.WriteLine("Unexpected error: {0}", ex);
                 Exit(3);
             }
+
+            Console.WriteLine("Done :)");
         }
 
         static void CreateBackup(string path)
         {
             string outputDir = Path.GetDirectoryName(path);
-            string outputName = Path.GetFileNameWithoutExtension(path) + Path.GetRandomFileName();
+            string outputName = Path.GetFileNameWithoutExtension(path) + "_" + Path.GetRandomFileName();
             string outputExtension = Path.GetExtension(path);
             string outputPath = Path.Combine(outputDir, outputName + outputExtension);
 
