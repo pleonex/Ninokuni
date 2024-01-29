@@ -8,6 +8,7 @@ namespace Dielsi
     {
         static void Main(string[] args)
         {
+            Console.WriteLine("Dielsi v{0}", typeof(Program).Assembly.GetName().Version.ToString());
             if (args.Length != 1) {
                 Console.WriteLine("Invalid arguments. Expecting path to single save file");
                 Exit(1);
@@ -27,7 +28,9 @@ namespace Dielsi
                 Exit(3);
             }
 
-            Console.WriteLine("Done :)");
+            Console.WriteLine();
+            Console.WriteLine("Save updated! :)");
+            Console.ReadLine();
         }
 
         static void CreateBackup(string path)
